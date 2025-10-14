@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteM.Abstractions", "SQLiteM.Abstractions\SQLiteM.Abstractions.csproj", "{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteM.Demo", "SQLiteM.Demo\SQLiteM.Demo.csproj", "{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteM.Orm", "SQLiteM.Orm\SQLiteM.Orm.csproj", "{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Debug|x64.Build.0 = Debug|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Debug|x86.Build.0 = Debug|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Release|x64.ActiveCfg = Release|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Release|x64.Build.0 = Release|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Release|x86.ActiveCfg = Release|Any CPU
+		{7EC11C52-D164-45CF-B9A9-72F9654ABFB5}.Release|x86.Build.0 = Release|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Debug|x64.Build.0 = Debug|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Debug|x86.Build.0 = Debug|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Release|x64.ActiveCfg = Release|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Release|x64.Build.0 = Release|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Release|x86.ActiveCfg = Release|Any CPU
+		{0C0ACE0A-C251-43BE-862C-7BF33E9ACBFA}.Release|x86.Build.0 = Release|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Debug|x64.Build.0 = Debug|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Debug|x86.Build.0 = Debug|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Release|x64.ActiveCfg = Release|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Release|x64.Build.0 = Release|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Release|x86.ActiveCfg = Release|Any CPU
+		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C890DEDB-7E9D-476B-AE81-4B34CFD4FC89}
+	EndGlobalSection
+EndGlobal
