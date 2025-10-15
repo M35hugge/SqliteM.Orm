@@ -1,0 +1,112 @@
+### YamlMime:TableOfContent
+items:
+- uid: SQLiteM.Abstractions
+  name: SQLiteM.Abstractions
+  type: Namespace
+  items:
+  - uid: SQLiteM.Abstractions.AutoIncrementAttribute
+    name: AutoIncrementAttribute
+    type: Class
+  - uid: SQLiteM.Abstractions.ColumnAttribute
+    name: ColumnAttribute
+    type: Class
+  - uid: SQLiteM.Abstractions.ForeignKeyAttribute
+    name: ForeignKeyAttribute
+    type: Class
+  - uid: SQLiteM.Abstractions.ForeignKeyMap
+    name: ForeignKeyMap
+    type: Class
+  - uid: SQLiteM.Abstractions.IConnectionFactory
+    name: IConnectionFactory
+    type: Interface
+  - uid: SQLiteM.Abstractions.IEntityMapper
+    name: IEntityMapper
+    type: Interface
+  - uid: SQLiteM.Abstractions.IReadRepository`1
+    name: IReadRepository<T>
+    type: Interface
+  - uid: SQLiteM.Abstractions.IRepositoryFactory
+    name: IRepositoryFactory
+    type: Interface
+  - uid: SQLiteM.Abstractions.IRepository`1
+    name: IRepository<T>
+    type: Interface
+  - uid: SQLiteM.Abstractions.ISqlBuilder
+    name: ISqlBuilder
+    type: Interface
+  - uid: SQLiteM.Abstractions.ISqlDialect
+    name: ISqlDialect
+    type: Interface
+  - uid: SQLiteM.Abstractions.IUnitOfWork
+    name: IUnitOfWork
+    type: Interface
+  - uid: SQLiteM.Abstractions.IUnitOfWorkFactory
+    name: IUnitOfWorkFactory
+    type: Interface
+  - uid: SQLiteM.Abstractions.IWriteRepository`1
+    name: IWriteRepository<T>
+    type: Interface
+  - uid: SQLiteM.Abstractions.IgnoreAttribute
+    name: IgnoreAttribute
+    type: Class
+  - uid: SQLiteM.Abstractions.NamespaceDoc
+    name: NamespaceDoc
+    type: Class
+  - uid: SQLiteM.Abstractions.OnDeleteAction
+    name: OnDeleteAction
+    type: Enum
+  - uid: SQLiteM.Abstractions.PrimaryKeyAttribute
+    name: PrimaryKeyAttribute
+    type: Class
+  - uid: SQLiteM.Abstractions.PropertyMap
+    name: PropertyMap
+    type: Class
+  - uid: SQLiteM.Abstractions.Query
+    name: Query
+    type: Class
+  - uid: SQLiteM.Abstractions.TableAttribute
+    name: TableAttribute
+    type: Class
+- uid: SQLiteM.Orm
+  name: SQLiteM.Orm
+  type: Namespace
+  items:
+  - uid: SQLiteM.Orm.NamespaceDoc
+    name: NamespaceDoc
+    type: Class
+  - uid: SQLiteM.Orm.SQLiteMBootstrap
+    name: SQLiteMBootstrap
+    type: Class
+  - uid: SQLiteM.Orm.SQLiteMOptions
+    name: SQLiteMOptions
+    type: Class
+  - uid: SQLiteM.Orm.ServiceCollectionExtensions
+    name: ServiceCollectionExtensions
+    type: Class
+  - uid: SQLiteM.Orm.SqliteDialect
+    name: SqliteDialect
+    type: Class
+- uid: SQLiteM.Orm.Impl
+  name: SQLiteM.Orm.Impl
+  type: Namespace
+  items:
+  - uid: SQLiteM.Orm.Impl.ReflectionEntityMapper
+    name: ReflectionEntityMapper
+    type: Class
+  - uid: SQLiteM.Orm.Impl.RepositoryFactory
+    name: RepositoryFactory
+    type: Class
+  - uid: SQLiteM.Orm.Impl.SqliteConnectionFactory
+    name: SqliteConnectionFactory
+    type: Class
+  - uid: SQLiteM.Orm.Impl.UnitOfWorkFactory
+    name: UnitOfWorkFactory
+    type: Class
+- uid: SQLiteM.Orm.Internal
+  name: SQLiteM.Orm.Internal
+  type: Namespace
+  items:
+  - uid: SQLiteM.Orm.Internal.SqlBuilder
+    name: SqlBuilder
+    type: Class
+memberLayout: SamePage

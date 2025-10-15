@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <meta name="theme-color" content="#0f1220">
+  <link rel="stylesheet" href="../styles/theme.css">  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html" title="SQLiteM">
+                <img src="../assets/sqlitem-logo.svg" alt="SQLiteM" style="vertical-align:middle;margin-right:8px;height:28px;width:28px;">
+                <span>SQLiteM</span>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="unit-of-work--repository">Unit of Work &amp; Repository</h1>
+
+<p>SQLiteM stellt ein schlankes <code>UnitOfWork</code>- und <code>Repository&lt;T&gt;</code>-Pattern bereit:</p>
+<ul>
+<li><code>UnitOfWork</code> kapselt Verbindung + Transaktion.</li>
+<li><code>Repository&lt;T&gt;</code> bietet CRUD und einfache Leseabfragen für die Entität <code>T</code>.</li>
+<li>über <code>IRepositoryFactory</code> erhältst du typisierte Repos aus dem DI-Container.</li>
+</ul>
+<h2 id="lebenszyklus-eines-unitofwork">Lebenszyklus eines UnitOfWork</h2>
+<p>Ein <code>UnitOfWork</code> repräsentiert einen <strong>Transaktions-Scope</strong>:</p>
+<ul>
+<li>Beginnt mit <code>CreateAsync()</code> automatisch eine Transaktion.</li>
+<li><code>CommitAsync()</code> bestätigt alle änderungen.</li>
+<li><code>RollbackAsync()</code> verwirft sie.</li>
+<li>Nach <code>CommitAsync()</code> den Scope beenden und für weitere Aktionen einen <strong>neuen</strong> UoW oeffnen.</li>
+</ul>
+<pre><code class="lang-csharp">await using (var uow = await services.GetRequiredService&lt;IUnitOfWorkFactory&gt;().CreateAsync())
+{
+    var repo = services.GetRequiredService&lt;IRepositoryFactory&gt;().Create&lt;Person&gt;(uow);
+
+    var id = await repo.InsertAsync(new Person { FirstName = &quot;Ada&quot;, LastName = &quot;Lovelace&quot; });
+    await uow.CommitAsync();
+}
+</code></pre>
+<h2 id="mehrere-repositories-im-selben-uow">Mehrere Repositories im selben UoW</h2>
+<p>Du kannst mehrere Repositories mit demselben UoW verwenden, um atomare änderungen über mehrere Tabellen zu bündeln.</p>
+<pre><code class="lang-csharp">
+
+await using (var uow = await services.GetRequiredService&lt;IUnitOfWorkFactory&gt;().CreateAsync())
+{
+    var repoPerson = services.GetRequiredService&lt;IRepositoryFactory&gt;().Create&lt;Person&gt;(uow);
+    var repoOrder  = services.GetRequiredService&lt;IRepositoryFactory&gt;().Create&lt;Order&gt;(uow);
+
+    var personId = await repoPerson.InsertAsync(new Person { FirstName = &quot;Ada&quot;, LastName = &quot;Lovelace&quot; });
+    await repoOrder.InsertAsync(new Order { PersonId = personId, Total = 19.99m, Note = &quot;Notebook&quot; });
+
+    await uow.CommitAsync();
+}
+</code></pre>
+<h2 id="rollback">Rollback</h2>
+<pre><code class="lang-csharp">await using (var uow = await services.GetRequiredService&lt;IUnitOfWorkFactory&gt;().CreateAsync())
+{
+    var repo = services.GetRequiredService&lt;IRepositoryFactory&gt;().Create&lt;Person&gt;(uow);
+
+    await repo.InsertAsync(new Person { FirstName = &quot;Test&quot;, LastName = &quot;Rollback&quot; });
+    await uow.RollbackAsync(); // verwirft alle Änderungen
+}
+</code></pre>
+<h2 id="fremdschlüssel">Fremdschlüssel</h2>
+<p>UnitOfWork setzt beim Öffnen der Verbindung PRAGMA foreign_keys = ON;.</p>
+<p>Erzeugungsreihenfolge beachten: zuerst Principal-Tabellen, dann abhängige Tabellen.</p>
+<pre><code class="lang-csharp">await using (var uow = await services.GetRequiredService&lt;IUnitOfWorkFactory&gt;().CreateAsync())
+{
+    var b = services.GetRequiredService&lt;ISqlBuilder&gt;();
+    await SchemaBootstrapper.EnsureCreatedAsync&lt;Person&gt;(uow, b);
+    await SchemaBootstrapper.EnsureCreatedAsync&lt;Order&gt;(uow, b);
+    await uow.CommitAsync();
+}
+</code></pre>
+<h2 id="häufige-stolpersteine">Häufige Stolpersteine</h2>
+<p>Nach CommitAsync() denselben UoW nicht weiterverwenden; neuen Scope öffnen.</p>
+<p>Spaltennamen vs. Propertynamen unterscheiden (siehe 'Queries').</p>
+<p>Absoluten DB-Pfad verwenden (AppContext.BaseDirectory), um Verzeichnisverwechslungen zu vermeiden.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="padding:12px 0;">
+        <span>&copy;   · Dokumentation mit DocFX</span>
+      </div>    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

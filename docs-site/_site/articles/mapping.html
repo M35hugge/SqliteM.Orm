@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <meta name="theme-color" content="#0f1220">
+  <link rel="stylesheet" href="../styles/theme.css">  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html" title="SQLiteM">
+                <img src="../assets/sqlitem-logo.svg" alt="SQLiteM" style="vertical-align:middle;margin-right:8px;height:28px;width:28px;">
+                <span>SQLiteM</span>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="mapping-attribute-fremdschlüssel-typen">Mapping (Attribute, Fremdschlüssel, Typen)</h1>
+
+<h2 id="tabelle--spalten">Tabelle &amp; Spalten</h2>
+<pre><code class="lang-csharp">[Table(&quot;persons&quot;)]
+public sealed class Person
+{
+    [PrimaryKey, AutoIncrement]
+    [Column(&quot;id&quot;)]
+    public long Id { get; set; }
+
+    [Column(&quot;first_name&quot;, IsNullable = false, Length = 100)]
+    public string FirstName { get; set; } = default!;
+
+    [Column(&quot;email&quot;, IsNullable = true, Length = 255)]
+    public string? Email { get; set; }
+}
+</code></pre>
+<p>Table(name): Tabellenname in der DB</p>
+<p>Column(name, IsNullable, Length): Spaltenname, NULL-Zulässigkeit, optionale Länge (bei string)</p>
+<p>PrimaryKey/AutoIncrement: Primärschlüssel, Autowert</p>
+<p>SQLite-Hinweis: Längenangaben (VARCHAR(n)) sind deklarativ; SQLite erzwingt die Länge nicht, sie verbessern aber Lesbarkeit/Portabilität.</p>
+<h2 id="fremdschlüssel">Fremdschlüssel</h2>
+<pre><code class="lang-csharp">[Table(&quot;orders&quot;)]
+public sealed class Order
+{
+    [PrimaryKey, AutoIncrement]
+    [Column(&quot;id&quot;)]
+    public long Id { get; set; }
+
+    [Column(&quot;person_id&quot;, IsNullable = false)]
+    [ForeignKey(typeof(Person), nameof(Person.Id), OnDelete = OnDeleteAction.Cascade)]
+    public long PersonId { get; set; }
+
+    [Column(&quot;total&quot;, IsNullable = false)]
+    public decimal Total { get; set; }
+
+    [Column(&quot;note&quot;, IsNullable = true, Length = 200)]
+    public string? Note { get; set; }
+}
+</code></pre>
+<p>ForeignKey(principalEntity, principalColumn): definiert die Beziehung.</p>
+<p>OnDelete: NoAction, Restrict, Cascade, SetNull, SetDefault.</p>
+<p>Die referenzierte Spalte muss PRIMARY KEY oder UNIQUE sein (bei Person.Id gegeben).</p>
+<h3 id="ddl-erzeugung-buildcreatetabletypeoforder-erzeugt">DDL-Erzeugung: BuildCreateTable(typeof(Order)) erzeugt</h3>
+<pre><code class="lang-csharp">FOREIGN KEY (&quot;person_id&quot;) REFERENCES &quot;persons&quot; (&quot;id&quot;) ON DELETE CASCADE
+</code></pre>
+<p>Aktivierung: Das ORM schaltet PRAGMA foreign_keys = ON; bei UnitOfWork automatisch ein.</p>
+<h2 id="navigationen">Navigationen</h2>
+<pre><code class="lang-csharp">
+[Ignore] public List&lt;Order&gt; Orders { get; } = new();
+</code></pre>
+<p>[Ignore] schliesst reine Navigations-Properties von DDL/CRUD aus.</p>
+<p>Typabbildung (Default)
+C#-Typ	SQLite-Typ
+int, long, bool	INTEGER
+double, float, decimal	REAL
+string, DateTime, DateTimeOffset	TEXT</p>
+<h2 id="reihenfolge-bei-ddl">Reihenfolge bei DDL</h2>
+<p>FK-abhängige Tabellen nach ihren Principals erzeugen:</p>
+<pre><code class="lang-csharp">await EnsureCreatedAsync&lt;Person&gt;(...);
+await EnsureCreatedAsync&lt;Order&gt;(...);
+</code></pre>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="padding:12px 0;">
+        <span>&copy;   · Dokumentation mit DocFX</span>
+      </div>    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

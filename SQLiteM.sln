@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteM.Demo", "SQLiteM.Dem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteM.Orm", "SQLiteM.Orm\SQLiteM.Orm.csproj", "{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,18 @@ Global
 		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Release|x64.Build.0 = Release|Any CPU
 		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Release|x86.ActiveCfg = Release|Any CPU
 		{68950A13-5E74-4BF6-ACE0-8C886E66DFC3}.Release|x86.Build.0 = Release|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Debug|x64.Build.0 = Debug|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Debug|x86.Build.0 = Debug|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Release|x64.ActiveCfg = Release|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Release|x64.Build.0 = Release|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Release|x86.ActiveCfg = Release|Any CPU
+		{F23805AA-AF01-4D0A-9D66-92689C2AA6AA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

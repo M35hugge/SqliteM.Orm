@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <meta name="theme-color" content="#0f1220">
+  <link rel="stylesheet" href="../styles/theme.css">  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html" title="SQLiteM">
+                <img src="../assets/sqlitem-logo.svg" alt="SQLiteM" style="vertical-align:middle;margin-right:8px;height:28px;width:28px;">
+                <span>SQLiteM</span>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SQLiteM.Abstractions.IRepository`1">
+
+
+
+  <h1 id="SQLiteM_Abstractions_IRepository_1" data-uid="SQLiteM.Abstractions.IRepository`1" class="text-break">Interface IRepository&lt;T&gt;</h1>
+  <div class="markdown level0 summary"><p>Kombiniert Lese- und Schreibfunktionen für Entitäten.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindAllAsync_System_Threading_CancellationToken_">IReadRepository&lt;T&gt;.FindAllAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_QueryAsync_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_">IReadRepository&lt;T&gt;.QueryAsync(Query, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindByIdAsync_System_Object_System_Threading_CancellationToken_">IReadRepository&lt;T&gt;.FindByIdAsync(object, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_InsertAsync__0_System_Threading_CancellationToken_">IWriteRepository&lt;T&gt;.InsertAsync(T, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_UpdateAsync__0_System_Threading_CancellationToken_">IWriteRepository&lt;T&gt;.UpdateAsync(T, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_DeleteAsync_System_Object_System_Threading_CancellationToken_">IWriteRepository&lt;T&gt;.DeleteAsync(object, CancellationToken)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SQLiteM.html">SQLiteM</a>.<a class="xref" href="SQLiteM.Abstractions.html">Abstractions</a></h6>
+  <h6><strong>Assembly</strong>: SQLiteM.Abstractions.dll</h6>
+  <h5 id="SQLiteM_Abstractions_IRepository_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRepository&lt;T&gt; : IReadRepository&lt;T&gt;, IWriteRepository&lt;T&gt; where T : class, new()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Entitätstyp.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="padding:12px 0;">
+        <span>&copy;   · Dokumentation mit DocFX</span>
+      </div>    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

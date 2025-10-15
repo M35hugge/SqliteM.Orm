@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <meta name="theme-color" content="#0f1220">
+  <link rel="stylesheet" href="../styles/theme.css">  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html" title="SQLiteM">
+                <img src="../assets/sqlitem-logo.svg" alt="SQLiteM" style="vertical-align:middle;margin-right:8px;height:28px;width:28px;">
+                <span>SQLiteM</span>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SQLiteM.Abstractions.IEntityMapper">
+
+
+
+  <h1 id="SQLiteM_Abstractions_IEntityMapper" data-uid="SQLiteM.Abstractions.IEntityMapper" class="text-break">Interface IEntityMapper</h1>
+  <div class="markdown level0 summary"><p>Liefert Mapping-Informationen für Entitätstypen.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SQLiteM.html">SQLiteM</a>.<a class="xref" href="SQLiteM.Abstractions.html">Abstractions</a></h6>
+  <h6><strong>Assembly</strong>: SQLiteM.Abstractions.dll</h6>
+  <h5 id="SQLiteM_Abstractions_IEntityMapper_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IEntityMapper</code></pre>
+  </div>
+  <h5 id="SQLiteM_Abstractions_IEntityMapper_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Die Zuordnung basiert typischerweise auf Attributen (z. B. <code>[Table]</code>, <code>[Column]</code>, ...).</p>
+</div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="SQLiteM_Abstractions_IEntityMapper_GetForeignKeys_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetForeignKeys*"></a>
+  <h4 id="SQLiteM_Abstractions_IEntityMapper_GetForeignKeys_System_Type_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetForeignKeys(System.Type)">GetForeignKeys(Type)</h4>
+  <div class="markdown level1 summary"><p>Liefert definierte Fremdschlüssel des Entitätstyps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;ForeignKeyMap&gt; GetForeignKeys(Type entityType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">entityType</span></td>
+        <td><p>Der Entitätstyp.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.ForeignKeyMap.html">ForeignKeyMap</a>&gt;</td>
+        <td><p>Schreibgeschützte Liste der Fremdschlüsselzuordnungen.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SQLiteM_Abstractions_IEntityMapper_GetPrimaryKey_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey*"></a>
+  <h4 id="SQLiteM_Abstractions_IEntityMapper_GetPrimaryKey_System_Type_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey(System.Type)">GetPrimaryKey(Type)</h4>
+  <div class="markdown level1 summary"><p>Liefert die Primärschlüssel-Property, falls vorhanden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PropertyMap? GetPrimaryKey(Type entityType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">entityType</span></td>
+        <td><p>Der Entitätstyp.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a></td>
+        <td><p>Primärschlüssel-Mapping oder <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SQLiteM_Abstractions_IEntityMapper_GetPropertyMaps_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps*"></a>
+  <h4 id="SQLiteM_Abstractions_IEntityMapper_GetPropertyMaps_System_Type_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps(System.Type)">GetPropertyMaps(Type)</h4>
+  <div class="markdown level1 summary"><p>Gibt die Spaltenzuordnungen (Property ↔ Spalte) für den Entitätstyp zurück.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;PropertyMap&gt; GetPropertyMaps(Type entityType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">entityType</span></td>
+        <td><p>Der Entitätstyp.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a>&gt;</td>
+        <td><p>Schreibgeschützte Liste der Spaltenzuordnungen.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SQLiteM_Abstractions_IEntityMapper_GetTableName_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetTableName*"></a>
+  <h4 id="SQLiteM_Abstractions_IEntityMapper_GetTableName_System_Type_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetTableName(System.Type)">GetTableName(Type)</h4>
+  <div class="markdown level1 summary"><p>Bestimmt den Tabellennamen für einen Entitätstyp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string GetTableName(Type entityType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">entityType</span></td>
+        <td><p>Der Entitätstyp.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>Der Tabellenname in der Datenbank.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="padding:12px 0;">
+        <span>&copy;   · Dokumentation mit DocFX</span>
+      </div>    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

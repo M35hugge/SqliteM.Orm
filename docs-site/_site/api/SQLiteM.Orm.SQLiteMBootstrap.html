@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <meta name="theme-color" content="#0f1220">
+  <link rel="stylesheet" href="../styles/theme.css">  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html" title="SQLiteM">
+                <img src="../assets/sqlitem-logo.svg" alt="SQLiteM" style="vertical-align:middle;margin-right:8px;height:28px;width:28px;">
+                <span>SQLiteM</span>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SQLiteM.Orm.SQLiteMBootstrap">
+
+
+
+  <h1 id="SQLiteM_Orm_SQLiteMBootstrap" data-uid="SQLiteM.Orm.SQLiteMBootstrap" class="text-break">Class SQLiteMBootstrap</h1>
+  <div class="markdown level0 summary"><p>Öffentliche Fassade für Schema-Operationen (DDL).</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">SQLiteMBootstrap</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SQLiteM.html">SQLiteM</a>.<a class="xref" href="SQLiteM.Orm.html">Orm</a></h6>
+  <h6><strong>Assembly</strong>: SQLiteM.Orm.dll</h6>
+  <h5 id="SQLiteM_Orm_SQLiteMBootstrap_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class SQLiteMBootstrap</code></pre>
+  </div>
+  <h5 id="SQLiteM_Orm_SQLiteMBootstrap_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Diese statische Klasse kapselt Aufrufe an den internen
+<span class="xref">SQLiteM.Orm.Internal.SchemaBootstrapper</span> und stellt bequeme Methoden bereit,
+um Tabellen für Entitätstypen zu erstellen.
+Die Methoden prüfen, ob die Tabelle bereits existiert, und führen
+entsprechende <code>CREATE TABLE IF NOT EXISTS</code>-Anweisungen aus.</p>
+</div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_" data-uid="SQLiteM.Orm.SQLiteMBootstrap.EnsureCreatedAsync*"></a>
+  <h4 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_SQLiteM_Abstractions_IUnitOfWork_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken_System_Type___" data-uid="SQLiteM.Orm.SQLiteMBootstrap.EnsureCreatedAsync(SQLiteM.Abstractions.IUnitOfWork,SQLiteM.Abstractions.ISqlBuilder,System.Threading.CancellationToken,System.Type[])">EnsureCreatedAsync(IUnitOfWork, ISqlBuilder, CancellationToken, params Type[])</h4>
+  <div class="markdown level1 summary"><p>Erzeugt (falls nicht vorhanden) Tabellen für die angegebenen Entitätstypen in exakt dieser Reihenfolge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task EnsureCreatedAsync(IUnitOfWork uow, ISqlBuilder builder, CancellationToken ct = default, params Type[] entityTypes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a></td>
+        <td><span class="parametername">uow</span></td>
+        <td><p>Die aktive <a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td><p>Der <a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a> zur Generierung der DDL-Anweisungen.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Ein optionales <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
+        <td><span class="parametername">entityTypes</span></td>
+        <td><p>Die Typen, für die Tabellen erzeugt werden sollen.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Eine asynchrone Aufgabe, die abgeschlossen wird, sobald alle Tabellen erzeugt wurden.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_SQLiteM_Abstractions_IUnitOfWork_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken_System_Type____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Die Typen werden in der angegebenen Reihenfolge verarbeitet.
+Dies ist insbesondere dann relevant, wenn Fremdschlüsselbeziehungen eine
+bestimmte Erzeugungsreihenfolge erfordern (zuerst Principals, dann Dependents).</p>
+</div>
+  <h5 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_SQLiteM_Abstractions_IUnitOfWork_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken_System_Type____examples">Examples</h5>
+  <pre><code class="lang-csharp">await SQLiteMBootstrap.EnsureCreatedAsync(
+    uow,
+    sqlBuilder,
+    default,
+    typeof(User), typeof(Post), typeof(Comment));</code></pre>
+
+
+
+  <a id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_" data-uid="SQLiteM.Orm.SQLiteMBootstrap.EnsureCreatedAsync*"></a>
+  <h4 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_SQLiteM_Abstractions_IUnitOfWorkFactory_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken_System_Type___" data-uid="SQLiteM.Orm.SQLiteMBootstrap.EnsureCreatedAsync(SQLiteM.Abstractions.IUnitOfWorkFactory,SQLiteM.Abstractions.ISqlBuilder,System.Threading.CancellationToken,System.Type[])">EnsureCreatedAsync(IUnitOfWorkFactory, ISqlBuilder, CancellationToken, params Type[])</h4>
+  <div class="markdown level1 summary"><p>Erzeugt (falls nicht vorhanden) Tabellen für die angegebenen Entitätstypen in exakt dieser Reihenfolge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task EnsureCreatedAsync(IUnitOfWorkFactory uowFactory, ISqlBuilder builder, CancellationToken ct = default, params Type[] entityTypes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SQLiteM.Abstractions.IUnitOfWorkFactory.html">IUnitOfWorkFactory</a></td>
+        <td><span class="parametername">uowFactory</span></td>
+        <td><p>Die <a class="xref" href="SQLiteM.Abstractions.IUnitOfWorkFactory.html">IUnitOfWorkFactory</a> zum Erstellen einer Arbeitseinheit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td><p>Der <a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a> zur Generierung der DDL-Anweisungen.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Ein optionales <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</td>
+        <td><span class="parametername">entityTypes</span></td>
+        <td><p>Die Typen, für die Tabellen erzeugt werden sollen.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Eine asynchrone Aufgabe, die abgeschlossen wird, sobald alle Tabellen erzeugt wurden.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_SQLiteM_Abstractions_IUnitOfWorkFactory_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken_System_Type____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Diese Überladung öffnet intern eine neue <a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a>, erzeugt alle angegebenen Tabellen
+in der gewünschten Reihenfolge und bestätigt die Transaktion am Ende.</p>
+</div>
+  <h5 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_SQLiteM_Abstractions_IUnitOfWorkFactory_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken_System_Type____examples">Examples</h5>
+  <pre><code class="lang-csharp">await SQLiteMBootstrap.EnsureCreatedAsync(
+    uowFactory,
+    sqlBuilder,
+    default,
+    typeof(User), typeof(Post), typeof(Comment));</code></pre>
+
+
+
+  <a id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_" data-uid="SQLiteM.Orm.SQLiteMBootstrap.EnsureCreatedAsync*"></a>
+  <h4 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync__1_SQLiteM_Abstractions_IUnitOfWork_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken_" data-uid="SQLiteM.Orm.SQLiteMBootstrap.EnsureCreatedAsync``1(SQLiteM.Abstractions.IUnitOfWork,SQLiteM.Abstractions.ISqlBuilder,System.Threading.CancellationToken)">EnsureCreatedAsync&lt;T&gt;(IUnitOfWork, ISqlBuilder, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt (falls nicht vorhanden) die Tabelle für den angegebenen Entitätstyp
+innerhalb einer bestehenden <a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task EnsureCreatedAsync&lt;T&gt;(IUnitOfWork uow, ISqlBuilder builder, CancellationToken ct = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a></td>
+        <td><span class="parametername">uow</span></td>
+        <td><p>Die aktive <a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a> (offene Verbindung + Transaktion).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td><p>Der <a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a>, der die DDL-Anweisung generiert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Ein optionales <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Eine asynchrone Aufgabe, die abgeschlossen wird, sobald die Tabelle erzeugt wurde.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Der Entitätstyp, für den die Tabelle erzeugt werden soll.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync__1_SQLiteM_Abstractions_IUnitOfWork_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken__examples">Examples</h5>
+  <pre><code class="lang-csharp">await SQLiteMBootstrap.EnsureCreatedAsync&lt;User&gt;(uow, sqlBuilder);</code></pre>
+
+
+
+  <a id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync_" data-uid="SQLiteM.Orm.SQLiteMBootstrap.EnsureCreatedAsync*"></a>
+  <h4 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync__1_SQLiteM_Abstractions_IUnitOfWorkFactory_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken_" data-uid="SQLiteM.Orm.SQLiteMBootstrap.EnsureCreatedAsync``1(SQLiteM.Abstractions.IUnitOfWorkFactory,SQLiteM.Abstractions.ISqlBuilder,System.Threading.CancellationToken)">EnsureCreatedAsync&lt;T&gt;(IUnitOfWorkFactory, ISqlBuilder, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt (falls nicht vorhanden) die Tabelle für den angegebenen Entitätstyp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task EnsureCreatedAsync&lt;T&gt;(IUnitOfWorkFactory uowFactory, ISqlBuilder builder, CancellationToken ct = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SQLiteM.Abstractions.IUnitOfWorkFactory.html">IUnitOfWorkFactory</a></td>
+        <td><span class="parametername">uowFactory</span></td>
+        <td><p>Die <a class="xref" href="SQLiteM.Abstractions.IUnitOfWorkFactory.html">IUnitOfWorkFactory</a> zum Erstellen einer Arbeitseinheit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td><p>Der <a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a>, der die DDL-Anweisung generiert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>Ein optionales <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Eine asynchrone Aufgabe, die abgeschlossen wird, sobald die Tabelle erzeugt wurde.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Der Entitätstyp, für den die Tabelle erzeugt werden soll.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync__1_SQLiteM_Abstractions_IUnitOfWorkFactory_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Diese Überladung öffnet intern eine neue <a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a>, führt die
+DDL-Anweisung aus und bestätigt anschließend die Transaktion automatisch.</p>
+</div>
+  <h5 id="SQLiteM_Orm_SQLiteMBootstrap_EnsureCreatedAsync__1_SQLiteM_Abstractions_IUnitOfWorkFactory_SQLiteM_Abstractions_ISqlBuilder_System_Threading_CancellationToken__examples">Examples</h5>
+  <pre><code class="lang-csharp">await SQLiteMBootstrap.EnsureCreatedAsync&lt;User&gt;(uowFactory, sqlBuilder);</code></pre>
+
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><span class="xref">SchemaBootstrapper</span></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.IUnitOfWorkFactory.html">IUnitOfWorkFactory</a></div>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="padding:12px 0;">
+        <span>&copy;   · Dokumentation mit DocFX</span>
+      </div>    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

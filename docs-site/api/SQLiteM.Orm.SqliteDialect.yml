@@ -1,0 +1,463 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Orm.SqliteDialect
+  commentId: T:SQLiteM.Orm.SqliteDialect
+  id: SqliteDialect
+  parent: SQLiteM.Orm
+  children:
+  - SQLiteM.Orm.SqliteDialect.ParameterPrefix
+  - SQLiteM.Orm.SqliteDialect.QuoteIdentifier(System.String)
+  langs:
+  - csharp
+  - vb
+  name: SqliteDialect
+  nameWithType: SqliteDialect
+  fullName: SQLiteM.Orm.SqliteDialect
+  type: Class
+  source:
+    remote:
+      path: SQLiteM.Orm/SqliteDialect.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: SqliteDialect
+    path: ../SQLiteM.Orm/SqliteDialect.cs
+    startLine: 22
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm
+  summary: Implementierung des <xref href="SQLiteM.Abstractions.ISqlDialect" data-throw-if-not-resolved="false"></xref> für SQLite.
+  remarks: >-
+    Dieser Dialekt definiert SQLite-spezifische Formatierungsregeln für
+
+    Parameter und Bezeichner:
+
+    <ul><li>Parameter werden mit dem Präfix <code>@</code> angegeben.</li><li>Datenbank- und Spaltennamen werden mit doppelten Anführungszeichen (<code>"</code>) maskiert.</li></ul>
+
+    Diese Klasse wird üblicherweise als Singleton im DI-Container registriert.
+  example: []
+  syntax:
+    content: 'public sealed class SqliteDialect : ISqlDialect'
+    content.vb: Public NotInheritable Class SqliteDialect Implements ISqlDialect
+  seealso:
+  - linkId: SQLiteM.Abstractions.ISqlDialect
+    commentId: T:SQLiteM.Abstractions.ISqlDialect
+  inheritance:
+  - System.Object
+  implements:
+  - SQLiteM.Abstractions.ISqlDialect
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SQLiteM.Orm.SqliteDialect.ParameterPrefix
+  commentId: P:SQLiteM.Orm.SqliteDialect.ParameterPrefix
+  id: ParameterPrefix
+  parent: SQLiteM.Orm.SqliteDialect
+  langs:
+  - csharp
+  - vb
+  name: ParameterPrefix
+  nameWithType: SqliteDialect.ParameterPrefix
+  fullName: SQLiteM.Orm.SqliteDialect.ParameterPrefix
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Orm/SqliteDialect.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: ParameterPrefix
+    path: ../SQLiteM.Orm/SqliteDialect.cs
+    startLine: 28
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm
+  summary: Gibt das Präfix für SQL-Parameter zurück.
+  example: []
+  syntax:
+    content: public string ParameterPrefix { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: Immer <code>"@"</code>, entsprechend der SQLite-Syntax.
+    content.vb: Public ReadOnly Property ParameterPrefix As String
+  overload: SQLiteM.Orm.SqliteDialect.ParameterPrefix*
+  implements:
+  - SQLiteM.Abstractions.ISqlDialect.ParameterPrefix
+- uid: SQLiteM.Orm.SqliteDialect.QuoteIdentifier(System.String)
+  commentId: M:SQLiteM.Orm.SqliteDialect.QuoteIdentifier(System.String)
+  id: QuoteIdentifier(System.String)
+  parent: SQLiteM.Orm.SqliteDialect
+  langs:
+  - csharp
+  - vb
+  name: QuoteIdentifier(string)
+  nameWithType: SqliteDialect.QuoteIdentifier(string)
+  fullName: SQLiteM.Orm.SqliteDialect.QuoteIdentifier(string)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/SqliteDialect.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: QuoteIdentifier
+    path: ../SQLiteM.Orm/SqliteDialect.cs
+    startLine: 43
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm
+  summary: >-
+    Maskiert einen SQL-Bezeichner (z. B. Tabellen- oder Spaltennamen)
+
+    gemäß der SQLite-Syntax.
+  example:
+  - >-
+    <pre><code class="lang-csharp">var dialect = new SqliteDialect();
+
+    var column = dialect.QuoteIdentifier("User");
+
+    // Ergebnis: "User"</code></pre>
+  syntax:
+    content: public string QuoteIdentifier(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: Der zu maskierende Bezeichner.
+    return:
+      type: System.String
+      description: Den maskierten Bezeichner in doppelten Anführungszeichen.
+    content.vb: Public Function QuoteIdentifier(name As String) As String
+  overload: SQLiteM.Orm.SqliteDialect.QuoteIdentifier*
+  implements:
+  - SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(System.String)
+  nameWithType.vb: SqliteDialect.QuoteIdentifier(String)
+  fullName.vb: SQLiteM.Orm.SqliteDialect.QuoteIdentifier(String)
+  name.vb: QuoteIdentifier(String)
+references:
+- uid: SQLiteM.Abstractions.ISqlDialect
+  commentId: T:SQLiteM.Abstractions.ISqlDialect
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.ISqlDialect.html
+  name: ISqlDialect
+  nameWithType: ISqlDialect
+  fullName: SQLiteM.Abstractions.ISqlDialect
+- uid: SQLiteM.Orm
+  commentId: N:SQLiteM.Orm
+  href: SQLiteM.html
+  name: SQLiteM.Orm
+  nameWithType: SQLiteM.Orm
+  fullName: SQLiteM.Orm
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Orm
+    name: Orm
+    href: SQLiteM.Orm.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Orm
+    name: Orm
+    href: SQLiteM.Orm.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SQLiteM.Orm.SqliteDialect.ParameterPrefix*
+  commentId: Overload:SQLiteM.Orm.SqliteDialect.ParameterPrefix
+  href: SQLiteM.Orm.SqliteDialect.html#SQLiteM_Orm_SqliteDialect_ParameterPrefix
+  name: ParameterPrefix
+  nameWithType: SqliteDialect.ParameterPrefix
+  fullName: SQLiteM.Orm.SqliteDialect.ParameterPrefix
+- uid: SQLiteM.Abstractions.ISqlDialect.ParameterPrefix
+  commentId: P:SQLiteM.Abstractions.ISqlDialect.ParameterPrefix
+  parent: SQLiteM.Abstractions.ISqlDialect
+  href: SQLiteM.Abstractions.ISqlDialect.html#SQLiteM_Abstractions_ISqlDialect_ParameterPrefix
+  name: ParameterPrefix
+  nameWithType: ISqlDialect.ParameterPrefix
+  fullName: SQLiteM.Abstractions.ISqlDialect.ParameterPrefix
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SQLiteM.Orm.SqliteDialect.QuoteIdentifier*
+  commentId: Overload:SQLiteM.Orm.SqliteDialect.QuoteIdentifier
+  href: SQLiteM.Orm.SqliteDialect.html#SQLiteM_Orm_SqliteDialect_QuoteIdentifier_System_String_
+  name: QuoteIdentifier
+  nameWithType: SqliteDialect.QuoteIdentifier
+  fullName: SQLiteM.Orm.SqliteDialect.QuoteIdentifier
+- uid: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(System.String)
+  commentId: M:SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(System.String)
+  parent: SQLiteM.Abstractions.ISqlDialect
+  isExternal: true
+  href: SQLiteM.Abstractions.ISqlDialect.html#SQLiteM_Abstractions_ISqlDialect_QuoteIdentifier_System_String_
+  name: QuoteIdentifier(string)
+  nameWithType: ISqlDialect.QuoteIdentifier(string)
+  fullName: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(string)
+  nameWithType.vb: ISqlDialect.QuoteIdentifier(String)
+  fullName.vb: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(String)
+  name.vb: QuoteIdentifier(String)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(System.String)
+    name: QuoteIdentifier
+    href: SQLiteM.Abstractions.ISqlDialect.html#SQLiteM_Abstractions_ISqlDialect_QuoteIdentifier_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(System.String)
+    name: QuoteIdentifier
+    href: SQLiteM.Abstractions.ISqlDialect.html#SQLiteM_Abstractions_ISqlDialect_QuoteIdentifier_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

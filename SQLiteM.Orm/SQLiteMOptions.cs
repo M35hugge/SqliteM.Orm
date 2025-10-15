@@ -7,8 +7,38 @@ using System.Threading.Tasks;
 
 namespace SQLiteM.Orm
 {
+    /// <summary>
+    /// Stellt Konfigurationsoptionen für das SQLiteM-ORM bereit.
+    /// </summary>
+    /// <remarks>
+    /// Diese Optionen werden bei der Registrierung über
+    /// <see cref="ServiceCollectionExtensions.AddSQLiteM(Microsoft.Extensions.DependencyInjection.IServiceCollection, Action{SQLiteMOptions})"/>
+    /// konfiguriert und bestimmen insbesondere die zu verwendende SQLite-Verbindung.
+    /// </remarks>
+    /// <example>
+    /// Beispiel:
+    /// <code language="csharp">
+    /// services.AddSQLiteM(opt =&gt;
+    /// {
+    ///     opt.ConnectionString = "Data Source=app.db";
+    /// });
+    /// </code>
+    /// </example>
     public sealed class SQLiteMOptions
     {
-        public string ConnectionString { get; set; } = "Data Source =:memory:";
+        /// <summary>
+        /// Gibt die Verbindungszeichenfolge zur SQLite-Datenbank an.
+        /// </summary>
+        /// <value>
+        /// Standardmäßig <c>"Data Source = :memory:"</c>, wodurch eine temporäre
+        /// In-Memory-Datenbank verwendet wird.
+        /// </value>
+        /// <remarks>
+        /// Diese Eigenschaft kann beim Initialisieren des Dienstcontainers überschrieben werden,
+        /// um eine persistente Datei-Datenbank oder eine benannte In-Memory-Datenbank zu verwenden.
+        /// Beispiel:
+        /// <c>"Data Source=app.db"</c> oder <c>"Data Source=file::memory:?cache=shared"</c>.
+        /// </remarks>
+        public string ConnectionString { get; set; } = "Data Source = :memory:";
     }
 }

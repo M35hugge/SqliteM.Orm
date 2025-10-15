@@ -1,0 +1,251 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.OnDeleteAction
+  commentId: T:SQLiteM.Abstractions.OnDeleteAction
+  id: OnDeleteAction
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.OnDeleteAction.Cascade
+  - SQLiteM.Abstractions.OnDeleteAction.NoAction
+  - SQLiteM.Abstractions.OnDeleteAction.Restrict
+  - SQLiteM.Abstractions.OnDeleteAction.SetDefault
+  - SQLiteM.Abstractions.OnDeleteAction.SetNull
+  langs:
+  - csharp
+  - vb
+  name: OnDeleteAction
+  nameWithType: OnDeleteAction
+  fullName: SQLiteM.Abstractions.OnDeleteAction
+  type: Enum
+  source:
+    remote:
+      path: SQLiteM.Abstractions/OnDeleteAction.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: OnDeleteAction
+    path: ../SQLiteM.Abstractions/OnDeleteAction.cs
+    startLine: 14
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: >-
+    Repräsentiert die möglichen <code>ON DELETE</code>-Aktionen für Fremdschlüssel
+
+    in SQLite. Diese Werte geben an, wie sich das Löschen eines Datensatzes
+
+    in der referenzierten Tabelle auf die referenzierenden Datensätze auswirkt.
+  remarks: >-
+    Die hier definierten Optionen entsprechen den in SQLite unterstützten
+
+    Aktionen gemäß der Syntax <code>FOREIGN KEY ... ON DELETE ...</code>.
+
+    Welche Aktion sinnvoll ist, hängt vom gewünschten Datenkonsistenz- und
+
+    Kaskadierungsverhalten des Modells ab.
+  example: []
+  syntax:
+    content: public enum OnDeleteAction
+    content.vb: Public Enum OnDeleteAction
+  seealso:
+  - linkType: HRef
+    linkId: https://www.sqlite.org/foreignkeys.html
+    altText: 'SQLite-Dokumentation: Foreign Key Support'
+- uid: SQLiteM.Abstractions.OnDeleteAction.NoAction
+  commentId: F:SQLiteM.Abstractions.OnDeleteAction.NoAction
+  id: NoAction
+  parent: SQLiteM.Abstractions.OnDeleteAction
+  langs:
+  - csharp
+  - vb
+  name: NoAction
+  nameWithType: OnDeleteAction.NoAction
+  fullName: SQLiteM.Abstractions.OnDeleteAction.NoAction
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/OnDeleteAction.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: NoAction
+    path: ../SQLiteM.Abstractions/OnDeleteAction.cs
+    startLine: 22
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: >-
+    Es wird keine spezielle Aktion ausgeführt. Ein Löschversuch in der
+
+    referenzierten Tabelle schlägt fehl, wenn referenzierende Zeilen existieren
+
+    und die Fremdschlüsselprüfung aktiv ist.
+
+    Entspricht SQLite: <code>ON DELETE NO ACTION</code>.
+  example: []
+  syntax:
+    content: NoAction = 0
+    return:
+      type: SQLiteM.Abstractions.OnDeleteAction
+- uid: SQLiteM.Abstractions.OnDeleteAction.Restrict
+  commentId: F:SQLiteM.Abstractions.OnDeleteAction.Restrict
+  id: Restrict
+  parent: SQLiteM.Abstractions.OnDeleteAction
+  langs:
+  - csharp
+  - vb
+  name: Restrict
+  nameWithType: OnDeleteAction.Restrict
+  fullName: SQLiteM.Abstractions.OnDeleteAction.Restrict
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/OnDeleteAction.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: Restrict
+    path: ../SQLiteM.Abstractions/OnDeleteAction.cs
+    startLine: 29
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: >-
+    Verhindert das Löschen eines Datensatzes in der referenzierten Tabelle,
+
+    solange abhängige (referenzierende) Zeilen existieren.
+
+    Entspricht SQLite: <code>ON DELETE RESTRICT</code>.
+  example: []
+  syntax:
+    content: Restrict = 1
+    return:
+      type: SQLiteM.Abstractions.OnDeleteAction
+- uid: SQLiteM.Abstractions.OnDeleteAction.Cascade
+  commentId: F:SQLiteM.Abstractions.OnDeleteAction.Cascade
+  id: Cascade
+  parent: SQLiteM.Abstractions.OnDeleteAction
+  langs:
+  - csharp
+  - vb
+  name: Cascade
+  nameWithType: OnDeleteAction.Cascade
+  fullName: SQLiteM.Abstractions.OnDeleteAction.Cascade
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/OnDeleteAction.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: Cascade
+    path: ../SQLiteM.Abstractions/OnDeleteAction.cs
+    startLine: 36
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: >-
+    Löscht automatisch alle referenzierenden Zeilen, wenn der zugehörige
+
+    Datensatz in der referenzierten Tabelle gelöscht wird.
+
+    Entspricht SQLite: <code>ON DELETE CASCADE</code>.
+  example: []
+  syntax:
+    content: Cascade = 2
+    return:
+      type: SQLiteM.Abstractions.OnDeleteAction
+- uid: SQLiteM.Abstractions.OnDeleteAction.SetNull
+  commentId: F:SQLiteM.Abstractions.OnDeleteAction.SetNull
+  id: SetNull
+  parent: SQLiteM.Abstractions.OnDeleteAction
+  langs:
+  - csharp
+  - vb
+  name: SetNull
+  nameWithType: OnDeleteAction.SetNull
+  fullName: SQLiteM.Abstractions.OnDeleteAction.SetNull
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/OnDeleteAction.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: SetNull
+    path: ../SQLiteM.Abstractions/OnDeleteAction.cs
+    startLine: 43
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: >-
+    Setzt den Fremdschlüssel in allen referenzierenden Zeilen auf <code>NULL</code>,
+
+    wenn der zugehörige Datensatz in der referenzierten Tabelle gelöscht wird.
+
+    Entspricht SQLite: <code>ON DELETE SET NULL</code>.
+  example: []
+  syntax:
+    content: SetNull = 3
+    return:
+      type: SQLiteM.Abstractions.OnDeleteAction
+- uid: SQLiteM.Abstractions.OnDeleteAction.SetDefault
+  commentId: F:SQLiteM.Abstractions.OnDeleteAction.SetDefault
+  id: SetDefault
+  parent: SQLiteM.Abstractions.OnDeleteAction
+  langs:
+  - csharp
+  - vb
+  name: SetDefault
+  nameWithType: OnDeleteAction.SetDefault
+  fullName: SQLiteM.Abstractions.OnDeleteAction.SetDefault
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/OnDeleteAction.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: SetDefault
+    path: ../SQLiteM.Abstractions/OnDeleteAction.cs
+    startLine: 51
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: >-
+    Setzt den Fremdschlüssel in allen referenzierenden Zeilen auf den
+
+    Spalten-Standardwert, wenn der zugehörige Datensatz in der
+
+    referenzierten Tabelle gelöscht wird.
+
+    Entspricht SQLite: <code>ON DELETE SET DEFAULT</code>.
+  example: []
+  syntax:
+    content: SetDefault = 4
+    return:
+      type: SQLiteM.Abstractions.OnDeleteAction
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.OnDeleteAction
+  commentId: T:SQLiteM.Abstractions.OnDeleteAction
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.OnDeleteAction.html
+  name: OnDeleteAction
+  nameWithType: OnDeleteAction
+  fullName: SQLiteM.Abstractions.OnDeleteAction

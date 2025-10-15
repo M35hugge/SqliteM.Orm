@@ -1,0 +1,13 @@
+apiRules:
+- include:
+    uidRegex: ^SQLiteM(\.|$)
+
+# Konsumenten-irrelevante Namespaces raus
+- exclude:
+    uidRegex: ^SQLiteM\.Demo(\.|$)
+- exclude:
+    uidRegex: ^SQLiteM\.Tests(\.|$)
+- exclude:
+    uidRegex: ^SQLiteM\..*\.Internal(\.|$)
+- exclude:
+    uidRegex: ^SQLiteM\..*\.Impl\.Internal(\.|$)

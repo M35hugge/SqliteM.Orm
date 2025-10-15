@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Orm
+  commentId: N:SQLiteM.Orm
+  id: SQLiteM.Orm
+  children:
+  - SQLiteM.Orm.NamespaceDoc
+  - SQLiteM.Orm.SQLiteMBootstrap
+  - SQLiteM.Orm.SQLiteMOptions
+  - SQLiteM.Orm.ServiceCollectionExtensions
+  - SQLiteM.Orm.SqliteDialect
+  langs:
+  - csharp
+  - vb
+  name: SQLiteM.Orm
+  nameWithType: SQLiteM.Orm
+  fullName: SQLiteM.Orm
+  type: Namespace
+  assemblies:
+  - SQLiteM.Orm
+references:
+- uid: SQLiteM.Orm.NamespaceDoc
+  commentId: T:SQLiteM.Orm.NamespaceDoc
+  href: SQLiteM.Orm.NamespaceDoc.html
+  name: NamespaceDoc
+  nameWithType: NamespaceDoc
+  fullName: SQLiteM.Orm.NamespaceDoc
+- uid: SQLiteM.Orm.ServiceCollectionExtensions
+  commentId: T:SQLiteM.Orm.ServiceCollectionExtensions
+  href: SQLiteM.Orm.ServiceCollectionExtensions.html
+  name: ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+  fullName: SQLiteM.Orm.ServiceCollectionExtensions
+- uid: SQLiteM.Orm.SqliteDialect
+  commentId: T:SQLiteM.Orm.SqliteDialect
+  href: SQLiteM.Orm.SqliteDialect.html
+  name: SqliteDialect
+  nameWithType: SqliteDialect
+  fullName: SQLiteM.Orm.SqliteDialect
+- uid: SQLiteM.Orm.SQLiteMBootstrap
+  commentId: T:SQLiteM.Orm.SQLiteMBootstrap
+  href: SQLiteM.Orm.SQLiteMBootstrap.html
+  name: SQLiteMBootstrap
+  nameWithType: SQLiteMBootstrap
+  fullName: SQLiteM.Orm.SQLiteMBootstrap
+- uid: SQLiteM.Orm.SQLiteMOptions
+  commentId: T:SQLiteM.Orm.SQLiteMOptions
+  href: SQLiteM.Orm.SQLiteMOptions.html
+  name: SQLiteMOptions
+  nameWithType: SQLiteMOptions
+  fullName: SQLiteM.Orm.SQLiteMOptions

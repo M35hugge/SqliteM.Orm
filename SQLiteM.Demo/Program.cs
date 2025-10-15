@@ -2,70 +2,70 @@
 using SQLiteM.Abstractions;
 using SQLiteM.Demo;
 using SQLiteM.Orm;
+using SQLiteM.Orm.Internal;
 
-var cs = "Data Source=sql.db;Cache=Shared";
+var dbPath = Path.Combine(AppContext.BaseDirectory, "app.db");
+var cs = $"Data Source={dbPath};Cache=Shared";
 
-// Composition Root
-var factory = new SqliteConnectionFactory(cs);
-var dialect = new SqliteDialect();
-var mapper = new ReflectionEntityMapper();
-var builder = new SqlBuilder(mapper, dialect);
-
+// DI aufsetzen
 var services = new ServiceCollection()
-    .AddSQLiteM(o => o.ConnectionString = "Data Source=customer.db;Cache=Shared")
+    .AddSQLiteM(o => o.ConnectionString = cs)
     .BuildServiceProvider();
 
-// Schema anlegen
-await SQLiteMBootstrap.EnsureCreatedAsync<Person>(
-    services.GetRequiredService<IUnitOfWorkFactory>(),
-    services.GetRequiredService<ISqlBuilder>());
-
-await using (var uow = new UnitOfWork(factory))
+// Schema einmal anlegen (vor CRUD)
+await using (var uow = await services.GetRequiredService<IUnitOfWorkFactory>().CreateAsync())
 {
-    await SchemaBootstrapper.EnsureCreatedAsync<Person>(uow, builder);
-
-    var repo = new Repository<Person>(uow, mapper, builder, dialect);
-
-    var p = new Person
-    {
-        FirstName = "Ada",
-        LastName = "Lovelace",
-        Email = "ada@example.com"
-    };
-
-    var id = await repo.InsertAsync(p);
+    var sqlBuilder = services.GetRequiredService<ISqlBuilder>();
+    await SQLiteMBootstrap.EnsureCreatedAsync<Person>(uow, sqlBuilder);
+    await SQLiteMBootstrap.EnsureCreatedAsync<Order>(uow, sqlBuilder);
     await uow.CommitAsync();
-
-    WriteLine($"Inserted Id: {id}");
 }
 
-await using (var uow = new UnitOfWork(factory))
+
+long personId;
+await using (var uow = await services.GetRequiredService<IUnitOfWorkFactory>().CreateAsync())
 {
-    var repo = new Repository<Person>(uow, mapper, builder, dialect);
+    var repoPerson = services.GetRequiredService<IRepositoryFactory>().Create<Person>(uow);
+    var repoOrder  = services.GetRequiredService<IRepositoryFactory>().Create<Order>(uow);
 
-    var found = await repo.FindByIdAsync(1);
-    Console.WriteLine(found is null
-        ? "Not found"
-        : $"{found.Id}: {found.FirstName} {found.LastName} ({found.Email})");
+    var p = new Person { FirstName = "Ada", LastName = "Lovelace", Email = "ada@example.com" };
+    personId = await repoPerson.InsertAsync(p);
 
-    if (found is not null)
-    {
-        found.Email = "ada.lovelace@history.org";
-        await repo.UpdateAsync(found);
-        await uow.CommitAsync();
-        WriteLine("Updated email.");
-    }
-}
+    await repoOrder.InsertAsync(new Order { PersonId = personId, Total = 19.99m, Note = "Notebook" });
+    await repoOrder.InsertAsync(new Order { PersonId = personId, Total = 42.50m, Note = "Books" });
+    await repoOrder.InsertAsync(new Order { PersonId = personId, Total = 5.00m,  Note = "Coffee" });
 
-await using (var uow = new UnitOfWork(factory))
-{
-    var repo = new Repository<Person>(uow, mapper, builder, dialect);
-    await repo.DeleteAsync(1);
     await uow.CommitAsync();
-    WriteLine("Deleted id 1.");
+    Console.WriteLine($"Inserted Person {personId} and 3 orders.");
 }
 
-static void WriteLine(string message)
+// Orders einer Person laden (einfacher Query-Builder)
+await using (var uow = await services.GetRequiredService<IUnitOfWorkFactory>().CreateAsync())
 {
-    Console.WriteLine(message);
+    var repoOrder = services.GetRequiredService<IRepositoryFactory>().Create<Order>(uow);
+
+    var orders = await repoOrder.QueryAsync(
+        Query.WhereEquals("person_id", personId).OrderBy("id"));
+
+    foreach (var o in orders)
+        Console.WriteLine($"Order {o.Id}: total={o.Total} note={o.Note}");
+
+    await uow.CommitAsync();
+}
+
+// Cascade-Delete testen: Person löschen -> Orders werden mitgelöscht
+await using (var uow = await services.GetRequiredService<IUnitOfWorkFactory>().CreateAsync())
+{
+    var repoPerson = services.GetRequiredService<IRepositoryFactory>().Create<Person>(uow);
+    await repoPerson.DeleteAsync(personId);
+    await uow.CommitAsync();
+    Console.WriteLine($"Deleted person {personId} (ON DELETE CASCADE should remove orders).");
+}
+
+// Verifizieren, dass keine Orders mehr existieren
+await using (var uow = await services.GetRequiredService<IUnitOfWorkFactory>().CreateAsync())
+{
+    var repoOrder = services.GetRequiredService<IRepositoryFactory>().Create<Order>(uow);
+    var remaining = await repoOrder.FindAllAsync();
+    Console.WriteLine($"Remaining orders: {remaining.Count}");
 }

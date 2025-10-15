@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <meta name="theme-color" content="#0f1220">
+  <link rel="stylesheet" href="styles/theme.css">  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html" title="SQLiteM">
+                <img src="assets/sqlitem-logo.svg" alt="SQLiteM" style="vertical-align:middle;margin-right:8px;height:28px;width:28px;">
+                <span>SQLiteM</span>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sqlitem--leichtgewichtiges-orm-für-sqlite">SQLiteM – leichtgewichtiges ORM für SQLite</h1>
+
+<p>SQLiteM ist ein einfaches, attributbasiertes ORM für .NET-Anwendungen,<br>
+das ein <strong>Unit-of-Work</strong>-Pattern mit einem <strong>Repository-System</strong> kombiniert – optimiert für <strong>SQLite</strong>.</p>
+<hr>
+<h2 id="schnellstart">Schnellstart</h2>
+<pre><code class="lang-csharp">// Program.cs
+using Microsoft.Extensions.DependencyInjection;
+using SQLiteM.Orm;
+
+var services = new ServiceCollection()
+    .AddSQLiteM(opt =&gt; opt.ConnectionString = &quot;Data Source=app.db&quot;)
+    .BuildServiceProvider();
+
+// Unit-of-Work erstellen
+using var scope = services.CreateScope();
+var uowFactory = scope.ServiceProvider.GetRequiredService&lt;IUnitOfWorkFactory&gt;();
+using var uow = await uowFactory.CreateAsync();
+
+await SQLiteMBootstrap.EnsureCreatedAsync&lt;User&gt;(uow, 
+    scope.ServiceProvider.GetRequiredService&lt;ISqlBuilder&gt;());
+</code></pre>
+<hr>
+<h2 id="themenübersicht">Themenübersicht</h2>
+<table>
+<thead>
+<tr>
+<th>Kategorie</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="articles/getting-started">Getting Started</a></td>
+<td>Einführung, Installation und erste Schritte</td>
+</tr>
+<tr>
+<td><a href="articles/mapping">Mapping</a></td>
+<td>Attribute &amp; Entitätskonfiguration</td>
+</tr>
+<tr>
+<td><a href="articles/unit-of-work-repository">Unit of Work &amp; Repository</a></td>
+<td>Transaktionssteuerung und Datenzugriff</td>
+</tr>
+<tr>
+<td><a href="articles/queries">Queries</a></td>
+<td>Einfache Filter- und Sortierabfragen</td>
+</tr>
+<tr>
+<td><a href="api/index">API</a></td>
+<td>Vollständige API-Referenz</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="architekturüberblick">Architekturüberblick</h2>
+<pre><code>+-----------------+
+| Application     |
+| (nutzt ORM API) |
++-----------------+
+        │
+        ▼
++-----------------+
+| SQLiteM.Orm     |
+|  - Repository   |
+|  - UnitOfWork   |
+|  - SqlBuilder   |
++-----------------+
+        │
+        ▼
++-----------------+
+| SQLiteM.Abstractions |
+|  - Interfaces         |
+|  - Attribute          |
++-----------------+
+</code></pre>
+<hr>
+<h2 id="warum-sqlitem">Warum SQLiteM?</h2>
+<ul>
+<li><strong>Minimalistisch:</strong> Nur, was du wirklich brauchst.</li>
+<li><strong>Einfach konfigurierbar:</strong> Keine komplizierten Migrations-Tools.</li>
+<li><strong>Schnell &amp; leicht:</strong> Ideal für Embedded- oder Desktop-Apps.</li>
+<li><strong>Vollständig async:</strong> Kompatibel mit modernen .NET-Patterns.</li>
+</ul>
+<hr>
+<p>© SQLiteM Projekt · Dokumentation mit <a href="https://dotnet.github.io/docfx">DocFX</a></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="padding:12px 0;">
+        <span>&copy;   · Dokumentation mit DocFX</span>
+      </div>    </div>
+
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

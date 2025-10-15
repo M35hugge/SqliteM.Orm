@@ -1,0 +1,252 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  id: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.AutoIncrementAttribute
+  - SQLiteM.Abstractions.ColumnAttribute
+  - SQLiteM.Abstractions.ForeignKeyAttribute
+  - SQLiteM.Abstractions.ForeignKeyMap
+  - SQLiteM.Abstractions.IConnectionFactory
+  - SQLiteM.Abstractions.IEntityMapper
+  - SQLiteM.Abstractions.IReadRepository`1
+  - SQLiteM.Abstractions.IRepositoryFactory
+  - SQLiteM.Abstractions.IRepository`1
+  - SQLiteM.Abstractions.ISqlBuilder
+  - SQLiteM.Abstractions.ISqlDialect
+  - SQLiteM.Abstractions.IUnitOfWork
+  - SQLiteM.Abstractions.IUnitOfWorkFactory
+  - SQLiteM.Abstractions.IWriteRepository`1
+  - SQLiteM.Abstractions.IgnoreAttribute
+  - SQLiteM.Abstractions.NamespaceDoc
+  - SQLiteM.Abstractions.OnDeleteAction
+  - SQLiteM.Abstractions.PrimaryKeyAttribute
+  - SQLiteM.Abstractions.PropertyMap
+  - SQLiteM.Abstractions.Query
+  - SQLiteM.Abstractions.TableAttribute
+  langs:
+  - csharp
+  - vb
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  type: Namespace
+  assemblies:
+  - SQLiteM.Abstractions
+references:
+- uid: SQLiteM.Abstractions.NamespaceDoc
+  commentId: T:SQLiteM.Abstractions.NamespaceDoc
+  href: SQLiteM.Abstractions.NamespaceDoc.html
+  name: NamespaceDoc
+  nameWithType: NamespaceDoc
+  fullName: SQLiteM.Abstractions.NamespaceDoc
+- uid: SQLiteM.Abstractions.TableAttribute
+  commentId: T:SQLiteM.Abstractions.TableAttribute
+  href: SQLiteM.Abstractions.TableAttribute.html
+  name: TableAttribute
+  nameWithType: TableAttribute
+  fullName: SQLiteM.Abstractions.TableAttribute
+- uid: SQLiteM.Abstractions.ColumnAttribute
+  commentId: T:SQLiteM.Abstractions.ColumnAttribute
+  href: SQLiteM.Abstractions.ColumnAttribute.html
+  name: ColumnAttribute
+  nameWithType: ColumnAttribute
+  fullName: SQLiteM.Abstractions.ColumnAttribute
+- uid: SQLiteM.Abstractions.PrimaryKeyAttribute
+  commentId: T:SQLiteM.Abstractions.PrimaryKeyAttribute
+  href: SQLiteM.Abstractions.PrimaryKeyAttribute.html
+  name: PrimaryKeyAttribute
+  nameWithType: PrimaryKeyAttribute
+  fullName: SQLiteM.Abstractions.PrimaryKeyAttribute
+- uid: SQLiteM.Abstractions.AutoIncrementAttribute
+  commentId: T:SQLiteM.Abstractions.AutoIncrementAttribute
+  href: SQLiteM.Abstractions.AutoIncrementAttribute.html
+  name: AutoIncrementAttribute
+  nameWithType: AutoIncrementAttribute
+  fullName: SQLiteM.Abstractions.AutoIncrementAttribute
+- uid: SQLiteM.Abstractions.ForeignKeyAttribute
+  commentId: T:SQLiteM.Abstractions.ForeignKeyAttribute
+  href: SQLiteM.Abstractions.ForeignKeyAttribute.html
+  name: ForeignKeyAttribute
+  nameWithType: ForeignKeyAttribute
+  fullName: SQLiteM.Abstractions.ForeignKeyAttribute
+- uid: SQLiteM.Abstractions.IgnoreAttribute
+  commentId: T:SQLiteM.Abstractions.IgnoreAttribute
+  href: SQLiteM.Abstractions.IgnoreAttribute.html
+  name: IgnoreAttribute
+  nameWithType: IgnoreAttribute
+  fullName: SQLiteM.Abstractions.IgnoreAttribute
+- uid: SQLiteM.Abstractions.IConnectionFactory
+  commentId: T:SQLiteM.Abstractions.IConnectionFactory
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IConnectionFactory.html
+  name: IConnectionFactory
+  nameWithType: IConnectionFactory
+  fullName: SQLiteM.Abstractions.IConnectionFactory
+- uid: SQLiteM.Abstractions.ISqlDialect
+  commentId: T:SQLiteM.Abstractions.ISqlDialect
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.ISqlDialect.html
+  name: ISqlDialect
+  nameWithType: ISqlDialect
+  fullName: SQLiteM.Abstractions.ISqlDialect
+- uid: SQLiteM.Abstractions.IEntityMapper
+  commentId: T:SQLiteM.Abstractions.IEntityMapper
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IEntityMapper.html
+  name: IEntityMapper
+  nameWithType: IEntityMapper
+  fullName: SQLiteM.Abstractions.IEntityMapper
+- uid: SQLiteM.Abstractions.IReadRepository`1
+  commentId: T:SQLiteM.Abstractions.IReadRepository`1
+  href: SQLiteM.Abstractions.IReadRepository-1.html
+  name: IReadRepository<T>
+  nameWithType: IReadRepository<T>
+  fullName: SQLiteM.Abstractions.IReadRepository<T>
+  nameWithType.vb: IReadRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T)
+  name.vb: IReadRepository(Of T)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IReadRepository`1
+    name: IReadRepository
+    href: SQLiteM.Abstractions.IReadRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IReadRepository`1
+    name: IReadRepository
+    href: SQLiteM.Abstractions.IReadRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Abstractions.IWriteRepository`1
+  commentId: T:SQLiteM.Abstractions.IWriteRepository`1
+  href: SQLiteM.Abstractions.IWriteRepository-1.html
+  name: IWriteRepository<T>
+  nameWithType: IWriteRepository<T>
+  fullName: SQLiteM.Abstractions.IWriteRepository<T>
+  nameWithType.vb: IWriteRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T)
+  name.vb: IWriteRepository(Of T)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1
+    name: IWriteRepository
+    href: SQLiteM.Abstractions.IWriteRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1
+    name: IWriteRepository
+    href: SQLiteM.Abstractions.IWriteRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Abstractions.ISqlBuilder
+  commentId: T:SQLiteM.Abstractions.ISqlBuilder
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.ISqlBuilder.html
+  name: ISqlBuilder
+  nameWithType: ISqlBuilder
+  fullName: SQLiteM.Abstractions.ISqlBuilder
+- uid: SQLiteM.Abstractions.IRepositoryFactory
+  commentId: T:SQLiteM.Abstractions.IRepositoryFactory
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IRepositoryFactory.html
+  name: IRepositoryFactory
+  nameWithType: IRepositoryFactory
+  fullName: SQLiteM.Abstractions.IRepositoryFactory
+- uid: SQLiteM.Abstractions.IRepository`1
+  commentId: T:SQLiteM.Abstractions.IRepository`1
+  href: SQLiteM.Abstractions.IRepository-1.html
+  name: IRepository<T>
+  nameWithType: IRepository<T>
+  fullName: SQLiteM.Abstractions.IRepository<T>
+  nameWithType.vb: IRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IRepository(Of T)
+  name.vb: IRepository(Of T)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IRepository`1
+    name: IRepository
+    href: SQLiteM.Abstractions.IRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IRepository`1
+    name: IRepository
+    href: SQLiteM.Abstractions.IRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Abstractions.IUnitOfWorkFactory
+  commentId: T:SQLiteM.Abstractions.IUnitOfWorkFactory
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IUnitOfWorkFactory.html
+  name: IUnitOfWorkFactory
+  nameWithType: IUnitOfWorkFactory
+  fullName: SQLiteM.Abstractions.IUnitOfWorkFactory
+- uid: SQLiteM.Abstractions.IUnitOfWork
+  commentId: T:SQLiteM.Abstractions.IUnitOfWork
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IUnitOfWork.html
+  name: IUnitOfWork
+  nameWithType: IUnitOfWork
+  fullName: SQLiteM.Abstractions.IUnitOfWork
+- uid: SQLiteM.Abstractions.PropertyMap
+  commentId: T:SQLiteM.Abstractions.PropertyMap
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.PropertyMap.html
+  name: PropertyMap
+  nameWithType: PropertyMap
+  fullName: SQLiteM.Abstractions.PropertyMap
+- uid: SQLiteM.Abstractions.ForeignKeyMap
+  commentId: T:SQLiteM.Abstractions.ForeignKeyMap
+  href: SQLiteM.Abstractions.ForeignKeyMap.html
+  name: ForeignKeyMap
+  nameWithType: ForeignKeyMap
+  fullName: SQLiteM.Abstractions.ForeignKeyMap
+- uid: SQLiteM.Abstractions.OnDeleteAction
+  commentId: T:SQLiteM.Abstractions.OnDeleteAction
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.OnDeleteAction.html
+  name: OnDeleteAction
+  nameWithType: OnDeleteAction
+  fullName: SQLiteM.Abstractions.OnDeleteAction
+- uid: SQLiteM.Abstractions.Query
+  commentId: T:SQLiteM.Abstractions.Query
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.Query.html
+  name: Query
+  nameWithType: Query
+  fullName: SQLiteM.Abstractions.Query
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html

@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.ISqlDialect
+  commentId: T:SQLiteM.Abstractions.ISqlDialect
+  id: ISqlDialect
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.ISqlDialect.ParameterPrefix
+  - SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ISqlDialect
+  nameWithType: ISqlDialect
+  fullName: SQLiteM.Abstractions.ISqlDialect
+  type: Interface
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: ISqlDialect
+    path: ../SQLiteM.Abstractions/Interfaces.cs
+    startLine: 30
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Bietet Dialekt-spezifische Operationen (Identifierquoting, Parameterpräfix).
+  remarks: Implementierungen legen fest, wie Bezeichner maskiert und Parameter benannt werden.
+  example: []
+  syntax:
+    content: public interface ISqlDialect
+    content.vb: Public Interface ISqlDialect
+- uid: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(System.String)
+  commentId: M:SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(System.String)
+  id: QuoteIdentifier(System.String)
+  parent: SQLiteM.Abstractions.ISqlDialect
+  langs:
+  - csharp
+  - vb
+  name: QuoteIdentifier(string)
+  nameWithType: ISqlDialect.QuoteIdentifier(string)
+  fullName: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(string)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: QuoteIdentifier
+    path: ../SQLiteM.Abstractions/Interfaces.cs
+    startLine: 37
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Maskiert einen Bezeichner (z. B. Tabellen- oder Spaltennamen) für den Ziel-Dialekt.
+  example: []
+  syntax:
+    content: string QuoteIdentifier(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: Ungequoteter Bezeichner.
+    return:
+      type: System.String
+      description: Gequoteter Bezeichner.
+    content.vb: Function QuoteIdentifier(name As String) As String
+  overload: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier*
+  nameWithType.vb: ISqlDialect.QuoteIdentifier(String)
+  fullName.vb: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier(String)
+  name.vb: QuoteIdentifier(String)
+- uid: SQLiteM.Abstractions.ISqlDialect.ParameterPrefix
+  commentId: P:SQLiteM.Abstractions.ISqlDialect.ParameterPrefix
+  id: ParameterPrefix
+  parent: SQLiteM.Abstractions.ISqlDialect
+  langs:
+  - csharp
+  - vb
+  name: ParameterPrefix
+  nameWithType: ISqlDialect.ParameterPrefix
+  fullName: SQLiteM.Abstractions.ISqlDialect.ParameterPrefix
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: ParameterPrefix
+    path: ../SQLiteM.Abstractions/Interfaces.cs
+    startLine: 42
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Präfix für SQL-Parameter (z. B. <code>@</code>).
+  example: []
+  syntax:
+    content: string ParameterPrefix { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ParameterPrefix As String
+  overload: SQLiteM.Abstractions.ISqlDialect.ParameterPrefix*
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier*
+  commentId: Overload:SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier
+  href: SQLiteM.Abstractions.ISqlDialect.html#SQLiteM_Abstractions_ISqlDialect_QuoteIdentifier_System_String_
+  name: QuoteIdentifier
+  nameWithType: ISqlDialect.QuoteIdentifier
+  fullName: SQLiteM.Abstractions.ISqlDialect.QuoteIdentifier
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SQLiteM.Abstractions.ISqlDialect.ParameterPrefix*
+  commentId: Overload:SQLiteM.Abstractions.ISqlDialect.ParameterPrefix
+  href: SQLiteM.Abstractions.ISqlDialect.html#SQLiteM_Abstractions_ISqlDialect_ParameterPrefix
+  name: ParameterPrefix
+  nameWithType: ISqlDialect.ParameterPrefix
+  fullName: SQLiteM.Abstractions.ISqlDialect.ParameterPrefix

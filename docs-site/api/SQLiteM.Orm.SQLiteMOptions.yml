@@ -1,0 +1,404 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Orm.SQLiteMOptions
+  commentId: T:SQLiteM.Orm.SQLiteMOptions
+  id: SQLiteMOptions
+  parent: SQLiteM.Orm
+  children:
+  - SQLiteM.Orm.SQLiteMOptions.ConnectionString
+  langs:
+  - csharp
+  - vb
+  name: SQLiteMOptions
+  nameWithType: SQLiteMOptions
+  fullName: SQLiteM.Orm.SQLiteMOptions
+  type: Class
+  source:
+    remote:
+      path: SQLiteM.Orm/SQLiteMoptions.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: SQLiteMOptions
+    path: ../SQLiteM.Orm/SQLiteMoptions.cs
+    startLine: 26
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm
+  summary: Stellt Konfigurationsoptionen für das SQLiteM-ORM bereit.
+  remarks: >-
+    Diese Optionen werden bei der Registrierung über
+
+    <xref href="SQLiteM.Orm.ServiceCollectionExtensions.AddSQLiteM(Microsoft.Extensions.DependencyInjection.IServiceCollection%2cSystem.Action%7bSQLiteM.Orm.SQLiteMOptions%7d)" data-throw-if-not-resolved="false"></xref>
+
+    konfiguriert und bestimmen insbesondere die zu verwendende SQLite-Verbindung.
+  example:
+  - >-
+    Beispiel:
+
+    <pre><code class="lang-csharp">services.AddSQLiteM(opt =&gt;
+
+    {
+        opt.ConnectionString = "Data Source=app.db";
+    });</code></pre>
+  syntax:
+    content: public sealed class SQLiteMOptions
+    content.vb: Public NotInheritable Class SQLiteMOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SQLiteM.Orm.SQLiteMOptions.ConnectionString
+  commentId: P:SQLiteM.Orm.SQLiteMOptions.ConnectionString
+  id: ConnectionString
+  parent: SQLiteM.Orm.SQLiteMOptions
+  langs:
+  - csharp
+  - vb
+  name: ConnectionString
+  nameWithType: SQLiteMOptions.ConnectionString
+  fullName: SQLiteM.Orm.SQLiteMOptions.ConnectionString
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Orm/SQLiteMoptions.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: ConnectionString
+    path: ../SQLiteM.Orm/SQLiteMoptions.cs
+    startLine: 41
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm
+  summary: Gibt die Verbindungszeichenfolge zur SQLite-Datenbank an.
+  remarks: >-
+    Diese Eigenschaft kann beim Initialisieren des Dienstcontainers überschrieben werden,
+
+    um eine persistente Datei-Datenbank oder eine benannte In-Memory-Datenbank zu verwenden.
+
+    Beispiel:
+
+    <code>"Data Source=app.db"</code> oder <code>"Data Source=file::memory:?cache=shared"</code>.
+  example: []
+  syntax:
+    content: public string ConnectionString { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: >-
+        Standardmäßig <code>"Data Source = :memory:"</code>, wodurch eine temporäre
+
+        In-Memory-Datenbank verwendet wird.
+    content.vb: Public Property ConnectionString As String
+  overload: SQLiteM.Orm.SQLiteMOptions.ConnectionString*
+references:
+- uid: SQLiteM.Orm.ServiceCollectionExtensions.AddSQLiteM(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{SQLiteM.Orm.SQLiteMOptions})
+  commentId: M:SQLiteM.Orm.ServiceCollectionExtensions.AddSQLiteM(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{SQLiteM.Orm.SQLiteMOptions})
+  isExternal: true
+  href: SQLiteM.Orm.ServiceCollectionExtensions.html#SQLiteM_Orm_ServiceCollectionExtensions_AddSQLiteM_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_SQLiteM_Orm_SQLiteMOptions__
+  name: AddSQLiteM(IServiceCollection, Action<SQLiteMOptions>)
+  nameWithType: ServiceCollectionExtensions.AddSQLiteM(IServiceCollection, Action<SQLiteMOptions>)
+  fullName: SQLiteM.Orm.ServiceCollectionExtensions.AddSQLiteM(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<SQLiteM.Orm.SQLiteMOptions>)
+  nameWithType.vb: ServiceCollectionExtensions.AddSQLiteM(IServiceCollection, Action(Of SQLiteMOptions))
+  fullName.vb: SQLiteM.Orm.ServiceCollectionExtensions.AddSQLiteM(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of SQLiteM.Orm.SQLiteMOptions))
+  name.vb: AddSQLiteM(IServiceCollection, Action(Of SQLiteMOptions))
+  spec.csharp:
+  - uid: SQLiteM.Orm.ServiceCollectionExtensions.AddSQLiteM(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{SQLiteM.Orm.SQLiteMOptions})
+    name: AddSQLiteM
+    href: SQLiteM.Orm.ServiceCollectionExtensions.html#SQLiteM_Orm_ServiceCollectionExtensions_AddSQLiteM_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_SQLiteM_Orm_SQLiteMOptions__
+  - name: (
+  - uid: Microsoft.Extensions.DependencyInjection.IServiceCollection
+    name: IServiceCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: SQLiteM.Orm.SQLiteMOptions
+    name: SQLiteMOptions
+    href: SQLiteM.Orm.SQLiteMOptions.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Orm.ServiceCollectionExtensions.AddSQLiteM(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{SQLiteM.Orm.SQLiteMOptions})
+    name: AddSQLiteM
+    href: SQLiteM.Orm.ServiceCollectionExtensions.html#SQLiteM_Orm_ServiceCollectionExtensions_AddSQLiteM_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_SQLiteM_Orm_SQLiteMOptions__
+  - name: (
+  - uid: Microsoft.Extensions.DependencyInjection.IServiceCollection
+    name: IServiceCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Orm.SQLiteMOptions
+    name: SQLiteMOptions
+    href: SQLiteM.Orm.SQLiteMOptions.html
+  - name: )
+  - name: )
+- uid: SQLiteM.Orm
+  commentId: N:SQLiteM.Orm
+  href: SQLiteM.html
+  name: SQLiteM.Orm
+  nameWithType: SQLiteM.Orm
+  fullName: SQLiteM.Orm
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Orm
+    name: Orm
+    href: SQLiteM.Orm.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Orm
+    name: Orm
+    href: SQLiteM.Orm.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SQLiteM.Orm.SQLiteMOptions.ConnectionString*
+  commentId: Overload:SQLiteM.Orm.SQLiteMOptions.ConnectionString
+  href: SQLiteM.Orm.SQLiteMOptions.html#SQLiteM_Orm_SQLiteMOptions_ConnectionString
+  name: ConnectionString
+  nameWithType: SQLiteMOptions.ConnectionString
+  fullName: SQLiteM.Orm.SQLiteMOptions.ConnectionString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

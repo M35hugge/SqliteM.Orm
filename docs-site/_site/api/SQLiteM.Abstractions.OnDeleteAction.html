@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <meta name="theme-color" content="#0f1220">
+  <link rel="stylesheet" href="../styles/theme.css">  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html" title="SQLiteM">
+                <img src="../assets/sqlitem-logo.svg" alt="SQLiteM" style="vertical-align:middle;margin-right:8px;height:28px;width:28px;">
+                <span>SQLiteM</span>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SQLiteM.Abstractions.OnDeleteAction">
+
+
+
+
+  <h1 id="SQLiteM_Abstractions_OnDeleteAction" data-uid="SQLiteM.Abstractions.OnDeleteAction" class="text-break">Enum OnDeleteAction</h1>
+  <div class="markdown level0 summary"><p>Repräsentiert die möglichen <code>ON DELETE</code>-Aktionen für Fremdschlüssel
+in SQLite. Diese Werte geben an, wie sich das Löschen eines Datensatzes
+in der referenzierten Tabelle auf die referenzierenden Datensätze auswirkt.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SQLiteM.html">SQLiteM</a>.<a class="xref" href="SQLiteM.Abstractions.html">Abstractions</a></h6>
+  <h6><strong>Assembly</strong>: SQLiteM.Abstractions.dll</h6>
+  <h5 id="SQLiteM_Abstractions_OnDeleteAction_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum OnDeleteAction</code></pre>
+  </div>
+  <h5 id="SQLiteM_Abstractions_OnDeleteAction_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Die hier definierten Optionen entsprechen den in SQLite unterstützten
+Aktionen gemäß der Syntax <code>FOREIGN KEY ... ON DELETE ...</code>.
+Welche Aktion sinnvoll ist, hängt vom gewünschten Datenkonsistenz- und
+Kaskadierungsverhalten des Modells ab.</p>
+</div>
+  <h3 id="fields">Fields
+</h3>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    </thead></thead><tbody>
+      <tr>
+        <td id="SQLiteM_Abstractions_OnDeleteAction_Cascade">Cascade</td>
+        <td><p>Löscht automatisch alle referenzierenden Zeilen, wenn der zugehörige
+Datensatz in der referenzierten Tabelle gelöscht wird.
+Entspricht SQLite: <code>ON DELETE CASCADE</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="SQLiteM_Abstractions_OnDeleteAction_NoAction">NoAction</td>
+        <td><p>Es wird keine spezielle Aktion ausgeführt. Ein Löschversuch in der
+referenzierten Tabelle schlägt fehl, wenn referenzierende Zeilen existieren
+und die Fremdschlüsselprüfung aktiv ist.
+Entspricht SQLite: <code>ON DELETE NO ACTION</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="SQLiteM_Abstractions_OnDeleteAction_Restrict">Restrict</td>
+        <td><p>Verhindert das Löschen eines Datensatzes in der referenzierten Tabelle,
+solange abhängige (referenzierende) Zeilen existieren.
+Entspricht SQLite: <code>ON DELETE RESTRICT</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="SQLiteM_Abstractions_OnDeleteAction_SetDefault">SetDefault</td>
+        <td><p>Setzt den Fremdschlüssel in allen referenzierenden Zeilen auf den
+Spalten-Standardwert, wenn der zugehörige Datensatz in der
+referenzierten Tabelle gelöscht wird.
+Entspricht SQLite: <code>ON DELETE SET DEFAULT</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="SQLiteM_Abstractions_OnDeleteAction_SetNull">SetNull</td>
+        <td><p>Setzt den Fremdschlüssel in allen referenzierenden Zeilen auf <code>NULL</code>,
+wenn der zugehörige Datensatz in der referenzierten Tabelle gelöscht wird.
+Entspricht SQLite: <code>ON DELETE SET NULL</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SQLiteM_Abstractions_OnDeleteAction_seealso">See Also</h5>
+  <div class="seealso">
+      <div><span><a href="https://www.sqlite.org/foreignkeys.html">SQLite-Dokumentation: Foreign Key Support</a></span></div>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="padding:12px 0;">
+        <span>&copy;   · Dokumentation mit DocFX</span>
+      </div>    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

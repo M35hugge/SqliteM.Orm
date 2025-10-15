@@ -1,0 +1,620 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.IRepository`1
+  commentId: T:SQLiteM.Abstractions.IRepository`1
+  id: IRepository`1
+  parent: SQLiteM.Abstractions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IRepository<T>
+  nameWithType: IRepository<T>
+  fullName: SQLiteM.Abstractions.IRepository<T>
+  type: Interface
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+    id: IRepository
+    path: ../SQLiteM.Abstractions/Interfaces.cs
+    startLine: 207
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Kombiniert Lese- und Schreibfunktionen für Entitäten.
+  example: []
+  syntax:
+    content: 'public interface IRepository<T> : IReadRepository<T>, IWriteRepository<T> where T : class, new()'
+    typeParameters:
+    - id: T
+      description: Entitätstyp.
+    content.vb: Public Interface IRepository(Of T As {Class, New}) Inherits IReadRepository(Of T), IWriteRepository(Of T)
+  inheritedMembers:
+  - SQLiteM.Abstractions.IReadRepository{{T}}.FindAllAsync(System.Threading.CancellationToken)
+  - SQLiteM.Abstractions.IReadRepository{{T}}.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  - SQLiteM.Abstractions.IReadRepository{{T}}.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  - SQLiteM.Abstractions.IWriteRepository{{T}}.InsertAsync({T},System.Threading.CancellationToken)
+  - SQLiteM.Abstractions.IWriteRepository{{T}}.UpdateAsync({T},System.Threading.CancellationToken)
+  - SQLiteM.Abstractions.IWriteRepository{{T}}.DeleteAsync(System.Object,System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IRepository(Of T)
+  name.vb: IRepository(Of T)
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.IReadRepository{{T}}.FindAllAsync(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IReadRepository{`0}.FindAllAsync(System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IReadRepository{{T}}
+  definition: SQLiteM.Abstractions.IReadRepository`1.FindAllAsync(System.Threading.CancellationToken)
+  href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindAllAsync_System_Threading_CancellationToken_
+  name: FindAllAsync(CancellationToken)
+  nameWithType: IReadRepository<T>.FindAllAsync(CancellationToken)
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.FindAllAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IReadRepository(Of T).FindAllAsync(CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).FindAllAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IReadRepository{`0}.FindAllAsync(System.Threading.CancellationToken)
+    name: FindAllAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IReadRepository{`0}.FindAllAsync(System.Threading.CancellationToken)
+    name: FindAllAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IReadRepository{{T}}.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IReadRepository{`0}.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IReadRepository{{T}}
+  definition: SQLiteM.Abstractions.IReadRepository`1.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_QueryAsync_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  name: QueryAsync(Query, CancellationToken)
+  nameWithType: IReadRepository<T>.QueryAsync(Query, CancellationToken)
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.QueryAsync(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  nameWithType.vb: IReadRepository(Of T).QueryAsync(Query, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).QueryAsync(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IReadRepository{`0}.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+    name: QueryAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_QueryAsync_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  - name: (
+  - uid: SQLiteM.Abstractions.Query
+    name: Query
+    href: SQLiteM.Abstractions.Query.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IReadRepository{`0}.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+    name: QueryAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_QueryAsync_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  - name: (
+  - uid: SQLiteM.Abstractions.Query
+    name: Query
+    href: SQLiteM.Abstractions.Query.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IReadRepository{{T}}.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IReadRepository{`0}.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IReadRepository{{T}}
+  definition: SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindByIdAsync_System_Object_System_Threading_CancellationToken_
+  name: FindByIdAsync(object, CancellationToken)
+  nameWithType: IReadRepository<T>.FindByIdAsync(object, CancellationToken)
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.FindByIdAsync(object, System.Threading.CancellationToken)
+  nameWithType.vb: IReadRepository(Of T).FindByIdAsync(Object, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).FindByIdAsync(Object, System.Threading.CancellationToken)
+  name.vb: FindByIdAsync(Object, CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IReadRepository{`0}.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+    name: FindByIdAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindByIdAsync_System_Object_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IReadRepository{`0}.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+    name: FindByIdAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindByIdAsync_System_Object_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IWriteRepository{{T}}.InsertAsync({T},System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IWriteRepository{`0}.InsertAsync(`0,System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IWriteRepository{{T}}
+  definition: SQLiteM.Abstractions.IWriteRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+  href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  name: InsertAsync(T, CancellationToken)
+  nameWithType: IWriteRepository<T>.InsertAsync(T, CancellationToken)
+  fullName: SQLiteM.Abstractions.IWriteRepository<T>.InsertAsync(T, System.Threading.CancellationToken)
+  nameWithType.vb: IWriteRepository(Of T).InsertAsync(T, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T).InsertAsync(T, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IWriteRepository{`0}.InsertAsync(`0,System.Threading.CancellationToken)
+    name: InsertAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IWriteRepository{`0}.InsertAsync(`0,System.Threading.CancellationToken)
+    name: InsertAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IWriteRepository{{T}}.UpdateAsync({T},System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IWriteRepository{`0}.UpdateAsync(`0,System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IWriteRepository{{T}}
+  definition: SQLiteM.Abstractions.IWriteRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+  href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  name: UpdateAsync(T, CancellationToken)
+  nameWithType: IWriteRepository<T>.UpdateAsync(T, CancellationToken)
+  fullName: SQLiteM.Abstractions.IWriteRepository<T>.UpdateAsync(T, System.Threading.CancellationToken)
+  nameWithType.vb: IWriteRepository(Of T).UpdateAsync(T, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T).UpdateAsync(T, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IWriteRepository{`0}.UpdateAsync(`0,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IWriteRepository{`0}.UpdateAsync(`0,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IWriteRepository{{T}}.DeleteAsync(System.Object,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IWriteRepository{`0}.DeleteAsync(System.Object,System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IWriteRepository{{T}}
+  definition: SQLiteM.Abstractions.IWriteRepository`1.DeleteAsync(System.Object,System.Threading.CancellationToken)
+  href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_DeleteAsync_System_Object_System_Threading_CancellationToken_
+  name: DeleteAsync(object, CancellationToken)
+  nameWithType: IWriteRepository<T>.DeleteAsync(object, CancellationToken)
+  fullName: SQLiteM.Abstractions.IWriteRepository<T>.DeleteAsync(object, System.Threading.CancellationToken)
+  nameWithType.vb: IWriteRepository(Of T).DeleteAsync(Object, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T).DeleteAsync(Object, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(Object, CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IWriteRepository{`0}.DeleteAsync(System.Object,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_DeleteAsync_System_Object_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IWriteRepository{`0}.DeleteAsync(System.Object,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_DeleteAsync_System_Object_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IReadRepository`1.FindAllAsync(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IReadRepository`1.FindAllAsync(System.Threading.CancellationToken)
+  isExternal: true
+  href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindAllAsync_System_Threading_CancellationToken_
+  name: FindAllAsync(CancellationToken)
+  nameWithType: IReadRepository<T>.FindAllAsync(CancellationToken)
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.FindAllAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IReadRepository(Of T).FindAllAsync(CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).FindAllAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IReadRepository`1.FindAllAsync(System.Threading.CancellationToken)
+    name: FindAllAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IReadRepository`1.FindAllAsync(System.Threading.CancellationToken)
+    name: FindAllAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IReadRepository{{T}}
+  commentId: T:SQLiteM.Abstractions.IReadRepository{`0}
+  parent: SQLiteM.Abstractions
+  definition: SQLiteM.Abstractions.IReadRepository`1
+  href: SQLiteM.Abstractions.IReadRepository-1.html
+  name: IReadRepository<T>
+  nameWithType: IReadRepository<T>
+  fullName: SQLiteM.Abstractions.IReadRepository<T>
+  nameWithType.vb: IReadRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T)
+  name.vb: IReadRepository(Of T)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IReadRepository`1
+    name: IReadRepository
+    href: SQLiteM.Abstractions.IReadRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IReadRepository`1
+    name: IReadRepository
+    href: SQLiteM.Abstractions.IReadRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Abstractions.IReadRepository`1.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IReadRepository`1.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  isExternal: true
+  href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_QueryAsync_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  name: QueryAsync(Query, CancellationToken)
+  nameWithType: IReadRepository<T>.QueryAsync(Query, CancellationToken)
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.QueryAsync(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  nameWithType.vb: IReadRepository(Of T).QueryAsync(Query, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).QueryAsync(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IReadRepository`1.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+    name: QueryAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_QueryAsync_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  - name: (
+  - uid: SQLiteM.Abstractions.Query
+    name: Query
+    href: SQLiteM.Abstractions.Query.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IReadRepository`1.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+    name: QueryAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_QueryAsync_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  - name: (
+  - uid: SQLiteM.Abstractions.Query
+    name: Query
+    href: SQLiteM.Abstractions.Query.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  isExternal: true
+  href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindByIdAsync_System_Object_System_Threading_CancellationToken_
+  name: FindByIdAsync(object, CancellationToken)
+  nameWithType: IReadRepository<T>.FindByIdAsync(object, CancellationToken)
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.FindByIdAsync(object, System.Threading.CancellationToken)
+  nameWithType.vb: IReadRepository(Of T).FindByIdAsync(Object, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).FindByIdAsync(Object, System.Threading.CancellationToken)
+  name.vb: FindByIdAsync(Object, CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+    name: FindByIdAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindByIdAsync_System_Object_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+    name: FindByIdAsync
+    href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindByIdAsync_System_Object_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IWriteRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IWriteRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  name: InsertAsync(T, CancellationToken)
+  nameWithType: IWriteRepository<T>.InsertAsync(T, CancellationToken)
+  fullName: SQLiteM.Abstractions.IWriteRepository<T>.InsertAsync(T, System.Threading.CancellationToken)
+  nameWithType.vb: IWriteRepository(Of T).InsertAsync(T, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T).InsertAsync(T, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+    name: InsertAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+    name: InsertAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IWriteRepository{{T}}
+  commentId: T:SQLiteM.Abstractions.IWriteRepository{`0}
+  parent: SQLiteM.Abstractions
+  definition: SQLiteM.Abstractions.IWriteRepository`1
+  href: SQLiteM.Abstractions.IWriteRepository-1.html
+  name: IWriteRepository<T>
+  nameWithType: IWriteRepository<T>
+  fullName: SQLiteM.Abstractions.IWriteRepository<T>
+  nameWithType.vb: IWriteRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T)
+  name.vb: IWriteRepository(Of T)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1
+    name: IWriteRepository
+    href: SQLiteM.Abstractions.IWriteRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1
+    name: IWriteRepository
+    href: SQLiteM.Abstractions.IWriteRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Abstractions.IWriteRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IWriteRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  name: UpdateAsync(T, CancellationToken)
+  nameWithType: IWriteRepository<T>.UpdateAsync(T, CancellationToken)
+  fullName: SQLiteM.Abstractions.IWriteRepository<T>.UpdateAsync(T, System.Threading.CancellationToken)
+  nameWithType.vb: IWriteRepository(Of T).UpdateAsync(T, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T).UpdateAsync(T, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IWriteRepository`1.DeleteAsync(System.Object,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IWriteRepository`1.DeleteAsync(System.Object,System.Threading.CancellationToken)
+  isExternal: true
+  href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_DeleteAsync_System_Object_System_Threading_CancellationToken_
+  name: DeleteAsync(object, CancellationToken)
+  nameWithType: IWriteRepository<T>.DeleteAsync(object, CancellationToken)
+  fullName: SQLiteM.Abstractions.IWriteRepository<T>.DeleteAsync(object, System.Threading.CancellationToken)
+  nameWithType.vb: IWriteRepository(Of T).DeleteAsync(Object, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T).DeleteAsync(Object, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(Object, CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1.DeleteAsync(System.Object,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_DeleteAsync_System_Object_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1.DeleteAsync(System.Object,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_DeleteAsync_System_Object_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Abstractions.IReadRepository`1
+  commentId: T:SQLiteM.Abstractions.IReadRepository`1
+  href: SQLiteM.Abstractions.IReadRepository-1.html
+  name: IReadRepository<T>
+  nameWithType: IReadRepository<T>
+  fullName: SQLiteM.Abstractions.IReadRepository<T>
+  nameWithType.vb: IReadRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T)
+  name.vb: IReadRepository(Of T)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IReadRepository`1
+    name: IReadRepository
+    href: SQLiteM.Abstractions.IReadRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IReadRepository`1
+    name: IReadRepository
+    href: SQLiteM.Abstractions.IReadRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Abstractions.IWriteRepository`1
+  commentId: T:SQLiteM.Abstractions.IWriteRepository`1
+  href: SQLiteM.Abstractions.IWriteRepository-1.html
+  name: IWriteRepository<T>
+  nameWithType: IWriteRepository<T>
+  fullName: SQLiteM.Abstractions.IWriteRepository<T>
+  nameWithType.vb: IWriteRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T)
+  name.vb: IWriteRepository(Of T)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1
+    name: IWriteRepository
+    href: SQLiteM.Abstractions.IWriteRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IWriteRepository`1
+    name: IWriteRepository
+    href: SQLiteM.Abstractions.IWriteRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

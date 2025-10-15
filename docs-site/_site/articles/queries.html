@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <meta name="theme-color" content="#0f1220">
+  <link rel="stylesheet" href="../styles/theme.css">  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html" title="SQLiteM">
+                <img src="../assets/sqlitem-logo.svg" alt="SQLiteM" style="vertical-align:middle;margin-right:8px;height:28px;width:28px;">
+                <span>SQLiteM</span>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="queries">Queries</h1>
+
+<p>SQLiteM liefert eine einfache, SQL-freie Query-API:</p>
+<ul>
+<li><code>FindAllAsync()</code> - holt alle Zeilen der Tabelle.</li>
+<li><code>FindByIdAsync(id)</code> - lädt eine Zeile per Primärschlüssel.</li>
+<li><code>QueryAsync(Query)</code> - einfacher Filter/Sortierung ohne SQL.</li>
+</ul>
+<h2 id="grundlagen">Grundlagen</h2>
+<pre><code class="lang-csharp">await using (var uow = await services.GetRequiredService&lt;IUnitOfWorkFactory&gt;().CreateAsync())
+{
+    var repo = services.GetRequiredService&lt;IRepositoryFactory&gt;().Create&lt;Person&gt;(uow);
+    var all = await repo.FindAllAsync();
+}
+</code></pre>
+<p>// Per Id</p>
+<pre><code class="lang-sharp">var one = await repo.FindByIdAsync(1L);
+</code></pre>
+<h2 id="filtern--sortieren">Filtern &amp; Sortieren</h2>
+<p>Der Query-Typ erlaubt eine WHERE-Bedingung (Equals) und ORDER BY.</p>
+<p>Wichtig: Verwende Spaltennamen (wie in [Column(&quot;...&quot;)]), nicht Propertynamen.</p>
+<pre><code class="lang-sharp">// Alle &quot;Lovelace&quot; nach Vornamen sortiert
+var people = await repo.QueryAsync(
+    Query.WhereEquals(&quot;last_name&quot;, &quot;Lovelace&quot;).OrderBy(&quot;first_name&quot;));    
+</code></pre>
+<p>Mit OrderBy(&quot;... &quot;, desc: true) kannst du absteigend sortieren:</p>
+<pre><code class="lang-sharp">var latest = await repo.QueryAsync(
+    new Query().OrderBy(&quot;id&quot;, desc: true));
+</code></pre>
+<h2 id="sicherheit--parameter">Sicherheit &amp; Parameter</h2>
+<p>QueryAsync parametrisiert Werte automatisch:</p>
+<p>Spaltennamen werden gequotet (Dialekt).</p>
+<p>Werte werden als Parameter gebunden (SQL-Injection-sicher).</p>
+<h2 id="grenzen-aktueller-stand">Grenzen (aktueller Stand)</h2>
+<p>WHERE: nur Gleichheit (=) auf eine Spalte.</p>
+<p>Kein Join/Include von Navigationen.</p>
+<p>Paging nicht integriert (kannst du aber leicht ergänzen, siehe &quot;Roadmap&quot;).</p>
+<h2 id="best-practices">Best Practices</h2>
+<p>Spaltennamen strikt aus den [Column(&quot;...&quot;)]-Attributen verwenden (z. B. &quot;first_name&quot; statt FirstName).</p>
+<p>Für große Tabellen Indexe in der DB anlegen (z. B. auf last_name, person_id).</p>
+<p>Für wiederkehrende Abfragen kleine Helper-Funktionen bauen:</p>
+<pre><code class="lang-csharp">static Task&lt;IReadOnlyList&lt;Person&gt;&gt; FindByLastNameAsync(
+    IRepository&lt;Person&gt; repo, string lastName, CancellationToken ct = default)
+    =&gt; repo.QueryAsync(Query.WhereEquals(&quot;last_name&quot;, lastName).OrderBy(&quot;first_name&quot;), ct);
+</code></pre>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="padding:12px 0;">
+        <span>&copy;   · Dokumentation mit DocFX</span>
+      </div>    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

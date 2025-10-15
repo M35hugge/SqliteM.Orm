@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Orm.Impl
+  commentId: N:SQLiteM.Orm.Impl
+  id: SQLiteM.Orm.Impl
+  children:
+  - SQLiteM.Orm.Impl.ReflectionEntityMapper
+  - SQLiteM.Orm.Impl.RepositoryFactory
+  - SQLiteM.Orm.Impl.SqliteConnectionFactory
+  - SQLiteM.Orm.Impl.UnitOfWorkFactory
+  langs:
+  - csharp
+  - vb
+  name: SQLiteM.Orm.Impl
+  nameWithType: SQLiteM.Orm.Impl
+  fullName: SQLiteM.Orm.Impl
+  type: Namespace
+  assemblies:
+  - SQLiteM.Orm
+references:
+- uid: SQLiteM.Orm.Impl.UnitOfWorkFactory
+  commentId: T:SQLiteM.Orm.Impl.UnitOfWorkFactory
+  href: SQLiteM.Orm.Impl.UnitOfWorkFactory.html
+  name: UnitOfWorkFactory
+  nameWithType: UnitOfWorkFactory
+  fullName: SQLiteM.Orm.Impl.UnitOfWorkFactory
+- uid: SQLiteM.Orm.Impl.RepositoryFactory
+  commentId: T:SQLiteM.Orm.Impl.RepositoryFactory
+  href: SQLiteM.Orm.Impl.RepositoryFactory.html
+  name: RepositoryFactory
+  nameWithType: RepositoryFactory
+  fullName: SQLiteM.Orm.Impl.RepositoryFactory
+- uid: SQLiteM.Orm.Impl.SqliteConnectionFactory
+  commentId: T:SQLiteM.Orm.Impl.SqliteConnectionFactory
+  href: SQLiteM.Orm.Impl.SqliteConnectionFactory.html
+  name: SqliteConnectionFactory
+  nameWithType: SqliteConnectionFactory
+  fullName: SQLiteM.Orm.Impl.SqliteConnectionFactory
+- uid: SQLiteM.Orm.Impl.ReflectionEntityMapper
+  commentId: T:SQLiteM.Orm.Impl.ReflectionEntityMapper
+  href: SQLiteM.Orm.Impl.ReflectionEntityMapper.html
+  name: ReflectionEntityMapper
+  nameWithType: ReflectionEntityMapper
+  fullName: SQLiteM.Orm.Impl.ReflectionEntityMapper
