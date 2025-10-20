@@ -25,5 +25,6 @@ namespace Tests.Helpers
             await using var uow = await sp.GetRequiredService<IUnitOfWorkFactory>().CreateAsync();
             await action(uow);
         }
+
     }
 }

@@ -21,10 +21,16 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: SqliteConnectionFactory
     path: ../SQLiteM.Orm/Impl/Factories.cs
-    startLine: 26
+    startLine: 69
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Impl
+  summary: Implementiert eine Factory zur Erstellung von SQLite-Verbindungen.
+  remarks: >-
+    Diese Factory erzeugt neue <xref href="Microsoft.Data.Sqlite.SqliteConnection" data-throw-if-not-resolved="false"></xref>-Instanzen basierend
+
+    auf der bereitgestellten Verbindungszeichenfolge.
+  example: []
   syntax:
     content: 'public sealed class SqliteConnectionFactory : IConnectionFactory'
     content.vb: Public NotInheritable Class SqliteConnectionFactory Implements IConnectionFactory
@@ -57,10 +63,16 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: .ctor
     path: ../SQLiteM.Orm/Impl/Factories.cs
-    startLine: 26
+    startLine: 69
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Impl
+  summary: Implementiert eine Factory zur Erstellung von SQLite-Verbindungen.
+  remarks: >-
+    Diese Factory erzeugt neue <xref href="Microsoft.Data.Sqlite.SqliteConnection" data-throw-if-not-resolved="false"></xref>-Instanzen basierend
+
+    auf der bereitgestellten Verbindungszeichenfolge.
+  example: []
   syntax:
     content: public SqliteConnectionFactory(string connectionString)
     parameters:
@@ -89,22 +101,33 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: Create
     path: ../SQLiteM.Orm/Impl/Factories.cs
-    startLine: 29
+    startLine: 81
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Impl
-  summary: Erstellt eine neue, noch nicht geöffnete <xref href="System.Data.IDbConnection" data-throw-if-not-resolved="false"></xref>.
+  summary: Erstellt eine neue Datenbankverbindung für SQLite.
+  remarks: >-
+    Die Verbindung wird initial in geschlossenem Zustand zurückgegeben.
+
+    Der Aufrufer ist dafür verantwortlich, sie zu öffnen und zu schließen.
   example: []
   syntax:
     content: public IDbConnection Create()
     return:
       type: System.Data.IDbConnection
-      description: Eine neue, geschlossene <xref href="System.Data.IDbConnection" data-throw-if-not-resolved="false"></xref>.
+      description: Eine offene <xref href="System.Data.IDbConnection" data-throw-if-not-resolved="false"></xref> für die SQLite-Datenbank.
     content.vb: Public Function Create() As IDbConnection
   overload: SQLiteM.Orm.Impl.SqliteConnectionFactory.Create*
   implements:
   - SQLiteM.Abstractions.IConnectionFactory.Create
 references:
+- uid: Microsoft.Data.Sqlite.SqliteConnection
+  commentId: T:Microsoft.Data.Sqlite.SqliteConnection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.data.sqlite.sqliteconnection
+  name: SqliteConnection
+  nameWithType: SqliteConnection
+  fullName: Microsoft.Data.Sqlite.SqliteConnection
 - uid: SQLiteM.Orm.Impl
   commentId: N:SQLiteM.Orm.Impl
   href: SQLiteM.html

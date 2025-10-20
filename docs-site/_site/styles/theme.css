@@ -49,7 +49,7 @@ code { border: 1px solid var(--border); padding: .1rem .35rem; }
 .table>thead>tr>th { background: var(--surface); border-color: var(--border); }
 .table>tbody>tr>td { border-color: var(--border); }
 
-.btn, .form-control { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+.btn,.sr-only, .form-control { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
 .btn-primary { background: var(--primary); border-color: var(--primary-600); color: #0c1022; }
 .btn-primary:hover { background: var(--primary-600); border-color: var(--primary-600); }
 

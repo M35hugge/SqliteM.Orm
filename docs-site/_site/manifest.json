@@ -386,7 +386,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SQLiteM.Orm.Impl.RepositoryFactory",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Impl.RepositoryFactory.yml\" sourcestartlinenumber=\"1\">Implementiert eine Factory zur Erstellung typisierter Repository-Instanzen.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -400,7 +400,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SQLiteM.Orm.Impl.SqliteConnectionFactory",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Impl.SqliteConnectionFactory.yml\" sourcestartlinenumber=\"1\">Implementiert eine Factory zur Erstellung von SQLite-Verbindungen.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -414,7 +414,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SQLiteM.Orm.Impl.UnitOfWorkFactory",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Impl.UnitOfWorkFactory.yml\" sourcestartlinenumber=\"1\">Implementiert eine Factory zur Erstellung von <xref href=\"SQLiteM.Abstractions.IUnitOfWork\" data-throw-if-not-resolved=\"false\"></xref>-Instanzen.</p>\n"
     },
     {
       "type": "ManagedReference",

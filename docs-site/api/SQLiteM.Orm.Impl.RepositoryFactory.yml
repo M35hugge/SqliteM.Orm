@@ -21,10 +21,18 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: RepositoryFactory
     path: ../SQLiteM.Orm/Impl/Factories.cs
-    startLine: 16
+    startLine: 41
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Impl
+  summary: Implementiert eine Factory zur Erstellung typisierter Repository-Instanzen.
+  remarks: >-
+    Diese Factory kapselt die Erstellung von <xref href="SQLiteM.Abstractions.IRepository%601" data-throw-if-not-resolved="false"></xref>-Instanzen
+
+    und stellt sicher, dass alle benötigten Abhängigkeiten (<xref href="SQLiteM.Abstractions.IEntityMapper" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="SQLiteM.Abstractions.ISqlBuilder" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Abstractions.ISqlDialect" data-throw-if-not-resolved="false"></xref>) bereitgestellt werden.
+  example: []
   syntax:
     content: 'public class RepositoryFactory : IRepositoryFactory'
     content.vb: Public Class RepositoryFactory Implements IRepositoryFactory
@@ -58,10 +66,18 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: .ctor
     path: ../SQLiteM.Orm/Impl/Factories.cs
-    startLine: 16
+    startLine: 41
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Impl
+  summary: Implementiert eine Factory zur Erstellung typisierter Repository-Instanzen.
+  remarks: >-
+    Diese Factory kapselt die Erstellung von <xref href="SQLiteM.Abstractions.IRepository%601" data-throw-if-not-resolved="false"></xref>-Instanzen
+
+    und stellt sicher, dass alle benötigten Abhängigkeiten (<xref href="SQLiteM.Abstractions.IEntityMapper" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="SQLiteM.Abstractions.ISqlBuilder" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Abstractions.ISqlDialect" data-throw-if-not-resolved="false"></xref>) bereitgestellt werden.
+  example: []
   syntax:
     content: public RepositoryFactory(IEntityMapper mapper, ISqlBuilder builder, ISqlDialect dialect)
     parameters:
@@ -94,21 +110,27 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: Create
     path: ../SQLiteM.Orm/Impl/Factories.cs
-    startLine: 22
+    startLine: 58
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Impl
-  summary: Erstellt ein Repository für den gegebenen Entitätstyp im angegebenen Unit-of-Work-Scope.
+  summary: Erstellt ein neues, typisiertes Repository für den angegebenen Entitätstyp.
+  remarks: >-
+    Das erstellte Repository ist an die übergebene Arbeitseinheit gebunden und nutzt deren
+
+    Transaktionskontext. Dadurch wird sichergestellt, dass Änderungen koordiniert und
+
+    konsistent gespeichert werden.
   example: []
   syntax:
     content: 'public IRepository<T> Create<T>(IUnitOfWork uow) where T : class, new()'
     parameters:
     - id: uow
       type: SQLiteM.Abstractions.IUnitOfWork
-      description: Aktiver Unit-of-Work.
+      description: Die aktive <xref href="SQLiteM.Abstractions.IUnitOfWork" data-throw-if-not-resolved="false"></xref>, in der das Repository arbeitet.
     typeParameters:
     - id: T
-      description: Entitätstyp.
+      description: Der Entitätstyp, der durch das Repository verwaltet wird.
     return:
       type: SQLiteM.Abstractions.IRepository{{T}}
       description: Eine neue Instanz von <xref href="SQLiteM.Abstractions.IRepository%601" data-throw-if-not-resolved="false"></xref>.
@@ -120,6 +142,52 @@ items:
   fullName.vb: SQLiteM.Orm.Impl.RepositoryFactory.Create(Of T)(SQLiteM.Abstractions.IUnitOfWork)
   name.vb: Create(Of T)(IUnitOfWork)
 references:
+- uid: SQLiteM.Abstractions.IRepository`1
+  commentId: T:SQLiteM.Abstractions.IRepository`1
+  href: SQLiteM.Abstractions.IRepository-1.html
+  name: IRepository<T>
+  nameWithType: IRepository<T>
+  fullName: SQLiteM.Abstractions.IRepository<T>
+  nameWithType.vb: IRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IRepository(Of T)
+  name.vb: IRepository(Of T)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.IRepository`1
+    name: IRepository
+    href: SQLiteM.Abstractions.IRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.IRepository`1
+    name: IRepository
+    href: SQLiteM.Abstractions.IRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Abstractions.IEntityMapper
+  commentId: T:SQLiteM.Abstractions.IEntityMapper
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IEntityMapper.html
+  name: IEntityMapper
+  nameWithType: IEntityMapper
+  fullName: SQLiteM.Abstractions.IEntityMapper
+- uid: SQLiteM.Abstractions.ISqlBuilder
+  commentId: T:SQLiteM.Abstractions.ISqlBuilder
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.ISqlBuilder.html
+  name: ISqlBuilder
+  nameWithType: ISqlBuilder
+  fullName: SQLiteM.Abstractions.ISqlBuilder
+- uid: SQLiteM.Abstractions.ISqlDialect
+  commentId: T:SQLiteM.Abstractions.ISqlDialect
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.ISqlDialect.html
+  name: ISqlDialect
+  nameWithType: ISqlDialect
+  fullName: SQLiteM.Abstractions.ISqlDialect
 - uid: SQLiteM.Orm.Impl
   commentId: N:SQLiteM.Orm.Impl
   href: SQLiteM.html
@@ -387,13 +455,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: SQLiteM.Abstractions
   commentId: N:SQLiteM.Abstractions
   href: SQLiteM.html
@@ -416,6 +477,13 @@ references:
   - uid: SQLiteM.Abstractions
     name: Abstractions
     href: SQLiteM.Abstractions.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: SQLiteM.Orm.Impl.RepositoryFactory.#ctor*
   commentId: Overload:SQLiteM.Orm.Impl.RepositoryFactory.#ctor
   href: SQLiteM.Orm.Impl.RepositoryFactory.html#SQLiteM_Orm_Impl_RepositoryFactory__ctor_SQLiteM_Abstractions_IEntityMapper_SQLiteM_Abstractions_ISqlBuilder_SQLiteM_Abstractions_ISqlDialect_
@@ -425,52 +493,13 @@ references:
   nameWithType.vb: RepositoryFactory.New
   fullName.vb: SQLiteM.Orm.Impl.RepositoryFactory.New
   name.vb: New
-- uid: SQLiteM.Abstractions.IEntityMapper
-  commentId: T:SQLiteM.Abstractions.IEntityMapper
+- uid: SQLiteM.Abstractions.IUnitOfWork
+  commentId: T:SQLiteM.Abstractions.IUnitOfWork
   parent: SQLiteM.Abstractions
-  href: SQLiteM.Abstractions.IEntityMapper.html
-  name: IEntityMapper
-  nameWithType: IEntityMapper
-  fullName: SQLiteM.Abstractions.IEntityMapper
-- uid: SQLiteM.Abstractions.ISqlBuilder
-  commentId: T:SQLiteM.Abstractions.ISqlBuilder
-  parent: SQLiteM.Abstractions
-  href: SQLiteM.Abstractions.ISqlBuilder.html
-  name: ISqlBuilder
-  nameWithType: ISqlBuilder
-  fullName: SQLiteM.Abstractions.ISqlBuilder
-- uid: SQLiteM.Abstractions.ISqlDialect
-  commentId: T:SQLiteM.Abstractions.ISqlDialect
-  parent: SQLiteM.Abstractions
-  href: SQLiteM.Abstractions.ISqlDialect.html
-  name: ISqlDialect
-  nameWithType: ISqlDialect
-  fullName: SQLiteM.Abstractions.ISqlDialect
-- uid: SQLiteM.Abstractions.IRepository`1
-  commentId: T:SQLiteM.Abstractions.IRepository`1
-  href: SQLiteM.Abstractions.IRepository-1.html
-  name: IRepository<T>
-  nameWithType: IRepository<T>
-  fullName: SQLiteM.Abstractions.IRepository<T>
-  nameWithType.vb: IRepository(Of T)
-  fullName.vb: SQLiteM.Abstractions.IRepository(Of T)
-  name.vb: IRepository(Of T)
-  spec.csharp:
-  - uid: SQLiteM.Abstractions.IRepository`1
-    name: IRepository
-    href: SQLiteM.Abstractions.IRepository-1.html
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: SQLiteM.Abstractions.IRepository`1
-    name: IRepository
-    href: SQLiteM.Abstractions.IRepository-1.html
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
+  href: SQLiteM.Abstractions.IUnitOfWork.html
+  name: IUnitOfWork
+  nameWithType: IUnitOfWork
+  fullName: SQLiteM.Abstractions.IUnitOfWork
 - uid: SQLiteM.Orm.Impl.RepositoryFactory.Create*
   commentId: Overload:SQLiteM.Orm.Impl.RepositoryFactory.Create
   href: SQLiteM.Orm.Impl.RepositoryFactory.html#SQLiteM_Orm_Impl_RepositoryFactory_Create__1_SQLiteM_Abstractions_IUnitOfWork_
@@ -513,13 +542,6 @@ references:
     name: IUnitOfWork
     href: SQLiteM.Abstractions.IUnitOfWork.html
   - name: )
-- uid: SQLiteM.Abstractions.IUnitOfWork
-  commentId: T:SQLiteM.Abstractions.IUnitOfWork
-  parent: SQLiteM.Abstractions
-  href: SQLiteM.Abstractions.IUnitOfWork.html
-  name: IUnitOfWork
-  nameWithType: IUnitOfWork
-  fullName: SQLiteM.Abstractions.IUnitOfWork
 - uid: SQLiteM.Abstractions.IRepository{{T}}
   commentId: T:SQLiteM.Abstractions.IRepository{``0}
   parent: SQLiteM.Abstractions

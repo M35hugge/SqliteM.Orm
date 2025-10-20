@@ -1,168 +1,236 @@
 <!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  <meta name="theme-color" content="#0f1220">
-  <link rel="stylesheet" href="../styles/theme.css">  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace SQLiteM.Abstractions | &#169; SQLiteM </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace SQLiteM.Abstractions | &#169; SQLiteM ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="../index.html" title="SQLiteM">
-                <img src="../assets/sqlitem-logo.svg" alt="SQLiteM" style="vertical-align:middle;margin-right:8px;height:28px;width:28px;">
-                <span>SQLiteM</span>
-              </a>            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="SQLiteM.Abstractions">
+
+        <article data-uid="SQLiteM.Abstractions">
 
   <h1 id="SQLiteM_Abstractions" data-uid="SQLiteM.Abstractions" class="text-break">Namespace SQLiteM.Abstractions</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
+
     <h3 id="classes">
 Classes
 </h3>
-      <h4><a class="xref" href="SQLiteM.Abstractions.AutoIncrementAttribute.html">AutoIncrementAttribute</a></h4>
-      <section><p>Markiert eine Eigenschaft als Auto-Increment-Spalte.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html">ColumnAttribute</a></h4>
-      <section><p>Markiert eine Eigenschaft als Datenbankspalte.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html">ForeignKeyAttribute</a></h4>
-      <section><p>Markiert eine Eigenschaft als Fremdschlüssel.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.ForeignKeyMap.html">ForeignKeyMap</a></h4>
-      <section><p>Beschreibt eine Fremdschlüsselbeziehung.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.IgnoreAttribute.html">IgnoreAttribute</a></h4>
-      <section><p>Schließt eine Eigenschaft vom Mapping aus.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.NamespaceDoc.html">NamespaceDoc</a></h4>
-      <section><p>Grundlegende Abstraktionen und Metadaten für das SQLiteM-ORM.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a></h4>
-      <section><p>Markiert eine Eigenschaft als Primärschlüssel der Tabelle.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a></h4>
-      <section><p>Beschreibt die Zuordnung einer CLR-Property zu einer DB-Spalte.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.Query.html">Query</a></h4>
-      <section><p>Einfache, SQL-freie Query-Beschreibung für Filter (WHERE =)
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.AutoIncrementAttribute.html">AutoIncrementAttribute</a></dt>
+      <dd><p>Markiert eine Eigenschaft als Auto-Increment-Spalte.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html">ColumnAttribute</a></dt>
+      <dd><p>Markiert eine Eigenschaft als Datenbankspalte.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html">ForeignKeyAttribute</a></dt>
+      <dd><p>Markiert eine Eigenschaft als Fremdschlüssel.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.ForeignKeyMap.html">ForeignKeyMap</a></dt>
+      <dd><p>Beschreibt eine Fremdschlüsselbeziehung.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IgnoreAttribute.html">IgnoreAttribute</a></dt>
+      <dd><p>Schließt eine Eigenschaft vom Mapping aus.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.NamespaceDoc.html">NamespaceDoc</a></dt>
+      <dd><p>Grundlegende Abstraktionen und Metadaten für das SQLiteM-ORM.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a></dt>
+      <dd><p>Markiert eine Eigenschaft als Primärschlüssel der Tabelle.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a></dt>
+      <dd><p>Beschreibt die Zuordnung einer CLR-Property zu einer DB-Spalte.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.Query.html">Query</a></dt>
+      <dd><p>Einfache, SQL-freie Query-Beschreibung für Filter (WHERE =)
 und Sortierung (ORDER BY) über Spaltennamen.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.TableAttribute.html">TableAttribute</a></h4>
-      <section><p>Markiert eine Klasse als Datenbanktabelle.</p>
-</section>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.TableAttribute.html">TableAttribute</a></dt>
+      <dd><p>Markiert eine Klasse als Datenbanktabelle.</p>
+</dd>
+    </dl>
     <h3 id="interfaces">
 Interfaces
 </h3>
-      <h4><a class="xref" href="SQLiteM.Abstractions.IConnectionFactory.html">IConnectionFactory</a></h4>
-      <section><p>Erzeugt neue Datenbankverbindungen.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.IEntityMapper.html">IEntityMapper</a></h4>
-      <section><p>Liefert Mapping-Informationen für Entitätstypen.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.IReadRepository-1.html">IReadRepository&lt;T&gt;</a></h4>
-      <section><p>Lesezugriff auf Entitäten.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.IRepositoryFactory.html">IRepositoryFactory</a></h4>
-      <section><p>Fabrik für typisierte Repositories.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.IRepository-1.html">IRepository&lt;T&gt;</a></h4>
-      <section><p>Kombiniert Lese- und Schreibfunktionen für Entitäten.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a></h4>
-      <section><p>Erzeugt SQL-Befehle für CRUD- und DDL-Operationen.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.ISqlDialect.html">ISqlDialect</a></h4>
-      <section><p>Bietet Dialekt-spezifische Operationen (Identifierquoting, Parameterpräfix).</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a></h4>
-      <section><p>Einheitlicher Arbeits-/Transaktions-Scope: kapselt Verbindung und Transaktion.</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.IUnitOfWorkFactory.html">IUnitOfWorkFactory</a></h4>
-      <section><p>Fabrik zum Erstellen neuer Unit-of-Work-Sessions (Transaktionen).</p>
-</section>
-      <h4><a class="xref" href="SQLiteM.Abstractions.IWriteRepository-1.html">IWriteRepository&lt;T&gt;</a></h4>
-      <section><p>Schreibzugriff auf Entitäten.</p>
-</section>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IConnectionFactory.html">IConnectionFactory</a></dt>
+      <dd><p>Erzeugt neue Datenbankverbindungen.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IEntityMapper.html">IEntityMapper</a></dt>
+      <dd><p>Liefert Mapping-Informationen für Entitätstypen.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IReadRepository-1.html">IReadRepository&lt;T&gt;</a></dt>
+      <dd><p>Lesezugriff auf Entitäten.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IRepositoryFactory.html">IRepositoryFactory</a></dt>
+      <dd><p>Fabrik für typisierte Repositories.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IRepository-1.html">IRepository&lt;T&gt;</a></dt>
+      <dd><p>Kombiniert Lese- und Schreibfunktionen für Entitäten.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a></dt>
+      <dd><p>Erzeugt SQL-Befehle für CRUD- und DDL-Operationen.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.ISqlDialect.html">ISqlDialect</a></dt>
+      <dd><p>Bietet Dialekt-spezifische Operationen (Identifierquoting, Parameterpräfix).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IUnitOfWork.html">IUnitOfWork</a></dt>
+      <dd><p>Einheitlicher Arbeits-/Transaktions-Scope: kapselt Verbindung und Transaktion.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IUnitOfWorkFactory.html">IUnitOfWorkFactory</a></dt>
+      <dd><p>Fabrik zum Erstellen neuer Unit-of-Work-Sessions (Transaktionen).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IWriteRepository-1.html">IWriteRepository&lt;T&gt;</a></dt>
+      <dd><p>Schreibzugriff auf Entitäten.</p>
+</dd>
+    </dl>
     <h3 id="enums">
 Enums
 </h3>
-      <h4><a class="xref" href="SQLiteM.Abstractions.OnDeleteAction.html">OnDeleteAction</a></h4>
-      <section><p>Repräsentiert die möglichen <code>ON DELETE</code>-Aktionen für Fremdschlüssel
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.OnDeleteAction.html">OnDeleteAction</a></dt>
+      <dd><p>Repräsentiert die möglichen <code>ON DELETE</code>-Aktionen für Fremdschlüssel
 in SQLite. Diese Werte geben an, wie sich das Löschen eines Datensatzes
 in der referenzierten Tabelle auf die referenzierenden Datensätze auswirkt.</p>
-</section>
+</dd>
+    </dl>
 
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © SQLiteM Dokumentation
         </div>
       </div>
-      <div class="text-center" style="padding:12px 0;">
-        <span>&copy;   · Dokumentation mit DocFX</span>
-      </div>    </div>
-
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

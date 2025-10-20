@@ -21,10 +21,18 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: UnitOfWorkFactory
     path: ../SQLiteM.Orm/Impl/Factories.cs
-    startLine: 7
+    startLine: 15
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Impl
+  summary: Implementiert eine Factory zur Erstellung von <xref href="SQLiteM.Abstractions.IUnitOfWork" data-throw-if-not-resolved="false"></xref>-Instanzen.
+  remarks: >-
+    Diese Factory kapselt die Erzeugung einer neuen <xref href="SQLiteM.Abstractions.IUnitOfWork" data-throw-if-not-resolved="false"></xref>-Instanz und
+
+    stellt sicher, dass alle benötigten Verbindungen über die bereitgestellte
+
+    <xref href="SQLiteM.Abstractions.IConnectionFactory" data-throw-if-not-resolved="false"></xref> erstellt werden.
+  example: []
   syntax:
     content: 'public class UnitOfWorkFactory : IUnitOfWorkFactory'
     content.vb: Public Class UnitOfWorkFactory Implements IUnitOfWorkFactory
@@ -58,10 +66,18 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: .ctor
     path: ../SQLiteM.Orm/Impl/Factories.cs
-    startLine: 7
+    startLine: 15
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Impl
+  summary: Implementiert eine Factory zur Erstellung von <xref href="SQLiteM.Abstractions.IUnitOfWork" data-throw-if-not-resolved="false"></xref>-Instanzen.
+  remarks: >-
+    Diese Factory kapselt die Erzeugung einer neuen <xref href="SQLiteM.Abstractions.IUnitOfWork" data-throw-if-not-resolved="false"></xref>-Instanz und
+
+    stellt sicher, dass alle benötigten Verbindungen über die bereitgestellte
+
+    <xref href="SQLiteM.Abstractions.IConnectionFactory" data-throw-if-not-resolved="false"></xref> erstellt werden.
+  example: []
   syntax:
     content: public UnitOfWorkFactory(IConnectionFactory factory)
     parameters:
@@ -90,26 +106,46 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: CreateAsync
     path: ../SQLiteM.Orm/Impl/Factories.cs
-    startLine: 11
+    startLine: 29
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Impl
-  summary: Erstellt einen neuen Unit-of-Work-Scope mit geöffneter Verbindung und gestarteter Transaktion.
+  summary: Erstellt asynchron eine neue <xref href="SQLiteM.Abstractions.IUnitOfWork" data-throw-if-not-resolved="false"></xref>-Instanz.
+  remarks: >-
+    Der Aufruf dieser Methode erstellt eine neue Arbeitseinheit, die eine Verbindung über die
+
+    konfigurierte <xref href="SQLiteM.Abstractions.IConnectionFactory" data-throw-if-not-resolved="false"></xref> öffnet. 
+
+    Sie ist in der Regel pro Transaktion oder Anfrage zu verwenden.
   example: []
   syntax:
     content: public Task<IUnitOfWork> CreateAsync(CancellationToken ct = default)
     parameters:
     - id: ct
       type: System.Threading.CancellationToken
-      description: Abbruchtoken.
+      description: Ein optionales <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> zur Steuerung des Vorgangs.
     return:
       type: System.Threading.Tasks.Task{SQLiteM.Abstractions.IUnitOfWork}
-      description: Die erstellte <xref href="SQLiteM.Abstractions.IUnitOfWork" data-throw-if-not-resolved="false"></xref>.
+      description: Eine <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> mit der erstellten <xref href="SQLiteM.Abstractions.IUnitOfWork" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Function CreateAsync(ct As CancellationToken = Nothing) As Task(Of IUnitOfWork)
   overload: SQLiteM.Orm.Impl.UnitOfWorkFactory.CreateAsync*
   implements:
   - SQLiteM.Abstractions.IUnitOfWorkFactory.CreateAsync(System.Threading.CancellationToken)
 references:
+- uid: SQLiteM.Abstractions.IUnitOfWork
+  commentId: T:SQLiteM.Abstractions.IUnitOfWork
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IUnitOfWork.html
+  name: IUnitOfWork
+  nameWithType: IUnitOfWork
+  fullName: SQLiteM.Abstractions.IUnitOfWork
+- uid: SQLiteM.Abstractions.IConnectionFactory
+  commentId: T:SQLiteM.Abstractions.IConnectionFactory
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IConnectionFactory.html
+  name: IConnectionFactory
+  nameWithType: IConnectionFactory
+  fullName: SQLiteM.Abstractions.IConnectionFactory
 - uid: SQLiteM.Orm.Impl
   commentId: N:SQLiteM.Orm.Impl
   href: SQLiteM.html
@@ -377,13 +413,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: SQLiteM.Abstractions
   commentId: N:SQLiteM.Abstractions
   href: SQLiteM.html
@@ -406,6 +435,13 @@ references:
   - uid: SQLiteM.Abstractions
     name: Abstractions
     href: SQLiteM.Abstractions.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: SQLiteM.Orm.Impl.UnitOfWorkFactory.#ctor*
   commentId: Overload:SQLiteM.Orm.Impl.UnitOfWorkFactory.#ctor
   href: SQLiteM.Orm.Impl.UnitOfWorkFactory.html#SQLiteM_Orm_Impl_UnitOfWorkFactory__ctor_SQLiteM_Abstractions_IConnectionFactory_
@@ -415,20 +451,42 @@ references:
   nameWithType.vb: UnitOfWorkFactory.New
   fullName.vb: SQLiteM.Orm.Impl.UnitOfWorkFactory.New
   name.vb: New
-- uid: SQLiteM.Abstractions.IConnectionFactory
-  commentId: T:SQLiteM.Abstractions.IConnectionFactory
-  parent: SQLiteM.Abstractions
-  href: SQLiteM.Abstractions.IConnectionFactory.html
-  name: IConnectionFactory
-  nameWithType: IConnectionFactory
-  fullName: SQLiteM.Abstractions.IConnectionFactory
-- uid: SQLiteM.Abstractions.IUnitOfWork
-  commentId: T:SQLiteM.Abstractions.IUnitOfWork
-  parent: SQLiteM.Abstractions
-  href: SQLiteM.Abstractions.IUnitOfWork.html
-  name: IUnitOfWork
-  nameWithType: IUnitOfWork
-  fullName: SQLiteM.Abstractions.IUnitOfWork
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
 - uid: SQLiteM.Orm.Impl.UnitOfWorkFactory.CreateAsync*
   commentId: Overload:SQLiteM.Orm.Impl.UnitOfWorkFactory.CreateAsync
   href: SQLiteM.Orm.Impl.UnitOfWorkFactory.html#SQLiteM_Orm_Impl_UnitOfWorkFactory_CreateAsync_System_Threading_CancellationToken_
@@ -463,14 +521,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
   - name: )
-- uid: System.Threading.CancellationToken
-  commentId: T:System.Threading.CancellationToken
-  parent: System.Threading
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
-  name: CancellationToken
-  nameWithType: CancellationToken
-  fullName: System.Threading.CancellationToken
 - uid: System.Threading.Tasks.Task{SQLiteM.Abstractions.IUnitOfWork}
   commentId: T:System.Threading.Tasks.Task{SQLiteM.Abstractions.IUnitOfWork}
   parent: System.Threading.Tasks
@@ -531,34 +581,6 @@ references:
     name: Threading
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading
-- uid: System.Threading.Tasks.Task`1
-  commentId: T:System.Threading.Tasks.Task`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<TResult>
-  nameWithType: Task<TResult>
-  fullName: System.Threading.Tasks.Task<TResult>
-  nameWithType.vb: Task(Of TResult)
-  fullName.vb: System.Threading.Tasks.Task(Of TResult)
-  name.vb: Task(Of TResult)
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: <
-  - name: TResult
-  - name: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TResult
-  - name: )
 - uid: System.Threading.Tasks
   commentId: N:System.Threading.Tasks
   isExternal: true

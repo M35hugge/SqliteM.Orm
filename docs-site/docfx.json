@@ -31,7 +31,10 @@
       "_enableSearch": "true"
     },
     "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
-    "template": ["default", "templates/sqlitem"],
+     "template": [
+      "default",
+      "modern"
+    ],
     "dest": "_site"
   }
 }
