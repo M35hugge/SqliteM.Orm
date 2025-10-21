@@ -2,11 +2,11 @@
 
 namespace Tests.Entities
 {
-    [Table("persons")]
+    [Table("Person")]
     public sealed class Person
     {
         [PrimaryKey, AutoIncrement]
-        [Column("id")]
+        [Column("Id")]
         public long Id { get; set; }
 
         [Column("FirstName", IsNullable = false, Length = 100)]
@@ -19,7 +19,7 @@ namespace Tests.Entities
         public string? Email { get; set; }
     }
 
-    [Table("orders")]
+    [Table("Order")]
     public sealed class Order
     {
         [PrimaryKey, AutoIncrement]

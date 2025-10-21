@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SQLiteM.Orm
+namespace SQLiteM.Orm.Pub
 {
     /// <summary>
     /// Stellt Konfigurationsoptionen für das SQLiteM-ORM bereit.
@@ -40,5 +40,9 @@ namespace SQLiteM.Orm
         /// <c>"Data Source=app.db"</c> oder <c>"Data Source=file::memory:?cache=shared"</c>.
         /// </remarks>
         public string ConnectionString { get; set; } = "Data Source = :memory:";
+
+        public bool EnableWal { get; set; } = false;           // später per PRAGMA
+        public string? JournalMode { get; set; }               // z.B. "WAL"
+        public string? Synchronous { get; set; }               // z.B. "NORMAL"
     }
 }

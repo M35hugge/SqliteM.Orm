@@ -19,7 +19,7 @@ items:
       repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
     id: NamespaceDoc
     path: ../SQLiteM.Orm/Orm.NamespaceDoc.cs
-    startLine: 20
+    startLine: 22
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm
@@ -27,7 +27,7 @@ items:
   remarks: >-
     Enthält u. a.:
 
-    <ul><li>Dialekt- und SQL-Generierung: <xref href="SQLiteM.Orm.SqliteDialect" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Internal.SqlBuilder" data-throw-if-not-resolved="false"></xref>.</li><li>Mapping und Repositories: <xref href="SQLiteM.Orm.Impl.ReflectionEntityMapper" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Internal.Repository%601" data-throw-if-not-resolved="false"></xref>.</li><li>Unit-of-Work und Verbindungen: <xref href="SQLiteM.Orm.Internal.UnitOfWork" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Impl.SqliteConnectionFactory" data-throw-if-not-resolved="false"></xref>.</li><li>Bootstrapping und DI: <xref href="SQLiteM.Orm.SQLiteMBootstrap" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.ServiceCollectionExtensions" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.SQLiteMOptions" data-throw-if-not-resolved="false"></xref>.</li></ul>
+    <ul><li>Einfache Clientabstraktion mit Crud-Operationen: <xref href="SQLiteM.Orm.SQLiteMClient" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.SQLiteMClient" data-throw-if-not-resolved="false"></xref>.</li><li>Dialekt- und SQL-Generierung: <xref href="SQLiteM.Orm.SqliteDialect" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Internal.SqlBuilder" data-throw-if-not-resolved="false"></xref>.</li><li>Mapping und Repositories: <xref href="SQLiteM.Orm.Impl.ReflectionEntityMapper" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Internal.Repository%601" data-throw-if-not-resolved="false"></xref>.</li><li>Unit-of-Work und Verbindungen: <xref href="SQLiteM.Orm.Internal.UnitOfWork" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Impl.SqliteConnectionFactory" data-throw-if-not-resolved="false"></xref>.</li><li>Bootstrapping und DI: <xref href="SQLiteM.Orm.SQLiteMBootstrap" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.ServiceCollectionExtensions" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.SQLiteMOptions" data-throw-if-not-resolved="false"></xref>.</li></ul>
 
     Registrierung im DI-Container:
 
@@ -47,6 +47,12 @@ items:
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
 references:
+- uid: SQLiteM.Orm.SQLiteMClient
+  commentId: T:SQLiteM.Orm.SQLiteMClient
+  href: SQLiteM.Orm.SQLiteMClient.html
+  name: SQLiteMClient
+  nameWithType: SQLiteMClient
+  fullName: SQLiteM.Orm.SQLiteMClient
 - uid: SQLiteM.Orm.SqliteDialect
   commentId: T:SQLiteM.Orm.SqliteDialect
   href: SQLiteM.Orm.SqliteDialect.html

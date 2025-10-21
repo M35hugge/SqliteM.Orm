@@ -77,6 +77,9 @@ items:
   - uid: SQLiteM.Orm.SQLiteMBootstrap
     name: SQLiteMBootstrap
     type: Class
+  - uid: SQLiteM.Orm.SQLiteMClient
+    name: SQLiteMClient
+    type: Class
   - uid: SQLiteM.Orm.SQLiteMOptions
     name: SQLiteMOptions
     type: Class

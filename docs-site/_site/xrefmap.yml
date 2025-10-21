@@ -1304,6 +1304,197 @@ references:
   fullName.vb: SQLiteM.Orm.SQLiteMBootstrap.EnsureCreatedAsync(Of T)(SQLiteM.Abstractions.IUnitOfWorkFactory, SQLiteM.Abstractions.ISqlBuilder, System.Threading.CancellationToken)
   nameWithType: SQLiteMBootstrap.EnsureCreatedAsync<T>(IUnitOfWorkFactory, ISqlBuilder, CancellationToken)
   nameWithType.vb: SQLiteMBootstrap.EnsureCreatedAsync(Of T)(IUnitOfWorkFactory, ISqlBuilder, CancellationToken)
+- uid: SQLiteM.Orm.SQLiteMClient
+  name: SQLiteMClient
+  href: api/SQLiteM.Orm.SQLiteMClient.html
+  commentId: T:SQLiteM.Orm.SQLiteMClient
+  fullName: SQLiteM.Orm.SQLiteMClient
+  nameWithType: SQLiteMClient
+- uid: SQLiteM.Orm.SQLiteMClient.#ctor(System.String)
+  name: SQLiteMClient(string)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient__ctor_System_String_
+  commentId: M:SQLiteM.Orm.SQLiteMClient.#ctor(System.String)
+  name.vb: New(String)
+  fullName: SQLiteM.Orm.SQLiteMClient.SQLiteMClient(string)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.New(String)
+  nameWithType: SQLiteMClient.SQLiteMClient(string)
+  nameWithType.vb: SQLiteMClient.New(String)
+- uid: SQLiteM.Orm.SQLiteMClient.#ctor*
+  name: SQLiteMClient
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient__ctor_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SQLiteM.Orm.SQLiteMClient.SQLiteMClient
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.New
+  nameWithType: SQLiteMClient.SQLiteMClient
+  nameWithType.vb: SQLiteMClient.New
+- uid: SQLiteM.Orm.SQLiteMClient.DeleteAsync*
+  name: DeleteAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_DeleteAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.DeleteAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.DeleteAsync
+  nameWithType: SQLiteMClient.DeleteAsync
+- uid: SQLiteM.Orm.SQLiteMClient.DeleteAsync``1(System.Object,System.Threading.CancellationToken)
+  name: DeleteAsync<T>(object, CancellationToken)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_DeleteAsync__1_System_Object_System_Threading_CancellationToken_
+  commentId: M:SQLiteM.Orm.SQLiteMClient.DeleteAsync``1(System.Object,System.Threading.CancellationToken)
+  name.vb: DeleteAsync(Of T)(Object, CancellationToken)
+  fullName: SQLiteM.Orm.SQLiteMClient.DeleteAsync<T>(object, System.Threading.CancellationToken)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.DeleteAsync(Of T)(Object, System.Threading.CancellationToken)
+  nameWithType: SQLiteMClient.DeleteAsync<T>(object, CancellationToken)
+  nameWithType.vb: SQLiteMClient.DeleteAsync(Of T)(Object, CancellationToken)
+- uid: SQLiteM.Orm.SQLiteMClient.DisposeAsync
+  name: DisposeAsync()
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_DisposeAsync
+  commentId: M:SQLiteM.Orm.SQLiteMClient.DisposeAsync
+  fullName: SQLiteM.Orm.SQLiteMClient.DisposeAsync()
+  nameWithType: SQLiteMClient.DisposeAsync()
+- uid: SQLiteM.Orm.SQLiteMClient.DisposeAsync*
+  name: DisposeAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_DisposeAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.DisposeAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.DisposeAsync
+  nameWithType: SQLiteMClient.DisposeAsync
+- uid: SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync(System.Threading.CancellationToken,System.Type[])
+  name: EnsureCreateAsync(CancellationToken, params Type[])
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_EnsureCreateAsync_System_Threading_CancellationToken_System_Type___
+  commentId: M:SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync(System.Threading.CancellationToken,System.Type[])
+  name.vb: EnsureCreateAsync(CancellationToken, ParamArray Type())
+  fullName: SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync(System.Threading.CancellationToken, params System.Type[])
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync(System.Threading.CancellationToken, ParamArray System.Type())
+  nameWithType: SQLiteMClient.EnsureCreateAsync(CancellationToken, params Type[])
+  nameWithType.vb: SQLiteMClient.EnsureCreateAsync(CancellationToken, ParamArray Type())
+- uid: SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync*
+  name: EnsureCreateAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_EnsureCreateAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync
+  nameWithType: SQLiteMClient.EnsureCreateAsync
+- uid: SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync``1(System.Threading.CancellationToken)
+  name: EnsureCreateAsync<T>(CancellationToken)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_EnsureCreateAsync__1_System_Threading_CancellationToken_
+  commentId: M:SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync``1(System.Threading.CancellationToken)
+  name.vb: EnsureCreateAsync(Of T)(CancellationToken)
+  fullName: SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync<T>(System.Threading.CancellationToken)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.EnsureCreateAsync(Of T)(System.Threading.CancellationToken)
+  nameWithType: SQLiteMClient.EnsureCreateAsync<T>(CancellationToken)
+  nameWithType.vb: SQLiteMClient.EnsureCreateAsync(Of T)(CancellationToken)
+- uid: SQLiteM.Orm.SQLiteMClient.EnsureCreatedAsync*
+  name: EnsureCreatedAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_EnsureCreatedAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.EnsureCreatedAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.EnsureCreatedAsync
+  nameWithType: SQLiteMClient.EnsureCreatedAsync
+- uid: SQLiteM.Orm.SQLiteMClient.EnsureCreatedAsync``1(System.Threading.CancellationToken)
+  name: EnsureCreatedAsync<T>(CancellationToken)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_EnsureCreatedAsync__1_System_Threading_CancellationToken_
+  commentId: M:SQLiteM.Orm.SQLiteMClient.EnsureCreatedAsync``1(System.Threading.CancellationToken)
+  name.vb: EnsureCreatedAsync(Of T)(CancellationToken)
+  fullName: SQLiteM.Orm.SQLiteMClient.EnsureCreatedAsync<T>(System.Threading.CancellationToken)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.EnsureCreatedAsync(Of T)(System.Threading.CancellationToken)
+  nameWithType: SQLiteMClient.EnsureCreatedAsync<T>(CancellationToken)
+  nameWithType.vb: SQLiteMClient.EnsureCreatedAsync(Of T)(CancellationToken)
+- uid: SQLiteM.Orm.SQLiteMClient.FindAllAsync*
+  name: FindAllAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_FindAllAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.FindAllAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.FindAllAsync
+  nameWithType: SQLiteMClient.FindAllAsync
+- uid: SQLiteM.Orm.SQLiteMClient.FindAllAsync``1(System.Threading.CancellationToken)
+  name: FindAllAsync<T>(CancellationToken)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_FindAllAsync__1_System_Threading_CancellationToken_
+  commentId: M:SQLiteM.Orm.SQLiteMClient.FindAllAsync``1(System.Threading.CancellationToken)
+  name.vb: FindAllAsync(Of T)(CancellationToken)
+  fullName: SQLiteM.Orm.SQLiteMClient.FindAllAsync<T>(System.Threading.CancellationToken)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.FindAllAsync(Of T)(System.Threading.CancellationToken)
+  nameWithType: SQLiteMClient.FindAllAsync<T>(CancellationToken)
+  nameWithType.vb: SQLiteMClient.FindAllAsync(Of T)(CancellationToken)
+- uid: SQLiteM.Orm.SQLiteMClient.FindByIdAsync*
+  name: FindByIdAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_FindByIdAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.FindByIdAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.FindByIdAsync
+  nameWithType: SQLiteMClient.FindByIdAsync
+- uid: SQLiteM.Orm.SQLiteMClient.FindByIdAsync``1(System.Object,System.Threading.CancellationToken)
+  name: FindByIdAsync<T>(object, CancellationToken)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_FindByIdAsync__1_System_Object_System_Threading_CancellationToken_
+  commentId: M:SQLiteM.Orm.SQLiteMClient.FindByIdAsync``1(System.Object,System.Threading.CancellationToken)
+  name.vb: FindByIdAsync(Of T)(Object, CancellationToken)
+  fullName: SQLiteM.Orm.SQLiteMClient.FindByIdAsync<T>(object, System.Threading.CancellationToken)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.FindByIdAsync(Of T)(Object, System.Threading.CancellationToken)
+  nameWithType: SQLiteMClient.FindByIdAsync<T>(object, CancellationToken)
+  nameWithType.vb: SQLiteMClient.FindByIdAsync(Of T)(Object, CancellationToken)
+- uid: SQLiteM.Orm.SQLiteMClient.InsertAsync*
+  name: InsertAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_InsertAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.InsertAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.InsertAsync
+  nameWithType: SQLiteMClient.InsertAsync
+- uid: SQLiteM.Orm.SQLiteMClient.InsertAsync``1(``0,System.Threading.CancellationToken)
+  name: InsertAsync<T>(T, CancellationToken)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_InsertAsync__1___0_System_Threading_CancellationToken_
+  commentId: M:SQLiteM.Orm.SQLiteMClient.InsertAsync``1(``0,System.Threading.CancellationToken)
+  name.vb: InsertAsync(Of T)(T, CancellationToken)
+  fullName: SQLiteM.Orm.SQLiteMClient.InsertAsync<T>(T, System.Threading.CancellationToken)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.InsertAsync(Of T)(T, System.Threading.CancellationToken)
+  nameWithType: SQLiteMClient.InsertAsync<T>(T, CancellationToken)
+  nameWithType.vb: SQLiteMClient.InsertAsync(Of T)(T, CancellationToken)
+- uid: SQLiteM.Orm.SQLiteMClient.QueryAsync*
+  name: QueryAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_QueryAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.QueryAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.QueryAsync
+  nameWithType: SQLiteMClient.QueryAsync
+- uid: SQLiteM.Orm.SQLiteMClient.QueryAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  name: QueryAsync<T>(Query, CancellationToken)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_QueryAsync__1_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  commentId: M:SQLiteM.Orm.SQLiteMClient.QueryAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  name.vb: QueryAsync(Of T)(Query, CancellationToken)
+  fullName: SQLiteM.Orm.SQLiteMClient.QueryAsync<T>(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.QueryAsync(Of T)(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  nameWithType: SQLiteMClient.QueryAsync<T>(Query, CancellationToken)
+  nameWithType.vb: SQLiteMClient.QueryAsync(Of T)(Query, CancellationToken)
+- uid: SQLiteM.Orm.SQLiteMClient.UpdateAsync*
+  name: UpdateAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_UpdateAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.UpdateAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.UpdateAsync
+  nameWithType: SQLiteMClient.UpdateAsync
+- uid: SQLiteM.Orm.SQLiteMClient.UpdateAsync``1(``0,System.Threading.CancellationToken)
+  name: UpdateAsync<T>(T, CancellationToken)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_UpdateAsync__1___0_System_Threading_CancellationToken_
+  commentId: M:SQLiteM.Orm.SQLiteMClient.UpdateAsync``1(``0,System.Threading.CancellationToken)
+  name.vb: UpdateAsync(Of T)(T, CancellationToken)
+  fullName: SQLiteM.Orm.SQLiteMClient.UpdateAsync<T>(T, System.Threading.CancellationToken)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.UpdateAsync(Of T)(T, System.Threading.CancellationToken)
+  nameWithType: SQLiteMClient.UpdateAsync<T>(T, CancellationToken)
+  nameWithType.vb: SQLiteMClient.UpdateAsync(Of T)(T, CancellationToken)
+- uid: SQLiteM.Orm.SQLiteMClient.WithTransactionAsync(System.Func{SQLiteM.Abstractions.IRepositoryFactory,SQLiteM.Abstractions.IUnitOfWork,System.Threading.Tasks.Task})
+  name: WithTransactionAsync(Func<IRepositoryFactory, IUnitOfWork, Task>)
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_WithTransactionAsync_System_Func_SQLiteM_Abstractions_IRepositoryFactory_SQLiteM_Abstractions_IUnitOfWork_System_Threading_Tasks_Task__
+  commentId: M:SQLiteM.Orm.SQLiteMClient.WithTransactionAsync(System.Func{SQLiteM.Abstractions.IRepositoryFactory,SQLiteM.Abstractions.IUnitOfWork,System.Threading.Tasks.Task})
+  name.vb: WithTransactionAsync(Func(Of IRepositoryFactory, IUnitOfWork, Task))
+  fullName: SQLiteM.Orm.SQLiteMClient.WithTransactionAsync(System.Func<SQLiteM.Abstractions.IRepositoryFactory, SQLiteM.Abstractions.IUnitOfWork, System.Threading.Tasks.Task>)
+  fullName.vb: SQLiteM.Orm.SQLiteMClient.WithTransactionAsync(System.Func(Of SQLiteM.Abstractions.IRepositoryFactory, SQLiteM.Abstractions.IUnitOfWork, System.Threading.Tasks.Task))
+  nameWithType: SQLiteMClient.WithTransactionAsync(Func<IRepositoryFactory, IUnitOfWork, Task>)
+  nameWithType.vb: SQLiteMClient.WithTransactionAsync(Func(Of IRepositoryFactory, IUnitOfWork, Task))
+- uid: SQLiteM.Orm.SQLiteMClient.WithTransactionAsync*
+  name: WithTransactionAsync
+  href: api/SQLiteM.Orm.SQLiteMClient.html#SQLiteM_Orm_SQLiteMClient_WithTransactionAsync_
+  commentId: Overload:SQLiteM.Orm.SQLiteMClient.WithTransactionAsync
+  isSpec: "True"
+  fullName: SQLiteM.Orm.SQLiteMClient.WithTransactionAsync
+  nameWithType: SQLiteMClient.WithTransactionAsync
 - uid: SQLiteM.Orm.SQLiteMOptions
   name: SQLiteMOptions
   href: api/SQLiteM.Orm.SQLiteMOptions.html

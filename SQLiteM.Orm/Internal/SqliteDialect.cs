@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SQLiteM.Orm
+namespace SQLiteM.Orm.Internal
 {
     /// <summary>
     /// Implementierung des <see cref="ISqlDialect"/> für SQLite.
@@ -41,6 +41,13 @@ namespace SQLiteM.Orm
         /// // Ergebnis: "User"
         /// </code>
         /// </example>
-        public string QuoteIdentifier(string name) => $"\"{name}\"";
+        /// <exception cref="ArgumentNullException">
+        /// Wenn <paramref name="name"/> <see langword="null"/> ist.
+        /// </exception>
+        public string QuoteIdentifier(string name)
+        {
+            ArgumentNullException.ThrowIfNull(name);
+            return $"\"{name}\"";
+        }
     }
 }

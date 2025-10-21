@@ -73,7 +73,7 @@
         <article data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
-<h2 id="1-services-registrieren">1. Services registrieren</h2>
+<h2 id="1-services-und-client-registrieren">1. Services und Client registrieren</h2>
 <pre><code class="lang-csharp">using Microsoft.Extensions.DependencyInjection;
 using SQLiteM.Abstractions;
 using SQLiteM.Orm;
@@ -83,6 +83,7 @@ var cs = $&quot;Data Source={dbPath};Cache=Shared&quot;;
 var services = new ServiceCollection()
     .AddSQLiteM(o =&gt; o.ConnectionString = cs)
     .BuildServiceProvider();
+var client = new SQLiteMClient(cs);
 </code></pre>
 <h2 id="2-entity-definieren">2. Entity definieren</h2>
 <pre><code class="lang-csharp">using SQLiteM.Abstractions;
@@ -106,20 +107,22 @@ public sealed class Person
 
 </code></pre>
 <h2 id="3-schema-erzeugen">3. Schema erzeugen</h2>
-<pre><code class="lang-csharp">await using (var uow = await services.GetRequiredService&lt;IUnitOfWorkFactory&gt;().CreateAsync())
-{
-    var builder = services.GetRequiredService&lt;ISqlBuilder&gt;();
-    await SQLiteM.Orm.SchemaBootstrapper.EnsureCreatedAsync&lt;Person&gt;(uow, builder);
-    await uow.CommitAsync();
-}
+<pre><code class="lang-csharp">client.EnsureCreatedAsync&lt;Person&gt;();
 </code></pre>
 <h2 id="4-crud">4. CRUD</h2>
-<pre><code class="lang-csharp">await using (var uow = await services.GetRequiredService&lt;IUnitOfWorkFactory&gt;().CreateAsync())
-{
-    var repo = services.GetRequiredService&lt;IRepositoryFactory&gt;().Create&lt;Person&gt;(uow);
-    var id = await repo.InsertAsync(new Person { FirstName = &quot;Ada&quot;, LastName = &quot;Lovelace&quot;});
-    await uow.CommitAsync();
-}
+<pre><code class="lang-csharp">    //Insert
+    var id = await client.InsertAsync(new Person { FirstName = &quot;Ada&quot;, LastName = &quot;Lovelace&quot;});
+    
+    //GetById
+    var person = await client.FindByIdAsync(id);
+
+    //Update
+    person.FirsName = &quot;Bda&quot;;
+    var newPerson=await client.UpdateAsync(person);
+
+    //Delelte
+    await client.DeleteAsync(id);
+    
 </code></pre>
 
 </article>

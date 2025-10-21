@@ -1,28 +1,62 @@
-# 🧩 SQLiteM – leichtgewichtiges ORM für SQLite
+# SQLiteM – leichtgewichtiges ORM für SQLite
 
 SQLiteM ist ein einfaches, attributbasiertes ORM für .NET-Anwendungen,  
 das ein **Unit-of-Work**-Pattern mit einem **Repository-System** kombiniert – optimiert für **SQLite**.
 
 ---
 
-## 🚀 Schnellstart
+## Schnellstart
 
 ```csharp
 // Program.cs
 using Microsoft.Extensions.DependencyInjection;
+using SQLiteM.Abstractions;
+using SQLiteM.Demo;
 using SQLiteM.Orm;
 
-var services = new ServiceCollection()
-    .AddSQLiteM(opt => opt.ConnectionString = "Data Source=app.db")
+string dbPath = Path.Combine(AppContext.BaseDirectory, "app.db");
+string cs = $"Data Source={dbPath};Cache=Shared";
+
+// DI aufsetzen
+ServieProvider services = new ServiceCollection()
+    .AddSQLiteM(o => o.ConnectionString = cs)
     .BuildServiceProvider();
 
-// Unit-of-Work erstellen
-using var scope = services.CreateScope();
-var uowFactory = scope.ServiceProvider.GetRequiredService<IUnitOfWorkFactory>();
-using var uow = await uowFactory.CreateAsync();
+// Schema einmal anlegen (vor CRUD)
+SQLiteMClient client = new (cs);
+Type[] entities = { typeof(Person), typeof(Order) };
 
-await SQLiteMBootstrap.EnsureCreatedAsync<User>(uow, 
-    scope.ServiceProvider.GetRequiredService<ISqlBuilder>());
+await client.EnsureCreateAsync(new CancellationToken(), entities);
+
+// Persons und Orders in die Datenbank schreiben
+Person p = new Person { FirstName = "Ada", LastName = "Lovelace", Email = "ada@example.com" };
+long id= await client.InsertAsync(p);
+
+Order o1 = new Order { PersonId = id, Total = 19.99m, Note = "Notebook" };
+Order o2 = new Order { PersonId = id, Total = 42.50m, Note = "Books" };
+Order o3 = new Order { PersonId = id, Total = 5.00m, Note = "Coffee" };
+
+await client.InsertAsync(o1);
+await client.InsertAsync(o2);
+await client.InsertAsync(o3);
+Console.WriteLine($"Inserted Person {id} and 3 orders.");
+
+// Orders einer Person laden (einfacher Query-Builder)
+Order orders = await client.QueryAsync<Order>(Query.WhereEquals("person_id", id).OrderBy("id"));
+foreach (Order o in orders)
+    Console.WriteLine($"Order {o.Id}: total={o.Total} note={o.Note}");
+
+
+
+// Cascade-Delete testen: Person löschen -> Orders werden mitgelöscht
+await client.DeleteAsync<Person>(id);
+Console.WriteLine($"Deleted person {id} (ON DELETE CASCADE should remove orders).");
+
+
+// Verifizieren, dass keine Orders mehr existieren
+Order remaining= await client.FindAllAsync<Order>();
+Console.WriteLine($"Remaining orders: {remaining.Count}");
+
 
 ---
 
@@ -34,29 +68,9 @@ await SQLiteMBootstrap.EnsureCreatedAsync<User>(uow,
 | [Queries](queries.md)                        | Einfache Filter- und Sortierabfragen        |
 | [API](api/index.md)                          | Vollständige API-Referenz                   |
 
----
-+-----------------+
-| Application     |
-| (nutzt ORM API) |
-+-----------------+
-        │
-        ▼
-+-----------------+
-| SQLiteM.Orm     |
-|  - Repository   |
-|  - UnitOfWork   |
-|  - SqlBuilder   |
-+-----------------+
-        │
-        ▼
-+-----------------+
-| SQLiteM.Abstractions |
-|  - Interfaces         |
-|  - Attribute          |
-+-----------------+
 
 
-💬 Warum SQLiteM?
+Warum SQLiteM?
 
 Minimalistisch: Nur, was du wirklich brauchst.
 
@@ -68,17 +82,4 @@ Vollständig async: Kompatibel mit modernen .NET-Patterns.
 
 
 
----
 
-## ✨ Hinweise zur Integration
-
-1. Ersetze die Datei `index.md` im Wurzelverzeichnis deines DocFX-Dokuments (meist `/docs/index.md` oder `/docfx_project/articles/index.md`) durch den obigen Inhalt.  
-2. Stelle sicher, dass in `docfx.json` im Abschnitt `"content"` der Pfad zur `index.md` enthalten ist.  
-3. Optional:  
-   - Füge im `docfx.json` unter `"globalMetadata"` z. B. `"title": "SQLiteM Dokumentation"` hinzu.  
-   - Wenn du ein Logo oder ein Favicon möchtest, kannst du das unter `"template"` → `"default"` → `logo` konfigurieren.
-
----
-
-Möchtest du, dass ich dir im nächsten Schritt ein **passendes Farb- und Layoutkonzept** für den DocFX-Template-Ordner (`templates/`) zusammenstelle – z. B. angepasste Kopfzeile, Akzentfarbe und Schrift?  
-(Damit kann die Seite aussehen wie ein modernes Framework-Docs-Portal, z. B. Dapper oder EF Core-ähnlich.)

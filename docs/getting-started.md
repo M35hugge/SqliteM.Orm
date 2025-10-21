@@ -1,6 +1,6 @@
 # Getting Started
 
-## 1. Services registrieren
+## 1. Services und Client registrieren
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
 using SQLiteM.Abstractions;
@@ -11,6 +11,7 @@ var cs = $"Data Source={dbPath};Cache=Shared";
 var services = new ServiceCollection()
     .AddSQLiteM(o => o.ConnectionString = cs)
     .BuildServiceProvider();
+var client = new SQLiteMClient(cs);
 ```
 ## 2. Entity definieren
 ```csharp
@@ -36,19 +37,21 @@ public sealed class Person
 ```
 ## 3. Schema erzeugen
 ```csharp
-await using (var uow = await services.GetRequiredService<IUnitOfWorkFactory>().CreateAsync())
-{
-    var builder = services.GetRequiredService<ISqlBuilder>();
-    await SQLiteM.Orm.SchemaBootstrapper.EnsureCreatedAsync<Person>(uow, builder);
-    await uow.CommitAsync();
-}
+client.EnsureCreatedAsync<Person>();
 ```
 ## 4. CRUD 
 ```csharp
-await using (var uow = await services.GetRequiredService<IUnitOfWorkFactory>().CreateAsync())
-{
-    var repo = services.GetRequiredService<IRepositoryFactory>().Create<Person>(uow);
-    var id = await repo.InsertAsync(new Person { FirstName = "Ada", LastName = "Lovelace"});
-    await uow.CommitAsync();
-}
+    //Insert
+    var id = await client.InsertAsync(new Person { FirstName = "Ada", LastName = "Lovelace"});
+    
+    //GetById
+    var person = await client.FindByIdAsync(id);
+
+    //Update
+    person.FirsName = "Bda";
+    var newPerson=await client.UpdateAsync(person);
+
+    //Delelte
+    await client.DeleteAsync(id);
+    
 ```

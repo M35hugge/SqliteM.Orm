@@ -17,7 +17,7 @@ await using (var uow = await services.GetRequiredService<IUnitOfWorkFactory>().C
 
 // Per Id
 
-```sharp
+```csharp
 var one = await repo.FindByIdAsync(1L);
 ```
 
@@ -27,13 +27,13 @@ Der Query-Typ erlaubt eine WHERE-Bedingung (Equals) und ORDER BY.
 
 Wichtig: Verwende Spaltennamen (wie in [Column("...")]), nicht Propertynamen.
 
-```sharp
+```csharp
 // Alle "Lovelace" nach Vornamen sortiert
 var people = await repo.QueryAsync(
     Query.WhereEquals("last_name", "Lovelace").OrderBy("first_name"));    
 ```
 Mit OrderBy("... ", desc: true) kannst du absteigend sortieren:
-```sharp
+```csharp
 var latest = await repo.QueryAsync(
     new Query().OrderBy("id", desc: true));
 ```

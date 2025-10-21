@@ -13,8 +13,8 @@ namespace SQLiteM.Orm.Internal
     /// </summary>
     /// <remarks>
     /// Diese Klasse führt DDL-Anweisungen aus, die über <see cref="ISqlBuilder"/> generiert werden.
-    /// Ob die Ausführung idempotent ist (z. B. durch <c>CREATE TABLE IF NOT EXISTS</c>), hängt von der
-    /// konkreten Implementierung des <see cref="ISqlBuilder"/> ab.
+    /// Die Idempotenz (z. B. via <c>CREATE TABLE IF NOT EXISTS</c>) liegt in der Verantwortung der
+    /// konkreten <see cref="ISqlBuilder"/>-Implementierung.
     /// </remarks>
     /// <seealso cref="ISqlBuilder"/>
     /// <seealso cref="IUnitOfWork"/>
@@ -22,20 +22,31 @@ namespace SQLiteM.Orm.Internal
     {
         /// <summary>
         /// Stellt sicher, dass die Tabelle für den Entitätstyp <typeparamref name="T"/> existiert,
-        /// indem die entsprechende DDL-Anweisung ausgeführt wird.
+        /// indem die entsprechende DDL-Anweisung innerhalb der aktuellen Transaktion ausgeführt wird.
         /// </summary>
         /// <typeparam name="T">Der Entitätstyp, dessen Tabelle erzeugt werden soll.</typeparam>
-        /// <param name="uow">Die aktive <see cref="IUnitOfWork"/> (liefert Verbindung/Transaktion).</param>
+        /// <param name="uow">Die aktive <see cref="IUnitOfWork"/> (liefert Verbindung und Transaktion).</param>
         /// <param name="builder">Der <see cref="ISqlBuilder"/>, der die DDL-Anweisung erzeugt.</param>
-        /// <param name="ct">Ein optionales <see cref="CancellationToken"/>.</param>
-        /// <returns>Eine abgeschlossene Aufgabe, sobald die DDL ausgeführt wurde.</returns>
+        /// <param name="ct">Optionaler <see cref="CancellationToken"/>.</param>
+        /// <returns>Eine Aufgabe, die abgeschlossen wird, sobald die DDL ausgeführt wurde.</returns>
+        /// <exception cref="ArgumentNullException">Wenn <paramref name="uow"/> oder <paramref name="builder"/> null ist.</exception>
+        /// <exception cref="InvalidOperationException">
+        /// Wenn <see cref="IUnitOfWork.Connection"/> oder <see cref="IUnitOfWork.Transaction"/> null ist.
+        /// </exception>
         /// <remarks>
         /// Es wird die von <paramref name="builder"/> erzeugte Anweisung <see cref="ISqlBuilder.BuildCreateTable(Type)"/>
-        /// ausgeführt. Die Methode nutzt die bestehende Verbindung aus <paramref name="uow"/>.
+        /// ausgeführt. Die Ausführung erfolgt stets in der aktuellen Transaktion (<see cref="IUnitOfWork.Transaction"/>).
         /// </remarks>
         public static async Task EnsureCreatedAsync<T>(IUnitOfWork uow, ISqlBuilder builder, CancellationToken ct = default)
         {
+            ArgumentNullException.ThrowIfNull(uow);
+            ArgumentNullException.ThrowIfNull(builder);
+
+            if (uow.Connection is null) throw new InvalidOperationException("UnitOfWork.Connection is null, Ensure the UnitOfWork is properly created and not disposed");
+            if (uow.Transaction is null) throw new InvalidOperationException("UnitOfWork.Transaction is null, Ensure the UnitOfWork is properly created and not disposed");
+
             var ddl = builder.BuildCreateTable(typeof(T));
+
             using var cmd = uow.Connection.CreateCommand();
             cmd.CommandText = ddl;
 

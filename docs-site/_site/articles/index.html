@@ -79,19 +79,53 @@ das ein <strong>Unit-of-Work</strong>-Pattern mit einem <strong>Repository-Syste
 <h2 id="-schnellstart">🚀 Schnellstart</h2>
 <pre><code class="lang-csharp">// Program.cs
 using Microsoft.Extensions.DependencyInjection;
+using SQLiteM.Abstractions;
+using SQLiteM.Demo;
 using SQLiteM.Orm;
 
-var services = new ServiceCollection()
-    .AddSQLiteM(opt =&gt; opt.ConnectionString = &quot;Data Source=app.db&quot;)
+string dbPath = Path.Combine(AppContext.BaseDirectory, &quot;app.db&quot;);
+string cs = $&quot;Data Source={dbPath};Cache=Shared&quot;;
+
+// DI aufsetzen
+ServieProvider services = new ServiceCollection()
+    .AddSQLiteM(o =&gt; o.ConnectionString = cs)
     .BuildServiceProvider();
 
-// Unit-of-Work erstellen
-using var scope = services.CreateScope();
-var uowFactory = scope.ServiceProvider.GetRequiredService&lt;IUnitOfWorkFactory&gt;();
-using var uow = await uowFactory.CreateAsync();
+// Schema einmal anlegen (vor CRUD)
+SQLiteMClient client = new (cs);
+Type[] entities = { typeof(Person), typeof(Order) };
 
-await SQLiteMBootstrap.EnsureCreatedAsync&lt;User&gt;(uow, 
-    scope.ServiceProvider.GetRequiredService&lt;ISqlBuilder&gt;());
+await client.EnsureCreateAsync(new CancellationToken(), entities);
+
+// Persons und Orders in die Datenbank schreiben
+Person p = new Person { FirstName = &quot;Ada&quot;, LastName = &quot;Lovelace&quot;, Email = &quot;ada@example.com&quot; };
+long id= await client.InsertAsync(p);
+
+Order o1 = new Order { PersonId = id, Total = 19.99m, Note = &quot;Notebook&quot; };
+Order o2 = new Order { PersonId = id, Total = 42.50m, Note = &quot;Books&quot; };
+Order o3 = new Order { PersonId = id, Total = 5.00m, Note = &quot;Coffee&quot; };
+
+await client.InsertAsync(o1);
+await client.InsertAsync(o2);
+await client.InsertAsync(o3);
+Console.WriteLine($&quot;Inserted Person {id} and 3 orders.&quot;);
+
+// Orders einer Person laden (einfacher Query-Builder)
+Order orders = await client.QueryAsync&lt;Order&gt;(Query.WhereEquals(&quot;person_id&quot;, id).OrderBy(&quot;id&quot;));
+foreach (Order o in orders)
+    Console.WriteLine($&quot;Order {o.Id}: total={o.Total} note={o.Note}&quot;);
+
+
+
+// Cascade-Delete testen: Person löschen -&gt; Orders werden mitgelöscht
+await client.DeleteAsync&lt;Person&gt;(id);
+Console.WriteLine($&quot;Deleted person {id} (ON DELETE CASCADE should remove orders).&quot;);
+
+
+// Verifizieren, dass keine Orders mehr existieren
+Order remaining= await client.FindAllAsync&lt;Order&gt;();
+Console.WriteLine($&quot;Remaining orders: {remaining.Count}&quot;);
+
 
 ---
 

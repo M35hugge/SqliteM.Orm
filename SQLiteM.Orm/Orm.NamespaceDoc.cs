@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using SQLiteM.Orm.Pub;
+using SQLiteM.Orm.Internal;
+using System.Runtime.CompilerServices;
 
 namespace SQLiteM.Orm
 {
@@ -8,9 +10,11 @@ namespace SQLiteM.Orm
     /// <remarks>
     /// Enthält u. a.:
     /// <list type="bullet">
+    /// <item><description>Einfache Clientabstraktion mit Crud-Operationen: <see cref="SQLiteMClient"/>, <see cref="SQLiteMClient"/>.</description></item>
+    /// 
     /// <item><description>Dialekt- und SQL-Generierung: <see cref="SqliteDialect"/>, <see cref="SQLiteM.Orm.Internal.SqlBuilder"/>.</description></item>
-    /// <item><description>Mapping und Repositories: <see cref="SQLiteM.Orm.Impl.ReflectionEntityMapper"/>, <see cref="SQLiteM.Orm.Internal.Repository{T}"/>.</description></item>
-    /// <item><description>Unit-of-Work und Verbindungen: <see cref="SQLiteM.Orm.Internal.UnitOfWork"/>, <see cref="SQLiteM.Orm.Impl.SqliteConnectionFactory"/>.</description></item>
+    /// <item><description>Mapping und Repositories: <see cref="ReflectionEntityMapper"/>, <see cref="SQLiteM.Orm.Internal.Repository{T}"/>.</description></item>
+    /// <item><description>Unit-of-Work und Verbindungen: <see cref="SQLiteM.Orm.Internal.UnitOfWork"/>, <see cref="Internal.SqliteConnectionFactory"/>.</description></item>
     /// <item><description>Bootstrapping und DI: <see cref="SQLiteMBootstrap"/>, <see cref="ServiceCollectionExtensions"/>, <see cref="SQLiteMOptions"/>.</description></item>
     /// </list>
     /// Registrierung im DI-Container:

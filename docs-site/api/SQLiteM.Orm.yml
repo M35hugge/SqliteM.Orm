@@ -6,6 +6,7 @@ items:
   children:
   - SQLiteM.Orm.NamespaceDoc
   - SQLiteM.Orm.SQLiteMBootstrap
+  - SQLiteM.Orm.SQLiteMClient
   - SQLiteM.Orm.SQLiteMOptions
   - SQLiteM.Orm.ServiceCollectionExtensions
   - SQLiteM.Orm.SqliteDialect
@@ -43,6 +44,12 @@ references:
   name: SQLiteMBootstrap
   nameWithType: SQLiteMBootstrap
   fullName: SQLiteM.Orm.SQLiteMBootstrap
+- uid: SQLiteM.Orm.SQLiteMClient
+  commentId: T:SQLiteM.Orm.SQLiteMClient
+  href: SQLiteM.Orm.SQLiteMClient.html
+  name: SQLiteMClient
+  nameWithType: SQLiteMClient
+  fullName: SQLiteM.Orm.SQLiteMClient
 - uid: SQLiteM.Orm.SQLiteMOptions
   commentId: T:SQLiteM.Orm.SQLiteMOptions
   href: SQLiteM.Orm.SQLiteMOptions.html

@@ -1,40 +1,34 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SQLiteM.Abstractions;
-using SQLiteM.Orm;
-using SQLiteM.Orm.Internal;
-using System;
-using System.Collections.Generic;
+using SQLiteM.Orm.Pub;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Tests.Entities;
 using Tests.Helpers;
 using Xunit;
 
-namespace Tests.Tests
+namespace Tests.Tests;
+
+
+public class SchemaBootstrapperTests
 {
-    
-    public class SchemaBootstrapperTests
+
+    [Fact]
+    public async Task EnsureCreated_CreateBothTables()
     {
+        using var sp = TestHost.CreateProvider(out var dbPath);
 
-        [Fact]
-        public async Task EnsureCreated_CreateBothTables()
+        await TestHost.WithUowAsync(sp, async uow =>
         {
-            using var sp = TestHost.CreateProvider(out var dbPath);
+            var sqlBuilder = sp.GetRequiredService<ISqlBuilder>();
+            await SQLiteMBootstrap.EnsureCreatedAsync<Person>(uow, sqlBuilder);
+            await SQLiteMBootstrap.EnsureCreatedAsync<Order>(uow, sqlBuilder);
 
-            await TestHost.WithUowAsync(sp, async uow =>
-            {
-                var sqlBuilder = sp.GetRequiredService<ISqlBuilder>();
-                await SQLiteMBootstrap.EnsureCreatedAsync<Person>(uow, sqlBuilder);
-                await SQLiteMBootstrap.EnsureCreatedAsync<Order>(uow, sqlBuilder);
+            await uow.CommitAsync();
+        });
 
-                await uow.CommitAsync();
-            });
-
-            Assert.True(File.Exists(dbPath));
-            var len = new FileInfo(dbPath).Length;
-            Assert.True(len > 0);
-        }
+        Assert.True(File.Exists(dbPath));
+        var len = new FileInfo(dbPath).Length;
+        Assert.True(len > 0);
     }
 }

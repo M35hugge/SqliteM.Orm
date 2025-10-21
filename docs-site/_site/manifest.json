@@ -488,6 +488,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.SQLiteMClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.SQLiteMClient.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.SQLiteMClient",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SQLiteM.Orm.SQLiteMOptions.yml",
       "output": {
         ".html": {

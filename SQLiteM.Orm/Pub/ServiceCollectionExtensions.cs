@@ -1,10 +1,9 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 using SQLiteM.Abstractions;
-using SQLiteM.Orm.Impl;
 using SQLiteM.Orm.Internal;
 
-namespace SQLiteM.Orm
+namespace SQLiteM.Orm.Pub
 {
     /// <summary>
     /// Erweiterungsmethoden zur Registrierung der SQLiteM-Komponenten im DI-Container.
@@ -22,6 +21,7 @@ namespace SQLiteM.Orm
         /// </summary>
         /// <param name="services">Die zu erweiternde <see cref="IServiceCollection"/>.</param>
         /// <param name="configure">Ein Delegat zur Konfiguration der <see cref="SQLiteMOptions"/> (z. B. Connection-String).</param>
+        /// /// <exception cref="ArgumentNullException">Wenn <paramref name="services"/> oder <paramref name="services"/> null ist.</exception>
         /// <returns>Die aktualisierte <see cref="IServiceCollection"/> zur weiteren Verkettung.</returns>
         /// <remarks>
         /// Registrierte Dienste (alle mit Lebensdauer <c>Singleton</c>):
@@ -47,14 +47,16 @@ namespace SQLiteM.Orm
         public static IServiceCollection AddSQLiteM(
             this IServiceCollection services, Action<SQLiteMOptions> configure)
         {
+            ArgumentNullException.ThrowIfNull(services);
+            ArgumentNullException.ThrowIfNull(configure);
             var options = new SQLiteMOptions();
             configure(options);
+            services.AddSingleton<IConnectionFactory>(_ => new SqliteConnectionFactory(options.ConnectionString));
 
             services.AddSingleton<ISqlDialect, SqliteDialect>();
             services.AddSingleton<IEntityMapper, ReflectionEntityMapper>();
             services.AddSingleton<ISqlBuilder, SqlBuilder>();
 
-            services.AddSingleton<IConnectionFactory>(_ => new SqliteConnectionFactory(options.ConnectionString));
             services.AddSingleton<IUnitOfWorkFactory, UnitOfWorkFactory>();
             services.AddSingleton<IRepositoryFactory, RepositoryFactory>();
 
