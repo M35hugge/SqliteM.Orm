@@ -9,7 +9,7 @@
       <ImplicitUsings>enable</ImplicitUsings>
 
 	  <PackageId>SQLiteM.Abstractions</PackageId>
-	  <Version>0.1.0</Version>
+	  <Version>0.1.2</Version>
 	  <!-- SemVer: 0.x für erste Releases; für Previews 1.0.0-preview.1 -->
 	  <Authors>DeinName</Authors>
 	  <Company>DeinName</Company>
