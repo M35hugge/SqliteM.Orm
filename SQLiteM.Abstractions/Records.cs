@@ -10,6 +10,9 @@ namespace SQLiteM.Abstractions
     // -------------------------
     // Helper-Records (Mapping)
     // -------------------------
+    /// <summary>
+    /// Record classes
+    /// </summary>
     [CompilerGenerated]
     public static class Records { }
 

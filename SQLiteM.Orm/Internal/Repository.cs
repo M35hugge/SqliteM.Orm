@@ -154,6 +154,7 @@ namespace SQLiteM.Orm.Internal
         /// <returns>
         /// Die gefundene Entität oder <see langword="null"/>, wenn kein entsprechender Datensatz existiert.
         /// </returns>
+    #nullable enable
         public async Task<T?> FindByIdAsync(object id, CancellationToken ct = default)
         {
             ArgumentNullException.ThrowIfNull(id);

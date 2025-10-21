@@ -52,3 +52,69 @@ await using (var uow = await services.GetRequiredService<IUnitOfWorkFactory>().C
     await uow.CommitAsync();
 }
 ```
+
+
+# High-Level: 
+
+## SQLiteMClient
+
+### Wenn du ohne DI/Factory auskommen möchtest:
+```csharp
+using SQLiteM.Orm.Pub;
+
+// Verbindungs- oder Pfad-String
+var client = new SQLiteMClient(Path.Combine(AppContext.BaseDirectory, "app.db"));
+
+await client.EnsureCreatedAsync<Person>();
+
+var id = await client.InsertAsync(new Person { FirstName = "Grace", LastName = "Hopper" });
+
+await client.WithTransactionAsync(async tx =>
+{
+    var rp = tx.Repo<Person>();
+    var p  = await rp.FindByIdAsync(id);
+    p!.Email = "grace@example.com";
+    await rp.UpdateAsync(p);
+    await tx.CommitAsync();
+});
+```
+
+## Fremdschlüssel
+
+### Abhängige Entität:
+
+```csharp
+[Table("orders")]
+public sealed class Order
+{
+    [PrimaryKey, AutoIncrement]
+    [Column("id")]
+    public long Id { get; set; }
+
+    [Column("person_id", IsNullable = false)]
+    [ForeignKey(typeof(Person), nameof(Person.Id), OnDelete = OnDeleteAction.Cascade)]
+    public long PersonId { get; set; }
+
+    [Column("total", IsNullable = false)]
+    public decimal Total { get; set; }
+
+    [Column("note", IsNullable = true, Length = 200)]
+    public string? Note { get; set; }
+}
+```
+### Beim Erstellen des Schemas Reihenfolge beachten:
+
+```csharp
+await SQLiteM.Orm.Pub.SQLiteMBootstrap.EnsureCreatedAsync(uow, builder, default,
+    typeof(Person), typeof(Order));
+```
+
+UnitOfWork setzt PRAGMA foreign_keys = ON automatisch.
+
+## Queries
+
+```csharp
+var items = await repo.QueryAsync(
+    Query.WhereEquals("last_name", "Lovelace").OrderBy("first_name"));
+```
+Hinweis: Spaltennamen sind DB-Spalten, nicht CLR-Propertynamen.

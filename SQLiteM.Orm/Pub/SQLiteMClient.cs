@@ -83,7 +83,7 @@ namespace SQLiteM.Orm.Pub
         public Task<int> DeleteTransactionAsync<T>(object id, CancellationToken ct = default) where T : class, new()
             => WithTransactionAsync(async tx 
                 => await tx.Repo<T>().DeleteAsync(id, ct), ct);
-
+#nullable enable
         public Task<T?> FindByIdTransactionAsync<T>(object id, CancellationToken ct = default) where T : class, new()
             => WithReadOnlyAsync(async tx 
                 => await tx.Repo<T>().FindByIdAsync(id, ct), ct);

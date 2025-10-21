@@ -42,6 +42,7 @@ namespace SQLiteM.Orm.Pub
         public string ConnectionString { get; set; } = "Data Source = :memory:";
 
         public bool EnableWal { get; set; } = false;           // später per PRAGMA
+#nullable enable
         public string? JournalMode { get; set; }               // z.B. "WAL"
         public string? Synchronous { get; set; }               // z.B. "NORMAL"
     }

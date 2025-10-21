@@ -68,7 +68,7 @@ namespace SQLiteM.Orm.Internal
         {
             EnsureNotDisposed();
             if (IsCompleted)
-                new InvalidOperationException("The Transaction context is already completed. Create a new transaction to continue");
+                throw new InvalidOperationException("The Transaction context is already completed. Create a new transaction to continue");
 
             return _repos.Create<T>(Uow);
         }

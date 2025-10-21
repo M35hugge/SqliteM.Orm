@@ -247,13 +247,68 @@ namespace SQLiteM.Abstractions
         /// <param name="ct">Abbruchtoken.</param>
         Task RollbackAsync(CancellationToken ct = default);
     }
+
+    /// <summary>
+    /// Kontextobjekt für eine laufende Transaktion (Unit of Work).
+    /// </summary>
+    /// <remarks>
+    /// Ein <see cref="ITransactionContext"/> kapselt eine geöffnete Verbindung samt aktiver
+    /// Transaktion (<see cref="Uow"/>) und stellt typsichere Repositories bereit
+    /// (<see cref="Repo{T}()"/>). Der Kontext ist für einen Scope gedacht:
+    /// - Änderungen werden mit <see cref="CommitAsync"/> bestätigt oder via <see cref="RollbackAsync"/> verworfen.
+    /// - Nach Abschluss (<see cref="IsCompleted"/> = <c>true</c>) sowie nach <see cref="IAsyncDisposable.DisposeAsync"/>
+    ///   darf der Kontext nicht weiterverwendet werden.
+    /// </remarks>
     public interface ITransactionContext : IAsyncDisposable
     {
+        /// <summary>
+        /// Liefert die zugrunde liegende <see cref="IUnitOfWork"/> (offene Verbindung + aktive Transaktion).
+        /// </summary>
+        /// <remarks>
+        /// Über diese Arbeitseinheit werden alle Kommandos ausgeführt. Die Lebensdauer wird
+        /// vom <see cref="ITransactionContext"/> verwaltet; die <see cref="IUnitOfWork"/> sollte
+        /// außerhalb des Kontexts nicht separat disposed werden.
+        /// </remarks>
         IUnitOfWork Uow { get; }
+
+        /// <summary>
+        /// Gibt ein typisiertes Repository für den angegebenen Entitätstyp zurück.
+        /// </summary>
+        /// <typeparam name="T">Der Entitätstyp, der durch das Repository verwaltet wird.</typeparam>
+        /// <returns>
+        /// Eine <see cref="IRepository{T}"/>-Instanz, die an die aktuelle <see cref="Uow"/> gebunden ist.
+        /// </returns>
+        /// <remarks>
+        /// Das zurückgegebene Repository arbeitet innerhalb derselben Transaktion.
+        /// Es ist nicht threadsicher; pro parallelem Vorgang sollte ein eigener Kontext verwendet werden.
+        /// </remarks>
         IRepository<T> Repo<T>() where T : class, new();
 
+        /// <summary>
+        /// Bestätigt alle innerhalb dieses Kontexts vorgenommenen Änderungen.
+        /// </summary>
+        /// <param name="ct">Ein optionales <see cref="CancellationToken"/> zur Abbruchsteuerung.</param>
+        /// <returns>Eine Aufgabe, die den Abschluss des Commit-Vorgangs signalisiert.</returns>
+        /// <remarks>
+        /// Nach erfolgreichem Commit gilt der Kontext als abgeschlossen (<see cref="IsCompleted"/> = <c>true</c>).
+        /// Weitere Datenbankoperationen mit diesem Kontext sind nicht zulässig.
+        /// </remarks>
         Task CommitAsync(CancellationToken ct = default);
+        /// <summary>
+        /// Bricht die Transaktion ab und verwirft alle nicht bestätigten Änderungen.
+        /// </summary>
+        /// <param name="ct">Ein optionales <see cref="CancellationToken"/> zur Abbruchsteuerung.</param>
+        /// <returns>Eine Aufgabe, die den Abschluss des Rollback-Vorgangs signalisiert.</returns>
+        /// <remarks>
+        /// Nach einem Rollback gilt der Kontext als abgeschlossen (<see cref="IsCompleted"/> = <c>true</c>).
+        /// </remarks>
         Task RollbackAsync(CancellationToken ct = default);
+        /// <summary>
+        /// Zeigt an, ob der Kontext abgeschlossen wurde (durch <see cref="CommitAsync"/> oder <see cref="RollbackAsync"/>).
+        /// </summary>
+        /// <value>
+        /// <c>true</c>, wenn der Kontext bereits bestätigt oder zurückgerollt wurde; andernfalls <c>false</c>.
+        /// </value>
         bool IsCompleted { get; }
     }
    

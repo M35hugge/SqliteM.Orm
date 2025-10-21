@@ -5,8 +5,36 @@
 	  <NoWarn>$(NoWarn);1591</NoWarn>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	  <PackageId>SQLiteM.Orm</PackageId>
+	  <Version>0.1.0</Version>
+	  <!-- SemVer: 0.x für erste Releases; für Previews 1.0.0-preview.1 -->
+	  <Authors>DeinName</Authors>
+	  <Company>DeinName</Company>
+	  <Description>Leichtgewichtiges Micro-ORM für SQLite (C#)</Description>
+	  <PackageTags>sqlite;orm;micro-orm;repository;unit-of-work</PackageTags>
+	  <RepositoryUrl>
+		  https://github.com/M35hugge/SQLiteM
+	  </RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageProjectUrl>
+		  https://github.com/M35hugge/SQLiteM
+	  </PackageProjectUrl>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <!-- oder SPDX deiner Wahl -->
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageIcon>icon.png</PackageIcon>
+
+	  <!-- Symbols & SourceLink -->
+	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
+	  <EmbedUntrackedSources>true</EmbedUntrackedSources>
+	  <IncludeSymbols>true</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+  <ItemGroup>
+	  <None Include="..\README.md" Pack="true" PackagePath="\" />
+	  <None Include="..\icon.png" Pack="true" PackagePath="\" />
+	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+  </ItemGroup>
 	<ItemGroup>
 		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
 			<_Parameter1>SQLiteM.Tests</_Parameter1>

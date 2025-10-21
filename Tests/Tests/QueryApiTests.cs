@@ -11,6 +11,8 @@ namespace Tests.Tests;
 
 public class QueryApiTests
 {
+    private static readonly string[] expected = new[] { "Ada", "Alan", "Grace" };
+
     [Fact]
     public async Task Query_FindAll_And_Filter_OrderBy()
     {
@@ -46,7 +48,7 @@ public class QueryApiTests
             Assert.Equal("Alan", filtered[0].FirstName);
 
             var ordered = await repo.QueryAsync(new Query().OrderBy("FirstName"));
-            Assert.Equal(new[] { "Ada", "Alan", "Grace" }, ordered.Select(p => p.FirstName).ToArray());
+            Assert.Equal(expected, ordered.Select(p => p.FirstName).ToArray());
         });
     }
 }

@@ -100,6 +100,7 @@ namespace SQLiteM.Orm.Pub
         /// Property mit <see cref="PrimaryKeyAttribute"/> vorhanden ist.
         /// </returns>
         /// <exception cref="ArgumentNullException">Wenn <paramref name="entityType"/> null ist.</exception>
+#nullable enable
         public PropertyMap? GetPrimaryKey(Type entityType)
         {
             ArgumentNullException.ThrowIfNull(entityType);

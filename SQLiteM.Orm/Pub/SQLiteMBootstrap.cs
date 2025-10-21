@@ -107,7 +107,7 @@ namespace SQLiteM.Orm.Pub
                 if (t is null) continue;
 
                 var method = generic.MakeGenericMethod(t);
-
+#nullable enable
                 var task = (Task)method.Invoke(null, new object?[] { uow, builder, ct })!;
                 await task.ConfigureAwait(false);
             }
