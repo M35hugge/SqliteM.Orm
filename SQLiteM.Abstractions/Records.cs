@@ -25,6 +25,9 @@ namespace SQLiteM.Abstractions
     /// <param name="IsPrimaryKey">Ob die Spalte Teil des Primärschlüssels ist.</param>
     /// <param name="IsAutoIncrement">Ob der Wert automatisch erhöht wird.</param>
     /// <param name="IsNullable">Ob NULL-Werte erlaubt sind.</param>
+    /// <param name="IsIndex">Ob Spalte Index ist.</param>
+    /// <param name="IsUniqueIndex">Ob Spalte Index ist.</param>
+    /// <param name="IsUniqueColumn">Ob Spalte Index ist.</param>
     /// <param name="Length">Maximale Länge (nur relevant für <c>string</c>).</param>
     public sealed record PropertyMap(
         string ColumnName,
@@ -33,6 +36,9 @@ namespace SQLiteM.Abstractions
         bool IsPrimaryKey,
         bool IsAutoIncrement,
         bool IsNullable,
+        bool IsIndex,
+        bool IsUniqueIndex,    // Einzelspalten-Index soll UNIQUE sein
+        bool IsUniqueColumn,    // Spalten-Constraint UNIQUE in CREATE TABLE
         int Length
     );
 
@@ -50,5 +56,16 @@ namespace SQLiteM.Abstractions
         string PrincipalTable,
         string PrincipalColumn,
         OnDeleteAction OnDelete
+    );
+    /// <summary>
+    /// IndexMap für Indizes.
+    /// </summary>
+    /// <param name="Columns">Spalte/n des Indexes.</param>
+    /// <param name="Name">Name des Index</param>
+    /// <param name="IsUnique">Spaltenwert einzigartig(Unique).</param>
+    public sealed record IndexMap(
+        string? Name,                   // null => Builder generiert Standardnamen
+        IReadOnlyList<string> Columns,  // DB-Spaltennamen
+        bool IsUnique
     );
 }

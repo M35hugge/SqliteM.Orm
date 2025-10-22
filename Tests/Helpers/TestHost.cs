@@ -17,7 +17,7 @@ namespace Tests.Helpers
             var cs = $"Data Source={dbPath};Cache=Shared";
 
             var services = new ServiceCollection()
-                .AddSQLiteM(o => o.ConnectionString = cs);
+                .AddSQLiteM(o => o.ConnectionString = cs, sp=>new SnakeCaseNameTranslator());
 
             return services.BuildServiceProvider();
         }
@@ -29,7 +29,7 @@ namespace Tests.Helpers
             keeper.Open(); // DB bleibt am Leben
 
             return new ServiceCollection()
-                .AddSQLiteM(o => o.ConnectionString = cs)
+                .AddSQLiteM(o => o.ConnectionString = cs, sp => new SnakeCaseNameTranslator())
                 .AddSingleton<IDbConnection>(keeper) // optional, falls du sie injizieren willst
                 .BuildServiceProvider();
         }

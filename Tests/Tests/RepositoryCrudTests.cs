@@ -22,7 +22,7 @@ public class RepositoryCrudTests
             await uow.CommitAsync();
         });
 
-        long id;
+        int id;
 
         //Insert
         await TestHost.WithUowAsync(sp, async uow =>

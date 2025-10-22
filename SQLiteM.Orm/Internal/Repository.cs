@@ -20,13 +20,18 @@ namespace SQLiteM.Orm.Internal
     /// <seealso cref="IEntityMapper"/>
     /// <seealso cref="ISqlBuilder"/>
     /// <seealso cref="ISqlDialect"/>
-    internal sealed class Repository<T>(IUnitOfWork uow, IEntityMapper mapper, ISqlBuilder builder, ISqlDialect dialect)
+#nullable enable
+    internal sealed class Repository<T>(IUnitOfWork uow, IEntityMapper mapper, ISqlBuilder builder, ISqlDialect dialect, INameTranslator? translator)
         : IRepository<T> where T : class, new()
     {
+         
+        private readonly INameTranslator _names= translator ?? throw new ArgumentNullException(nameof(translator));
         private readonly IUnitOfWork _uow = uow;
         private readonly IEntityMapper _mapper = mapper;
         private readonly ISqlBuilder _sql = builder;
         private readonly ISqlDialect _dialect = dialect;
+
+        
 
         /// <summary>
         /// Fügt die angegebene Entität in die Datenbank ein.
@@ -34,14 +39,14 @@ namespace SQLiteM.Orm.Internal
         /// <param name="entity">Die zu speichernde Entität.</param>
         /// <param name="ct">Ein optionales <see cref="CancellationToken"/>.</param>
         /// <returns>
-        /// Die von SQLite vergebene Zeilen-ID (<c>last_insert_rowid()</c>) als <see cref="long"/>,
+        /// Die von SQLite vergebene Zeilen-ID (<c>last_insert_rowid()</c>) als <see cref="int"/>,
         /// sofern ein Auto-Increment-Primärschlüssel konfiguriert ist; andernfalls <c>0</c>.
         /// </returns>
         /// <remarks>
         /// Nach erfolgreichem Insert wird – falls vorhanden und beschreibbar – das Primärschlüssel-Property
         /// der Entität mit dem ermittelten Wert aktualisiert.
         /// </remarks>
-        public async Task<long> InsertAsync(T entity, CancellationToken ct = default)
+        public async Task<int> InsertAsync(T entity, CancellationToken ct = default)
         {
             ArgumentNullException.ThrowIfNull(entity);
             EnsureConnectionAndTransaction();
@@ -53,7 +58,7 @@ namespace SQLiteM.Orm.Internal
 
             foreach (var c in cols)
             {
-                var prop = typeof(T).GetProperty(c.PropertyName, BindingFlags.Public | BindingFlags.Instance)
+                var prop = typeof(T).GetProperty(_names.Property(c.PropertyName), BindingFlags.Public | BindingFlags.Instance)
                            ?? throw new InvalidOperationException(
                                $"Mapped property '{c.PropertyName}' not found on {typeof(T).Name}. " +
                                "Ensure PropertyMap.PropertyName contains the CLR property name.");
@@ -72,7 +77,7 @@ namespace SQLiteM.Orm.Internal
                 cmd.CommandText = "SELECT last_insert_rowid();";
 
                 var idObj = await ExecuteScalarAsync(cmd, ct).ConfigureAwait(false);
-                var id64 = Convert.ToInt64(idObj);
+                var id32 = Convert.ToInt32(idObj);
 
                 var id = await ExecuteScalarAsync(cmd, ct).ConfigureAwait(false);
                 var keyProp = typeof(T).GetProperty(key.PropertyName, BindingFlags.Public | BindingFlags.Instance)
@@ -82,8 +87,8 @@ namespace SQLiteM.Orm.Internal
                     throw new InvalidOperationException(
                         $"Primary key property '{key.PropertyName}' on {typeof(T).Name} is not writable.");
 
-                keyProp.SetValue(entity, id64);
-                return id64;
+                keyProp.SetValue(entity, id32);
+                return id32;
             }
             // Kein AutoIncrement: best effort – PK-Wert muss gesetzt sein, sonst ist Update/Delete später nicht möglich
             return 0;
@@ -193,6 +198,7 @@ namespace SQLiteM.Orm.Internal
         /// </summary>
         /// <param name="ct">Ein optionales <see cref="CancellationToken"/>.</param>
         /// <returns>Eine schreibgeschützte Liste aller Entitäten.</returns>
+        /// <exception cref="InvalidOperationException">Wenn keine Spalten gemappt sind.</exception>
         public async Task<IReadOnlyList<T>> FindAllAsync(CancellationToken ct = default)
         {
             EnsureConnectionAndTransaction();
@@ -221,8 +227,13 @@ namespace SQLiteM.Orm.Internal
         /// <remarks>
         /// Unterstützt eine Gleichheitsbedingung (<c>WHERE &lt;Spalte&gt; = @param</c>) sowie
         /// <c>ORDER BY</c> mit optionaler absteigender Sortierung.
+        /// <para>
+        /// Für <paramref name="query"/> können sowohl CLR-Propertynamen als auch DB-Spaltennamen verwendet werden;
+        /// die Auflösung erfolgt über <see cref="ResolveColumnName(string)"/>.
+        /// </para>
         /// </remarks>
-        /// <seealso cref="Query"/>
+        /// <exception cref="InvalidOperationException">Wenn keine Spalten gemappt sind.</exception>
+        /// <exception cref="ArgumentException">Wenn unbekannte Spalten-/Propertynamen verwendet werden.</exception>
         public async Task<IReadOnlyList<T>> QueryAsync(Query query, CancellationToken ct = default)
         {
             ArgumentNullException.ThrowIfNull(query);
@@ -235,40 +246,27 @@ namespace SQLiteM.Orm.Internal
             var table = _dialect.QuoteIdentifier(_mapper.GetTableName(typeof(T)));
             var colList = string.Join(", ", cols.Select(c => _dialect.QuoteIdentifier(c.ColumnName)));
 
-            // Validierung der Spaltennamen (Where/OrderBy beziehen sich auf DB-Spaltennamen)
-            if (!string.IsNullOrWhiteSpace(query.WhereColumn) &&
-                !cols.Any(c => string.Equals(c.ColumnName, query.WhereColumn, StringComparison.Ordinal)))
-            {
-                throw new ArgumentException(
-                    $"Unknown column '{query.WhereColumn}' for entity {typeof(T).Name}. " +
-                    "Use the mapped database column name (not the CLR property name).", nameof(query));
-            }
-            if (!string.IsNullOrWhiteSpace(query.OrderByColumn) &&
-                !cols.Any(c => string.Equals(c.ColumnName, query.OrderByColumn, StringComparison.Ordinal)))
-            {
-                throw new ArgumentException(
-                    $"Unknown column '{query.OrderByColumn}' for entity {typeof(T).Name}. " +
-                    "Use the mapped database column name (not the CLR property name).", nameof(query));
-            }
-
+            
             var sb = new StringBuilder($"SELECT {colList} FROM {table}");
             using var cmd = _uow.Connection.CreateCommand();
             cmd.Transaction = _uow.Transaction;
 
             if (!string.IsNullOrWhiteSpace(query.WhereColumn))
             {
+                var dbcol = ResolveColumnName(query.WhereColumn!);
                 sb.Append(" WHERE ");
-                sb.Append(_dialect.QuoteIdentifier(query.WhereColumn!));
+                sb.Append(_dialect.QuoteIdentifier(dbcol));
                 sb.Append(" = ");
                 sb.Append(_dialect.ParameterPrefix);
-                sb.Append(query.WhereColumn);
-                AddParameter(cmd, query.WhereColumn!, query.WhereValue);
+                sb.Append(dbcol);
+                AddParameter(cmd, dbcol, query.WhereValue);
             }
 
             if (!string.IsNullOrWhiteSpace(query.OrderByColumn))
             {
+                var dbCol = ResolveColumnName(query.OrderByColumn!);
                 sb.Append(" ORDER BY ");
-                sb.Append(_dialect.QuoteIdentifier(query.OrderByColumn!));
+                sb.Append(_dialect.QuoteIdentifier(dbCol));
                 sb.Append(query.OrderByDesc ? " DESC" : " ASC");
             }
 
@@ -278,12 +276,15 @@ namespace SQLiteM.Orm.Internal
             using var reader = await ExecuteReaderAsync(cmd, ct).ConfigureAwait(false);
             return MaterializeList(reader, cols);
         }
-
-        // Interne Hilfsmethoden (ohne öffentliche API-Oberfläche)
+        // ---------- Interne Hilfsmethoden ----------
 
         /// <summary>
-        /// Materialisiert eine Liste von Entitäten aus einem Datenleser anhand der Mapping-Informationen.
+        /// Materialisiert eine Liste von Entitäten aus einem <see cref="IDataReader"/>
+        /// anhand der Mapping-Informationen.
         /// </summary>
+        /// <param name="reader">Geöffneter DataReader.</param>
+        /// <param name="cols">Die gemappten Spalten/Properties.</param>
+        /// <returns>Liste materialisierter Entitäten.</returns>
         private static List<T> MaterializeList(IDataReader reader, IReadOnlyList<PropertyMap> cols)
         {
             var list = new List<T>();
@@ -388,6 +389,39 @@ namespace SQLiteM.Orm.Internal
                 return ConvertTo(u, value);
 
             return value;
+        }
+
+        /// <summary>
+        /// Löst einen vom Aufrufer übergebenen Spalten-/Propertynamen zu einem gültigen DB-Spaltennamen auf.
+        /// </summary>
+        /// <param name="token">CLR-Propertyname oder DB-Spaltenname.</param>
+        /// <returns>Der gemappte DB-Spaltenname.</returns>
+        /// <exception cref="ArgumentException">Wenn weder Property- noch Spaltenname bekannt ist.</exception>
+        private string ResolveColumnName(string token)
+        {
+            // Alle Mappings für T
+            var maps = _mapper.GetPropertyMaps(typeof(T));
+
+            // 1) exakter Treffer auf DB-Spaltennamen
+            var m = maps.FirstOrDefault(x =>
+                string.Equals(x.ColumnName, token, StringComparison.OrdinalIgnoreCase));
+            if (m is not null) return m.ColumnName;
+
+            // 2) Treffer auf CLR-Property
+            m = maps.FirstOrDefault(x =>
+                string.Equals(x.PropertyName, token, StringComparison.OrdinalIgnoreCase));
+            if (m is not null) return m.ColumnName;
+
+            // 3) Versuch: Translator auf den Token anwenden (falls jemand CLR eingibt),
+            //    dann mit DB-Spaltennamen matchen (z. B. "FirstName" -> "first_name")
+            var translated = _names.Column(token);
+            m = maps.FirstOrDefault(x =>
+                string.Equals(x.ColumnName, translated, StringComparison.OrdinalIgnoreCase));
+            if (m is not null) return m.ColumnName;
+
+            throw new ArgumentException(
+                $"Unknown column/property '{token}' for entity {typeof(T).Name}. " +
+                "Use a CLR property name or the mapped database column name.", nameof(token));
         }
     }
 }

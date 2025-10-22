@@ -15,6 +15,8 @@ namespace SQLiteM.Orm.Internal
     /// Diese Klasse führt DDL-Anweisungen aus, die über <see cref="ISqlBuilder"/> generiert werden.
     /// Die Idempotenz (z. B. via <c>CREATE TABLE IF NOT EXISTS</c>) liegt in der Verantwortung der
     /// konkreten <see cref="ISqlBuilder"/>-Implementierung.
+    /// Zusätzlich können von <see cref="ISqlBuilder.BuildCreateIndexes(Type)"/> bereitgestellte
+    /// Index-Anweisungen ausgeführt werden.
     /// </remarks>
     /// <seealso cref="ISqlBuilder"/>
     /// <seealso cref="IUnitOfWork"/>
@@ -45,18 +47,32 @@ namespace SQLiteM.Orm.Internal
             if (uow.Connection is null) throw new InvalidOperationException("UnitOfWork.Connection is null, Ensure the UnitOfWork is properly created and not disposed");
             if (uow.Transaction is null) throw new InvalidOperationException("UnitOfWork.Transaction is null, Ensure the UnitOfWork is properly created and not disposed");
 
+            // Tabelle erzeugen
             var ddl = builder.BuildCreateTable(typeof(T));
 
-            using var cmd = uow.Connection.CreateCommand();
-            cmd.CommandText = ddl;
-
-            if (cmd is DbCommand dbCmd)
-            {
-                await dbCmd.ExecuteNonQueryAsync(ct).ConfigureAwait(false);
+            using (var cmd = uow.Connection.CreateCommand()) 
+            { 
+                cmd.CommandText = ddl;
+                if (cmd is DbCommand dbCmd)
+                {
+                    await dbCmd.ExecuteNonQueryAsync(ct).ConfigureAwait(false);
+                }
+                else
+                {
+                    cmd.ExecuteNonQuery();
+                }
             }
-            else
+
+            // Indizes erzeugen
+            var indexSql = builder.BuildCreateIndexes(typeof(T));
+            foreach (var sql in indexSql)
             {
-                cmd.ExecuteNonQuery();
+                using var cmd = uow.Connection.CreateCommand();
+                cmd.CommandText = sql;
+                if (cmd is DbCommand db)
+                    await db.ExecuteNonQueryAsync(ct).ConfigureAwait(false);
+                else
+                    cmd.ExecuteNonQuery();
             }
         }
     }

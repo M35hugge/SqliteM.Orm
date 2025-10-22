@@ -6,8 +6,8 @@ namespace Tests.Entities
     public sealed class Person
     {
         [PrimaryKey, AutoIncrement]
-        [Column("Id")]
-        public long Id { get; set; }
+        [Column]
+        public int Id { get; set; }
 
         [Column("FirstName", IsNullable = false, Length = 100)]
         public string FirstName { get; set; } = default!;
@@ -23,12 +23,12 @@ namespace Tests.Entities
     public sealed class Order
     {
         [PrimaryKey, AutoIncrement]
-        [Column("Id")]
-        public long Id { get; set; }
+        [Column]
+        public int Id { get; set; }
 
-        [Column("PersonId", IsNullable = false)]
+        [Column(IsNullable= false)]
         [ForeignKey(typeof(Person), nameof(Person.Id), OnDelete = OnDeleteAction.Cascade)]
-        public long PersonId { get; set; }
+        public int PersonId { get; set; }
 
         [Column("Total", IsNullable = false)]
         public decimal Total { get; set; }

@@ -131,7 +131,7 @@ public sealed class Order
 {
     [PrimaryKey, AutoIncrement]
     [Column("id")]
-    public long Id { get; set; }
+    public int Id { get; set; }
 
     [Column("person_id", IsNullable = false)]
     [ForeignKey(typeof(Person), nameof(Person.Id), OnDelete = OnDeleteAction.Cascade)]
@@ -153,4 +153,3 @@ await SQLiteM.Orm.Pub.SQLiteMBootstrap.EnsureCreatedAsync(
     typeof(Person), typeof(Order));
 ```
 
-## Doku (DocFX)

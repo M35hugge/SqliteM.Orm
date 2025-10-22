@@ -5,32 +5,31 @@ using System.Data;
 namespace SQLiteM.Orm.Internal
 {
     /// <summary>
-    /// Implementiert eine Factory zur Erstellung von <see cref="IUnitOfWork"/>-Instanzen.
+    /// Factory zur Erstellung von <see cref="IUnitOfWork"/>-Instanzen (Transaktions-Scopes).
     /// </summary>
     /// <remarks>
-    /// Diese Factory kapselt die Erzeugung einer neuen <see cref="IUnitOfWork"/>-Instanz und
-    /// stellt sicher, dass alle benötigten Verbindungen über die bereitgestellte
-    /// <see cref="IConnectionFactory"/> erstellt werden.
+    /// Öffnet keine Verbindung selbst; das übernimmt die konkrete <see cref="UnitOfWork"/>.
+    /// Pro Transaktion/Scope sollte eine neue <see cref="IUnitOfWork"/> erstellt werden.
     /// </remarks>
     internal class UnitOfWorkFactory : IUnitOfWorkFactory
     {
         private readonly IConnectionFactory _factory;
-        
+
+        /// <summary>
+        /// Initialisiert die Factory.
+        /// </summary>
+        /// <param name="factory">Die <see cref="IConnectionFactory"/> zur Erstellung von Verbindungen.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="factory"/> ist <c>null</c>.</exception>
         public UnitOfWorkFactory(IConnectionFactory factory)
         {
             ArgumentNullException.ThrowIfNull(factory);
             _factory = factory;
         }
 
-        /// <summary>
-        /// Erstellt asynchron eine neue <see cref="IUnitOfWork"/>-Instanz.
-        /// </summary>
-        /// <param name="ct">Optionaler <see cref="CancellationToken"/> (derzeit ohne Wirkung).</param>
-        /// <returns>Die neu erstellte <see cref="IUnitOfWork"/>.</returns>
+        /// <inheritdoc />
         /// <remarks>
-        /// Die Verbindung wird im <see cref="SQLiteM.Orm.Internal.UnitOfWork"/> geöffnet,
-        /// <c>PRAGMA foreign_keys = ON</c> gesetzt und eine Transaktion gestartet.
-        /// Pro Transaktion/Scope eine neue UoW verwenden.
+        /// Die erzeugte <see cref="UnitOfWork"/> öffnet die Verbindung, aktiviert
+        /// <c>PRAGMA foreign_keys = ON</c> und startet eine Transaktion.
         /// </remarks>
         public Task<IUnitOfWork> CreateAsync(CancellationToken ct = default)
         {
@@ -39,58 +38,55 @@ namespace SQLiteM.Orm.Internal
     }
 
     /// <summary>
-    /// Implementiert eine Factory zur Erstellung typisierter Repository-Instanzen.
+    /// Factory zur Erstellung typisierter Repositories.
     /// </summary>
     /// <remarks>
-    /// Diese Factory kapselt die Erstellung von <see cref="IRepository{T}"/>-Instanzen
-    /// und stellt sicher, dass alle benötigten Abhängigkeiten (<see cref="IEntityMapper"/>,
-    /// <see cref="ISqlBuilder"/>, <see cref="ISqlDialect"/>) bereitgestellt werden.
+    /// Kapselt die Übergabe aller benötigten Abhängigkeiten an <see cref="Repository{T}"/>.
     /// </remarks>
     internal class RepositoryFactory: IRepositoryFactory
     {
         private readonly IEntityMapper _mapper;
         private readonly ISqlBuilder _sql;
         private readonly ISqlDialect _dialect;
+        private readonly INameTranslator _translator;
 
         /// <summary>
-        /// Initialisiert eine neue Instanz der <see cref="RepositoryFactory"/>.
+        /// Initialisiert die Factory.
         /// </summary>
         /// <param name="mapper">Der <see cref="IEntityMapper"/>.</param>
-        /// <param name="builder">Der <see cref="ISqlBuilder"/>.</param>
         /// <param name="dialect">Der <see cref="ISqlDialect"/>.</param>
+        /// <param name="builder">Der <see cref="ISqlBuilder"/>.</param>
+        /// <param name="translator">Der <see cref="INameTranslator"/> (für Konventionsnamen).</param>
         /// <exception cref="ArgumentNullException">
-        /// Wenn <paramref name="mapper"/>, <paramref name="builder"/> oder <paramref name="dialect"/> null ist.
+        /// Ausgelöst, wenn ein Parameter <c>null</c> ist.
         /// </exception>
-        public RepositoryFactory(IEntityMapper mapper, ISqlDialect dialect, ISqlBuilder builder)
+        public RepositoryFactory(IEntityMapper mapper, ISqlDialect dialect, ISqlBuilder builder, INameTranslator translator)
         {
             ArgumentNullException.ThrowIfNull(mapper);
             ArgumentNullException.ThrowIfNull(dialect);
             ArgumentNullException.ThrowIfNull(builder);
+            ArgumentNullException.ThrowIfNull(translator);
             _mapper = mapper;
             _dialect = dialect;
             _sql = builder;
+            _translator = translator;
+
         }
 
-        /// <summary>
-        /// Erstellt ein neues Repository, das an die übergebene <see cref="IUnitOfWork"/> gebunden ist.
-        /// </summary>
-        /// <typeparam name="T">Der Entitätstyp.</typeparam>
-        /// <param name="uow">Die aktive <see cref="IUnitOfWork"/>.</param>
-        /// <returns>Eine <see cref="IRepository{T}"/>-Instanz.</returns>
-        /// <exception cref="ArgumentNullException">Wenn <paramref name="uow"/> null ist.</exception>
+        /// <inheritdoc />
+        /// <exception cref="ArgumentNullException"><paramref name="uow"/> ist <c>null</c>.</exception>
         public IRepository<T> Create<T>(IUnitOfWork uow) where T : class, new()
         {
             ArgumentNullException.ThrowIfNull(uow);
-            return new Repository<T>(uow, _mapper, _sql, _dialect);
+            return new Repository<T>(uow, _mapper, _sql, _dialect, _translator);
         }
     }
 
     /// <summary>
-    /// Factory zur Erstellung von SQLite-Verbindungen.
+    /// Factory zur Erstellung von SQLite-Datenbankverbindungen.
     /// </summary>
     /// <remarks>
-    /// Erzeugt <see cref="SqliteConnection"/> auf Basis einer Verbindungszeichenfolge.
-    /// Die Verbindung wird im geschlossenen Zustand zurückgegeben; Öffnen/Schließen obliegt dem Aufrufer.
+    /// Gibt eine **geschlossene** <see cref="SqliteConnection"/> zurück. Öffnen/Schließen liegt in der Verantwortung des Aufrufers.
     /// </remarks>
     internal sealed class SqliteConnectionFactory : IConnectionFactory
     {
@@ -109,13 +105,9 @@ namespace SQLiteM.Orm.Internal
 
 
         /// <summary>
-        /// Erstellt eine neue Datenbankverbindung für SQLite.
+        /// Erstellt eine neue, **geschlossene** SQLite-Verbindung.
         /// </summary>
-        /// <returns>Eine offene <see cref="IDbConnection"/> für die SQLite-Datenbank.</returns>
-        /// <remarks>
-        /// Die Verbindung wird initial in geschlossenem Zustand zurückgegeben.
-        /// Der Aufrufer ist dafür verantwortlich, sie zu öffnen und zu schließen.
-        /// </remarks>
+        /// <returns>Eine geschlossene <see cref="IDbConnection"/>.</returns>
         public IDbConnection Create() => new SqliteConnection(_connectionString);
     }
 }

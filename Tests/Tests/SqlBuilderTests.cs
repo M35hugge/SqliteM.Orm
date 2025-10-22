@@ -36,7 +36,7 @@ public class SqlBuilderTests
     }
     public static string BuildOrder()
     {
-        var mapper = new ReflectionEntityMapper();
+        var mapper = new ReflectionEntityMapper(new SnakeCaseNameTranslator());
         var dialect = new SqliteDialect();
         var sql = new SqlBuilder(mapper, dialect);
         var ddl = sql.BuildCreateTable(typeof(Order));
@@ -46,7 +46,7 @@ public class SqlBuilderTests
 
     public static string BuildPerson()
     {
-        var mapper = new ReflectionEntityMapper();
+        var mapper = new ReflectionEntityMapper(new SnakeCaseNameTranslator());
         var dialect = new SqliteDialect();
         var sql = new SqlBuilder(mapper, dialect);
         var ddl = sql.BuildCreateTable(typeof(Person));

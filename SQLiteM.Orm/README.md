@@ -21,7 +21,7 @@ public sealed class Person
 {
     [PrimaryKey, AutoIncrement]
     [Column("id")]
-    public long Id { get; set; }
+    public int Id { get; set; }
 
     [Column("first_name", IsNullable = false, Length = 100)]
     public string FirstName { get; set; } = default!;
@@ -89,11 +89,11 @@ public sealed class Order
 {
     [PrimaryKey, AutoIncrement]
     [Column("id")]
-    public long Id { get; set; }
+    public int Id { get; set; }
 
     [Column("person_id", IsNullable = false)]
     [ForeignKey(typeof(Person), nameof(Person.Id), OnDelete = OnDeleteAction.Cascade)]
-    public long PersonId { get; set; }
+    public int PersonId { get; set; }
 
     [Column("total", IsNullable = false)]
     public decimal Total { get; set; }

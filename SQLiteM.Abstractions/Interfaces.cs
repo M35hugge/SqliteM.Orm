@@ -10,8 +10,9 @@ namespace SQLiteM.Abstractions
     /// Erzeugt neue Datenbankverbindungen.
     /// </summary>
     /// <remarks>
-    /// Die zurückgegebene Verbindung ist initial <c>geschlossen</c>. 
-    /// Der Aufrufer ist für das Öffnen und Schließen verantwortlich.
+    /// Die zurückgegebene Verbindung ist initial <c>geschlossen</c>.
+    /// Der Aufrufer ist für das Öffnen (<see cref="IDbConnection.Open"/>) und Schließen
+    /// (<see cref="IDbConnection.Close"/>) verantwortlich.
     /// </remarks>
     public interface IConnectionFactory
     {
@@ -23,10 +24,11 @@ namespace SQLiteM.Abstractions
     }
 
     /// <summary>
-    /// Bietet Dialekt-spezifische Operationen (Identifierquoting, Parameterpräfix).
+    /// Bietet Dialekt-spezifische Operationen (Identifier-Quoting, Parameterpräfix).
     /// </summary>
     /// <remarks>
-    /// Implementierungen legen fest, wie Bezeichner maskiert und Parameter benannt werden.
+    /// Implementierungen legen fest, wie Bezeichner maskiert und Parameter benannt werden
+    /// (z. B. SQLite: <c>"name"</c>, <c>@param</c>).
     /// </remarks>
     public interface ISqlDialect
     {
@@ -47,7 +49,8 @@ namespace SQLiteM.Abstractions
     /// Liefert Mapping-Informationen für Entitätstypen.
     /// </summary>
     /// <remarks>
-    /// Die Zuordnung basiert typischerweise auf Attributen (z. B. <c>[Table]</c>, <c>[Column]</c>, ...).
+    /// Die Zuordnung basiert typischerweise auf Attributen (z. B. <c>[Table]</c>, <c>[Column]</c>, …)
+    /// und optional auf Konventionen (z. B. Namensübersetzung per <see cref="INameTranslator"/>).
     /// </remarks>
     public interface IEntityMapper
     {
@@ -78,6 +81,14 @@ namespace SQLiteM.Abstractions
         /// <param name="entityType">Der Entitätstyp.</param>
         /// <returns>Schreibgeschützte Liste der Fremdschlüsselzuordnungen.</returns>
         IReadOnlyList<ForeignKeyMap> GetForeignKeys(Type entityType);
+
+
+        /// <summary>
+        /// Liefert alle Indexdefinitionen (Einzel- und zusammengesetzte Indizes) zur Entität.
+        /// </summary>
+        /// <param name="entityType">Der Entitätstyp.</param>
+        /// <returns>Schreibgeschützte Liste der Indexzuordnungen.</returns>
+        IReadOnlyList<IndexMap> GetIndexes(Type entityType);
     }
 
     /// <summary>
@@ -122,7 +133,7 @@ namespace SQLiteM.Abstractions
         /// <param name="entity">Einzufügende Entität.</param>
         /// <param name="ct">Abbruchtoken.</param>
         /// <returns>Primärschlüsselwert (z. B. <c>last_insert_rowid()</c>) oder <c>0</c>.</returns>
-        Task<long> InsertAsync(T entity, CancellationToken ct = default);
+        Task<int> InsertAsync(T entity, CancellationToken ct = default);
 
         /// <summary>
         /// Aktualisiert eine bestehende Entität.
@@ -185,6 +196,14 @@ namespace SQLiteM.Abstractions
         /// <param name="entityType">Entitätstyp.</param>
         /// <returns>SQL-Befehl als String.</returns>
         string BuildCreateTable(Type entityType);
+
+
+        /// <summary>
+        /// Baut <c>CREATE INDEX</c>-Anweisungen (Einzel- und Composite-Indizes).
+        /// </summary>
+        /// <param name="entityType">Entitätstyp.</param>
+        /// <returns>Liste mit SQL-Texten (je Index ein Eintrag).</returns>
+        IReadOnlyList<string> BuildCreateIndexes(Type entityType);
     }
 
     /// <summary>
@@ -311,5 +330,38 @@ namespace SQLiteM.Abstractions
         /// </value>
         bool IsCompleted { get; }
     }
-   
+
+    /// <summary>
+    /// Übersetzungsstrategie für Tabellen- und Spaltennamen.
+    /// </summary>
+    /// <remarks>
+    /// Implementierungen können Namenskonventionen wie snake_case, SCREAMING_SNAKE
+    /// oder CamelCase erzwingen. Der <see cref="IEntityMapper"/> ruft diese
+    /// Übersetzer auf, um vom CLR-Namen (Klasse/Property) zu einem Datenbanknamen
+    /// zu gelangen, sofern kein expliziter Name per Attribut angegeben ist.
+    /// </remarks>
+    public interface INameTranslator
+    {
+        /// <summary>
+        /// Übersetzt den CLR-Typnamen zu einem Tabellennamen.
+        /// </summary>
+        /// <param name="clrTypeName">Der CLR-Name des Entitätstyps (z. B. "PersonOrder").</param>
+        /// <returns>Der zu verwendende Tabellenname (z. B. "person_order").</returns>
+        string Table(string clrTypeName);
+
+        /// <summary>
+        /// Übersetzt den CLR-Propertynamen zu einem Spaltennamen.
+        /// </summary>
+        /// <param name="clrPropertyName">Der CLR-Name des Properties (z. B. "PersonId").</param>
+        /// <returns>Der zu verwendende Spaltenname (z. B. "person_id").</returns>
+        string Column(string clrPropertyName);
+
+        /// <summary>
+        /// Übersetzt einen DB-Spaltennamen zurück zu einem CLR-Propertynamen.
+        /// </summary>
+        /// <param name="fieldName">DB-Spaltenname (z. B. <c>person_id</c>).</param>
+        /// <returns>CLR-Propertyname (z. B. <c>PersonId</c>).</returns>
+        string Property(string fieldName);
+    }
+
 }

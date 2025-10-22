@@ -2,41 +2,38 @@
 
 namespace SQLiteM.Demo
 {
-    [Table("Person")]
+    [Table]
     public sealed class Person
     {
         [AutoIncrement]
-        [PrimaryKey]
-        [Column("Id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
-        [Column("FirstName", IsNullable = false, Length = 100)]
+        [Column( IsNullable = false, Length = 100)]
         public string FirstName { get; set; } = default!;
 
-        [Column("LastName", IsNullable = false, Length = 100)]
+        [Column(IsNullable = false, Length = 100)]
         public string LastName { get; set; } = default!;
 
-        [Column("Email", IsNullable = true, Length = 255)]
+        [Column(IsNullable = true, Length = 255)]
         public string? Email { get; set; }
 
         [Ignore]
         public List<Order> Orders { get; } = []; // Navigation, wird nicht gemappt
     }
-    [Table("orders")]
+    [Table]
     public sealed class Order
     {
-        [PrimaryKey, AutoIncrement]
-        [Column("Id")]
-        public long Id { get; set; }
+        [AutoIncrement]
+        public int Id { get; set; }
 
-        [Column("PersonId", IsNullable = false)]
+        [Column(IsNullable = false)]
         [ForeignKey(typeof(Person), nameof(Person.Id), OnDelete = OnDeleteAction.Cascade)]
-        public long PersonId { get; set; }
+        public int PersonId { get; set; }
 
-        [Column("Total", IsNullable = false)]
+        [Column( IsNullable = false)]
         public decimal Total { get; set; }
 
-        [Column("Note", IsNullable = true, Length = 200)]
+        [Column(IsNullable = true, Length = 200)]
         public string? Note { get; set; }
 
         [Ignore]

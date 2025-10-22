@@ -39,17 +39,10 @@ namespace SQLiteM.Orm.Internal
         }
 
 
-        /// <summary>
-        /// Erstellt eine SQL-<c>INSERT</c>-Anweisung für den angegebenen Entitätstyp.
-        /// </summary>
-        /// <param name="entityType">Der Entitätstyp, für den die Anweisung erzeugt werden soll.</param>
-        /// <param name="cols">Gibt die Liste der Spalten zurück, die in das <c>INSERT</c> einbezogen werden.</param>
-        /// <returns>Die generierte SQL-<c>INSERT</c>-Anweisung.</returns>
+
+        /// <inheritdoc/>
         /// <exception cref="ArgumentNullException">Wenn <paramref name="entityType"/> <see langword="null"/> ist.</exception>
         /// <exception cref="InvalidOperationException">Wenn für den Entitätstyp keine gemappten Spalten gefunden wurden.</exception>
-        /// <remarks>
-        /// Spalten, die als <see cref="PropertyMap.IsAutoIncrement"/> markiert sind, werden automatisch ausgeschlossen.
-        /// </remarks>
         public string BuildInsert(Type entityType, out IReadOnlyList<PropertyMap> cols)
         {
             ArgumentNullException.ThrowIfNull(entityType);
@@ -66,19 +59,9 @@ namespace SQLiteM.Orm.Internal
             return $"INSERT INTO {table} ({colList}) VALUES ({paramList});";
         }
 
-        /// <summary>
-        /// Erstellt eine SQL-<c>UPDATE</c>-Anweisung für den angegebenen Entitätstyp.
-        /// </summary>
-        /// <param name="entityType">Der Entitätstyp, für den die Anweisung erzeugt werden soll.</param>
-        /// <param name="cols">Gibt die Liste der Spalten zurück, die im <c>SET</c>-Teil der Anweisung enthalten sind.</param>
-        /// <returns>Die generierte SQL-<c>UPDATE</c>-Anweisung.</returns>
+        /// <inheritdoc/>
         /// <exception cref="ArgumentNullException">Wenn <paramref name="entityType"/> <see langword="null"/> ist.</exception>
-        /// <exception cref="InvalidOperationException">
-        /// Wenn keine gemappten Spalten gefunden werden oder kein Primärschlüssel definiert ist.
-        /// </exception>
-        /// <remarks>
-        /// Auto-Increment- und Primärschlüsselspalten werden im Update ausgeschlossen.
-        /// </remarks>
+        /// <exception cref="InvalidOperationException">Wenn keine Spalten gefunden werden oder kein Primärschlüssel definiert ist.</exception>
         public string BuildUpdate(Type entityType, out IReadOnlyList<PropertyMap> cols)
         {
             ArgumentNullException.ThrowIfNull(entityType);
@@ -98,12 +81,7 @@ namespace SQLiteM.Orm.Internal
             return $"UPDATE {table} SET {sets} WHERE {_dialect.QuoteIdentifier(key.ColumnName)} = {_dialect.ParameterPrefix}{key.ColumnName};";
         }
 
-        /// <summary>
-        /// Erstellt eine SQL-<c>DELETE</c>-Anweisung für den angegebenen Entitätstyp.
-        /// </summary>
-        /// <param name="entityType">Der Entitätstyp, für den die Anweisung erzeugt werden soll.</param>
-        /// <param name="key">Gibt die Primärschlüsselspalte der Tabelle zurück.</param>
-        /// <returns>Die generierte SQL-<c>DELETE</c>-Anweisung.</returns>
+        /// <inheritdoc/>
         /// <exception cref="ArgumentNullException">Wenn <paramref name="entityType"/> <see langword="null"/> ist.</exception>
         /// <exception cref="InvalidOperationException">Wenn kein Primärschlüssel definiert ist.</exception>
         public string BuildDelete(Type entityType, out PropertyMap key)
@@ -117,17 +95,9 @@ namespace SQLiteM.Orm.Internal
             return $"DELETE FROM {table} WHERE {_dialect.QuoteIdentifier(key.ColumnName)} = {_dialect.ParameterPrefix}{key.ColumnName};";
         }
 
-        /// <summary>
-        /// Erstellt eine SQL-<c>SELECT</c>-Anweisung zur Abfrage einer Entität anhand ihres Primärschlüssels.
-        /// </summary>
-        /// <param name="entityType">Der Entitätstyp, für den die Anweisung erzeugt werden soll.</param>
-        /// <param name="key">Gibt die Primärschlüsselspalte der Tabelle zurück.</param>
-        /// <param name="cols">Gibt die Spaltenliste der Tabelle zurück.</param>
-        /// <returns>Die generierte SQL-<c>SELECT</c>-Anweisung.</returns>
+        /// <inheritdoc/>
         /// <exception cref="ArgumentNullException">Wenn <paramref name="entityType"/> <see langword="null"/> ist.</exception>
-        /// <exception cref="InvalidOperationException">
-        /// Wenn keine Spalten gefunden werden oder kein Primärschlüssel definiert ist.
-        /// </exception>
+        /// <exception cref="InvalidOperationException">Wenn keine Spalten gefunden werden oder kein Primärschlüssel definiert ist.</exception>
         public string BuildSelectById(Type entityType, out PropertyMap key, out IReadOnlyList<PropertyMap> cols)
         {
             ArgumentNullException.ThrowIfNull(entityType);
@@ -145,17 +115,14 @@ namespace SQLiteM.Orm.Internal
             return $"SELECT {colList} FROM {table} WHERE {_dialect.QuoteIdentifier(key.ColumnName)} = {_dialect.ParameterPrefix}{key.ColumnName} LIMIT 1;";
         }
 
-        /// <summary>
-        /// Erstellt eine SQL-<c>CREATE TABLE</c>-Anweisung für den angegebenen Entitätstyp.
-        /// </summary>
-        /// <param name="entityType">Der Entitätstyp, dessen Tabellendefinition erzeugt werden soll.</param>
-        /// <returns>Die generierte SQL-<c>CREATE TABLE</c>-Anweisung.</returns>
+
+        /// <inheritdoc/>
         /// <exception cref="ArgumentNullException">Wenn <paramref name="entityType"/> <see langword="null"/> ist.</exception>
         /// <exception cref="InvalidOperationException">Wenn keine Spalten für den Entitätstyp vorhanden sind.</exception>
         /// <remarks>
-        /// Spalten, Primärschlüssel, Auto-Increment-Attribute und Fremdschlüssel werden
+        /// Spalten, Primärschlüssel, Auto-Increment-Attribute, Spalten-<c>UNIQUE</c> und Fremdschlüssel werden
         /// anhand der im Modell vorhandenen Attribute bestimmt.
-        /// Die erzeugte Anweisung nutzt standardmäßig <c>CREATE TABLE IF NOT EXISTS</c>.
+        /// Die erzeugte Anweisung nutzt <c>CREATE TABLE IF NOT EXISTS</c>.
         /// </remarks>
         public string BuildCreateTable(Type entityType)
         {
@@ -163,15 +130,9 @@ namespace SQLiteM.Orm.Internal
 
             var table = _dialect.QuoteIdentifier(_mapper.GetTableName(entityType));
             var cols = _mapper.GetPropertyMaps(entityType);
-            if (cols.Count == 0)
-                throw new InvalidOperationException($"No mapped columns found for {entityType.Name}.");
-            var fks = _mapper.GetForeignKeys(entityType);
-
-            var sb = new StringBuilder();
-            sb.Append($"CREATE TABLE IF NOT EXISTS {table} (");
+            var fks= _mapper.GetForeignKeys(entityType);
 
             var defs = new List<string>();
-
             // Spalten
             foreach (var col in cols)
             {
@@ -179,8 +140,9 @@ namespace SQLiteM.Orm.Internal
                 var pk = col.IsPrimaryKey ? " PRIMARY KEY" : string.Empty;
                 var ai = col.IsAutoIncrement ? " AUTOINCREMENT" : string.Empty;
                 var nn = col.IsNullable || col.IsPrimaryKey ? string.Empty : " NOT NULL";
+                var uq = col.IsUniqueColumn ? "UNIQUE" : string.Empty ;
 
-                defs.Add($"{_dialect.QuoteIdentifier(col.ColumnName)} {typeSql}{pk}{ai}{nn}");
+                defs.Add($"{_dialect.QuoteIdentifier(col.ColumnName)} {typeSql}{pk}{ai}{nn}{uq}");
             }
 
             // Fremdschlüssel
@@ -210,9 +172,53 @@ namespace SQLiteM.Orm.Internal
                 }
             }
             // Zusammenführen (ohne versehentliche Semikolons)
+            var sb = new StringBuilder();
+            sb.Append($"CREATE TABLE IF NOT EXISTS {table} (");
             sb.Append(string.Join(", ", defs));
             sb.Append(");");
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Erzeugt für alle per <see cref="IndexMap"/> gemappten Indizes die entsprechenden
+        /// <c>CREATE INDEX</c>- bzw. <c>CREATE UNIQUE INDEX</c>-Anweisungen.
+        /// </summary>
+        /// <param name="entityType">Der Entitätstyp, dessen Indizes erzeugt werden sollen.</param>
+        /// <returns>
+        /// Eine schreibgeschützte Liste mit SQL-Befehlen (je Index ein Befehl). Die Liste kann leer sein,
+        /// wenn keine Indizes für den Typ definiert sind.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">Wenn <paramref name="entityType"/> <see langword="null"/> ist.</exception>
+        /// <remarks>
+        /// Die Indexnamen werden – sofern im Mapping nicht angegeben – nach dem Muster
+        /// <c>ix_{tabelle}_{spalte...}</c> generiert. Mehrspaltige Indizes werden in der Reihenfolge
+        /// der gemappten Spalten erzeugt.
+        /// </remarks>
+        public IReadOnlyList<string> BuildCreateIndexes(Type entitiyType)
+        {
+            var tableName= _mapper.GetTableName(entitiyType);
+            var table = _dialect.QuoteIdentifier(tableName);
+            var indexes = _mapper.GetIndexes(entitiyType);
+
+            var list = new List<string>();
+
+            foreach (var ix in indexes)
+            {
+                if(ix.Columns.Count==0) continue;
+
+                var name = string.IsNullOrWhiteSpace(ix.Name) 
+                    ? $"ix_{tableName}_{string.Join("_", ix.Columns)}" 
+                    : ix.Name!;
+                var nameQuoted = _dialect.QuoteIdentifier(name);
+
+                var cols = string.Join(", " ,ix.Columns.Select(c => _dialect.QuoteIdentifier(c)));
+
+                string isUnique = ix.IsUnique ? "UNIQUE" : string.Empty;
+
+                var sql = @$"CREATE {isUnique} INDEX IF NOT EXISTS {nameQuoted} ON {table} ({cols});";
+                list.Add(sql);
+            }
+            return list;
         }
 
         /// <summary>
@@ -228,7 +234,7 @@ namespace SQLiteM.Orm.Internal
         /// <item><description><c>DateTime</c>, <c>DateTimeOffset</c>, <c>string</c> → <c>TEXT</c></description></item>
         /// </list>
         /// Bei <see cref="string"/> wird – falls <see cref="PropertyMap.Length"/> &gt; 0 – <c>VARCHAR(n)</c> verwendet,
-        /// andernfalls <c>TEXT</c>. SQLite erzwingt Längenangaben nicht, sie erhöhen aber Lesbarkeit/Portabilität.
+        /// andernfalls <c>TEXT</c>. (SQLite erzwingt Längenangaben nicht.)
         /// </remarks>
         private static string ToSqlType(PropertyMap c)
         {
@@ -252,6 +258,7 @@ namespace SQLiteM.Orm.Internal
             if (t == typeof(string))
                 return c.Length > 0 ? $"VARCHAR({c.Length})" : "TEXT";
 
+            // Fallback: TEXT (SQLite ist dynamisch typisiert)
             return "TEXT";
         }
     }

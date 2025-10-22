@@ -45,7 +45,7 @@ namespace SQLiteM.Orm.Pub
             if (uow.Transaction is null)
                 throw new InvalidOperationException("UnitOfWork.Transaction is null.Ensure UnitOfWork is properly created and not disposed.");
 
-            return Internal.SchemaBootstrapper.EnsureCreatedAsync<T>(uow, builder, ct);
+            return SchemaBootstrapper.EnsureCreatedAsync<T>(uow, builder, ct);
         }
 
         /// <summary>

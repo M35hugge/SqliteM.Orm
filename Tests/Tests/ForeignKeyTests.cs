@@ -27,7 +27,7 @@ public class ForeignKeyTests
         
 
         // Arrange: Person + Orders anlegen
-        long personId = await TestHost.WithUowAsync(sp, async uow =>
+        int personId = await TestHost.WithUowAsync(sp, async uow =>
         {            
             var repoFactory = sp.GetRequiredService<IRepositoryFactory>();
             var rp = repoFactory.Create<Person>(uow);

@@ -20,18 +20,31 @@ namespace SQLiteM.Orm.Pub
         /// Entweder eine vollständige Connection-String (enthält '=') oder ein Dateipfad;
         /// bei Pfad wird automatisch <c>Data Source=&lt;Pfad&gt;;Cache=Shared</c> gebildet.
         /// </param>
+        /// <param name="nameFormat">
+        /// Gibt bei bei Tabellenerstellung StringCase mit ("sc"= snake_case)
+        /// </param>
         /// <exception cref="ArgumentException">Wenn <paramref name="connectionOrPath"/> null/leer ist.</exception>
-        public SQLiteMClient(string connectionOrPath)
+        public SQLiteMClient(string connectionOrPath, string nameFormat="in")
         {
             ArgumentNullException.ThrowIfNullOrWhiteSpace(connectionOrPath);
 
+            
             var cs = connectionOrPath.Contains('=')
                 ? connectionOrPath
                 : $"Data Source={connectionOrPath};Cache=Shared";
-
-            _sp = new ServiceCollection()
+            if (!string.IsNullOrWhiteSpace(nameFormat))
+            {
+                _sp = new ServiceCollection()
+                .AddSQLiteM(o => o.ConnectionString = cs, sp => new SnakeCaseNameTranslator())
+                .BuildServiceProvider();
+            }
+            else
+            {
+                _sp = new ServiceCollection()
                 .AddSQLiteM(o => o.ConnectionString = cs)
                 .BuildServiceProvider();
+            }
+            
         }
 
         // ---------------------------------------------------------------------
@@ -72,7 +85,7 @@ namespace SQLiteM.Orm.Pub
         // ---------------------------------------------------------------------
 
 
-        public Task<long> InsertTransactionAsync<T>(T e, CancellationToken ct = default) where T : class, new()
+        public Task<int> InsertTransactionAsync<T>(T e, CancellationToken ct = default) where T : class, new()
             => WithTransactionAsync(async tx 
                 => await tx.Repo<T>().InsertAsync(e, ct), ct);
 
@@ -101,7 +114,7 @@ namespace SQLiteM.Orm.Pub
         // ---------------------------------------------------------------------
 
         /// <summary>Fügt eine Entität ein (eigene Transaktion; Commit on success).</summary>
-        public async Task<long> InsertAsync<T>(T entity, CancellationToken ct=default) where T : class, new()
+        public async Task<int> InsertAsync<T>(T entity, CancellationToken ct=default) where T : class, new()
         {
             ArgumentNullException.ThrowIfNull(entity);
 
