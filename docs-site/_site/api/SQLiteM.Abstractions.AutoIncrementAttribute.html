@@ -250,16 +250,10 @@ public sealed class AutoIncrementAttribute : Attribute</code></pre>
 
 
 
-  <h2 id="SQLiteM_Abstractions_AutoIncrementAttribute_examples">Examples</h2>
-  <pre><code class="lang-csharp">[PrimaryKey]
-[AutoIncrement]
-[Column("Id")]
-public int Id { get; set; }</code></pre>
-
 
   <h2 id="SQLiteM_Abstractions_AutoIncrementAttribute_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Dieses Attribut ist in der Regel in Kombination mit <a class="xref" href="SQLiteM.Abstractions.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a> zu verwenden.
-Die Spalte wird in SQLite automatisch hochgezählt, wenn neue Datensätze eingefügt werden.</p>
+  <div class="markdown level0 remarks"><p>Üblicherweise gemeinsam mit <a class="xref" href="SQLiteM.Abstractions.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a> auf einer <code>INTEGER</code>-Spalte.
+In SQLite ergibt sich daraus typischerweise <code>INTEGER PRIMARY KEY AUTOINCREMENT</code>.</p>
 </div>
 
 

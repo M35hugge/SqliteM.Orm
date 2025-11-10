@@ -18,15 +18,18 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: ISqlDialect
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 30
+    startLine: 32
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Bietet Dialekt-spezifische Operationen (Identifierquoting, Parameterpräfix).
-  remarks: Implementierungen legen fest, wie Bezeichner maskiert und Parameter benannt werden.
+  summary: Bietet Dialekt-spezifische Operationen (Identifier-Quoting, Parameterpräfix).
+  remarks: >-
+    Implementierungen legen fest, wie Bezeichner maskiert und Parameter benannt werden
+
+    (z. B. SQLite: <code>"name"</code>, <code>@param</code>).
   example: []
   syntax:
     content: public interface ISqlDialect
@@ -46,10 +49,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: QuoteIdentifier
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 37
+    startLine: 39
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -84,10 +87,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: ParameterPrefix
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 42
+    startLine: 44
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions

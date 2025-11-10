@@ -5,11 +5,6 @@ items:
   id: SQLiteM.Orm
   children:
   - SQLiteM.Orm.NamespaceDoc
-  - SQLiteM.Orm.SQLiteMBootstrap
-  - SQLiteM.Orm.SQLiteMClient
-  - SQLiteM.Orm.SQLiteMOptions
-  - SQLiteM.Orm.ServiceCollectionExtensions
-  - SQLiteM.Orm.SqliteDialect
   langs:
   - csharp
   - vb
@@ -26,33 +21,3 @@ references:
   name: NamespaceDoc
   nameWithType: NamespaceDoc
   fullName: SQLiteM.Orm.NamespaceDoc
-- uid: SQLiteM.Orm.ServiceCollectionExtensions
-  commentId: T:SQLiteM.Orm.ServiceCollectionExtensions
-  href: SQLiteM.Orm.ServiceCollectionExtensions.html
-  name: ServiceCollectionExtensions
-  nameWithType: ServiceCollectionExtensions
-  fullName: SQLiteM.Orm.ServiceCollectionExtensions
-- uid: SQLiteM.Orm.SqliteDialect
-  commentId: T:SQLiteM.Orm.SqliteDialect
-  href: SQLiteM.Orm.SqliteDialect.html
-  name: SqliteDialect
-  nameWithType: SqliteDialect
-  fullName: SQLiteM.Orm.SqliteDialect
-- uid: SQLiteM.Orm.SQLiteMBootstrap
-  commentId: T:SQLiteM.Orm.SQLiteMBootstrap
-  href: SQLiteM.Orm.SQLiteMBootstrap.html
-  name: SQLiteMBootstrap
-  nameWithType: SQLiteMBootstrap
-  fullName: SQLiteM.Orm.SQLiteMBootstrap
-- uid: SQLiteM.Orm.SQLiteMClient
-  commentId: T:SQLiteM.Orm.SQLiteMClient
-  href: SQLiteM.Orm.SQLiteMClient.html
-  name: SQLiteMClient
-  nameWithType: SQLiteMClient
-  fullName: SQLiteM.Orm.SQLiteMClient
-- uid: SQLiteM.Orm.SQLiteMOptions
-  commentId: T:SQLiteM.Orm.SQLiteMOptions
-  href: SQLiteM.Orm.SQLiteMOptions.html
-  name: SQLiteMOptions
-  nameWithType: SQLiteMOptions
-  fullName: SQLiteM.Orm.SQLiteMOptions

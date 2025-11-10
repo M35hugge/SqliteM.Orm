@@ -22,7 +22,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/Query.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Query
     path: ../SQLiteM.Abstractions/Query.cs
     startLine: 14
@@ -69,7 +69,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/Query.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: WhereColumn
     path: ../SQLiteM.Abstractions/Query.cs
     startLine: 19
@@ -100,7 +100,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/Query.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: WhereValue
     path: ../SQLiteM.Abstractions/Query.cs
     startLine: 24
@@ -131,7 +131,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/Query.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: OrderByColumn
     path: ../SQLiteM.Abstractions/Query.cs
     startLine: 29
@@ -162,7 +162,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/Query.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: OrderByDesc
     path: ../SQLiteM.Abstractions/Query.cs
     startLine: 34
@@ -193,7 +193,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/Query.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: WhereEquals
     path: ../SQLiteM.Abstractions/Query.cs
     startLine: 43
@@ -237,7 +237,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/Query.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: OrderBy
     path: ../SQLiteM.Abstractions/Query.cs
     startLine: 52

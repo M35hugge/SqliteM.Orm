@@ -5,6 +5,7 @@ items:
   id: ISqlBuilder
   parent: SQLiteM.Abstractions
   children:
+  - SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
   - SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable(System.Type)
   - SQLiteM.Abstractions.ISqlBuilder.BuildDelete(System.Type,SQLiteM.Abstractions.PropertyMap@)
   - SQLiteM.Abstractions.ISqlBuilder.BuildInsert(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
@@ -21,10 +22,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: ISqlBuilder
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 146
+    startLine: 157
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -48,10 +49,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildInsert
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 154
+    startLine: 165
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -89,10 +90,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildUpdate
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 162
+    startLine: 173
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -130,10 +131,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildDelete
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 170
+    startLine: 181
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -171,10 +172,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildSelectById
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 179
+    startLine: 190
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -215,10 +216,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildCreateTable
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 186
+    startLine: 197
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -235,6 +236,41 @@ items:
       description: SQL-Befehl als String.
     content.vb: Function BuildCreateTable(entityType As Type) As String
   overload: SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable*
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  commentId: M:SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  id: BuildCreateIndexes(System.Type)
+  parent: SQLiteM.Abstractions.ISqlBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildCreateIndexes(Type)
+  nameWithType: ISqlBuilder.BuildCreateIndexes(Type)
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BuildCreateIndexes
+    path: ../SQLiteM.Abstractions/Interfaces.cs
+    startLine: 205
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Baut <code>CREATE INDEX</code>-Anweisungen (Einzel- und Composite-Indizes).
+  example: []
+  syntax:
+    content: IReadOnlyList<string> BuildCreateIndexes(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Entitätstyp.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.String}
+      description: Liste mit SQL-Texten (je Index ein Eintrag).
+    content.vb: Function BuildCreateIndexes(entityType As Type) As IReadOnlyList(Of String)
+  overload: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes*
 references:
 - uid: SQLiteM.Abstractions
   commentId: N:SQLiteM.Abstractions
@@ -419,3 +455,44 @@ references:
   name: BuildCreateTable
   nameWithType: ISqlBuilder.BuildCreateTable
   fullName: SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes*
+  commentId: Overload:SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes
+  href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildCreateIndexes_System_Type_
+  name: BuildCreateIndexes
+  nameWithType: ISqlBuilder.BuildCreateIndexes
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes
+- uid: System.Collections.Generic.IReadOnlyList{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<string>
+  nameWithType: IReadOnlyList<string>
+  fullName: System.Collections.Generic.IReadOnlyList<string>
+  nameWithType.vb: IReadOnlyList(Of String)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of String)
+  name.vb: IReadOnlyList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

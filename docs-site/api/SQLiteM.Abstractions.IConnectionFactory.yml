@@ -17,18 +17,20 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IConnectionFactory
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
   summary: Erzeugt neue Datenbankverbindungen.
   remarks: >-
-    Die zurückgegebene Verbindung ist initial <code>geschlossen</code>. 
+    Die zurückgegebene Verbindung ist initial <code>geschlossen</code>.
 
-    Der Aufrufer ist für das Öffnen und Schließen verantwortlich.
+    Der Aufrufer ist für das Öffnen (<xref href="System.Data.IDbConnection.Open" data-throw-if-not-resolved="false"></xref>) und Schließen
+
+    (<xref href="System.Data.IDbConnection.Close" data-throw-if-not-resolved="false"></xref>) verantwortlich.
   example: []
   syntax:
     content: public interface IConnectionFactory
@@ -48,10 +50,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Create
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 21
+    startLine: 22
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -65,6 +67,48 @@ items:
     content.vb: Function Create() As IDbConnection
   overload: SQLiteM.Abstractions.IConnectionFactory.Create*
 references:
+- uid: System.Data.IDbConnection.Open
+  commentId: M:System.Data.IDbConnection.Open
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.open
+  name: Open()
+  nameWithType: IDbConnection.Open()
+  fullName: System.Data.IDbConnection.Open()
+  spec.csharp:
+  - uid: System.Data.IDbConnection.Open
+    name: Open
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.open
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Data.IDbConnection.Open
+    name: Open
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.open
+  - name: (
+  - name: )
+- uid: System.Data.IDbConnection.Close
+  commentId: M:System.Data.IDbConnection.Close
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.close
+  name: Close()
+  nameWithType: IDbConnection.Close()
+  fullName: System.Data.IDbConnection.Close()
+  spec.csharp:
+  - uid: System.Data.IDbConnection.Close
+    name: Close
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.close
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Data.IDbConnection.Close
+    name: Close
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.close
+  - name: (
+  - name: )
 - uid: SQLiteM.Abstractions
   commentId: N:SQLiteM.Abstractions
   href: SQLiteM.html

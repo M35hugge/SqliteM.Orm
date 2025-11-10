@@ -16,27 +16,19 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: AutoIncrementAttribute
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 106
+    startLine: 174
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
   summary: Markiert eine Eigenschaft als Auto-Increment-Spalte.
   remarks: >-
-    Dieses Attribut ist in der Regel in Kombination mit <xref href="SQLiteM.Abstractions.PrimaryKeyAttribute" data-throw-if-not-resolved="false"></xref> zu verwenden.
+    Üblicherweise gemeinsam mit <xref href="SQLiteM.Abstractions.PrimaryKeyAttribute" data-throw-if-not-resolved="false"></xref> auf einer <code>INTEGER</code>-Spalte.
 
-    Die Spalte wird in SQLite automatisch hochgezählt, wenn neue Datensätze eingefügt werden.
-  example:
-  - >-
-    <pre><code class="lang-csharp">[PrimaryKey]
-
-    [AutoIncrement]
-
-    [Column("Id")]
-
-    public int Id { get; set; }</code></pre>
+    In SQLite ergibt sich daraus typischerweise <code>INTEGER PRIMARY KEY AUTOINCREMENT</code>.
+  example: []
   syntax:
     content: >-
       [AttributeUsage(AttributeTargets.Property, Inherited = false)]

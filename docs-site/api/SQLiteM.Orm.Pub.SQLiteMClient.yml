@@ -1,0 +1,1805 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Orm.Pub.SQLiteMClient
+  commentId: T:SQLiteM.Orm.Pub.SQLiteMClient
+  id: SQLiteMClient
+  parent: SQLiteM.Orm.Pub
+  children:
+  - SQLiteM.Orm.Pub.SQLiteMClient.#ctor(System.String,System.String)
+  - SQLiteM.Orm.Pub.SQLiteMClient.BeginTransactionAsync(System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.DeleteAsync``1(System.Object,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.DeleteTransactionAsync``1(System.Object,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.DisposeAsync
+  - SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync(System.Threading.CancellationToken,System.Type[])
+  - SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync``1(System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync``1(System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.FindAllAsync``1(System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.FindAllTransactionAsync``1(System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.FindByIdAsync``1(System.Object,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.FindByIdTransactionAsync``1(System.Object,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.InsertAsync``1(``0,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.InsertTransactionAsync``1(``0,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.QueryAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.QueryTransactionAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.UpdateAsync``1(``0,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.UpdateTransactionAsync``1(``0,System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.WithReadOnlyAsync``1(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task},System.Threading.CancellationToken)
+  - SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync``1(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: SQLiteMClient
+  nameWithType: SQLiteMClient
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient
+  type: Class
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: SQLiteMClient
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 11
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: >-
+    Öffentliche, minimalistische Fassade über DI/Repositories/UnitOfWork.
+
+    Erlaubt CRUD-Operationen, einfache Abfragen sowie transaktionale Scopes,
+
+    indem lediglich ein Connection-String oder Pfad übergeben wird.
+  example: []
+  syntax:
+    content: 'public sealed class SQLiteMClient : IAsyncDisposable'
+    content.vb: Public NotInheritable Class SQLiteMClient Implements IAsyncDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IAsyncDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.#ctor(System.String,System.String)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: SQLiteMClient(string, string)
+  nameWithType: SQLiteMClient.SQLiteMClient(string, string)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.SQLiteMClient(string, string)
+  type: Constructor
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: .ctor
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 26
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Erstellt einen neuen Client.
+  example: []
+  syntax:
+    content: public SQLiteMClient(string connectionOrPath, string nameFormat = "in")
+    parameters:
+    - id: connectionOrPath
+      type: System.String
+      description: >-
+        Entweder eine vollständige Connection-String (enthält '=') oder ein Dateipfad;
+
+        bei Pfad wird automatisch <code>Data Source=&lt;Pfad&gt;;Cache=Shared</code> gebildet.
+    - id: nameFormat
+      type: System.String
+      description: Gibt bei bei Tabellenerstellung StringCase mit ("sc"= snake_case)
+    content.vb: Public Sub New(connectionOrPath As String, nameFormat As String = "in")
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.#ctor*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Wenn <code class="paramref">connectionOrPath</code> null/leer ist.
+  nameWithType.vb: SQLiteMClient.New(String, String)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.New(String, String)
+  name.vb: New(String, String)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync``1(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync``1(System.Threading.CancellationToken)
+  id: EnsureCreateAsync``1(System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: EnsureCreateAsync<T>(CancellationToken)
+  nameWithType: SQLiteMClient.EnsureCreateAsync<T>(CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync<T>(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: EnsureCreateAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 54
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Alias für <xref href="SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync%60%601(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Task EnsureCreateAsync<T>(CancellationToken ct = default)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function EnsureCreateAsync(Of T)(ct As CancellationToken = Nothing) As Task
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync*
+  nameWithType.vb: SQLiteMClient.EnsureCreateAsync(Of T)(CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync(Of T)(System.Threading.CancellationToken)
+  name.vb: EnsureCreateAsync(Of T)(CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync``1(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync``1(System.Threading.CancellationToken)
+  id: EnsureCreatedAsync``1(System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: EnsureCreatedAsync<T>(CancellationToken)
+  nameWithType: SQLiteMClient.EnsureCreatedAsync<T>(CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync<T>(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: EnsureCreatedAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 58
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Legt Tabelle für T an (falls nicht vorhanden).
+  example: []
+  syntax:
+    content: public Task EnsureCreatedAsync<T>(CancellationToken ct = default)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function EnsureCreatedAsync(Of T)(ct As CancellationToken = Nothing) As Task
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync*
+  nameWithType.vb: SQLiteMClient.EnsureCreatedAsync(Of T)(CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync(Of T)(System.Threading.CancellationToken)
+  name.vb: EnsureCreatedAsync(Of T)(CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync(System.Threading.CancellationToken,System.Type[])
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync(System.Threading.CancellationToken,System.Type[])
+  id: EnsureCreateAsync(System.Threading.CancellationToken,System.Type[])
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: EnsureCreateAsync(CancellationToken, params Type[])
+  nameWithType: SQLiteMClient.EnsureCreateAsync(CancellationToken, params Type[])
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync(System.Threading.CancellationToken, params System.Type[])
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: EnsureCreateAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 68
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Legt Tabelle für die angegebenen Typen an (falls nicht vorhanden) in der angegebenen Reihenfolge.
+  example: []
+  syntax:
+    content: public Task EnsureCreateAsync(CancellationToken ct = default, params Type[] entityTypes)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+    - id: entityTypes
+      type: System.Type[]
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function EnsureCreateAsync(ct As CancellationToken = Nothing, ParamArray entityTypes As Type()) As Task
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync*
+  nameWithType.vb: SQLiteMClient.EnsureCreateAsync(CancellationToken, ParamArray Type())
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync(System.Threading.CancellationToken, ParamArray System.Type())
+  name.vb: EnsureCreateAsync(CancellationToken, ParamArray Type())
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.InsertTransactionAsync``1(``0,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.InsertTransactionAsync``1(``0,System.Threading.CancellationToken)
+  id: InsertTransactionAsync``1(``0,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: InsertTransactionAsync<T>(T, CancellationToken)
+  nameWithType: SQLiteMClient.InsertTransactionAsync<T>(T, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.InsertTransactionAsync<T>(T, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: InsertTransactionAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 87
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  syntax:
+    content: 'public Task<int> InsertTransactionAsync<T>(T e, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: e
+      type: '{T}'
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Public Function InsertTransactionAsync(Of T As {Class, New})(e As T, ct As CancellationToken = Nothing) As Task(Of Integer)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.InsertTransactionAsync*
+  nameWithType.vb: SQLiteMClient.InsertTransactionAsync(Of T)(T, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.InsertTransactionAsync(Of T)(T, System.Threading.CancellationToken)
+  name.vb: InsertTransactionAsync(Of T)(T, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.UpdateTransactionAsync``1(``0,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.UpdateTransactionAsync``1(``0,System.Threading.CancellationToken)
+  id: UpdateTransactionAsync``1(``0,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateTransactionAsync<T>(T, CancellationToken)
+  nameWithType: SQLiteMClient.UpdateTransactionAsync<T>(T, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.UpdateTransactionAsync<T>(T, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: UpdateTransactionAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 91
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  syntax:
+    content: 'public Task<int> UpdateTransactionAsync<T>(T e, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: e
+      type: '{T}'
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Public Function UpdateTransactionAsync(Of T As {Class, New})(e As T, ct As CancellationToken = Nothing) As Task(Of Integer)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.UpdateTransactionAsync*
+  nameWithType.vb: SQLiteMClient.UpdateTransactionAsync(Of T)(T, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.UpdateTransactionAsync(Of T)(T, System.Threading.CancellationToken)
+  name.vb: UpdateTransactionAsync(Of T)(T, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.DeleteTransactionAsync``1(System.Object,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.DeleteTransactionAsync``1(System.Object,System.Threading.CancellationToken)
+  id: DeleteTransactionAsync``1(System.Object,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteTransactionAsync<T>(object, CancellationToken)
+  nameWithType: SQLiteMClient.DeleteTransactionAsync<T>(object, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.DeleteTransactionAsync<T>(object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: DeleteTransactionAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 95
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  syntax:
+    content: 'public Task<int> DeleteTransactionAsync<T>(object id, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: id
+      type: System.Object
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Public Function DeleteTransactionAsync(Of T As {Class, New})(id As Object, ct As CancellationToken = Nothing) As Task(Of Integer)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.DeleteTransactionAsync*
+  nameWithType.vb: SQLiteMClient.DeleteTransactionAsync(Of T)(Object, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.DeleteTransactionAsync(Of T)(Object, System.Threading.CancellationToken)
+  name.vb: DeleteTransactionAsync(Of T)(Object, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdTransactionAsync``1(System.Object,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.FindByIdTransactionAsync``1(System.Object,System.Threading.CancellationToken)
+  id: FindByIdTransactionAsync``1(System.Object,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: FindByIdTransactionAsync<T>(object, CancellationToken)
+  nameWithType: SQLiteMClient.FindByIdTransactionAsync<T>(object, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdTransactionAsync<T>(object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: FindByIdTransactionAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 99
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  syntax:
+    content: 'public Task<T?> FindByIdTransactionAsync<T>(object id, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: id
+      type: System.Object
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+    content.vb: Public Function FindByIdTransactionAsync(Of T As {Class, New})(id As Object, ct As CancellationToken = Nothing) As Task(Of T)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdTransactionAsync*
+  nameWithType.vb: SQLiteMClient.FindByIdTransactionAsync(Of T)(Object, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdTransactionAsync(Of T)(Object, System.Threading.CancellationToken)
+  name.vb: FindByIdTransactionAsync(Of T)(Object, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.FindAllTransactionAsync``1(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.FindAllTransactionAsync``1(System.Threading.CancellationToken)
+  id: FindAllTransactionAsync``1(System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: FindAllTransactionAsync<T>(CancellationToken)
+  nameWithType: SQLiteMClient.FindAllTransactionAsync<T>(CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.FindAllTransactionAsync<T>(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: FindAllTransactionAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 103
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  syntax:
+    content: 'public Task<IReadOnlyList<T>> FindAllTransactionAsync<T>(CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{{T}}}
+    content.vb: Public Function FindAllTransactionAsync(Of T As {Class, New})(ct As CancellationToken = Nothing) As Task(Of IReadOnlyList(Of T))
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.FindAllTransactionAsync*
+  nameWithType.vb: SQLiteMClient.FindAllTransactionAsync(Of T)(CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.FindAllTransactionAsync(Of T)(System.Threading.CancellationToken)
+  name.vb: FindAllTransactionAsync(Of T)(CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.QueryTransactionAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.QueryTransactionAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  id: QueryTransactionAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: QueryTransactionAsync<T>(Query, CancellationToken)
+  nameWithType: SQLiteMClient.QueryTransactionAsync<T>(Query, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.QueryTransactionAsync<T>(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: QueryTransactionAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 107
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  syntax:
+    content: 'public Task<IReadOnlyList<T>> QueryTransactionAsync<T>(Query q, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: q
+      type: SQLiteM.Abstractions.Query
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{{T}}}
+    content.vb: Public Function QueryTransactionAsync(Of T As {Class, New})(q As Query, ct As CancellationToken = Nothing) As Task(Of IReadOnlyList(Of T))
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.QueryTransactionAsync*
+  nameWithType.vb: SQLiteMClient.QueryTransactionAsync(Of T)(Query, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.QueryTransactionAsync(Of T)(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  name.vb: QueryTransactionAsync(Of T)(Query, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.InsertAsync``1(``0,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.InsertAsync``1(``0,System.Threading.CancellationToken)
+  id: InsertAsync``1(``0,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: InsertAsync<T>(T, CancellationToken)
+  nameWithType: SQLiteMClient.InsertAsync<T>(T, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.InsertAsync<T>(T, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: InsertAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 116
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Fügt eine Entität ein (eigene Transaktion; Commit on success).
+  example: []
+  syntax:
+    content: 'public Task<int> InsertAsync<T>(T entity, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: entity
+      type: '{T}'
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Public Function InsertAsync(Of T As {Class, New})(entity As T, ct As CancellationToken = Nothing) As Task(Of Integer)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.InsertAsync*
+  nameWithType.vb: SQLiteMClient.InsertAsync(Of T)(T, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.InsertAsync(Of T)(T, System.Threading.CancellationToken)
+  name.vb: InsertAsync(Of T)(T, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.UpdateAsync``1(``0,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.UpdateAsync``1(``0,System.Threading.CancellationToken)
+  id: UpdateAsync``1(``0,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync<T>(T, CancellationToken)
+  nameWithType: SQLiteMClient.UpdateAsync<T>(T, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.UpdateAsync<T>(T, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: UpdateAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 131
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Aktualisiert eine Entität (eigene Transaktion; Commit on success).
+  example: []
+  syntax:
+    content: 'public Task<int> UpdateAsync<T>(T entity, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: entity
+      type: '{T}'
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Public Function UpdateAsync(Of T As {Class, New})(entity As T, ct As CancellationToken = Nothing) As Task(Of Integer)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.UpdateAsync*
+  nameWithType.vb: SQLiteMClient.UpdateAsync(Of T)(T, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.UpdateAsync(Of T)(T, System.Threading.CancellationToken)
+  name.vb: UpdateAsync(Of T)(T, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.DeleteAsync``1(System.Object,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.DeleteAsync``1(System.Object,System.Threading.CancellationToken)
+  id: DeleteAsync``1(System.Object,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync<T>(object, CancellationToken)
+  nameWithType: SQLiteMClient.DeleteAsync<T>(object, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.DeleteAsync<T>(object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: DeleteAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 146
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Löscht eine Entität anhand des Primärschlüssels (eigene Transaktion; Commit on success).
+  example: []
+  syntax:
+    content: 'public Task<int> DeleteAsync<T>(object id, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: id
+      type: System.Object
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+    content.vb: Public Function DeleteAsync(Of T As {Class, New})(id As Object, ct As CancellationToken = Nothing) As Task(Of Integer)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.DeleteAsync*
+  nameWithType.vb: SQLiteMClient.DeleteAsync(Of T)(Object, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.DeleteAsync(Of T)(Object, System.Threading.CancellationToken)
+  name.vb: DeleteAsync(Of T)(Object, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdAsync``1(System.Object,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.FindByIdAsync``1(System.Object,System.Threading.CancellationToken)
+  id: FindByIdAsync``1(System.Object,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: FindByIdAsync<T>(object, CancellationToken)
+  nameWithType: SQLiteMClient.FindByIdAsync<T>(object, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdAsync<T>(object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: FindByIdAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 161
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Lädt eine Entität per Primärschlüssel (eigener Read-Only-Scope).
+  example: []
+  syntax:
+    content: 'public Task<T?> FindByIdAsync<T>(object id, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: id
+      type: System.Object
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+    content.vb: Public Function FindByIdAsync(Of T As {Class, New})(id As Object, ct As CancellationToken = Nothing) As Task(Of T)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdAsync*
+  nameWithType.vb: SQLiteMClient.FindByIdAsync(Of T)(Object, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdAsync(Of T)(Object, System.Threading.CancellationToken)
+  name.vb: FindByIdAsync(Of T)(Object, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.FindAllAsync``1(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.FindAllAsync``1(System.Threading.CancellationToken)
+  id: FindAllAsync``1(System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: FindAllAsync<T>(CancellationToken)
+  nameWithType: SQLiteMClient.FindAllAsync<T>(CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.FindAllAsync<T>(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: FindAllAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 176
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Lädt alle Entitäten aus der Tabelle (eigener Read-Only-Scope).
+  example: []
+  syntax:
+    content: 'public Task<IReadOnlyList<T>> FindAllAsync<T>(CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{{T}}}
+    content.vb: Public Function FindAllAsync(Of T As {Class, New})(ct As CancellationToken = Nothing) As Task(Of IReadOnlyList(Of T))
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.FindAllAsync*
+  nameWithType.vb: SQLiteMClient.FindAllAsync(Of T)(CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.FindAllAsync(Of T)(System.Threading.CancellationToken)
+  name.vb: FindAllAsync(Of T)(CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.QueryAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.QueryAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  id: QueryAsync``1(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: QueryAsync<T>(Query, CancellationToken)
+  nameWithType: SQLiteMClient.QueryAsync<T>(Query, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.QueryAsync<T>(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: QueryAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 187
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Führt eine einfache parametrisierte Abfrage aus (eigener Read-Only-Scope).
+  example: []
+  syntax:
+    content: 'public Task<IReadOnlyList<T>> QueryAsync<T>(Query query, CancellationToken ct = default) where T : class, new()'
+    parameters:
+    - id: query
+      type: SQLiteM.Abstractions.Query
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{{T}}}
+    content.vb: Public Function QueryAsync(Of T As {Class, New})(query As Query, ct As CancellationToken = Nothing) As Task(Of IReadOnlyList(Of T))
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.QueryAsync*
+  nameWithType.vb: SQLiteMClient.QueryAsync(Of T)(Query, CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.QueryAsync(Of T)(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  name.vb: QueryAsync(Of T)(Query, CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task},System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task},System.Threading.CancellationToken)
+  id: WithTransactionAsync(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task},System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: WithTransactionAsync(Func<ITransactionContext, Task>, CancellationToken)
+  nameWithType: SQLiteMClient.WithTransactionAsync(Func<ITransactionContext, Task>, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync(System.Func<SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WithTransactionAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 208
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Führt benutzerdefinierte Arbeit in einer Transaktion aus und committet automatisch.
+  example: []
+  syntax:
+    content: public Task WithTransactionAsync(Func<ITransactionContext, Task> work, CancellationToken ct = default)
+    parameters:
+    - id: work
+      type: System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task}
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function WithTransactionAsync(work As Func(Of ITransactionContext, Task), ct As CancellationToken = Nothing) As Task
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync*
+  nameWithType.vb: SQLiteMClient.WithTransactionAsync(Func(Of ITransactionContext, Task), CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync(System.Func(Of SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task), System.Threading.CancellationToken)
+  name.vb: WithTransactionAsync(Func(Of ITransactionContext, Task), CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync``1(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync``1(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
+  id: WithTransactionAsync``1(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: WithTransactionAsync<TResult>(Func<ITransactionContext, Task<TResult>>, CancellationToken)
+  nameWithType: SQLiteMClient.WithTransactionAsync<TResult>(Func<ITransactionContext, Task<TResult>>, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync<TResult>(System.Func<SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task<TResult>>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WithTransactionAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 220
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Führt benutzerdefinierte Arbeit in einer Transaktion aus, liefert ein Ergebnis und committet automatisch.
+  example: []
+  syntax:
+    content: public Task<TResult> WithTransactionAsync<TResult>(Func<ITransactionContext, Task<TResult>> work, CancellationToken ct = default)
+    parameters:
+    - id: work
+      type: System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{{TResult}}}
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: TResult
+    return:
+      type: System.Threading.Tasks.Task{{TResult}}
+    content.vb: Public Function WithTransactionAsync(Of TResult)(work As Func(Of ITransactionContext, Task(Of TResult)), ct As CancellationToken = Nothing) As Task(Of TResult)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync*
+  nameWithType.vb: SQLiteMClient.WithTransactionAsync(Of TResult)(Func(Of ITransactionContext, Task(Of TResult)), CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync(Of TResult)(System.Func(Of SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task(Of TResult)), System.Threading.CancellationToken)
+  name.vb: WithTransactionAsync(Of TResult)(Func(Of ITransactionContext, Task(Of TResult)), CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.WithReadOnlyAsync``1(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.WithReadOnlyAsync``1(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
+  id: WithReadOnlyAsync``1(System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: WithReadOnlyAsync<TResult>(Func<ITransactionContext, Task<TResult>>, CancellationToken)
+  nameWithType: SQLiteMClient.WithReadOnlyAsync<TResult>(Func<ITransactionContext, Task<TResult>>, CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.WithReadOnlyAsync<TResult>(System.Func<SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task<TResult>>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WithReadOnlyAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 233
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Führt benutzerdefinierte Arbeit in einem Read-Only-Transaktionskontext aus (kein Commit).
+  example: []
+  syntax:
+    content: public Task<TResult> WithReadOnlyAsync<TResult>(Func<ITransactionContext, Task<TResult>> work, CancellationToken ct = default)
+    parameters:
+    - id: work
+      type: System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{{TResult}}}
+    - id: ct
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: TResult
+    return:
+      type: System.Threading.Tasks.Task{{TResult}}
+    content.vb: Public Function WithReadOnlyAsync(Of TResult)(work As Func(Of ITransactionContext, Task(Of TResult)), ct As CancellationToken = Nothing) As Task(Of TResult)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.WithReadOnlyAsync*
+  nameWithType.vb: SQLiteMClient.WithReadOnlyAsync(Of TResult)(Func(Of ITransactionContext, Task(Of TResult)), CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.WithReadOnlyAsync(Of TResult)(System.Func(Of SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task(Of TResult)), System.Threading.CancellationToken)
+  name.vb: WithReadOnlyAsync(Of TResult)(Func(Of ITransactionContext, Task(Of TResult)), CancellationToken)
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.BeginTransactionAsync(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.BeginTransactionAsync(System.Threading.CancellationToken)
+  id: BeginTransactionAsync(System.Threading.CancellationToken)
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: BeginTransactionAsync(CancellationToken)
+  nameWithType: SQLiteMClient.BeginTransactionAsync(CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.BeginTransactionAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BeginTransactionAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 250
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Beginnt eine neue Transaktion und gibt einen <xref href="SQLiteM.Abstractions.ITransactionContext" data-throw-if-not-resolved="false"></xref> zurück.
+  example: []
+  syntax:
+    content: public Task<ITransactionContext> BeginTransactionAsync(CancellationToken ct = default)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{SQLiteM.Abstractions.ITransactionContext}
+    content.vb: Public Function BeginTransactionAsync(ct As CancellationToken = Nothing) As Task(Of ITransactionContext)
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.BeginTransactionAsync*
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.DisposeAsync
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.DisposeAsync
+  id: DisposeAsync
+  parent: SQLiteM.Orm.Pub.SQLiteMClient
+  langs:
+  - csharp
+  - vb
+  name: DisposeAsync()
+  nameWithType: SQLiteMClient.DisposeAsync()
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.DisposeAsync()
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/SQLiteMClient.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: DisposeAsync
+    path: ../SQLiteM.Orm/Pub/SQLiteMClient.cs
+    startLine: 265
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Gibt den internen DI-Container frei.
+  example: []
+  syntax:
+    content: public ValueTask DisposeAsync()
+    return:
+      type: System.Threading.Tasks.ValueTask
+    content.vb: Public Function DisposeAsync() As ValueTask
+  overload: SQLiteM.Orm.Pub.SQLiteMClient.DisposeAsync*
+  implements:
+  - System.IAsyncDisposable.DisposeAsync
+references:
+- uid: SQLiteM.Orm.Pub
+  commentId: N:SQLiteM.Orm.Pub
+  href: SQLiteM.html
+  name: SQLiteM.Orm.Pub
+  nameWithType: SQLiteM.Orm.Pub
+  fullName: SQLiteM.Orm.Pub
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Orm
+    name: Orm
+    href: SQLiteM.Orm.html
+  - name: .
+  - uid: SQLiteM.Orm.Pub
+    name: Pub
+    href: SQLiteM.Orm.Pub.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Orm
+    name: Orm
+    href: SQLiteM.Orm.html
+  - name: .
+  - uid: SQLiteM.Orm.Pub
+    name: Pub
+    href: SQLiteM.Orm.Pub.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IAsyncDisposable
+  commentId: T:System.IAsyncDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable
+  name: IAsyncDisposable
+  nameWithType: IAsyncDisposable
+  fullName: System.IAsyncDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.#ctor*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.#ctor
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient__ctor_System_String_System_String_
+  name: SQLiteMClient
+  nameWithType: SQLiteMClient.SQLiteMClient
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.SQLiteMClient
+  nameWithType.vb: SQLiteMClient.New
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync``1(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync``1(System.Threading.CancellationToken)
+  isExternal: true
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_EnsureCreatedAsync__1_System_Threading_CancellationToken_
+  name: EnsureCreatedAsync<T>(CancellationToken)
+  nameWithType: SQLiteMClient.EnsureCreatedAsync<T>(CancellationToken)
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync<T>(System.Threading.CancellationToken)
+  nameWithType.vb: SQLiteMClient.EnsureCreatedAsync(Of T)(CancellationToken)
+  fullName.vb: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync(Of T)(System.Threading.CancellationToken)
+  name.vb: EnsureCreatedAsync(Of T)(CancellationToken)
+  spec.csharp:
+  - uid: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync``1(System.Threading.CancellationToken)
+    name: EnsureCreatedAsync
+    href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_EnsureCreatedAsync__1_System_Threading_CancellationToken_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync``1(System.Threading.CancellationToken)
+    name: EnsureCreatedAsync
+    href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_EnsureCreatedAsync__1_System_Threading_CancellationToken_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_EnsureCreateAsync__1_System_Threading_CancellationToken_
+  name: EnsureCreateAsync
+  nameWithType: SQLiteMClient.EnsureCreateAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreateAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_EnsureCreatedAsync__1_System_Threading_CancellationToken_
+  name: EnsureCreatedAsync
+  nameWithType: SQLiteMClient.EnsureCreatedAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.EnsureCreatedAsync
+- uid: System.Type[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type[]
+  nameWithType: Type[]
+  fullName: System.Type[]
+  nameWithType.vb: Type()
+  fullName.vb: System.Type()
+  name.vb: Type()
+  spec.csharp:
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: (
+  - name: )
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.InsertTransactionAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.InsertTransactionAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_InsertTransactionAsync__1___0_System_Threading_CancellationToken_
+  name: InsertTransactionAsync
+  nameWithType: SQLiteMClient.InsertTransactionAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.InsertTransactionAsync
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.UpdateTransactionAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.UpdateTransactionAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_UpdateTransactionAsync__1___0_System_Threading_CancellationToken_
+  name: UpdateTransactionAsync
+  nameWithType: SQLiteMClient.UpdateTransactionAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.UpdateTransactionAsync
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.DeleteTransactionAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.DeleteTransactionAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_DeleteTransactionAsync__1_System_Object_System_Threading_CancellationToken_
+  name: DeleteTransactionAsync
+  nameWithType: SQLiteMClient.DeleteTransactionAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.DeleteTransactionAsync
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdTransactionAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.FindByIdTransactionAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_FindByIdTransactionAsync__1_System_Object_System_Threading_CancellationToken_
+  name: FindByIdTransactionAsync
+  nameWithType: SQLiteMClient.FindByIdTransactionAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdTransactionAsync
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{`0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.FindAllTransactionAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.FindAllTransactionAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_FindAllTransactionAsync__1_System_Threading_CancellationToken_
+  name: FindAllTransactionAsync
+  nameWithType: SQLiteMClient.FindAllTransactionAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.FindAllTransactionAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{{T}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{`0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<T>>
+  nameWithType: Task<IReadOnlyList<T>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<T>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of T))
+  name.vb: Task(Of IReadOnlyList(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.QueryTransactionAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.QueryTransactionAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_QueryTransactionAsync__1_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  name: QueryTransactionAsync
+  nameWithType: SQLiteMClient.QueryTransactionAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.QueryTransactionAsync
+- uid: SQLiteM.Abstractions.Query
+  commentId: T:SQLiteM.Abstractions.Query
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.Query.html
+  name: Query
+  nameWithType: Query
+  fullName: SQLiteM.Abstractions.Query
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.InsertAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.InsertAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_InsertAsync__1___0_System_Threading_CancellationToken_
+  name: InsertAsync
+  nameWithType: SQLiteMClient.InsertAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.InsertAsync
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.UpdateAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.UpdateAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_UpdateAsync__1___0_System_Threading_CancellationToken_
+  name: UpdateAsync
+  nameWithType: SQLiteMClient.UpdateAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.UpdateAsync
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.DeleteAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.DeleteAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_DeleteAsync__1_System_Object_System_Threading_CancellationToken_
+  name: DeleteAsync
+  nameWithType: SQLiteMClient.DeleteAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.DeleteAsync
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.FindByIdAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_FindByIdAsync__1_System_Object_System_Threading_CancellationToken_
+  name: FindByIdAsync
+  nameWithType: SQLiteMClient.FindByIdAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.FindByIdAsync
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.FindAllAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.FindAllAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_FindAllAsync__1_System_Threading_CancellationToken_
+  name: FindAllAsync
+  nameWithType: SQLiteMClient.FindAllAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.FindAllAsync
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.QueryAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.QueryAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_QueryAsync__1_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  name: QueryAsync
+  nameWithType: SQLiteMClient.QueryAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.QueryAsync
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_WithTransactionAsync_System_Func_SQLiteM_Abstractions_ITransactionContext_System_Threading_Tasks_Task__System_Threading_CancellationToken_
+  name: WithTransactionAsync
+  nameWithType: SQLiteMClient.WithTransactionAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.WithTransactionAsync
+- uid: System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task}
+  commentId: T:System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<ITransactionContext, Task>
+  nameWithType: Func<ITransactionContext, Task>
+  fullName: System.Func<SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task>
+  nameWithType.vb: Func(Of ITransactionContext, Task)
+  fullName.vb: System.Func(Of SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task)
+  name.vb: Func(Of ITransactionContext, Task)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: SQLiteM.Abstractions.ITransactionContext
+    name: ITransactionContext
+    href: SQLiteM.Abstractions.ITransactionContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.ITransactionContext
+    name: ITransactionContext
+    href: SQLiteM.Abstractions.ITransactionContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{{TResult}}}
+  commentId: T:System.Func{SQLiteM.Abstractions.ITransactionContext,System.Threading.Tasks.Task{``0}}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<ITransactionContext, Task<TResult>>
+  nameWithType: Func<ITransactionContext, Task<TResult>>
+  fullName: System.Func<SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task<TResult>>
+  nameWithType.vb: Func(Of ITransactionContext, Task(Of TResult))
+  fullName.vb: System.Func(Of SQLiteM.Abstractions.ITransactionContext, System.Threading.Tasks.Task(Of TResult))
+  name.vb: Func(Of ITransactionContext, Task(Of TResult))
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: SQLiteM.Abstractions.ITransactionContext
+    name: ITransactionContext
+    href: SQLiteM.Abstractions.ITransactionContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.ITransactionContext
+    name: ITransactionContext
+    href: SQLiteM.Abstractions.ITransactionContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task{{TResult}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.WithReadOnlyAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.WithReadOnlyAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_WithReadOnlyAsync__1_System_Func_SQLiteM_Abstractions_ITransactionContext_System_Threading_Tasks_Task___0___System_Threading_CancellationToken_
+  name: WithReadOnlyAsync
+  nameWithType: SQLiteMClient.WithReadOnlyAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.WithReadOnlyAsync
+- uid: SQLiteM.Abstractions.ITransactionContext
+  commentId: T:SQLiteM.Abstractions.ITransactionContext
+  href: SQLiteM.Abstractions.ITransactionContext.html
+  name: ITransactionContext
+  nameWithType: ITransactionContext
+  fullName: SQLiteM.Abstractions.ITransactionContext
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.BeginTransactionAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.BeginTransactionAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_BeginTransactionAsync_System_Threading_CancellationToken_
+  name: BeginTransactionAsync
+  nameWithType: SQLiteMClient.BeginTransactionAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.BeginTransactionAsync
+- uid: System.Threading.Tasks.Task{SQLiteM.Abstractions.ITransactionContext}
+  commentId: T:System.Threading.Tasks.Task{SQLiteM.Abstractions.ITransactionContext}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ITransactionContext>
+  nameWithType: Task<ITransactionContext>
+  fullName: System.Threading.Tasks.Task<SQLiteM.Abstractions.ITransactionContext>
+  nameWithType.vb: Task(Of ITransactionContext)
+  fullName.vb: System.Threading.Tasks.Task(Of SQLiteM.Abstractions.ITransactionContext)
+  name.vb: Task(Of ITransactionContext)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: SQLiteM.Abstractions.ITransactionContext
+    name: ITransactionContext
+    href: SQLiteM.Abstractions.ITransactionContext.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.ITransactionContext
+    name: ITransactionContext
+    href: SQLiteM.Abstractions.ITransactionContext.html
+  - name: )
+- uid: SQLiteM.Orm.Pub.SQLiteMClient.DisposeAsync*
+  commentId: Overload:SQLiteM.Orm.Pub.SQLiteMClient.DisposeAsync
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html#SQLiteM_Orm_Pub_SQLiteMClient_DisposeAsync
+  name: DisposeAsync
+  nameWithType: SQLiteMClient.DisposeAsync
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient.DisposeAsync
+- uid: System.IAsyncDisposable.DisposeAsync
+  commentId: M:System.IAsyncDisposable.DisposeAsync
+  parent: System.IAsyncDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  name: DisposeAsync()
+  nameWithType: IAsyncDisposable.DisposeAsync()
+  fullName: System.IAsyncDisposable.DisposeAsync()
+  spec.csharp:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.ValueTask
+  commentId: T:System.Threading.Tasks.ValueTask
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask
+  name: ValueTask
+  nameWithType: ValueTask
+  fullName: System.Threading.Tasks.ValueTask

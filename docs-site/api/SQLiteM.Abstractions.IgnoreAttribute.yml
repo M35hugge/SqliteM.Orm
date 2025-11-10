@@ -16,23 +16,15 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IgnoreAttribute
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 166
+    startLine: 232
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Schließt eine Eigenschaft vom Mapping aus.
-  remarks: >-
-    Dieses Attribut kann verwendet werden, um Properties zu kennzeichnen, die nicht
-
-    in die Datenbanktabelle übernommen werden sollen (z. B. Navigationseigenschaften oder berechnete Werte).
-  example:
-  - >-
-    <pre><code class="lang-csharp">[Ignore]
-
-    public ICollection&lt;Post&gt; Posts { get; set; } = new List&lt;Post&gt;();</code></pre>
+  summary: Schließt eine Eigenschaft vom Mapping aus (z. B. Navigation oder berechnetes Feld).
+  example: []
   syntax:
     content: >-
       [AttributeUsage(AttributeTargets.Property, Inherited = false)]

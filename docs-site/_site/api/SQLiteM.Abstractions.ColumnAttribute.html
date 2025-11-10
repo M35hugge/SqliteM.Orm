@@ -251,13 +251,23 @@ public sealed class ColumnAttribute : Attribute</code></pre>
 
 
   <h2 id="SQLiteM_Abstractions_ColumnAttribute_examples">Examples</h2>
-  <pre><code class="lang-csharp">[Column("Email", IsNullable = false, Length = 255)]
-public string Email { get; set; } = string.Empty;</code></pre>
+  <pre><code class="lang-csharp">[Column("email", IsNullable = false, Length = 255, IsUniqueColumn = true)]
+public string Email { get; set; } = string.Empty;
+
+// Ohne Name → Spaltenname wird aus dem Propertynamen abgeleitet
+[Column]
+public string FirstName { get; set; } = string.Empty;</code></pre>
 
 
   <h2 id="SQLiteM_Abstractions_ColumnAttribute_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Dieses Attribut definiert die Zuordnung eines Properties zu einer Spalte in der Datenbanktabelle.
-Über die optionalen Eigenschaften können Nullable-Verhalten und Länge (bei Strings) festgelegt werden.</p>
+  <div class="markdown level0 remarks"><p>Wenn <a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_Name">Name</a> nicht gesetzt ist, wird der Spaltenname
+per <code>INameTranslator.Column(property.Name)</code> aus dem CLR-Propertynamen abgeleitet
+(z. B. <code>FirstName</code> → <code>first_name</code>).</p>
+<p>
+<a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_IsUniqueColumn">IsUniqueColumn</a> erzeugt einen <b>Spalten-UNIQUE-Constraint</b> in der
+<code>CREATE TABLE</code>-DDL (z. B. <code>email TEXT UNIQUE</code>). Für zusammengesetzte Eindeutigkeit
+über mehrere Spalten verwende <a class="xref" href="SQLiteM.Abstractions.CompositeIndexAttribute.html">CompositeIndexAttribute</a> mit <code>IsUnique = true</code>.
+</p>
 </div>
 
 
@@ -267,22 +277,51 @@ public string Email { get; set; } = string.Empty;</code></pre>
 
   <a id="SQLiteM_Abstractions_ColumnAttribute__ctor_" data-uid="SQLiteM.Abstractions.ColumnAttribute.#ctor*"></a>
 
-  <h3 id="SQLiteM_Abstractions_ColumnAttribute__ctor_System_String_" data-uid="SQLiteM.Abstractions.ColumnAttribute.#ctor(System.String)">
-  ColumnAttribute(string)
+  <h3 id="SQLiteM_Abstractions_ColumnAttribute__ctor" data-uid="SQLiteM.Abstractions.ColumnAttribute.#ctor">
+  ColumnAttribute()
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Markiert eine Eigenschaft als Datenbankspalte.</p>
+  <div class="markdown level1 summary"><p>Parameterlos: Name wird über den <code>INameTranslator</code> bestimmt.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ColumnAttribute(string name)</code></pre>
+    <pre><code class="lang-csharp hljs">public ColumnAttribute()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SQLiteM_Abstractions_ColumnAttribute__ctor_" data-uid="SQLiteM.Abstractions.ColumnAttribute.#ctor*"></a>
+
+  <h3 id="SQLiteM_Abstractions_ColumnAttribute__ctor_System_String_System_Boolean_" data-uid="SQLiteM.Abstractions.ColumnAttribute.#ctor(System.String,System.Boolean)">
+  ColumnAttribute(string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Expliziter Spaltenname (optional: Direktvorgabe von <a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_IsNullable">IsNullable</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColumnAttribute(string name, bool isNullable = true)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>isNullable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -292,15 +331,7 @@ public string Email { get; set; } = string.Empty;</code></pre>
 
 
 
-  <h4 class="section" id="SQLiteM_Abstractions_ColumnAttribute__ctor_System_String__examples">Examples</h4>
-  <pre><code class="lang-csharp">[Column("Email", IsNullable = false, Length = 255)]
-public string Email { get; set; } = string.Empty;</code></pre>
 
-
-  <h4 class="section" id="SQLiteM_Abstractions_ColumnAttribute__ctor_System_String__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Dieses Attribut definiert die Zuordnung eines Properties zu einer Spalte in der Datenbanktabelle.
-Über die optionalen Eigenschaften können Nullable-Verhalten und Länge (bei Strings) festgelegt werden.</p>
-</div>
 
 
 
@@ -316,7 +347,7 @@ public string Email { get; set; } = string.Empty;</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gibt an, ob <code>NULL</code>-Werte erlaubt sind.</p>
+  <div class="markdown level1 summary"><p>Gibt an, ob <code>NULL</code> erlaubt ist. Standard: <code>true</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -331,8 +362,39 @@ public string Email { get; set; } = string.Empty;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Standardwert: <code>true</code>.</p>
-</dd>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SQLiteM_Abstractions_ColumnAttribute_IsUniqueColumn_" data-uid="SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn*"></a>
+
+  <h3 id="SQLiteM_Abstractions_ColumnAttribute_IsUniqueColumn" data-uid="SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn">
+  IsUniqueColumn
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Erzwingt Eindeutigkeit über <b>diese einzelne</b> Spalte (Spalten-Constraint <code>UNIQUE</code> in der Tabelle).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsUniqueColumn { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
   </dl>
 
 
@@ -349,7 +411,7 @@ public string Email { get; set; } = string.Empty;</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gibt die maximale Länge für Textspalten an (nur relevant für <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>).</p>
+  <div class="markdown level1 summary"><p>Maximale Länge für Textspalten (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>). 0 = kein Limit (nur deklarativ in SQLite).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -364,8 +426,7 @@ public string Email { get; set; } = string.Empty;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Standardwert: <code>0</code> (keine Längenbegrenzung).</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -382,12 +443,12 @@ public string Email { get; set; } = string.Empty;</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Der Spaltenname in der Tabelle.</p>
+  <div class="markdown level1 summary"><p>Spaltenname in der Tabelle (optional).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Name { get; }</code></pre>
   </div>
 
 

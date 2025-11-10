@@ -5,11 +5,14 @@ items:
   id: PropertyMap
   parent: SQLiteM.Abstractions
   children:
-  - SQLiteM.Abstractions.PropertyMap.#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Int32)
+  - SQLiteM.Abstractions.PropertyMap.#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)
   - SQLiteM.Abstractions.PropertyMap.ColumnName
   - SQLiteM.Abstractions.PropertyMap.IsAutoIncrement
+  - SQLiteM.Abstractions.PropertyMap.IsIndex
   - SQLiteM.Abstractions.PropertyMap.IsNullable
   - SQLiteM.Abstractions.PropertyMap.IsPrimaryKey
+  - SQLiteM.Abstractions.PropertyMap.IsUniqueColumn
+  - SQLiteM.Abstractions.PropertyMap.IsUniqueIndex
   - SQLiteM.Abstractions.PropertyMap.Length
   - SQLiteM.Abstractions.PropertyMap.PropertyName
   - SQLiteM.Abstractions.PropertyMap.PropertyType
@@ -22,12 +25,12 @@ items:
   type: Class
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: PropertyMap
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 264
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 31
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -47,32 +50,32 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: SQLiteM.Abstractions.PropertyMap.#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Int32)
-  commentId: M:SQLiteM.Abstractions.PropertyMap.#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Int32)
-  id: '#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Int32)'
+- uid: SQLiteM.Abstractions.PropertyMap.#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)
+  commentId: M:SQLiteM.Abstractions.PropertyMap.#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)
+  id: '#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)'
   parent: SQLiteM.Abstractions.PropertyMap
   langs:
   - csharp
   - vb
-  name: PropertyMap(string, string, Type, bool, bool, bool, int)
-  nameWithType: PropertyMap.PropertyMap(string, string, Type, bool, bool, bool, int)
-  fullName: SQLiteM.Abstractions.PropertyMap.PropertyMap(string, string, System.Type, bool, bool, bool, int)
+  name: PropertyMap(string, string, Type, bool, bool, bool, bool, bool, bool, int)
+  nameWithType: PropertyMap.PropertyMap(string, string, Type, bool, bool, bool, bool, bool, bool, int)
+  fullName: SQLiteM.Abstractions.PropertyMap.PropertyMap(string, string, System.Type, bool, bool, bool, bool, bool, bool, int)
   type: Constructor
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: .ctor
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 264
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 31
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
   summary: Beschreibt die Zuordnung einer CLR-Property zu einer DB-Spalte.
   example: []
   syntax:
-    content: public PropertyMap(string ColumnName, string PropertyName, Type PropertyType, bool IsPrimaryKey, bool IsAutoIncrement, bool IsNullable, int Length)
+    content: public PropertyMap(string ColumnName, string PropertyName, Type PropertyType, bool IsPrimaryKey, bool IsAutoIncrement, bool IsNullable, bool IsIndex, bool IsUniqueIndex, bool IsUniqueColumn, int Length)
     parameters:
     - id: ColumnName
       type: System.String
@@ -92,14 +95,23 @@ items:
     - id: IsNullable
       type: System.Boolean
       description: Ob NULL-Werte erlaubt sind.
+    - id: IsIndex
+      type: System.Boolean
+      description: Ob Spalte Index ist.
+    - id: IsUniqueIndex
+      type: System.Boolean
+      description: Ob Spalte Index ist.
+    - id: IsUniqueColumn
+      type: System.Boolean
+      description: Ob Spalte Index ist.
     - id: Length
       type: System.Int32
       description: Maximale Länge (nur relevant für <code>string</code>).
-    content.vb: Public Sub New(ColumnName As String, PropertyName As String, PropertyType As Type, IsPrimaryKey As Boolean, IsAutoIncrement As Boolean, IsNullable As Boolean, Length As Integer)
+    content.vb: Public Sub New(ColumnName As String, PropertyName As String, PropertyType As Type, IsPrimaryKey As Boolean, IsAutoIncrement As Boolean, IsNullable As Boolean, IsIndex As Boolean, IsUniqueIndex As Boolean, IsUniqueColumn As Boolean, Length As Integer)
   overload: SQLiteM.Abstractions.PropertyMap.#ctor*
-  nameWithType.vb: PropertyMap.New(String, String, Type, Boolean, Boolean, Boolean, Integer)
-  fullName.vb: SQLiteM.Abstractions.PropertyMap.New(String, String, System.Type, Boolean, Boolean, Boolean, Integer)
-  name.vb: New(String, String, Type, Boolean, Boolean, Boolean, Integer)
+  nameWithType.vb: PropertyMap.New(String, String, Type, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Integer)
+  fullName.vb: SQLiteM.Abstractions.PropertyMap.New(String, String, System.Type, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Integer)
+  name.vb: New(String, String, Type, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Integer)
 - uid: SQLiteM.Abstractions.PropertyMap.ColumnName
   commentId: P:SQLiteM.Abstractions.PropertyMap.ColumnName
   id: ColumnName
@@ -113,12 +125,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: ColumnName
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 265
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 32
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -144,12 +156,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: PropertyName
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 266
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 33
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -175,12 +187,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: PropertyType
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 267
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 34
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -206,12 +218,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IsPrimaryKey
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 268
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 35
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -237,12 +249,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IsAutoIncrement
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 269
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 36
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -268,12 +280,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IsNullable
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 270
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 37
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -286,6 +298,99 @@ items:
       type: System.Boolean
     content.vb: Public Property IsNullable As Boolean
   overload: SQLiteM.Abstractions.PropertyMap.IsNullable*
+- uid: SQLiteM.Abstractions.PropertyMap.IsIndex
+  commentId: P:SQLiteM.Abstractions.PropertyMap.IsIndex
+  id: IsIndex
+  parent: SQLiteM.Abstractions.PropertyMap
+  langs:
+  - csharp
+  - vb
+  name: IsIndex
+  nameWithType: PropertyMap.IsIndex
+  fullName: SQLiteM.Abstractions.PropertyMap.IsIndex
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: IsIndex
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 38
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Ob Spalte Index ist.
+  example: []
+  syntax:
+    content: public bool IsIndex { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsIndex As Boolean
+  overload: SQLiteM.Abstractions.PropertyMap.IsIndex*
+- uid: SQLiteM.Abstractions.PropertyMap.IsUniqueIndex
+  commentId: P:SQLiteM.Abstractions.PropertyMap.IsUniqueIndex
+  id: IsUniqueIndex
+  parent: SQLiteM.Abstractions.PropertyMap
+  langs:
+  - csharp
+  - vb
+  name: IsUniqueIndex
+  nameWithType: PropertyMap.IsUniqueIndex
+  fullName: SQLiteM.Abstractions.PropertyMap.IsUniqueIndex
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: IsUniqueIndex
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 39
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Ob Spalte Index ist.
+  example: []
+  syntax:
+    content: public bool IsUniqueIndex { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsUniqueIndex As Boolean
+  overload: SQLiteM.Abstractions.PropertyMap.IsUniqueIndex*
+- uid: SQLiteM.Abstractions.PropertyMap.IsUniqueColumn
+  commentId: P:SQLiteM.Abstractions.PropertyMap.IsUniqueColumn
+  id: IsUniqueColumn
+  parent: SQLiteM.Abstractions.PropertyMap
+  langs:
+  - csharp
+  - vb
+  name: IsUniqueColumn
+  nameWithType: PropertyMap.IsUniqueColumn
+  fullName: SQLiteM.Abstractions.PropertyMap.IsUniqueColumn
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: IsUniqueColumn
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 40
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Ob Spalte Index ist.
+  example: []
+  syntax:
+    content: public bool IsUniqueColumn { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsUniqueColumn As Boolean
+  overload: SQLiteM.Abstractions.PropertyMap.IsUniqueColumn*
 - uid: SQLiteM.Abstractions.PropertyMap.Length
   commentId: P:SQLiteM.Abstractions.PropertyMap.Length
   id: Length
@@ -299,12 +404,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Length
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 271
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 41
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -616,7 +721,7 @@ references:
   - name: )
 - uid: SQLiteM.Abstractions.PropertyMap.#ctor*
   commentId: Overload:SQLiteM.Abstractions.PropertyMap.#ctor
-  href: SQLiteM.Abstractions.PropertyMap.html#SQLiteM_Abstractions_PropertyMap__ctor_System_String_System_String_System_Type_System_Boolean_System_Boolean_System_Boolean_System_Int32_
+  href: SQLiteM.Abstractions.PropertyMap.html#SQLiteM_Abstractions_PropertyMap__ctor_System_String_System_String_System_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_
   name: PropertyMap
   nameWithType: PropertyMap.PropertyMap
   fullName: SQLiteM.Abstractions.PropertyMap.PropertyMap
@@ -700,6 +805,24 @@ references:
   name: IsNullable
   nameWithType: PropertyMap.IsNullable
   fullName: SQLiteM.Abstractions.PropertyMap.IsNullable
+- uid: SQLiteM.Abstractions.PropertyMap.IsIndex*
+  commentId: Overload:SQLiteM.Abstractions.PropertyMap.IsIndex
+  href: SQLiteM.Abstractions.PropertyMap.html#SQLiteM_Abstractions_PropertyMap_IsIndex
+  name: IsIndex
+  nameWithType: PropertyMap.IsIndex
+  fullName: SQLiteM.Abstractions.PropertyMap.IsIndex
+- uid: SQLiteM.Abstractions.PropertyMap.IsUniqueIndex*
+  commentId: Overload:SQLiteM.Abstractions.PropertyMap.IsUniqueIndex
+  href: SQLiteM.Abstractions.PropertyMap.html#SQLiteM_Abstractions_PropertyMap_IsUniqueIndex
+  name: IsUniqueIndex
+  nameWithType: PropertyMap.IsUniqueIndex
+  fullName: SQLiteM.Abstractions.PropertyMap.IsUniqueIndex
+- uid: SQLiteM.Abstractions.PropertyMap.IsUniqueColumn*
+  commentId: Overload:SQLiteM.Abstractions.PropertyMap.IsUniqueColumn
+  href: SQLiteM.Abstractions.PropertyMap.html#SQLiteM_Abstractions_PropertyMap_IsUniqueColumn
+  name: IsUniqueColumn
+  nameWithType: PropertyMap.IsUniqueColumn
+  fullName: SQLiteM.Abstractions.PropertyMap.IsUniqueColumn
 - uid: SQLiteM.Abstractions.PropertyMap.Length*
   commentId: Overload:SQLiteM.Abstractions.PropertyMap.Length
   href: SQLiteM.Abstractions.PropertyMap.html#SQLiteM_Abstractions_PropertyMap_Length

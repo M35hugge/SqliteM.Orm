@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ForeignKeyAttribute | &#169; SQLiteM ">
       
-      <meta name="description" content="Markiert eine Eigenschaft als Fremdschl&#252;ssel.">
+      <meta name="description" content="Markiert eine Eigenschaft als Fremdschl&#252;ssel (Referenz auf eine Principal-Tabelle).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Class ForeignKeyAttribute
   <dl><dt>Assembly</dt><dd>SQLiteM.Abstractions.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Markiert eine Eigenschaft als Fremdschlüssel.</p>
+  <div class="markdown summary"><p>Markiert eine Eigenschaft als Fremdschlüssel (Referenz auf eine Principal-Tabelle).</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -251,14 +251,21 @@ public sealed class ForeignKeyAttribute : Attribute</code></pre>
 
 
   <h2 id="SQLiteM_Abstractions_ForeignKeyAttribute_examples">Examples</h2>
-  <pre><code class="lang-csharp">[ForeignKey(typeof(User), "Id", OnDelete = OnDeleteAction.Cascade)]
-[Column("UserId")]
-public int UserId { get; set; }</code></pre>
+  <pre><code class="lang-csharp">// Verweist auf User.Id, setzt Cascade-Delete
+[ForeignKey(typeof(User), nameof(User.Id), OnDelete = OnDeleteAction.Cascade)]
+[Column("user_id")]
+public long UserId { get; set; }
+
+// Nur Principal-Typ → Spaltenname "Id" wird angenommen
+[ForeignKey(typeof(User))]
+[Column("user_id")]
+public long UserId { get; set; }</code></pre>
 
 
   <h2 id="SQLiteM_Abstractions_ForeignKeyAttribute_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Dieses Attribut definiert eine referenzielle Beziehung zwischen zwei Tabellen.
-Die Fremdschlüsseldefinition wird beim Erstellen der Tabelle berücksichtigt.</p>
+  <div class="markdown level0 remarks"><p>Die Fremdschlüsseldefinition wird beim <code>CREATE TABLE</code> berücksichtigt.
+Wenn nur der <a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html#SQLiteM_Abstractions_ForeignKeyAttribute_PrincipalEntity">PrincipalEntity</a> angegeben wird, gilt per Konvention
+<a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html#SQLiteM_Abstractions_ForeignKeyAttribute_PrincipalColumn">PrincipalColumn</a> = <code>&quot;Id&quot;</code> (PK-Spalte).</p>
 </div>
 
 
@@ -268,12 +275,44 @@ Die Fremdschlüsseldefinition wird beim Erstellen der Tabelle berücksichtigt.</
 
   <a id="SQLiteM_Abstractions_ForeignKeyAttribute__ctor_" data-uid="SQLiteM.Abstractions.ForeignKeyAttribute.#ctor*"></a>
 
+  <h3 id="SQLiteM_Abstractions_ForeignKeyAttribute__ctor_System_Type_" data-uid="SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type)">
+  ForeignKeyAttribute(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Verwendet per Konvention <code>&quot;Id&quot;</code> als <a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html#SQLiteM_Abstractions_ForeignKeyAttribute_PrincipalColumn">PrincipalColumn</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ForeignKeyAttribute(Type principalEntity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>principalEntity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SQLiteM_Abstractions_ForeignKeyAttribute__ctor_" data-uid="SQLiteM.Abstractions.ForeignKeyAttribute.#ctor*"></a>
+
   <h3 id="SQLiteM_Abstractions_ForeignKeyAttribute__ctor_System_Type_System_String_" data-uid="SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type,System.String)">
   ForeignKeyAttribute(Type, string)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Initialisiert ein neues <a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html">ForeignKeyAttribute</a>.</p>
+  <div class="markdown level1 summary"><p>Explizite Angabe der referenzierten Spalte.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -284,11 +323,9 @@ Die Fremdschlüsseldefinition wird beim Erstellen der Tabelle berücksichtigt.</
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>principalEntity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd><p>Der Typ der referenzierten Entität.</p>
-</dd>
+    <dd></dd>
     <dt><code>principalColumn</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Der Name der referenzierten Spalte.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -313,7 +350,7 @@ Die Fremdschlüsseldefinition wird beim Erstellen der Tabelle berücksichtigt.</
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Gibt an, welche Aktion bei Löschung der Principal-Zeile ausgeführt werden soll.</p>
+  <div class="markdown level1 summary"><p>Aktion bei Löschung der Principal-Zeile (z. B. <code>CASCADE</code>).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -328,8 +365,7 @@ Die Fremdschlüsseldefinition wird beim Erstellen der Tabelle berücksichtigt.</
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SQLiteM.Abstractions.OnDeleteAction.html">OnDeleteAction</a></dt>
-    <dd><p>Standardwert: <a class="xref" href="SQLiteM.Abstractions.OnDeleteAction.html#SQLiteM_Abstractions_OnDeleteAction_NoAction">NoAction</a>.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -346,7 +382,7 @@ Die Fremdschlüsseldefinition wird beim Erstellen der Tabelle berücksichtigt.</
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Der Name der referenzierten Spalte in der Principal-Tabelle.</p>
+  <div class="markdown level1 summary"><p>Name der referenzierten Spalte in der Principal-Tabelle (z. B. <code>&quot;Id&quot;</code>).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -378,7 +414,7 @@ Die Fremdschlüsseldefinition wird beim Erstellen der Tabelle berücksichtigt.</
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Der Typ der referenzierten Entität (Principal-Tabelle).</p>
+  <div class="markdown level1 summary"><p>Typ der referenzierten Entität (Principal-Tabelle).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

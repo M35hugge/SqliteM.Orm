@@ -16,22 +16,19 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: PrimaryKeyAttribute
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 88
+    startLine: 93
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
   summary: Markiert eine Eigenschaft als Primärschlüssel der Tabelle.
-  remarks: Nur ein Property pro Entität sollte mit <xref href="SQLiteM.Abstractions.PrimaryKeyAttribute" data-throw-if-not-resolved="false"></xref> versehen sein.
-  example:
-  - >-
-    <pre><code class="lang-csharp">[PrimaryKey]
+  remarks: >-
+    In der Regel genau ein Property pro Entität. In Kombination mit <xref href="SQLiteM.Abstractions.AutoIncrementAttribute" data-throw-if-not-resolved="false"></xref>
 
-    [Column("Id")]
-
-    public int Id { get; set; }</code></pre>
+    wird in SQLite <code>INTEGER PRIMARY KEY AUTOINCREMENT</code> erzeugt.
+  example: []
   syntax:
     content: >-
       [AttributeUsage(AttributeTargets.Property, Inherited = false)]
@@ -97,12 +94,12 @@ items:
       type: System.Boolean
       value: false
 references:
-- uid: SQLiteM.Abstractions.PrimaryKeyAttribute
-  commentId: T:SQLiteM.Abstractions.PrimaryKeyAttribute
-  href: SQLiteM.Abstractions.PrimaryKeyAttribute.html
-  name: PrimaryKeyAttribute
-  nameWithType: PrimaryKeyAttribute
-  fullName: SQLiteM.Abstractions.PrimaryKeyAttribute
+- uid: SQLiteM.Abstractions.AutoIncrementAttribute
+  commentId: T:SQLiteM.Abstractions.AutoIncrementAttribute
+  href: SQLiteM.Abstractions.AutoIncrementAttribute.html
+  name: AutoIncrementAttribute
+  nameWithType: AutoIncrementAttribute
+  fullName: SQLiteM.Abstractions.AutoIncrementAttribute
 - uid: SQLiteM.Abstractions
   commentId: N:SQLiteM.Abstractions
   href: SQLiteM.html

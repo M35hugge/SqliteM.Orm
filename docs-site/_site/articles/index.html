@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>&#129513; SQLiteM – leichtgewichtiges ORM f&#252;r SQLite | &#169; SQLiteM </title>
+      <title>SQLiteM – leichtgewichtiges ORM f&#252;r SQLite | &#169; SQLiteM </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="&#129513; SQLiteM – leichtgewichtiges ORM f&#252;r SQLite | &#169; SQLiteM ">
+      <meta name="title" content="SQLiteM – leichtgewichtiges ORM f&#252;r SQLite | &#169; SQLiteM ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -71,12 +71,12 @@
         </div>
 
         <article data-uid="">
-<h1 id="-sqlitem--leichtgewichtiges-orm-für-sqlite">🧩 SQLiteM – leichtgewichtiges ORM für SQLite</h1>
+<h1 id="sqlitem--leichtgewichtiges-orm-für-sqlite">SQLiteM – leichtgewichtiges ORM für SQLite</h1>
 
 <p>SQLiteM ist ein einfaches, attributbasiertes ORM für .NET-Anwendungen,<br>
 das ein <strong>Unit-of-Work</strong>-Pattern mit einem <strong>Repository-System</strong> kombiniert – optimiert für <strong>SQLite</strong>.</p>
 <hr>
-<h2 id="-schnellstart">🚀 Schnellstart</h2>
+<h2 id="schnellstart">Schnellstart</h2>
 <pre><code class="lang-csharp">// Program.cs
 using Microsoft.Extensions.DependencyInjection;
 using SQLiteM.Abstractions;
@@ -137,29 +137,9 @@ Console.WriteLine($&quot;Remaining orders: {remaining.Count}&quot;);
 | [Queries](queries.md)                        | Einfache Filter- und Sortierabfragen        |
 | [API](api/index.md)                          | Vollständige API-Referenz                   |
 
----
-+-----------------+
-| Application     |
-| (nutzt ORM API) |
-+-----------------+
-        │
-        ▼
-+-----------------+
-| SQLiteM.Orm     |
-|  - Repository   |
-|  - UnitOfWork   |
-|  - SqlBuilder   |
-+-----------------+
-        │
-        ▼
-+-----------------+
-| SQLiteM.Abstractions |
-|  - Interfaces         |
-|  - Attribute          |
-+-----------------+
 
 
-💬 Warum SQLiteM?
+Warum SQLiteM?
 
 Minimalistisch: Nur, was du wirklich brauchst.
 
@@ -171,20 +151,7 @@ Vollständig async: Kompatibel mit modernen .NET-Patterns.
 
 
 
----
 
-## ✨ Hinweise zur Integration
-
-1. Ersetze die Datei `index.md` im Wurzelverzeichnis deines DocFX-Dokuments (meist `/docs/index.md` oder `/docfx_project/articles/index.md`) durch den obigen Inhalt.  
-2. Stelle sicher, dass in `docfx.json` im Abschnitt `&quot;content&quot;` der Pfad zur `index.md` enthalten ist.  
-3. Optional:  
-   - Füge im `docfx.json` unter `&quot;globalMetadata&quot;` z. B. `&quot;title&quot;: &quot;SQLiteM Dokumentation&quot;` hinzu.  
-   - Wenn du ein Logo oder ein Favicon möchtest, kannst du das unter `&quot;template&quot;` → `&quot;default&quot;` → `logo` konfigurieren.
-
----
-
-Möchtest du, dass ich dir im nächsten Schritt ein **passendes Farb- und Layoutkonzept** für den DocFX-Template-Ordner (`templates/`) zusammenstelle – z. B. angepasste Kopfzeile, Akzentfarbe und Schrift?  
-(Damit kann die Seite aussehen wie ein modernes Framework-Docs-Portal, z. B. Dapper oder EF Core-ähnlich.)
 </code></pre>
 
 </article>

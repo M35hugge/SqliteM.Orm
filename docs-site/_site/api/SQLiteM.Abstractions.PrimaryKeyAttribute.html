@@ -250,14 +250,10 @@ public sealed class PrimaryKeyAttribute : Attribute</code></pre>
 
 
 
-  <h2 id="SQLiteM_Abstractions_PrimaryKeyAttribute_examples">Examples</h2>
-  <pre><code class="lang-csharp">[PrimaryKey]
-[Column("Id")]
-public int Id { get; set; }</code></pre>
-
 
   <h2 id="SQLiteM_Abstractions_PrimaryKeyAttribute_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Nur ein Property pro Entität sollte mit <a class="xref" href="SQLiteM.Abstractions.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a> versehen sein.</p>
+  <div class="markdown level0 remarks"><p>In der Regel genau ein Property pro Entität. In Kombination mit <a class="xref" href="SQLiteM.Abstractions.AutoIncrementAttribute.html">AutoIncrementAttribute</a>
+wird in SQLite <code>INTEGER PRIMARY KEY AUTOINCREMENT</code> erzeugt.</p>
 </div>
 
 

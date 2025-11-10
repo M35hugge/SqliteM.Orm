@@ -20,12 +20,12 @@ items:
   type: Class
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: ForeignKeyMap
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 282
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 52
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -58,12 +58,12 @@ items:
   type: Constructor
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: .ctor
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 282
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 52
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -105,12 +105,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: ThisColumn
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 283
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 53
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -136,12 +136,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: PrincipalEntity
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 284
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 54
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -167,12 +167,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: PrincipalTable
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 285
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 55
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -198,12 +198,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: PrincipalColumn
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 286
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 56
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -229,12 +229,12 @@ items:
   type: Property
   source:
     remote:
-      path: SQLiteM.Abstractions/Interfaces.cs
+      path: SQLiteM.Abstractions/Records.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: OnDelete
-    path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 287
+    path: ../SQLiteM.Abstractions/Records.cs
+    startLine: 57
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ReflectionEntityMapper | &#169; SQLiteM </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ReflectionEntityMapper | &#169; SQLiteM ">
+      
+      <meta name="description" content="Reflexionsbasierte Implementierung von , die Entit&#228;ten &#252;ber Attribute den Tabellen- und Spaltennamen zuordnet.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper">
+
+
+
+  <h1 id="SQLiteM_Orm_Pub_ReflectionEntityMapper" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper" class="text-break">
+Class ReflectionEntityMapper  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SQLiteM.html">SQLiteM</a>.<a class="xref" href="SQLiteM.Orm.html">Orm</a>.<a class="xref" href="SQLiteM.Orm.Pub.html">Pub</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SQLiteM.Orm.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Reflexionsbasierte Implementierung von <a class="xref" href="SQLiteM.Abstractions.IEntityMapper.html">IEntityMapper</a>, die
+Entitäten über Attribute den Tabellen- und Spaltennamen zuordnet.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ReflectionEntityMapper : IEntityMapper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ReflectionEntityMapper</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="SQLiteM.Abstractions.IEntityMapper.html">IEntityMapper</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="SQLiteM_Orm_Pub_ReflectionEntityMapper_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Dieser Mapper berücksichtigt ausschließlich öffentliche Instanz-Properties.
+Ein Property wird nur dann gemappt, wenn es mit <a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html">ColumnAttribute</a> annotiert ist.
+Der Tabellenname wird über <a class="xref" href="SQLiteM.Abstractions.TableAttribute.html">TableAttribute</a> an der Entitätsklasse bestimmt.
+Primärschlüssel und Auto-Inkrement werden über <a class="xref" href="SQLiteM.Abstractions.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a> bzw.
+<a class="xref" href="SQLiteM.Abstractions.AutoIncrementAttribute.html">AutoIncrementAttribute</a> erkannt. Fremdschlüssel werden über
+<a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html">ForeignKeyAttribute</a> am Property abgeleitet.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SQLiteM_Orm_Pub_ReflectionEntityMapper__ctor_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.#ctor*"></a>
+
+  <h3 id="SQLiteM_Orm_Pub_ReflectionEntityMapper__ctor_SQLiteM_Abstractions_INameTranslator_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.#ctor(SQLiteM.Abstractions.INameTranslator)">
+  ReflectionEntityMapper(INameTranslator?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Erstellt einen Mapper mit Namensübersetzer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReflectionEntityMapper(INameTranslator? translator = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>translator</code> <a class="xref" href="SQLiteM.Abstractions.INameTranslator.html">INameTranslator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetForeignKeys_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetForeignKeys*"></a>
+
+  <h3 id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetForeignKeys_System_Type_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetForeignKeys(System.Type)">
+  GetForeignKeys(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ermittelt alle Fremdschlüssel-Zuordnungen für den angegebenen Entitätstyp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ForeignKeyMap&gt; GetForeignKeys(Type entityType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Der zu untersuchende Entitätstyp.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.ForeignKeyMap.html">ForeignKeyMap</a>&gt;</dt>
+    <dd><p>Eine schreibgeschützte Liste von <a class="xref" href="SQLiteM.Abstractions.ForeignKeyMap.html">ForeignKeyMap</a>-Einträgen
+für Properties, die sowohl mit <a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html">ForeignKeyAttribute</a> als auch
+mit <a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html">ColumnAttribute</a> versehen sind.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetForeignKeys_System_Type__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Der Name der referenzierten Tabelle wird mittels <a class="xref" href="SQLiteM.Orm.Pub.ReflectionEntityMapper.html#SQLiteM_Orm_Pub_ReflectionEntityMapper_GetTableName_System_Type_">GetTableName(Type)</a>
+aus dem im <a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html#SQLiteM_Abstractions_ForeignKeyAttribute_PrincipalEntity">PrincipalEntity</a> angegebenen Entitätstyp
+abgeleitet. Die <code>ON DELETE</code>-Aktion entspricht dem Wert im Attribut
+(<a class="xref" href="SQLiteM.Abstractions.OnDeleteAction.html">OnDeleteAction</a>).</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> null ist.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Wenn ein <a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html">ForeignKeyAttribute</a> eine Principal-Entität ohne <a class="xref" href="SQLiteM.Abstractions.TableAttribute.html">TableAttribute</a>
+oder mit leerem Tabellennamen referenziert.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetIndexes_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetIndexes*"></a>
+
+  <h3 id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetIndexes_System_Type_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetIndexes(System.Type)">
+  GetIndexes(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Liefert alle Indexdefinitionen (Einzel- und zusammengesetzte Indizes) zur Entität.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;IndexMap&gt; GetIndexes(Type entityType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Der Entitätstyp.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.IndexMap.html">IndexMap</a>&gt;</dt>
+    <dd><p>Schreibgeschützte Liste der Indexzuordnungen.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetPrimaryKey_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetPrimaryKey*"></a>
+
+  <h3 id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetPrimaryKey_System_Type_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetPrimaryKey(System.Type)">
+  GetPrimaryKey(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ermittelt die <a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a> des Primärschlüssels für den angegebenen Entitätstyp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyMap? GetPrimaryKey(Type entityType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Der zu untersuchende Entitätstyp.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a></dt>
+    <dd><p>Die Primärschlüssel-Zuordnung oder <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, wenn kein
+Property mit <a class="xref" href="SQLiteM.Abstractions.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a> vorhanden ist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> null ist.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetPropertyMaps_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetPropertyMaps*"></a>
+
+  <h3 id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetPropertyMaps_System_Type_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetPropertyMaps(System.Type)">
+  GetPropertyMaps(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ermittelt die Property-Zuordnungen (Spaltenmapping) für den angegebenen Entitätstyp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;PropertyMap&gt; GetPropertyMaps(Type entityType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Der zu untersuchende Entitätstyp.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a>&gt;</dt>
+    <dd><p>Eine schreibgeschützte Liste von <a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a>-Einträgen für alle
+öffentlichen Instanz-Properties mit <a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html">ColumnAttribute</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetPropertyMaps_System_Type__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Ein Property wird nur dann in die Ergebnisliste aufgenommen, wenn es mit
+<a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html">ColumnAttribute</a> versehen ist. Primärschlüssel und Auto-Inkrement
+werden anhand von <a class="xref" href="SQLiteM.Abstractions.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a> bzw. <a class="xref" href="SQLiteM.Abstractions.AutoIncrementAttribute.html">AutoIncrementAttribute</a>
+erkannt und in der <a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a> gespiegelt.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> null ist.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetTableName_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetTableName*"></a>
+
+  <h3 id="SQLiteM_Orm_Pub_ReflectionEntityMapper_GetTableName_System_Type_" data-uid="SQLiteM.Orm.Pub.ReflectionEntityMapper.GetTableName(System.Type)">
+  GetTableName(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ermittelt den Tabellennamen für den angegebenen Entitätstyp.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetTableName(Type entityType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Der zu untersuchende Entitätstyp.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Der über <a class="xref" href="SQLiteM.Abstractions.TableAttribute.html">TableAttribute</a> konfigurierte Tabellenname.
+Wenn nicht explizit angegeben wird entityType.Name angenommen;</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> null ist.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Wenn der Entitätstyp kein <a class="xref" href="SQLiteM.Abstractions.TableAttribute.html">TableAttribute</a>besitzt.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SQLiteM.Abstractions.IEntityMapper.html">IEntityMapper</a></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.TableAttribute.html">TableAttribute</a></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.ColumnAttribute.html">ColumnAttribute</a></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.PrimaryKeyAttribute.html">PrimaryKeyAttribute</a></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.AutoIncrementAttribute.html">AutoIncrementAttribute</a></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html">ForeignKeyAttribute</a></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a></div>
+      <div><a class="xref" href="SQLiteM.Abstractions.ForeignKeyMap.html">ForeignKeyMap</a></div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © SQLiteM Dokumentation
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

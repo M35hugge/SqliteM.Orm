@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class IgnoreAttribute | &#169; SQLiteM ">
       
-      <meta name="description" content="Schlie&#223;t eine Eigenschaft vom Mapping aus.">
+      <meta name="description" content="Schlie&#223;t eine Eigenschaft vom Mapping aus (z. B. Navigation oder berechnetes Feld).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Class IgnoreAttribute
   <dl><dt>Assembly</dt><dd>SQLiteM.Abstractions.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Schließt eine Eigenschaft vom Mapping aus.</p>
+  <div class="markdown summary"><p>Schließt eine Eigenschaft vom Mapping aus (z. B. Navigation oder berechnetes Feld).</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -250,15 +250,7 @@ public sealed class IgnoreAttribute : Attribute</code></pre>
 
 
 
-  <h2 id="SQLiteM_Abstractions_IgnoreAttribute_examples">Examples</h2>
-  <pre><code class="lang-csharp">[Ignore]
-public ICollection&lt;Post&gt; Posts { get; set; } = new List&lt;Post&gt;();</code></pre>
 
-
-  <h2 id="SQLiteM_Abstractions_IgnoreAttribute_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Dieses Attribut kann verwendet werden, um Properties zu kennzeichnen, die nicht
-in die Datenbanktabelle übernommen werden sollen (z. B. Navigationseigenschaften oder berechnete Werte).</p>
-</div>
 
 
 

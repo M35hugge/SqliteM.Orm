@@ -158,8 +158,8 @@ Class PropertyMap
 
   <a id="SQLiteM_Abstractions_PropertyMap__ctor_" data-uid="SQLiteM.Abstractions.PropertyMap.#ctor*"></a>
 
-  <h3 id="SQLiteM_Abstractions_PropertyMap__ctor_System_String_System_String_System_Type_System_Boolean_System_Boolean_System_Boolean_System_Int32_" data-uid="SQLiteM.Abstractions.PropertyMap.#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
-  PropertyMap(string, string, Type, bool, bool, bool, int)
+  <h3 id="SQLiteM_Abstractions_PropertyMap__ctor_System_String_System_String_System_Type_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Int32_" data-uid="SQLiteM.Abstractions.PropertyMap.#ctor(System.String,System.String,System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+  PropertyMap(string, string, Type, bool, bool, bool, bool, bool, bool, int)
   
   </h3>
 
@@ -168,7 +168,7 @@ Class PropertyMap
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PropertyMap(string ColumnName, string PropertyName, Type PropertyType, bool IsPrimaryKey, bool IsAutoIncrement, bool IsNullable, int Length)</code></pre>
+    <pre><code class="lang-csharp hljs">public PropertyMap(string ColumnName, string PropertyName, Type PropertyType, bool IsPrimaryKey, bool IsAutoIncrement, bool IsNullable, bool IsIndex, bool IsUniqueIndex, bool IsUniqueColumn, int Length)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -190,6 +190,15 @@ Class PropertyMap
 </dd>
     <dt><code>IsNullable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Ob NULL-Werte erlaubt sind.</p>
+</dd>
+    <dt><code>IsIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Ob Spalte Index ist.</p>
+</dd>
+    <dt><code>IsUniqueIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Ob Spalte Index ist.</p>
+</dd>
+    <dt><code>IsUniqueColumn</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Ob Spalte Index ist.</p>
 </dd>
     <dt><code>Length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Maximale Länge (nur relevant für <code>string</code>).</p>
@@ -275,6 +284,38 @@ Class PropertyMap
 
 
 
+  <a id="SQLiteM_Abstractions_PropertyMap_IsIndex_" data-uid="SQLiteM.Abstractions.PropertyMap.IsIndex*"></a>
+
+  <h3 id="SQLiteM_Abstractions_PropertyMap_IsIndex" data-uid="SQLiteM.Abstractions.PropertyMap.IsIndex">
+  IsIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ob Spalte Index ist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsIndex { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SQLiteM_Abstractions_PropertyMap_IsNullable_" data-uid="SQLiteM.Abstractions.PropertyMap.IsNullable*"></a>
 
   <h3 id="SQLiteM_Abstractions_PropertyMap_IsNullable" data-uid="SQLiteM.Abstractions.PropertyMap.IsNullable">
@@ -320,6 +361,70 @@ Class PropertyMap
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsPrimaryKey { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SQLiteM_Abstractions_PropertyMap_IsUniqueColumn_" data-uid="SQLiteM.Abstractions.PropertyMap.IsUniqueColumn*"></a>
+
+  <h3 id="SQLiteM_Abstractions_PropertyMap_IsUniqueColumn" data-uid="SQLiteM.Abstractions.PropertyMap.IsUniqueColumn">
+  IsUniqueColumn
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ob Spalte Index ist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsUniqueColumn { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SQLiteM_Abstractions_PropertyMap_IsUniqueIndex_" data-uid="SQLiteM.Abstractions.PropertyMap.IsUniqueIndex*"></a>
+
+  <h3 id="SQLiteM_Abstractions_PropertyMap_IsUniqueIndex" data-uid="SQLiteM.Abstractions.PropertyMap.IsUniqueIndex">
+  IsUniqueIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ob Spalte Index ist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsUniqueIndex { get; init; }</code></pre>
   </div>
 
 

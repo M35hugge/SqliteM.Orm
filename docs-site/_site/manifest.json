@@ -1,5 +1,5 @@
 {
-  "source_base_path": "C:/Users/dn/source/repos/C#/SQLiteM/docs-site",
+  "source_base_path": "C:/Users/Strelok/source/repos/SQLiteM/docs-site",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -82,6 +82,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Abstractions.CompositeIndexAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Abstractions.CompositeIndexAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Abstractions.CompositeIndexAttribute",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.CompositeIndexAttribute.yml\" sourcestartlinenumber=\"1\">Markiert die Klasse mit einem (möglicherweise eindeutigen) <b>zusammengesetzten Index</b>\nüber mehrere Spalten.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SQLiteM.Abstractions.ForeignKeyAttribute.yml",
       "output": {
         ".html": {
@@ -92,7 +106,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SQLiteM.Abstractions.ForeignKeyAttribute",
-      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.ForeignKeyAttribute.yml\" sourcestartlinenumber=\"1\">Markiert eine Eigenschaft als Fremdschlüssel.</p>\n"
+      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.ForeignKeyAttribute.yml\" sourcestartlinenumber=\"1\">Markiert eine Eigenschaft als Fremdschlüssel (Referenz auf eine Principal-Tabelle).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -135,6 +149,20 @@
       "IsMRef": true,
       "Title": "SQLiteM.Abstractions.IEntityMapper",
       "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.IEntityMapper.yml\" sourcestartlinenumber=\"1\">Liefert Mapping-Informationen für Entitätstypen.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Abstractions.INameTranslator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Abstractions.INameTranslator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Abstractions.INameTranslator",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.INameTranslator.yml\" sourcestartlinenumber=\"1\">Übersetzungsstrategie für Tabellen- und Spaltennamen.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -204,7 +232,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SQLiteM.Abstractions.ISqlDialect",
-      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.ISqlDialect.yml\" sourcestartlinenumber=\"1\">Bietet Dialekt-spezifische Operationen (Identifierquoting, Parameterpräfix).</p>\n"
+      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.ISqlDialect.yml\" sourcestartlinenumber=\"1\">Bietet Dialekt-spezifische Operationen (Identifier-Quoting, Parameterpräfix).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Abstractions.ITransactionContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Abstractions.ITransactionContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Abstractions.ITransactionContext",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.ITransactionContext.yml\" sourcestartlinenumber=\"1\">Kontextobjekt für eine laufende Transaktion (Unit of Work).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -260,7 +302,35 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SQLiteM.Abstractions.IgnoreAttribute",
-      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.IgnoreAttribute.yml\" sourcestartlinenumber=\"1\">Schließt eine Eigenschaft vom Mapping aus.</p>\n"
+      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.IgnoreAttribute.yml\" sourcestartlinenumber=\"1\">Schließt eine Eigenschaft vom Mapping aus (z. B. Navigation oder berechnetes Feld).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Abstractions.IndexAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Abstractions.IndexAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Abstractions.IndexAttribute",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.IndexAttribute.yml\" sourcestartlinenumber=\"1\">Markiert eine Eigenschaft als (möglicherweise eindeutigen) Index der Tabelle.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Abstractions.IndexMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Abstractions.IndexMap.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Abstractions.IndexMap",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.IndexMap.yml\" sourcestartlinenumber=\"1\">IndexMap für Indizes.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -331,6 +401,20 @@
       "IsMRef": true,
       "Title": "SQLiteM.Abstractions.Query",
       "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.Query.yml\" sourcestartlinenumber=\"1\">Einfache, SQL-freie Query-Beschreibung für Filter (WHERE =)\nund Sortierung (ORDER BY) über Spaltennamen.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Abstractions.Records.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Abstractions.Records.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Abstractions.Records",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Abstractions.Records.yml\" sourcestartlinenumber=\"1\">Record classes</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -446,6 +530,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.Internal.SqliteDialect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.Internal.SqliteDialect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.Internal.SqliteDialect",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Internal.SqliteDialect.yml\" sourcestartlinenumber=\"1\">Implementierung des <xref href=\"SQLiteM.Abstractions.ISqlDialect\" data-throw-if-not-resolved=\"false\"></xref> für SQLite.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SQLiteM.Orm.Internal.yml",
       "output": {
         ".html": {
@@ -471,6 +569,118 @@
       "IsMRef": true,
       "Title": "SQLiteM.Orm.NamespaceDoc",
       "Summary": "<p sourcefile=\"api/SQLiteM.Orm.NamespaceDoc.yml\" sourcestartlinenumber=\"1\">Konkrete Implementierungen des SQLiteM-ORM sowie DI-Integration und Bootstrap-Utilities.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.Pub.IdentityNameTranslator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.Pub.IdentityNameTranslator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.Pub.IdentityNameTranslator",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Pub.IdentityNameTranslator.yml\" sourcestartlinenumber=\"1\">Standard-Übersetzer, der die Namen unverändert durchreicht.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.Pub.ReflectionEntityMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.Pub.ReflectionEntityMapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.Pub.ReflectionEntityMapper",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Pub.ReflectionEntityMapper.yml\" sourcestartlinenumber=\"1\">Reflexionsbasierte Implementierung von <xref href=\"SQLiteM.Abstractions.IEntityMapper\" data-throw-if-not-resolved=\"false\"></xref>, die\nEntitäten über Attribute den Tabellen- und Spaltennamen zuordnet.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.Pub.SQLiteMBootstrap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.Pub.SQLiteMBootstrap.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.Pub.SQLiteMBootstrap",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Pub.SQLiteMBootstrap.yml\" sourcestartlinenumber=\"1\">Öffentliche Fassade für Schema-Operationen (DDL).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.Pub.SQLiteMClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.Pub.SQLiteMClient.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.Pub.SQLiteMClient",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Pub.SQLiteMClient.yml\" sourcestartlinenumber=\"1\">Öffentliche, minimalistische Fassade über DI/Repositories/UnitOfWork.\nErlaubt CRUD-Operationen, einfache Abfragen sowie transaktionale Scopes,\nindem lediglich ein Connection-String oder Pfad übergeben wird.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.Pub.SQLiteMOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.Pub.SQLiteMOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.Pub.SQLiteMOptions",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Pub.SQLiteMOptions.yml\" sourcestartlinenumber=\"1\">Stellt Konfigurationsoptionen für das SQLiteM-ORM bereit.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.Pub.ServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.Pub.ServiceCollectionExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.Pub.ServiceCollectionExtensions",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Pub.ServiceCollectionExtensions.yml\" sourcestartlinenumber=\"1\">Erweiterungsmethoden zur Registrierung der SQLiteM-Komponenten im DI-Container.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.Pub.SnakeCaseNameTranslator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.Pub.SnakeCaseNameTranslator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.Pub.SnakeCaseNameTranslator",
+      "Summary": "<p sourcefile=\"api/SQLiteM.Orm.Pub.SnakeCaseNameTranslator.yml\" sourcestartlinenumber=\"1\">Übersetzer, der CLR-Namen in <code>snake_case</code> konvertiert und (optional) umgekehrt.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SQLiteM.Orm.Pub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SQLiteM.Orm.Pub.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SQLiteM.Orm.Pub",
+      "Summary": null
     },
     {
       "type": "ManagedReference",

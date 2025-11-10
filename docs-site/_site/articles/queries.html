@@ -87,17 +87,17 @@
 }
 </code></pre>
 <p>// Per Id</p>
-<pre><code class="lang-sharp">var one = await repo.FindByIdAsync(1L);
+<pre><code class="lang-csharp">var one = await repo.FindByIdAsync(1L);
 </code></pre>
 <h2 id="filtern--sortieren">Filtern &amp; Sortieren</h2>
 <p>Der Query-Typ erlaubt eine WHERE-Bedingung (Equals) und ORDER BY.</p>
 <p>Wichtig: Verwende Spaltennamen (wie in [Column(&quot;...&quot;)]), nicht Propertynamen.</p>
-<pre><code class="lang-sharp">// Alle &quot;Lovelace&quot; nach Vornamen sortiert
+<pre><code class="lang-csharp">// Alle &quot;Lovelace&quot; nach Vornamen sortiert
 var people = await repo.QueryAsync(
     Query.WhereEquals(&quot;last_name&quot;, &quot;Lovelace&quot;).OrderBy(&quot;first_name&quot;));    
 </code></pre>
 <p>Mit OrderBy(&quot;... &quot;, desc: true) kannst du absteigend sortieren:</p>
-<pre><code class="lang-sharp">var latest = await repo.QueryAsync(
+<pre><code class="lang-csharp">var latest = await repo.QueryAsync(
     new Query().OrderBy(&quot;id&quot;, desc: true));
 </code></pre>
 <h2 id="sicherheit--parameter">Sicherheit &amp; Parameter</h2>

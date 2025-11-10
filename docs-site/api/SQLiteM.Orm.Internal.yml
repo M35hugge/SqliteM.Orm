@@ -5,6 +5,7 @@ items:
   id: SQLiteM.Orm.Internal
   children:
   - SQLiteM.Orm.Internal.SqlBuilder
+  - SQLiteM.Orm.Internal.SqliteDialect
   langs:
   - csharp
   - vb
@@ -21,3 +22,9 @@ references:
   name: SqlBuilder
   nameWithType: SqlBuilder
   fullName: SQLiteM.Orm.Internal.SqlBuilder
+- uid: SQLiteM.Orm.Internal.SqliteDialect
+  commentId: T:SQLiteM.Orm.Internal.SqliteDialect
+  href: SQLiteM.Orm.Internal.SqliteDialect.html
+  name: SqliteDialect
+  nameWithType: SqliteDialect
+  fullName: SQLiteM.Orm.Internal.SqliteDialect

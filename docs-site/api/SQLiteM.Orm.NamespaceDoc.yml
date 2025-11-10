@@ -16,10 +16,10 @@ items:
     remote:
       path: SQLiteM.Orm/Orm.NamespaceDoc.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: NamespaceDoc
     path: ../SQLiteM.Orm/Orm.NamespaceDoc.cs
-    startLine: 22
+    startLine: 24
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm
@@ -27,7 +27,7 @@ items:
   remarks: >-
     Enthält u. a.:
 
-    <ul><li>Einfache Clientabstraktion mit Crud-Operationen: <xref href="SQLiteM.Orm.SQLiteMClient" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.SQLiteMClient" data-throw-if-not-resolved="false"></xref>.</li><li>Dialekt- und SQL-Generierung: <xref href="SQLiteM.Orm.SqliteDialect" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Internal.SqlBuilder" data-throw-if-not-resolved="false"></xref>.</li><li>Mapping und Repositories: <xref href="SQLiteM.Orm.Impl.ReflectionEntityMapper" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Internal.Repository%601" data-throw-if-not-resolved="false"></xref>.</li><li>Unit-of-Work und Verbindungen: <xref href="SQLiteM.Orm.Internal.UnitOfWork" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Impl.SqliteConnectionFactory" data-throw-if-not-resolved="false"></xref>.</li><li>Bootstrapping und DI: <xref href="SQLiteM.Orm.SQLiteMBootstrap" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.ServiceCollectionExtensions" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.SQLiteMOptions" data-throw-if-not-resolved="false"></xref>.</li></ul>
+    <ul><li>Einfache Clientabstraktion mit Crud-Operationen: <xref href="SQLiteM.Orm.Pub.SQLiteMClient" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Pub.SQLiteMClient" data-throw-if-not-resolved="false"></xref>.</li><li>Dialekt- und SQL-Generierung: <xref href="SQLiteM.Orm.Internal.SqliteDialect" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Internal.SqlBuilder" data-throw-if-not-resolved="false"></xref>.</li><li>Mapping und Repositories: <xref href="SQLiteM.Orm.Pub.ReflectionEntityMapper" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Internal.Repository%601" data-throw-if-not-resolved="false"></xref>.</li><li>Unit-of-Work und Verbindungen: <xref href="SQLiteM.Orm.Internal.UnitOfWork" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Internal.SqliteConnectionFactory" data-throw-if-not-resolved="false"></xref>.</li><li>Bootstrapping und DI: <xref href="SQLiteM.Orm.Pub.SQLiteMBootstrap" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Pub.ServiceCollectionExtensions" data-throw-if-not-resolved="false"></xref>, <xref href="SQLiteM.Orm.Pub.SQLiteMOptions" data-throw-if-not-resolved="false"></xref>.</li></ul>
 
     Registrierung im DI-Container:
 
@@ -47,30 +47,30 @@ items:
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
 references:
-- uid: SQLiteM.Orm.SQLiteMClient
-  commentId: T:SQLiteM.Orm.SQLiteMClient
-  href: SQLiteM.Orm.SQLiteMClient.html
+- uid: SQLiteM.Orm.Pub.SQLiteMClient
+  commentId: T:SQLiteM.Orm.Pub.SQLiteMClient
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html
   name: SQLiteMClient
   nameWithType: SQLiteMClient
-  fullName: SQLiteM.Orm.SQLiteMClient
-- uid: SQLiteM.Orm.SqliteDialect
-  commentId: T:SQLiteM.Orm.SqliteDialect
-  href: SQLiteM.Orm.SqliteDialect.html
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient
+- uid: SQLiteM.Orm.Internal.SqliteDialect
+  commentId: T:SQLiteM.Orm.Internal.SqliteDialect
+  href: SQLiteM.Orm.Internal.SqliteDialect.html
   name: SqliteDialect
   nameWithType: SqliteDialect
-  fullName: SQLiteM.Orm.SqliteDialect
+  fullName: SQLiteM.Orm.Internal.SqliteDialect
 - uid: SQLiteM.Orm.Internal.SqlBuilder
   commentId: T:SQLiteM.Orm.Internal.SqlBuilder
   href: SQLiteM.Orm.Internal.SqlBuilder.html
   name: SqlBuilder
   nameWithType: SqlBuilder
   fullName: SQLiteM.Orm.Internal.SqlBuilder
-- uid: SQLiteM.Orm.Impl.ReflectionEntityMapper
-  commentId: T:SQLiteM.Orm.Impl.ReflectionEntityMapper
-  href: SQLiteM.Orm.Impl.ReflectionEntityMapper.html
+- uid: SQLiteM.Orm.Pub.ReflectionEntityMapper
+  commentId: T:SQLiteM.Orm.Pub.ReflectionEntityMapper
+  href: SQLiteM.Orm.Pub.ReflectionEntityMapper.html
   name: ReflectionEntityMapper
   nameWithType: ReflectionEntityMapper
-  fullName: SQLiteM.Orm.Impl.ReflectionEntityMapper
+  fullName: SQLiteM.Orm.Pub.ReflectionEntityMapper
 - uid: SQLiteM.Orm.Internal.Repository`1
   commentId: T:SQLiteM.Orm.Internal.Repository`1
   name: Repository<T>
@@ -98,30 +98,29 @@ references:
   name: UnitOfWork
   nameWithType: UnitOfWork
   fullName: SQLiteM.Orm.Internal.UnitOfWork
-- uid: SQLiteM.Orm.Impl.SqliteConnectionFactory
-  commentId: T:SQLiteM.Orm.Impl.SqliteConnectionFactory
-  href: SQLiteM.Orm.Impl.SqliteConnectionFactory.html
+- uid: SQLiteM.Orm.Internal.SqliteConnectionFactory
+  commentId: T:SQLiteM.Orm.Internal.SqliteConnectionFactory
   name: SqliteConnectionFactory
   nameWithType: SqliteConnectionFactory
-  fullName: SQLiteM.Orm.Impl.SqliteConnectionFactory
-- uid: SQLiteM.Orm.SQLiteMBootstrap
-  commentId: T:SQLiteM.Orm.SQLiteMBootstrap
-  href: SQLiteM.Orm.SQLiteMBootstrap.html
+  fullName: SQLiteM.Orm.Internal.SqliteConnectionFactory
+- uid: SQLiteM.Orm.Pub.SQLiteMBootstrap
+  commentId: T:SQLiteM.Orm.Pub.SQLiteMBootstrap
+  href: SQLiteM.Orm.Pub.SQLiteMBootstrap.html
   name: SQLiteMBootstrap
   nameWithType: SQLiteMBootstrap
-  fullName: SQLiteM.Orm.SQLiteMBootstrap
-- uid: SQLiteM.Orm.ServiceCollectionExtensions
-  commentId: T:SQLiteM.Orm.ServiceCollectionExtensions
-  href: SQLiteM.Orm.ServiceCollectionExtensions.html
+  fullName: SQLiteM.Orm.Pub.SQLiteMBootstrap
+- uid: SQLiteM.Orm.Pub.ServiceCollectionExtensions
+  commentId: T:SQLiteM.Orm.Pub.ServiceCollectionExtensions
+  href: SQLiteM.Orm.Pub.ServiceCollectionExtensions.html
   name: ServiceCollectionExtensions
   nameWithType: ServiceCollectionExtensions
-  fullName: SQLiteM.Orm.ServiceCollectionExtensions
-- uid: SQLiteM.Orm.SQLiteMOptions
-  commentId: T:SQLiteM.Orm.SQLiteMOptions
-  href: SQLiteM.Orm.SQLiteMOptions.html
+  fullName: SQLiteM.Orm.Pub.ServiceCollectionExtensions
+- uid: SQLiteM.Orm.Pub.SQLiteMOptions
+  commentId: T:SQLiteM.Orm.Pub.SQLiteMOptions
+  href: SQLiteM.Orm.Pub.SQLiteMOptions.html
   name: SQLiteMOptions
   nameWithType: SQLiteMOptions
-  fullName: SQLiteM.Orm.SQLiteMOptions
+  fullName: SQLiteM.Orm.Pub.SQLiteMOptions
 - uid: SQLiteM.Orm
   commentId: N:SQLiteM.Orm
   href: SQLiteM.html

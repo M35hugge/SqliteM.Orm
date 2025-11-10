@@ -17,10 +17,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IRepositoryFactory
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 192
+    startLine: 211
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -44,10 +44,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Create
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 200
+    startLine: 219
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions

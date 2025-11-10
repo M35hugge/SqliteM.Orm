@@ -21,7 +21,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/OnDeleteAction.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: OnDeleteAction
     path: ../SQLiteM.Abstractions/OnDeleteAction.cs
     startLine: 14
@@ -65,7 +65,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/OnDeleteAction.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: NoAction
     path: ../SQLiteM.Abstractions/OnDeleteAction.cs
     startLine: 22
@@ -100,7 +100,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/OnDeleteAction.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Restrict
     path: ../SQLiteM.Abstractions/OnDeleteAction.cs
     startLine: 29
@@ -133,7 +133,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/OnDeleteAction.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Cascade
     path: ../SQLiteM.Abstractions/OnDeleteAction.cs
     startLine: 36
@@ -166,7 +166,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/OnDeleteAction.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: SetNull
     path: ../SQLiteM.Abstractions/OnDeleteAction.cs
     startLine: 43
@@ -199,7 +199,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/OnDeleteAction.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: SetDefault
     path: ../SQLiteM.Abstractions/OnDeleteAction.cs
     startLine: 51

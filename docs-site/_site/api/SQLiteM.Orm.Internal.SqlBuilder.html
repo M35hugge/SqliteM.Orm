@@ -170,8 +170,7 @@ Die erzeugten Anweisungen sind mit SQLite kompatibel.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Implementierung des <a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a>, die SQL-Anweisungen für CRUD-Operationen
-und Tabellenerstellung basierend auf Entitätsmetadaten generiert.</p>
+  <div class="markdown level1 summary"><p>Initialisiert eine neue Instanz der <a class="xref" href="SQLiteM.Orm.Internal.SqlBuilder.html">SqlBuilder</a>-Klasse.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -182,9 +181,11 @@ und Tabellenerstellung basierend auf Entitätsmetadaten generiert.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>mapper</code> <a class="xref" href="SQLiteM.Abstractions.IEntityMapper.html">IEntityMapper</a></dt>
-    <dd></dd>
+    <dd><p>Der Mapper, der Tabellen- und Spaltenmetadaten liefert.</p>
+</dd>
     <dt><code>dialect</code> <a class="xref" href="SQLiteM.Abstractions.ISqlDialect.html">ISqlDialect</a></dt>
-    <dd></dd>
+    <dd><p>Der SQL-Dialekt zum Formatieren von Bezeichnern und Parametern.</p>
+</dd>
   </dl>
 
 
@@ -194,28 +195,70 @@ und Tabellenerstellung basierend auf Entitätsmetadaten generiert.</p>
 
 
 
-  <h4 class="section" id="SQLiteM_Orm_Internal_SqlBuilder__ctor_SQLiteM_Abstractions_IEntityMapper_SQLiteM_Abstractions_ISqlDialect__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Diese Implementierung verwendet <a class="xref" href="SQLiteM.Abstractions.IEntityMapper.html">IEntityMapper</a>, um Tabellen-, Spalten-
-und Fremdschlüsseldefinitionen aus den Entitätsattributen zu ermitteln,
-und <a class="xref" href="SQLiteM.Abstractions.ISqlDialect.html">ISqlDialect</a>, um Identifier und Parameter zu formatieren.
-Die erzeugten Anweisungen sind mit SQLite kompatibel.</p>
-</div>
 
-
-  <dl class="typelist seealso">
-    <dt>See Also</dt>
-    <dd>
-    <div><a class="xref" href="SQLiteM.Abstractions.ISqlBuilder.html">ISqlBuilder</a></div>
-    <div><a class="xref" href="SQLiteM.Abstractions.IEntityMapper.html">IEntityMapper</a></div>
-    <div><a class="xref" href="SQLiteM.Abstractions.ISqlDialect.html">ISqlDialect</a></div>
-    <div><a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a></div>
-    <div><a class="xref" href="SQLiteM.Abstractions.ForeignKeyMap.html">ForeignKeyMap</a></div>
-    </dd>
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">mapper</code> oder <code class="paramref">dialect</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.</p>
+</dd>
   </dl>
+
 
 
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="SQLiteM_Orm_Internal_SqlBuilder_BuildCreateIndexes_" data-uid="SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes*"></a>
+
+  <h3 id="SQLiteM_Orm_Internal_SqlBuilder_BuildCreateIndexes_System_Type_" data-uid="SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes(System.Type)">
+  BuildCreateIndexes(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Erzeugt für alle per <a class="xref" href="SQLiteM.Abstractions.IndexMap.html">IndexMap</a> gemappten Indizes die entsprechenden
+<code>CREATE INDEX</code>- bzw. <code>CREATE UNIQUE INDEX</code>-Anweisungen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; BuildCreateIndexes(Type entityType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Der Entitätstyp, dessen Indizes erzeugt werden sollen.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>Eine schreibgeschützte Liste mit SQL-Befehlen (je Index ein Befehl). Die Liste kann leer sein,
+wenn keine Indizes für den Typ definiert sind.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SQLiteM_Orm_Internal_SqlBuilder_BuildCreateIndexes_System_Type__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Die Indexnamen werden – sofern im Mapping nicht angegeben – nach dem Muster
+<code>ix_{tabelle}_{spalte...}</code> generiert. Mehrspaltige Indizes werden in der Reihenfolge
+der gemappten Spalten erzeugt.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.</p>
+</dd>
+  </dl>
+
 
 
   <a id="SQLiteM_Orm_Internal_SqlBuilder_BuildCreateTable_" data-uid="SQLiteM.Orm.Internal.SqlBuilder.BuildCreateTable*"></a>
@@ -225,7 +268,7 @@ Die erzeugten Anweisungen sind mit SQLite kompatibel.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Erstellt eine SQL-<code>CREATE TABLE</code>-Anweisung für den angegebenen Entitätstyp.</p>
+  <div class="markdown level1 summary"><p>Baut eine <code>CREATE TABLE</code>-Anweisung inkl. Fremdschlüsseldefinitionen.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -236,14 +279,14 @@ Die erzeugten Anweisungen sind mit SQLite kompatibel.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd><p>Der Entitätstyp, dessen Tabellendefinition erzeugt werden soll.</p>
+    <dd><p>Entitätstyp.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Die generierte SQL-<code>CREATE TABLE</code>-Anweisung.</p>
+    <dd><p>SQL-Befehl als String.</p>
 </dd>
   </dl>
 
@@ -254,11 +297,20 @@ Die erzeugten Anweisungen sind mit SQLite kompatibel.</p>
 
 
   <h4 class="section" id="SQLiteM_Orm_Internal_SqlBuilder_BuildCreateTable_System_Type__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Spalten, Primärschlüssel, Auto-Increment-Attribute und Fremdschlüssel werden
+  <div class="markdown level1 remarks"><p>Spalten, Primärschlüssel, Auto-Increment-Attribute, Spalten-<code>UNIQUE</code> und Fremdschlüssel werden
 anhand der im Modell vorhandenen Attribute bestimmt.
-Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</code>.</p>
+Die erzeugte Anweisung nutzt <code>CREATE TABLE IF NOT EXISTS</code>.</p>
 </div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Wenn keine Spalten für den Entitätstyp vorhanden sind.</p>
+</dd>
+  </dl>
 
 
 
@@ -269,7 +321,7 @@ Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</c
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Erstellt eine SQL-<code>DELETE</code>-Anweisung für den angegebenen Entitätstyp.</p>
+  <div class="markdown level1 summary"><p>Baut einen <code>DELETE</code>-Befehl für den Entitätstyp.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -280,17 +332,17 @@ Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</c
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd><p>Der Entitätstyp, für den die Anweisung erzeugt werden soll.</p>
+    <dd><p>Entitätstyp.</p>
 </dd>
     <dt><code>key</code> <a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a></dt>
-    <dd><p>Gibt die Primärschlüsselspalte der Tabelle zurück.</p>
+    <dd><p>Ausgabe: Primärschlüssel-Spalte.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Die generierte SQL-<code>DELETE</code>-Anweisung.</p>
+    <dd><p>SQL-Befehl als String.</p>
 </dd>
   </dl>
 
@@ -303,6 +355,9 @@ Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</c
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.</p>
+</dd>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
     <dd><p>Wenn kein Primärschlüssel definiert ist.</p>
 </dd>
@@ -317,7 +372,7 @@ Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</c
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Erstellt eine SQL-<code>INSERT</code>-Anweisung für den angegebenen Entitätstyp.</p>
+  <div class="markdown level1 summary"><p>Baut einen <code>INSERT</code>-Befehl für den Entitätstyp.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -328,65 +383,17 @@ Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</c
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd><p>Der Entitätstyp, für den die Anweisung erzeugt werden soll.</p>
+    <dd><p>Entitätstyp.</p>
 </dd>
     <dt><code>cols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a>&gt;</dt>
-    <dd><p>Gibt die Liste der Spalten zurück, die in das <code>INSERT</code> einbezogen werden.</p>
+    <dd><p>Ausgabe: zu bindende Spalten (ohne Auto-Increment).</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Die generierte SQL-<code>INSERT</code>-Anweisung.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="SQLiteM_Orm_Internal_SqlBuilder_BuildInsert_System_Type_System_Collections_Generic_IReadOnlyList_SQLiteM_Abstractions_PropertyMap____remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Spalten, die als <a class="xref" href="SQLiteM.Abstractions.PropertyMap.html#SQLiteM_Abstractions_PropertyMap_IsAutoIncrement">IsAutoIncrement</a> markiert sind, werden automatisch ausgeschlossen.</p>
-</div>
-
-
-
-
-  <a id="SQLiteM_Orm_Internal_SqlBuilder_BuildSelectById_" data-uid="SQLiteM.Orm.Internal.SqlBuilder.BuildSelectById*"></a>
-
-  <h3 id="SQLiteM_Orm_Internal_SqlBuilder_BuildSelectById_System_Type_SQLiteM_Abstractions_PropertyMap__System_Collections_Generic_IReadOnlyList_SQLiteM_Abstractions_PropertyMap___" data-uid="SQLiteM.Orm.Internal.SqlBuilder.BuildSelectById(System.Type,SQLiteM.Abstractions.PropertyMap@,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)">
-  BuildSelectById(Type, out PropertyMap, out IReadOnlyList&lt;PropertyMap&gt;)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Erstellt eine SQL-<code>SELECT</code>-Anweisung zur Abfrage einer Entität anhand ihres Primärschlüssels.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string BuildSelectById(Type entityType, out PropertyMap key, out IReadOnlyList&lt;PropertyMap&gt; cols)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd><p>Der Entitätstyp, für den die Anweisung erzeugt werden soll.</p>
-</dd>
-    <dt><code>key</code> <a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a></dt>
-    <dd><p>Gibt die Primärschlüsselspalte der Tabelle zurück.</p>
-</dd>
-    <dt><code>cols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a>&gt;</dt>
-    <dd><p>Gibt die Spaltenliste der Tabelle zurück.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Die generierte SQL-<code>SELECT</code>-Anweisung.</p>
+    <dd><p>SQL-Befehl als String.</p>
 </dd>
   </dl>
 
@@ -399,8 +406,65 @@ Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</c
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.</p>
+</dd>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd><p>Wenn kein Primärschlüssel definiert ist.</p>
+    <dd><p>Wenn für den Entitätstyp keine gemappten Spalten gefunden wurden.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SQLiteM_Orm_Internal_SqlBuilder_BuildSelectById_" data-uid="SQLiteM.Orm.Internal.SqlBuilder.BuildSelectById*"></a>
+
+  <h3 id="SQLiteM_Orm_Internal_SqlBuilder_BuildSelectById_System_Type_SQLiteM_Abstractions_PropertyMap__System_Collections_Generic_IReadOnlyList_SQLiteM_Abstractions_PropertyMap___" data-uid="SQLiteM.Orm.Internal.SqlBuilder.BuildSelectById(System.Type,SQLiteM.Abstractions.PropertyMap@,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)">
+  BuildSelectById(Type, out PropertyMap, out IReadOnlyList&lt;PropertyMap&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Baut einen <code>SELECT</code>-Befehl, der per Primärschlüssel genau eine Zeile lädt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string BuildSelectById(Type entityType, out PropertyMap key, out IReadOnlyList&lt;PropertyMap&gt; cols)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Entitätstyp.</p>
+</dd>
+    <dt><code>key</code> <a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a></dt>
+    <dd><p>Ausgabe: Primärschlüssel-Spalte.</p>
+</dd>
+    <dt><code>cols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a>&gt;</dt>
+    <dd><p>Ausgabe: alle zu lesenden Spalten.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>SQL-Befehl als String.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Wenn keine Spalten gefunden werden oder kein Primärschlüssel definiert ist.</p>
 </dd>
   </dl>
 
@@ -413,7 +477,7 @@ Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</c
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Erstellt eine SQL-<code>UPDATE</code>-Anweisung für den angegebenen Entitätstyp.</p>
+  <div class="markdown level1 summary"><p>Baut einen <code>UPDATE</code>-Befehl für den Entitätstyp.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -424,17 +488,17 @@ Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</c
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd><p>Der Entitätstyp, für den die Anweisung erzeugt werden soll.</p>
+    <dd><p>Entitätstyp.</p>
 </dd>
     <dt><code>cols</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.PropertyMap.html">PropertyMap</a>&gt;</dt>
-    <dd><p>Gibt die Liste der Spalten zurück, die im <code>SET</code>-Teil der Anweisung enthalten sind.</p>
+    <dd><p>Ausgabe: zu setzende Spalten (ohne PK/Auto-Increment).</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Die generierte SQL-<code>UPDATE</code>-Anweisung.</p>
+    <dd><p>SQL-Befehl als String.</p>
 </dd>
   </dl>
 
@@ -444,14 +508,14 @@ Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</c
 
 
 
-  <h4 class="section" id="SQLiteM_Orm_Internal_SqlBuilder_BuildUpdate_System_Type_System_Collections_Generic_IReadOnlyList_SQLiteM_Abstractions_PropertyMap____remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Auto-Increment- und Primärschlüsselspalten werden im Update ausgeschlossen.</p>
-</div>
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.</p>
+</dd>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd><p>Wenn kein Primärschlüssel definiert ist.</p>
+    <dd><p>Wenn keine Spalten gefunden werden oder kein Primärschlüssel definiert ist.</p>
 </dd>
   </dl>
 

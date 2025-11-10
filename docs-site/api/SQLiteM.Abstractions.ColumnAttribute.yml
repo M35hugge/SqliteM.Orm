@@ -5,8 +5,10 @@ items:
   id: ColumnAttribute
   parent: SQLiteM.Abstractions
   children:
-  - SQLiteM.Abstractions.ColumnAttribute.#ctor(System.String)
+  - SQLiteM.Abstractions.ColumnAttribute.#ctor
+  - SQLiteM.Abstractions.ColumnAttribute.#ctor(System.String,System.Boolean)
   - SQLiteM.Abstractions.ColumnAttribute.IsNullable
+  - SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn
   - SQLiteM.Abstractions.ColumnAttribute.Length
   - SQLiteM.Abstractions.ColumnAttribute.Name
   langs:
@@ -20,23 +22,42 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: ColumnAttribute
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 52
+    startLine: 62
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
   summary: Markiert eine Eigenschaft als Datenbankspalte.
   remarks: >-
-    Dieses Attribut definiert die Zuordnung eines Properties zu einer Spalte in der Datenbanktabelle.
+    Wenn <xref href="SQLiteM.Abstractions.ColumnAttribute.Name" data-throw-if-not-resolved="false"></xref> nicht gesetzt ist, wird der Spaltenname
 
-    Über die optionalen Eigenschaften können Nullable-Verhalten und Länge (bei Strings) festgelegt werden.
+    per <code>INameTranslator.Column(property.Name)</code> aus dem CLR-Propertynamen abgeleitet
+
+    (z. B. <code>FirstName</code> → <code>first_name</code>).
+
+    <p>
+
+    <xref href="SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn" data-throw-if-not-resolved="false"></xref> erzeugt einen <b>Spalten-UNIQUE-Constraint</b> in der
+
+    <code>CREATE TABLE</code>-DDL (z. B. <code>email TEXT UNIQUE</code>). Für zusammengesetzte Eindeutigkeit
+
+    über mehrere Spalten verwende <xref href="SQLiteM.Abstractions.CompositeIndexAttribute" data-throw-if-not-resolved="false"></xref> mit <code>IsUnique = true</code>.
+
+    </p>
   example:
   - >-
-    <pre><code class="lang-csharp">[Column("Email", IsNullable = false, Length = 255)]
+    <pre><code class="lang-csharp">[Column("email", IsNullable = false, Length = 255, IsUniqueColumn = true)]
 
-    public string Email { get; set; } = string.Empty;</code></pre>
+    public string Email { get; set; } = string.Empty;
+
+
+    // Ohne Name → Spaltenname wird aus dem Propertynamen abgeleitet
+
+    [Column]
+
+    public string FirstName { get; set; } = string.Empty;</code></pre>
   syntax:
     content: >-
       [AttributeUsage(AttributeTargets.Property, Inherited = false)]
@@ -101,48 +122,6 @@ items:
     - name: Inherited
       type: System.Boolean
       value: false
-- uid: SQLiteM.Abstractions.ColumnAttribute.#ctor(System.String)
-  commentId: M:SQLiteM.Abstractions.ColumnAttribute.#ctor(System.String)
-  id: '#ctor(System.String)'
-  parent: SQLiteM.Abstractions.ColumnAttribute
-  langs:
-  - csharp
-  - vb
-  name: ColumnAttribute(string)
-  nameWithType: ColumnAttribute.ColumnAttribute(string)
-  fullName: SQLiteM.Abstractions.ColumnAttribute.ColumnAttribute(string)
-  type: Constructor
-  source:
-    remote:
-      path: SQLiteM.Abstractions/Attributes.cs
-      branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
-    id: .ctor
-    path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 52
-  assemblies:
-  - SQLiteM.Abstractions
-  namespace: SQLiteM.Abstractions
-  summary: Markiert eine Eigenschaft als Datenbankspalte.
-  remarks: >-
-    Dieses Attribut definiert die Zuordnung eines Properties zu einer Spalte in der Datenbanktabelle.
-
-    Über die optionalen Eigenschaften können Nullable-Verhalten und Länge (bei Strings) festgelegt werden.
-  example:
-  - >-
-    <pre><code class="lang-csharp">[Column("Email", IsNullable = false, Length = 255)]
-
-    public string Email { get; set; } = string.Empty;</code></pre>
-  syntax:
-    content: public ColumnAttribute(string name)
-    parameters:
-    - id: name
-      type: System.String
-    content.vb: Public Sub New(name As String)
-  overload: SQLiteM.Abstractions.ColumnAttribute.#ctor*
-  nameWithType.vb: ColumnAttribute.New(String)
-  fullName.vb: SQLiteM.Abstractions.ColumnAttribute.New(String)
-  name.vb: New(String)
 - uid: SQLiteM.Abstractions.ColumnAttribute.Name
   commentId: P:SQLiteM.Abstractions.ColumnAttribute.Name
   id: Name
@@ -158,17 +137,17 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Name
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 58
+    startLine: 66
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Der Spaltenname in der Tabelle.
+  summary: Spaltenname in der Tabelle (optional).
   example: []
   syntax:
-    content: public string Name { get; }
+    content: public string? Name { get; }
     parameters: []
     return:
       type: System.String
@@ -189,21 +168,20 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IsNullable
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 64
+    startLine: 69
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Gibt an, ob <code>NULL</code>-Werte erlaubt sind.
+  summary: 'Gibt an, ob <code>NULL</code> erlaubt ist. Standard: <code>true</code>.'
   example: []
   syntax:
     content: public bool IsNullable { get; set; }
     parameters: []
     return:
       type: System.Boolean
-      description: 'Standardwert: <code>true</code>.'
     content.vb: Public Property IsNullable As Boolean
   overload: SQLiteM.Abstractions.ColumnAttribute.IsNullable*
 - uid: SQLiteM.Abstractions.ColumnAttribute.Length
@@ -221,24 +199,139 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Length
     path: ../SQLiteM.Abstractions/Attributes.cs
     startLine: 72
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Gibt die maximale Länge für Textspalten an (nur relevant für <xref href="System.String" data-throw-if-not-resolved="false"></xref>).
+  summary: Maximale Länge für Textspalten (<xref href="System.String" data-throw-if-not-resolved="false"></xref>). 0 = kein Limit (nur deklarativ in SQLite).
   example: []
   syntax:
     content: public int Length { get; set; }
     parameters: []
     return:
       type: System.Int32
-      description: 'Standardwert: <code>0</code> (keine Längenbegrenzung).'
     content.vb: Public Property Length As Integer
   overload: SQLiteM.Abstractions.ColumnAttribute.Length*
+- uid: SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn
+  commentId: P:SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn
+  id: IsUniqueColumn
+  parent: SQLiteM.Abstractions.ColumnAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsUniqueColumn
+  nameWithType: ColumnAttribute.IsUniqueColumn
+  fullName: SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Attributes.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: IsUniqueColumn
+    path: ../SQLiteM.Abstractions/Attributes.cs
+    startLine: 77
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erzwingt Eindeutigkeit über <b>diese einzelne</b> Spalte (Spalten-Constraint <code>UNIQUE</code> in der Tabelle).
+  example: []
+  syntax:
+    content: public bool IsUniqueColumn { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsUniqueColumn As Boolean
+  overload: SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn*
+- uid: SQLiteM.Abstractions.ColumnAttribute.#ctor
+  commentId: M:SQLiteM.Abstractions.ColumnAttribute.#ctor
+  id: '#ctor'
+  parent: SQLiteM.Abstractions.ColumnAttribute
+  langs:
+  - csharp
+  - vb
+  name: ColumnAttribute()
+  nameWithType: ColumnAttribute.ColumnAttribute()
+  fullName: SQLiteM.Abstractions.ColumnAttribute.ColumnAttribute()
+  type: Constructor
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Attributes.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: .ctor
+    path: ../SQLiteM.Abstractions/Attributes.cs
+    startLine: 80
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: 'Parameterlos: Name wird über den <code>INameTranslator</code> bestimmt.'
+  example: []
+  syntax:
+    content: public ColumnAttribute()
+    content.vb: Public Sub New()
+  overload: SQLiteM.Abstractions.ColumnAttribute.#ctor*
+  nameWithType.vb: ColumnAttribute.New()
+  fullName.vb: SQLiteM.Abstractions.ColumnAttribute.New()
+  name.vb: New()
+- uid: SQLiteM.Abstractions.ColumnAttribute.#ctor(System.String,System.Boolean)
+  commentId: M:SQLiteM.Abstractions.ColumnAttribute.#ctor(System.String,System.Boolean)
+  id: '#ctor(System.String,System.Boolean)'
+  parent: SQLiteM.Abstractions.ColumnAttribute
+  langs:
+  - csharp
+  - vb
+  name: ColumnAttribute(string, bool)
+  nameWithType: ColumnAttribute.ColumnAttribute(string, bool)
+  fullName: SQLiteM.Abstractions.ColumnAttribute.ColumnAttribute(string, bool)
+  type: Constructor
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Attributes.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: .ctor
+    path: ../SQLiteM.Abstractions/Attributes.cs
+    startLine: 83
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: 'Expliziter Spaltenname (optional: Direktvorgabe von <xref href="SQLiteM.Abstractions.ColumnAttribute.IsNullable" data-throw-if-not-resolved="false"></xref>).'
+  example: []
+  syntax:
+    content: public ColumnAttribute(string name, bool isNullable = true)
+    parameters:
+    - id: name
+      type: System.String
+    - id: isNullable
+      type: System.Boolean
+    content.vb: Public Sub New(name As String, isNullable As Boolean = True)
+  overload: SQLiteM.Abstractions.ColumnAttribute.#ctor*
+  nameWithType.vb: ColumnAttribute.New(String, Boolean)
+  fullName.vb: SQLiteM.Abstractions.ColumnAttribute.New(String, Boolean)
+  name.vb: New(String, Boolean)
 references:
+- uid: SQLiteM.Abstractions.ColumnAttribute.Name
+  commentId: P:SQLiteM.Abstractions.ColumnAttribute.Name
+  href: SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_Name
+  name: Name
+  nameWithType: ColumnAttribute.Name
+  fullName: SQLiteM.Abstractions.ColumnAttribute.Name
+- uid: SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn
+  commentId: P:SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn
+  href: SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_IsUniqueColumn
+  name: IsUniqueColumn
+  nameWithType: ColumnAttribute.IsUniqueColumn
+  fullName: SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn
+- uid: SQLiteM.Abstractions.CompositeIndexAttribute
+  commentId: T:SQLiteM.Abstractions.CompositeIndexAttribute
+  href: SQLiteM.Abstractions.CompositeIndexAttribute.html
+  name: CompositeIndexAttribute
+  nameWithType: CompositeIndexAttribute
+  fullName: SQLiteM.Abstractions.CompositeIndexAttribute
 - uid: SQLiteM.Abstractions
   commentId: N:SQLiteM.Abstractions
   href: SQLiteM.html
@@ -2031,15 +2124,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SQLiteM.Abstractions.ColumnAttribute.#ctor*
-  commentId: Overload:SQLiteM.Abstractions.ColumnAttribute.#ctor
-  href: SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute__ctor_System_String_
-  name: ColumnAttribute
-  nameWithType: ColumnAttribute.ColumnAttribute
-  fullName: SQLiteM.Abstractions.ColumnAttribute.ColumnAttribute
-  nameWithType.vb: ColumnAttribute.New
-  fullName.vb: SQLiteM.Abstractions.ColumnAttribute.New
-  name.vb: New
+- uid: SQLiteM.Abstractions.ColumnAttribute.Name*
+  commentId: Overload:SQLiteM.Abstractions.ColumnAttribute.Name
+  href: SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_Name
+  name: Name
+  nameWithType: ColumnAttribute.Name
+  fullName: SQLiteM.Abstractions.ColumnAttribute.Name
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -2051,12 +2141,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: SQLiteM.Abstractions.ColumnAttribute.Name*
-  commentId: Overload:SQLiteM.Abstractions.ColumnAttribute.Name
-  href: SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_Name
-  name: Name
-  nameWithType: ColumnAttribute.Name
-  fullName: SQLiteM.Abstractions.ColumnAttribute.Name
 - uid: SQLiteM.Abstractions.ColumnAttribute.IsNullable*
   commentId: Overload:SQLiteM.Abstractions.ColumnAttribute.IsNullable
   href: SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_IsNullable
@@ -2091,3 +2175,24 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn*
+  commentId: Overload:SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn
+  href: SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_IsUniqueColumn
+  name: IsUniqueColumn
+  nameWithType: ColumnAttribute.IsUniqueColumn
+  fullName: SQLiteM.Abstractions.ColumnAttribute.IsUniqueColumn
+- uid: SQLiteM.Abstractions.ColumnAttribute.#ctor*
+  commentId: Overload:SQLiteM.Abstractions.ColumnAttribute.#ctor
+  href: SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute__ctor
+  name: ColumnAttribute
+  nameWithType: ColumnAttribute.ColumnAttribute
+  fullName: SQLiteM.Abstractions.ColumnAttribute.ColumnAttribute
+  nameWithType.vb: ColumnAttribute.New
+  fullName.vb: SQLiteM.Abstractions.ColumnAttribute.New
+  name.vb: New
+- uid: SQLiteM.Abstractions.ColumnAttribute.IsNullable
+  commentId: P:SQLiteM.Abstractions.ColumnAttribute.IsNullable
+  href: SQLiteM.Abstractions.ColumnAttribute.html#SQLiteM_Abstractions_ColumnAttribute_IsNullable
+  name: IsNullable
+  nameWithType: ColumnAttribute.IsNullable
+  fullName: SQLiteM.Abstractions.ColumnAttribute.IsNullable

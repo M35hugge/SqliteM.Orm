@@ -11,8 +11,7 @@
 	  <PackageId>SQLiteM.Abstractions</PackageId>
 	  <Version>0.1.2</Version>
 	  <!-- SemVer: 0.x für erste Releases; für Previews 1.0.0-preview.1 -->
-	  <Authors>DeinName</Authors>
-	  <Company>DeinName</Company>
+	  <Authors>DN</Authors>
 	  <Description>Leichtgewichtiges Micro-ORM für SQLite (C#)</Description>
 	  <PackageTags>sqlite;orm;micro-orm;repository;unit-of-work</PackageTags>
 	  <RepositoryUrl>
@@ -22,7 +21,7 @@
 	  <PackageProjectUrl>
 		  https://github.com/M35hugge/SQLiteM
 	  </PackageProjectUrl>
-	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
 	  <!-- oder SPDX deiner Wahl -->
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <PackageIcon>icon.png</PackageIcon>
@@ -34,8 +33,15 @@
 	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 	<ItemGroup>
-		<None Include="..\README.md" Pack="true" PackagePath="\" />
 		<None Include="..\icon.png" Pack="true" PackagePath="\" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="LICENSE" Pack="true" PackagePath="\">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="README.md" Pack="true" PackagePath="\">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 </Project>

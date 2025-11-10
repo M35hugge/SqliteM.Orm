@@ -116,7 +116,8 @@ Interface IEntityMapper
 
 
   <h2 id="SQLiteM_Abstractions_IEntityMapper_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Die Zuordnung basiert typischerweise auf Attributen (z. B. <code>[Table]</code>, <code>[Column]</code>, ...).</p>
+  <div class="markdown level0 remarks"><p>Die Zuordnung basiert typischerweise auf Attributen (z. B. <code>[Table]</code>, <code>[Column]</code>, …)
+und optional auf Konventionen (z. B. Namensübersetzung per <a class="xref" href="SQLiteM.Abstractions.INameTranslator.html">INameTranslator</a>).</p>
 </div>
 
 
@@ -150,6 +151,45 @@ Interface IEntityMapper
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.ForeignKeyMap.html">ForeignKeyMap</a>&gt;</dt>
     <dd><p>Schreibgeschützte Liste der Fremdschlüsselzuordnungen.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SQLiteM_Abstractions_IEntityMapper_GetIndexes_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetIndexes*"></a>
+
+  <h3 id="SQLiteM_Abstractions_IEntityMapper_GetIndexes_System_Type_" data-uid="SQLiteM.Abstractions.IEntityMapper.GetIndexes(System.Type)">
+  GetIndexes(Type)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Liefert alle Indexdefinitionen (Einzel- und zusammengesetzte Indizes) zur Entität.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;IndexMap&gt; GetIndexes(Type entityType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entityType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Der Entitätstyp.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SQLiteM.Abstractions.IndexMap.html">IndexMap</a>&gt;</dt>
+    <dd><p>Schreibgeschützte Liste der Indexzuordnungen.</p>
 </dd>
   </dl>
 

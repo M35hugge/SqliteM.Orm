@@ -5,6 +5,7 @@ items:
   id: ForeignKeyAttribute
   parent: SQLiteM.Abstractions
   children:
+  - SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type)
   - SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type,System.String)
   - SQLiteM.Abstractions.ForeignKeyAttribute.OnDelete
   - SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalColumn
@@ -20,25 +21,38 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: ForeignKeyAttribute
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 123
+    startLine: 199
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Markiert eine Eigenschaft als Fremdschlüssel.
+  summary: Markiert eine Eigenschaft als Fremdschlüssel (Referenz auf eine Principal-Tabelle).
   remarks: >-
-    Dieses Attribut definiert eine referenzielle Beziehung zwischen zwei Tabellen.
+    Die Fremdschlüsseldefinition wird beim <code>CREATE TABLE</code> berücksichtigt.
 
-    Die Fremdschlüsseldefinition wird beim Erstellen der Tabelle berücksichtigt.
+    Wenn nur der <xref href="SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalEntity" data-throw-if-not-resolved="false"></xref> angegeben wird, gilt per Konvention
+
+    <xref href="SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalColumn" data-throw-if-not-resolved="false"></xref> = <code>"Id"</code> (PK-Spalte).
   example:
   - >-
-    <pre><code class="lang-csharp">[ForeignKey(typeof(User), "Id", OnDelete = OnDeleteAction.Cascade)]
+    <pre><code class="lang-csharp">// Verweist auf User.Id, setzt Cascade-Delete
 
-    [Column("UserId")]
+    [ForeignKey(typeof(User), nameof(User.Id), OnDelete = OnDeleteAction.Cascade)]
 
-    public int UserId { get; set; }</code></pre>
+    [Column("user_id")]
+
+    public long UserId { get; set; }
+
+
+    // Nur Principal-Typ → Spaltenname "Id" wird angenommen
+
+    [ForeignKey(typeof(User))]
+
+    [Column("user_id")]
+
+    public long UserId { get; set; }</code></pre>
   syntax:
     content: >-
       [AttributeUsage(AttributeTargets.Property, Inherited = false)]
@@ -118,14 +132,14 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: PrincipalEntity
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 129
+    startLine: 203
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Der Typ der referenzierten Entität (Principal-Tabelle).
+  summary: Typ der referenzierten Entität (Principal-Tabelle).
   example: []
   syntax:
     content: public Type PrincipalEntity { get; }
@@ -149,14 +163,14 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: PrincipalColumn
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 134
+    startLine: 206
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Der Name der referenzierten Spalte in der Principal-Tabelle.
+  summary: Name der referenzierten Spalte in der Principal-Tabelle (z. B. <code>"Id"</code>).
   example: []
   syntax:
     content: public string PrincipalColumn { get; }
@@ -180,23 +194,56 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: OnDelete
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 142
+    startLine: 209
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Gibt an, welche Aktion bei Löschung der Principal-Zeile ausgeführt werden soll.
+  summary: Aktion bei Löschung der Principal-Zeile (z. B. <code>CASCADE</code>).
   example: []
   syntax:
     content: public OnDeleteAction OnDelete { get; set; }
     parameters: []
     return:
       type: SQLiteM.Abstractions.OnDeleteAction
-      description: 'Standardwert: <xref href="SQLiteM.Abstractions.OnDeleteAction.NoAction" data-throw-if-not-resolved="false"></xref>.'
     content.vb: Public Property OnDelete As OnDeleteAction
   overload: SQLiteM.Abstractions.ForeignKeyAttribute.OnDelete*
+- uid: SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type)
+  commentId: M:SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: SQLiteM.Abstractions.ForeignKeyAttribute
+  langs:
+  - csharp
+  - vb
+  name: ForeignKeyAttribute(Type)
+  nameWithType: ForeignKeyAttribute.ForeignKeyAttribute(Type)
+  fullName: SQLiteM.Abstractions.ForeignKeyAttribute.ForeignKeyAttribute(System.Type)
+  type: Constructor
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Attributes.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: .ctor
+    path: ../SQLiteM.Abstractions/Attributes.cs
+    startLine: 214
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Verwendet per Konvention <code>"Id"</code> als <xref href="SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalColumn" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ForeignKeyAttribute(Type principalEntity)
+    parameters:
+    - id: principalEntity
+      type: System.Type
+    content.vb: Public Sub New(principalEntity As Type)
+  overload: SQLiteM.Abstractions.ForeignKeyAttribute.#ctor*
+  nameWithType.vb: ForeignKeyAttribute.New(Type)
+  fullName.vb: SQLiteM.Abstractions.ForeignKeyAttribute.New(System.Type)
+  name.vb: New(Type)
 - uid: SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type,System.String)
   commentId: M:SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type,System.String)
   id: '#ctor(System.Type,System.String)'
@@ -212,30 +259,40 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: .ctor
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 149
+    startLine: 221
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Initialisiert ein neues <xref href="SQLiteM.Abstractions.ForeignKeyAttribute" data-throw-if-not-resolved="false"></xref>.
+  summary: Explizite Angabe der referenzierten Spalte.
   example: []
   syntax:
     content: public ForeignKeyAttribute(Type principalEntity, string principalColumn)
     parameters:
     - id: principalEntity
       type: System.Type
-      description: Der Typ der referenzierten Entität.
     - id: principalColumn
       type: System.String
-      description: Der Name der referenzierten Spalte.
     content.vb: Public Sub New(principalEntity As Type, principalColumn As String)
   overload: SQLiteM.Abstractions.ForeignKeyAttribute.#ctor*
   nameWithType.vb: ForeignKeyAttribute.New(Type, String)
   fullName.vb: SQLiteM.Abstractions.ForeignKeyAttribute.New(System.Type, String)
   name.vb: New(Type, String)
 references:
+- uid: SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalEntity
+  commentId: P:SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalEntity
+  href: SQLiteM.Abstractions.ForeignKeyAttribute.html#SQLiteM_Abstractions_ForeignKeyAttribute_PrincipalEntity
+  name: PrincipalEntity
+  nameWithType: ForeignKeyAttribute.PrincipalEntity
+  fullName: SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalEntity
+- uid: SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalColumn
+  commentId: P:SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalColumn
+  href: SQLiteM.Abstractions.ForeignKeyAttribute.html#SQLiteM_Abstractions_ForeignKeyAttribute_PrincipalColumn
+  name: PrincipalColumn
+  nameWithType: ForeignKeyAttribute.PrincipalColumn
+  fullName: SQLiteM.Abstractions.ForeignKeyAttribute.PrincipalColumn
 - uid: SQLiteM.Abstractions
   commentId: N:SQLiteM.Abstractions
   href: SQLiteM.html
@@ -2059,12 +2116,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: SQLiteM.Abstractions.OnDeleteAction.NoAction
-  commentId: F:SQLiteM.Abstractions.OnDeleteAction.NoAction
-  href: SQLiteM.Abstractions.OnDeleteAction.html#SQLiteM_Abstractions_OnDeleteAction_NoAction
-  name: NoAction
-  nameWithType: OnDeleteAction.NoAction
-  fullName: SQLiteM.Abstractions.OnDeleteAction.NoAction
 - uid: SQLiteM.Abstractions.ForeignKeyAttribute.OnDelete*
   commentId: Overload:SQLiteM.Abstractions.ForeignKeyAttribute.OnDelete
   href: SQLiteM.Abstractions.ForeignKeyAttribute.html#SQLiteM_Abstractions_ForeignKeyAttribute_OnDelete
@@ -2078,15 +2129,9 @@ references:
   name: OnDeleteAction
   nameWithType: OnDeleteAction
   fullName: SQLiteM.Abstractions.OnDeleteAction
-- uid: SQLiteM.Abstractions.ForeignKeyAttribute
-  commentId: T:SQLiteM.Abstractions.ForeignKeyAttribute
-  href: SQLiteM.Abstractions.ForeignKeyAttribute.html
-  name: ForeignKeyAttribute
-  nameWithType: ForeignKeyAttribute
-  fullName: SQLiteM.Abstractions.ForeignKeyAttribute
 - uid: SQLiteM.Abstractions.ForeignKeyAttribute.#ctor*
   commentId: Overload:SQLiteM.Abstractions.ForeignKeyAttribute.#ctor
-  href: SQLiteM.Abstractions.ForeignKeyAttribute.html#SQLiteM_Abstractions_ForeignKeyAttribute__ctor_System_Type_System_String_
+  href: SQLiteM.Abstractions.ForeignKeyAttribute.html#SQLiteM_Abstractions_ForeignKeyAttribute__ctor_System_Type_
   name: ForeignKeyAttribute
   nameWithType: ForeignKeyAttribute.ForeignKeyAttribute
   fullName: SQLiteM.Abstractions.ForeignKeyAttribute.ForeignKeyAttribute

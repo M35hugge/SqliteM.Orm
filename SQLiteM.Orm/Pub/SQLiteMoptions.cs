@@ -12,7 +12,7 @@ namespace SQLiteM.Orm.Pub
     /// </summary>
     /// <remarks>
     /// Diese Optionen werden bei der Registrierung über
-    /// <see cref="ServiceCollectionExtensions.AddSQLiteM(Microsoft.Extensions.DependencyInjection.IServiceCollection, Action{SQLiteMOptions})"/>
+    /// <see cref="ServiceCollectionExtensions"/>
     /// konfiguriert und bestimmen insbesondere die zu verwendende SQLite-Verbindung.
     /// </remarks>
     /// <example>

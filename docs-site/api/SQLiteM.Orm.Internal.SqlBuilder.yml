@@ -6,6 +6,7 @@ items:
   parent: SQLiteM.Orm.Internal
   children:
   - SQLiteM.Orm.Internal.SqlBuilder.#ctor(SQLiteM.Abstractions.IEntityMapper,SQLiteM.Abstractions.ISqlDialect)
+  - SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes(System.Type)
   - SQLiteM.Orm.Internal.SqlBuilder.BuildCreateTable(System.Type)
   - SQLiteM.Orm.Internal.SqlBuilder.BuildDelete(System.Type,SQLiteM.Abstractions.PropertyMap@)
   - SQLiteM.Orm.Internal.SqlBuilder.BuildInsert(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
@@ -22,7 +23,7 @@ items:
     remote:
       path: SQLiteM.Orm/Internal/SqlBuilder.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: SqlBuilder
     path: ../SQLiteM.Orm/Internal/SqlBuilder.cs
     startLine: 21
@@ -82,46 +83,30 @@ items:
     remote:
       path: SQLiteM.Orm/Internal/SqlBuilder.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: .ctor
     path: ../SQLiteM.Orm/Internal/SqlBuilder.cs
-    startLine: 21
+    startLine: 34
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Internal
-  summary: >-
-    Implementierung des <xref href="SQLiteM.Abstractions.ISqlBuilder" data-throw-if-not-resolved="false"></xref>, die SQL-Anweisungen für CRUD-Operationen
-
-    und Tabellenerstellung basierend auf Entitätsmetadaten generiert.
-  remarks: >-
-    Diese Implementierung verwendet <xref href="SQLiteM.Abstractions.IEntityMapper" data-throw-if-not-resolved="false"></xref>, um Tabellen-, Spalten-
-
-    und Fremdschlüsseldefinitionen aus den Entitätsattributen zu ermitteln,
-
-    und <xref href="SQLiteM.Abstractions.ISqlDialect" data-throw-if-not-resolved="false"></xref>, um Identifier und Parameter zu formatieren.
-
-    Die erzeugten Anweisungen sind mit SQLite kompatibel.
+  summary: Initialisiert eine neue Instanz der <xref href="SQLiteM.Orm.Internal.SqlBuilder" data-throw-if-not-resolved="false"></xref>-Klasse.
   example: []
   syntax:
     content: public SqlBuilder(IEntityMapper mapper, ISqlDialect dialect)
     parameters:
     - id: mapper
       type: SQLiteM.Abstractions.IEntityMapper
+      description: Der Mapper, der Tabellen- und Spaltenmetadaten liefert.
     - id: dialect
       type: SQLiteM.Abstractions.ISqlDialect
+      description: Der SQL-Dialekt zum Formatieren von Bezeichnern und Parametern.
     content.vb: Public Sub New(mapper As IEntityMapper, dialect As ISqlDialect)
   overload: SQLiteM.Orm.Internal.SqlBuilder.#ctor*
-  seealso:
-  - linkId: SQLiteM.Abstractions.ISqlBuilder
-    commentId: T:SQLiteM.Abstractions.ISqlBuilder
-  - linkId: SQLiteM.Abstractions.IEntityMapper
-    commentId: T:SQLiteM.Abstractions.IEntityMapper
-  - linkId: SQLiteM.Abstractions.ISqlDialect
-    commentId: T:SQLiteM.Abstractions.ISqlDialect
-  - linkId: SQLiteM.Abstractions.PropertyMap
-    commentId: T:SQLiteM.Abstractions.PropertyMap
-  - linkId: SQLiteM.Abstractions.ForeignKeyMap
-    commentId: T:SQLiteM.Abstractions.ForeignKeyMap
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Wenn <code class="paramref">mapper</code> oder <code class="paramref">dialect</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.
   nameWithType.vb: SqlBuilder.New(IEntityMapper, ISqlDialect)
   fullName.vb: SQLiteM.Orm.Internal.SqlBuilder.New(SQLiteM.Abstractions.IEntityMapper, SQLiteM.Abstractions.ISqlDialect)
   name.vb: New(IEntityMapper, ISqlDialect)
@@ -140,30 +125,36 @@ items:
     remote:
       path: SQLiteM.Orm/Internal/SqlBuilder.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildInsert
     path: ../SQLiteM.Orm/Internal/SqlBuilder.cs
-    startLine: 35
+    startLine: 45
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Internal
-  summary: Erstellt eine SQL-<code>INSERT</code>-Anweisung für den angegebenen Entitätstyp.
-  remarks: Spalten, die als <xref href="SQLiteM.Abstractions.PropertyMap.IsAutoIncrement" data-throw-if-not-resolved="false"></xref> markiert sind, werden automatisch ausgeschlossen.
+  summary: Baut einen <code>INSERT</code>-Befehl für den Entitätstyp.
   example: []
   syntax:
     content: public string BuildInsert(Type entityType, out IReadOnlyList<PropertyMap> cols)
     parameters:
     - id: entityType
       type: System.Type
-      description: Der Entitätstyp, für den die Anweisung erzeugt werden soll.
+      description: Entitätstyp.
     - id: cols
       type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
-      description: Gibt die Liste der Spalten zurück, die in das <code>INSERT</code> einbezogen werden.
+      description: 'Ausgabe: zu bindende Spalten (ohne Auto-Increment).'
     return:
       type: System.String
-      description: Die generierte SQL-<code>INSERT</code>-Anweisung.
+      description: SQL-Befehl als String.
     content.vb: Public Function BuildInsert(entityType As Type, cols As IReadOnlyList(Of PropertyMap)) As String
   overload: SQLiteM.Orm.Internal.SqlBuilder.BuildInsert*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Wenn für den Entitätstyp keine gemappten Spalten gefunden wurden.
   implements:
   - SQLiteM.Abstractions.ISqlBuilder.BuildInsert(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
   nameWithType.vb: SqlBuilder.BuildInsert(Type, IReadOnlyList(Of PropertyMap))
@@ -184,34 +175,36 @@ items:
     remote:
       path: SQLiteM.Orm/Internal/SqlBuilder.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildUpdate
     path: ../SQLiteM.Orm/Internal/SqlBuilder.cs
-    startLine: 57
+    startLine: 64
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Internal
-  summary: Erstellt eine SQL-<code>UPDATE</code>-Anweisung für den angegebenen Entitätstyp.
-  remarks: Auto-Increment- und Primärschlüsselspalten werden im Update ausgeschlossen.
+  summary: Baut einen <code>UPDATE</code>-Befehl für den Entitätstyp.
   example: []
   syntax:
     content: public string BuildUpdate(Type entityType, out IReadOnlyList<PropertyMap> cols)
     parameters:
     - id: entityType
       type: System.Type
-      description: Der Entitätstyp, für den die Anweisung erzeugt werden soll.
+      description: Entitätstyp.
     - id: cols
       type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
-      description: Gibt die Liste der Spalten zurück, die im <code>SET</code>-Teil der Anweisung enthalten sind.
+      description: 'Ausgabe: zu setzende Spalten (ohne PK/Auto-Increment).'
     return:
       type: System.String
-      description: Die generierte SQL-<code>UPDATE</code>-Anweisung.
+      description: SQL-Befehl als String.
     content.vb: Public Function BuildUpdate(entityType As Type, cols As IReadOnlyList(Of PropertyMap)) As String
   overload: SQLiteM.Orm.Internal.SqlBuilder.BuildUpdate*
   exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: Wenn kein Primärschlüssel definiert ist.
+    description: Wenn keine Spalten gefunden werden oder kein Primärschlüssel definiert ist.
   implements:
   - SQLiteM.Abstractions.ISqlBuilder.BuildUpdate(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
   nameWithType.vb: SqlBuilder.BuildUpdate(Type, IReadOnlyList(Of PropertyMap))
@@ -232,30 +225,33 @@ items:
     remote:
       path: SQLiteM.Orm/Internal/SqlBuilder.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildDelete
     path: ../SQLiteM.Orm/Internal/SqlBuilder.cs
-    startLine: 78
+    startLine: 86
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Internal
-  summary: Erstellt eine SQL-<code>DELETE</code>-Anweisung für den angegebenen Entitätstyp.
+  summary: Baut einen <code>DELETE</code>-Befehl für den Entitätstyp.
   example: []
   syntax:
     content: public string BuildDelete(Type entityType, out PropertyMap key)
     parameters:
     - id: entityType
       type: System.Type
-      description: Der Entitätstyp, für den die Anweisung erzeugt werden soll.
+      description: Entitätstyp.
     - id: key
       type: SQLiteM.Abstractions.PropertyMap
-      description: Gibt die Primärschlüsselspalte der Tabelle zurück.
+      description: 'Ausgabe: Primärschlüssel-Spalte.'
     return:
       type: System.String
-      description: Die generierte SQL-<code>DELETE</code>-Anweisung.
+      description: SQL-Befehl als String.
     content.vb: Public Function BuildDelete(entityType As Type, key As PropertyMap) As String
   overload: SQLiteM.Orm.Internal.SqlBuilder.BuildDelete*
   exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: Wenn kein Primärschlüssel definiert ist.
@@ -279,36 +275,39 @@ items:
     remote:
       path: SQLiteM.Orm/Internal/SqlBuilder.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildSelectById
     path: ../SQLiteM.Orm/Internal/SqlBuilder.cs
-    startLine: 96
+    startLine: 100
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Internal
-  summary: Erstellt eine SQL-<code>SELECT</code>-Anweisung zur Abfrage einer Entität anhand ihres Primärschlüssels.
+  summary: Baut einen <code>SELECT</code>-Befehl, der per Primärschlüssel genau eine Zeile lädt.
   example: []
   syntax:
     content: public string BuildSelectById(Type entityType, out PropertyMap key, out IReadOnlyList<PropertyMap> cols)
     parameters:
     - id: entityType
       type: System.Type
-      description: Der Entitätstyp, für den die Anweisung erzeugt werden soll.
+      description: Entitätstyp.
     - id: key
       type: SQLiteM.Abstractions.PropertyMap
-      description: Gibt die Primärschlüsselspalte der Tabelle zurück.
+      description: 'Ausgabe: Primärschlüssel-Spalte.'
     - id: cols
       type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
-      description: Gibt die Spaltenliste der Tabelle zurück.
+      description: 'Ausgabe: alle zu lesenden Spalten.'
     return:
       type: System.String
-      description: Die generierte SQL-<code>SELECT</code>-Anweisung.
+      description: SQL-Befehl als String.
     content.vb: Public Function BuildSelectById(entityType As Type, key As PropertyMap, cols As IReadOnlyList(Of PropertyMap)) As String
   overload: SQLiteM.Orm.Internal.SqlBuilder.BuildSelectById*
   exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: Wenn kein Primärschlüssel definiert ist.
+    description: Wenn keine Spalten gefunden werden oder kein Primärschlüssel definiert ist.
   implements:
   - SQLiteM.Abstractions.ISqlBuilder.BuildSelectById(System.Type,SQLiteM.Abstractions.PropertyMap@,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
   nameWithType.vb: SqlBuilder.BuildSelectById(Type, PropertyMap, IReadOnlyList(Of PropertyMap))
@@ -329,34 +328,94 @@ items:
     remote:
       path: SQLiteM.Orm/Internal/SqlBuilder.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: BuildCreateTable
     path: ../SQLiteM.Orm/Internal/SqlBuilder.cs
-    startLine: 118
+    startLine: 126
   assemblies:
   - SQLiteM.Orm
   namespace: SQLiteM.Orm.Internal
-  summary: Erstellt eine SQL-<code>CREATE TABLE</code>-Anweisung für den angegebenen Entitätstyp.
+  summary: Baut eine <code>CREATE TABLE</code>-Anweisung inkl. Fremdschlüsseldefinitionen.
   remarks: >-
-    Spalten, Primärschlüssel, Auto-Increment-Attribute und Fremdschlüssel werden
+    Spalten, Primärschlüssel, Auto-Increment-Attribute, Spalten-<code>UNIQUE</code> und Fremdschlüssel werden
 
     anhand der im Modell vorhandenen Attribute bestimmt.
 
-    Die erzeugte Anweisung nutzt standardmäßig <code>CREATE TABLE IF NOT EXISTS</code>.
+    Die erzeugte Anweisung nutzt <code>CREATE TABLE IF NOT EXISTS</code>.
   example: []
   syntax:
     content: public string BuildCreateTable(Type entityType)
     parameters:
     - id: entityType
       type: System.Type
-      description: Der Entitätstyp, dessen Tabellendefinition erzeugt werden soll.
+      description: Entitätstyp.
     return:
       type: System.String
-      description: Die generierte SQL-<code>CREATE TABLE</code>-Anweisung.
+      description: SQL-Befehl als String.
     content.vb: Public Function BuildCreateTable(entityType As Type) As String
   overload: SQLiteM.Orm.Internal.SqlBuilder.BuildCreateTable*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Wenn keine Spalten für den Entitätstyp vorhanden sind.
   implements:
   - SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable(System.Type)
+- uid: SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes(System.Type)
+  commentId: M:SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes(System.Type)
+  id: BuildCreateIndexes(System.Type)
+  parent: SQLiteM.Orm.Internal.SqlBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildCreateIndexes(Type)
+  nameWithType: SqlBuilder.BuildCreateIndexes(Type)
+  fullName: SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Internal/SqlBuilder.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BuildCreateIndexes
+    path: ../SQLiteM.Orm/Internal/SqlBuilder.cs
+    startLine: 196
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Internal
+  summary: >-
+    Erzeugt für alle per <xref href="SQLiteM.Abstractions.IndexMap" data-throw-if-not-resolved="false"></xref> gemappten Indizes die entsprechenden
+
+    <code>CREATE INDEX</code>- bzw. <code>CREATE UNIQUE INDEX</code>-Anweisungen.
+  remarks: >-
+    Die Indexnamen werden – sofern im Mapping nicht angegeben – nach dem Muster
+
+    <code>ix_{tabelle}_{spalte...}</code> generiert. Mehrspaltige Indizes werden in der Reihenfolge
+
+    der gemappten Spalten erzeugt.
+  example: []
+  syntax:
+    content: public IReadOnlyList<string> BuildCreateIndexes(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Der Entitätstyp, dessen Indizes erzeugt werden sollen.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.String}
+      description: >-
+        Eine schreibgeschützte Liste mit SQL-Befehlen (je Index ein Befehl). Die Liste kann leer sein,
+
+        wenn keine Indizes für den Typ definiert sind.
+    content.vb: Public Function BuildCreateIndexes(entityType As Type) As IReadOnlyList(Of String)
+  overload: SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Wenn <code class="paramref">entityType</code> <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> ist.
+  implements:
+  - SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
 references:
 - uid: SQLiteM.Abstractions.ISqlBuilder
   commentId: T:SQLiteM.Abstractions.ISqlBuilder
@@ -657,6 +716,19 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SQLiteM.Orm.Internal.SqlBuilder
+  commentId: T:SQLiteM.Orm.Internal.SqlBuilder
+  href: SQLiteM.Orm.Internal.SqlBuilder.html
+  name: SqlBuilder
+  nameWithType: SqlBuilder
+  fullName: SQLiteM.Orm.Internal.SqlBuilder
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
 - uid: SQLiteM.Orm.Internal.SqlBuilder.#ctor*
   commentId: Overload:SQLiteM.Orm.Internal.SqlBuilder.#ctor
   href: SQLiteM.Orm.Internal.SqlBuilder.html#SQLiteM_Orm_Internal_SqlBuilder__ctor_SQLiteM_Abstractions_IEntityMapper_SQLiteM_Abstractions_ISqlDialect_
@@ -666,12 +738,13 @@ references:
   nameWithType.vb: SqlBuilder.New
   fullName.vb: SQLiteM.Orm.Internal.SqlBuilder.New
   name.vb: New
-- uid: SQLiteM.Abstractions.PropertyMap.IsAutoIncrement
-  commentId: P:SQLiteM.Abstractions.PropertyMap.IsAutoIncrement
-  href: SQLiteM.Abstractions.PropertyMap.html#SQLiteM_Abstractions_PropertyMap_IsAutoIncrement
-  name: IsAutoIncrement
-  nameWithType: PropertyMap.IsAutoIncrement
-  fullName: SQLiteM.Abstractions.PropertyMap.IsAutoIncrement
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
 - uid: SQLiteM.Orm.Internal.SqlBuilder.BuildInsert*
   commentId: Overload:SQLiteM.Orm.Internal.SqlBuilder.BuildInsert
   href: SQLiteM.Orm.Internal.SqlBuilder.html#SQLiteM_Orm_Internal_SqlBuilder_BuildInsert_System_Type_System_Collections_Generic_IReadOnlyList_SQLiteM_Abstractions_PropertyMap___
@@ -852,13 +925,6 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: System.InvalidOperationException
-  commentId: T:System.InvalidOperationException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
-  name: InvalidOperationException
-  nameWithType: InvalidOperationException
-  fullName: System.InvalidOperationException
 - uid: SQLiteM.Orm.Internal.SqlBuilder.BuildUpdate*
   commentId: Overload:SQLiteM.Orm.Internal.SqlBuilder.BuildUpdate
   href: SQLiteM.Orm.Internal.SqlBuilder.html#SQLiteM_Orm_Internal_SqlBuilder_BuildUpdate_System_Type_System_Collections_Generic_IReadOnlyList_SQLiteM_Abstractions_PropertyMap___
@@ -1079,4 +1145,79 @@ references:
     name: Type
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: SQLiteM.Abstractions.IndexMap
+  commentId: T:SQLiteM.Abstractions.IndexMap
+  href: SQLiteM.Abstractions.IndexMap.html
+  name: IndexMap
+  nameWithType: IndexMap
+  fullName: SQLiteM.Abstractions.IndexMap
+- uid: SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes*
+  commentId: Overload:SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes
+  href: SQLiteM.Orm.Internal.SqlBuilder.html#SQLiteM_Orm_Internal_SqlBuilder_BuildCreateIndexes_System_Type_
+  name: BuildCreateIndexes
+  nameWithType: SqlBuilder.BuildCreateIndexes
+  fullName: SQLiteM.Orm.Internal.SqlBuilder.BuildCreateIndexes
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  commentId: M:SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  parent: SQLiteM.Abstractions.ISqlBuilder
+  isExternal: true
+  href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildCreateIndexes_System_Type_
+  name: BuildCreateIndexes(Type)
+  nameWithType: ISqlBuilder.BuildCreateIndexes(Type)
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+    name: BuildCreateIndexes
+    href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildCreateIndexes_System_Type_
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+    name: BuildCreateIndexes
+    href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildCreateIndexes_System_Type_
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<string>
+  nameWithType: IReadOnlyList<string>
+  fullName: System.Collections.Generic.IReadOnlyList<string>
+  nameWithType.vb: IReadOnlyList(Of String)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of String)
+  name.vb: IReadOnlyList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )

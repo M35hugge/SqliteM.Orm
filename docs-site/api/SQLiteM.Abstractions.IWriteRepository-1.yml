@@ -19,10 +19,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IWriteRepository
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 116
+    startLine: 127
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -52,17 +52,17 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: InsertAsync
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 124
+    startLine: 135
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
   summary: Fügt eine Entität ein und gibt den (ggf. autogenerierten) Primärschlüssel zurück.
   example: []
   syntax:
-    content: Task<long> InsertAsync(T entity, CancellationToken ct = default)
+    content: Task<int> InsertAsync(T entity, CancellationToken ct = default)
     parameters:
     - id: entity
       type: '{T}'
@@ -71,9 +71,9 @@ items:
       type: System.Threading.CancellationToken
       description: Abbruchtoken.
     return:
-      type: System.Threading.Tasks.Task{System.Int64}
+      type: System.Threading.Tasks.Task{System.Int32}
       description: Primärschlüsselwert (z. B. <code>last_insert_rowid()</code>) oder <code>0</code>.
-    content.vb: Function InsertAsync(entity As T, ct As CancellationToken = Nothing) As Task(Of Long)
+    content.vb: Function InsertAsync(entity As T, ct As CancellationToken = Nothing) As Task(Of Integer)
   overload: SQLiteM.Abstractions.IWriteRepository`1.InsertAsync*
   nameWithType.vb: IWriteRepository(Of T).InsertAsync(T, CancellationToken)
   fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T).InsertAsync(T, System.Threading.CancellationToken)
@@ -92,10 +92,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: UpdateAsync
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 132
+    startLine: 143
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -132,10 +132,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: DeleteAsync
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 140
+    startLine: 151
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -203,27 +203,27 @@ references:
   name: CancellationToken
   nameWithType: CancellationToken
   fullName: System.Threading.CancellationToken
-- uid: System.Threading.Tasks.Task{System.Int64}
-  commentId: T:System.Threading.Tasks.Task{System.Int64}
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
   parent: System.Threading.Tasks
   definition: System.Threading.Tasks.Task`1
   href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<long>
-  nameWithType: Task<long>
-  fullName: System.Threading.Tasks.Task<long>
-  nameWithType.vb: Task(Of Long)
-  fullName.vb: System.Threading.Tasks.Task(Of Long)
-  name.vb: Task(Of Long)
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
   spec.csharp:
   - uid: System.Threading.Tasks.Task`1
     name: Task
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
   - name: <
-  - uid: System.Int64
-    name: long
+  - uid: System.Int32
+    name: int
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: '>'
   spec.vb:
   - uid: System.Threading.Tasks.Task`1
@@ -233,10 +233,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.Int64
-    name: Long
+  - uid: System.Int32
+    name: Integer
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
 - uid: T
   name: T
@@ -342,41 +342,6 @@ references:
   fullName: SQLiteM.Abstractions.IWriteRepository<T>.UpdateAsync
   nameWithType.vb: IWriteRepository(Of T).UpdateAsync
   fullName.vb: SQLiteM.Abstractions.IWriteRepository(Of T).UpdateAsync
-- uid: System.Threading.Tasks.Task{System.Int32}
-  commentId: T:System.Threading.Tasks.Task{System.Int32}
-  parent: System.Threading.Tasks
-  definition: System.Threading.Tasks.Task`1
-  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  name: Task<int>
-  nameWithType: Task<int>
-  fullName: System.Threading.Tasks.Task<int>
-  nameWithType.vb: Task(Of Integer)
-  fullName.vb: System.Threading.Tasks.Task(Of Integer)
-  name.vb: Task(Of Integer)
-  spec.csharp:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: <
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '>'
-  spec.vb:
-  - uid: System.Threading.Tasks.Task`1
-    name: Task
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
 - uid: SQLiteM.Abstractions.IWriteRepository`1.DeleteAsync*
   commentId: Overload:SQLiteM.Abstractions.IWriteRepository`1.DeleteAsync
   href: SQLiteM.Abstractions.IWriteRepository-1.html#SQLiteM_Abstractions_IWriteRepository_1_DeleteAsync_System_Object_System_Threading_CancellationToken_

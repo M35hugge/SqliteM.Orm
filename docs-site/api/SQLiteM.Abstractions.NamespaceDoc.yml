@@ -16,7 +16,7 @@ items:
     remote:
       path: SQLiteM.Abstractions/Abstractions.NamespaceDoc.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: NamespaceDoc
     path: ../SQLiteM.Abstractions/Abstractions.NamespaceDoc.cs
     startLine: 16
@@ -83,7 +83,6 @@ references:
   fullName: SQLiteM.Abstractions.IgnoreAttribute
 - uid: SQLiteM.Abstractions.IConnectionFactory
   commentId: T:SQLiteM.Abstractions.IConnectionFactory
-  parent: SQLiteM.Abstractions
   href: SQLiteM.Abstractions.IConnectionFactory.html
   name: IConnectionFactory
   nameWithType: IConnectionFactory

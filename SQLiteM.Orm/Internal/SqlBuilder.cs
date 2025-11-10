@@ -194,11 +194,11 @@ namespace SQLiteM.Orm.Internal
         /// <c>ix_{tabelle}_{spalte...}</c> generiert. Mehrspaltige Indizes werden in der Reihenfolge
         /// der gemappten Spalten erzeugt.
         /// </remarks>
-        public IReadOnlyList<string> BuildCreateIndexes(Type entitiyType)
+        public IReadOnlyList<string> BuildCreateIndexes(Type entityType)
         {
-            var tableName= _mapper.GetTableName(entitiyType);
+            var tableName= _mapper.GetTableName(entityType);
             var table = _dialect.QuoteIdentifier(tableName);
-            var indexes = _mapper.GetIndexes(entitiyType);
+            var indexes = _mapper.GetIndexes(entityType);
 
             var list = new List<string>();
 

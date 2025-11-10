@@ -105,8 +105,14 @@ Classes
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.CompositeIndexAttribute.html">CompositeIndexAttribute</a></dt>
+      <dd><p>Markiert die Klasse mit einem (möglicherweise eindeutigen) <b>zusammengesetzten Index</b>
+über mehrere Spalten.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="SQLiteM.Abstractions.ForeignKeyAttribute.html">ForeignKeyAttribute</a></dt>
-      <dd><p>Markiert eine Eigenschaft als Fremdschlüssel.</p>
+      <dd><p>Markiert eine Eigenschaft als Fremdschlüssel (Referenz auf eine Principal-Tabelle).</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -116,7 +122,17 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="SQLiteM.Abstractions.IgnoreAttribute.html">IgnoreAttribute</a></dt>
-      <dd><p>Schließt eine Eigenschaft vom Mapping aus.</p>
+      <dd><p>Schließt eine Eigenschaft vom Mapping aus (z. B. Navigation oder berechnetes Feld).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IndexAttribute.html">IndexAttribute</a></dt>
+      <dd><p>Markiert eine Eigenschaft als (möglicherweise eindeutigen) Index der Tabelle.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.IndexMap.html">IndexMap</a></dt>
+      <dd><p>IndexMap für Indizes.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -141,6 +157,11 @@ und Sortierung (ORDER BY) über Spaltennamen.</p>
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.Records.html">Records</a></dt>
+      <dd><p>Record classes</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="SQLiteM.Abstractions.TableAttribute.html">TableAttribute</a></dt>
       <dd><p>Markiert eine Klasse als Datenbanktabelle.</p>
 </dd>
@@ -156,6 +177,11 @@ Interfaces
     <dl class="jumplist">
       <dt><a class="xref" href="SQLiteM.Abstractions.IEntityMapper.html">IEntityMapper</a></dt>
       <dd><p>Liefert Mapping-Informationen für Entitätstypen.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.INameTranslator.html">INameTranslator</a></dt>
+      <dd><p>Übersetzungsstrategie für Tabellen- und Spaltennamen.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -180,7 +206,12 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="SQLiteM.Abstractions.ISqlDialect.html">ISqlDialect</a></dt>
-      <dd><p>Bietet Dialekt-spezifische Operationen (Identifierquoting, Parameterpräfix).</p>
+      <dd><p>Bietet Dialekt-spezifische Operationen (Identifier-Quoting, Parameterpräfix).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SQLiteM.Abstractions.ITransactionContext.html">ITransactionContext</a></dt>
+      <dd><p>Kontextobjekt für eine laufende Transaktion (Unit of Work).</p>
 </dd>
     </dl>
     <dl class="jumplist">

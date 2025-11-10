@@ -251,22 +251,18 @@ public sealed class TableAttribute : Attribute</code></pre>
 
 
   <h2 id="SQLiteM_Abstractions_TableAttribute_examples">Examples</h2>
-  <pre><code class="lang-csharp">[Table("Users")]
-public class User
-{
-    [PrimaryKey]
-    [AutoIncrement]
-    [Column("Id")]
-    public int Id { get; set; }
+  <pre><code class="lang-csharp">[Table("users")]
+public class User { ... }
 
-    [Column("Name", Length = 100, IsNullable = false)]
-    public string Name { get; set; } = string.Empty;
-}</code></pre>
+// Oder ohne Parameter → Name wird vom Translator aus dem Typnamen abgeleitet
+[Table]
+public class Order { ... }</code></pre>
 
 
   <h2 id="SQLiteM_Abstractions_TableAttribute_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Der Tabellenname wird über den Konstruktor angegeben und entspricht dem
-physischen Tabellennamen in der Datenbank.</p>
+  <div class="markdown level0 remarks"><p>Wenn <a class="xref" href="SQLiteM.Abstractions.TableAttribute.html#SQLiteM_Abstractions_TableAttribute_Name">Name</a> nicht gesetzt ist, wird der Tabellenname
+per <code>INameTranslator.Table(typeof(T).Name)</code> aus dem CLR-Typnamen abgeleitet
+(z. B. <code>Person</code> → <code>person</code> bzw. <code>person</code>/<code>persons</code>, je nach Translator).</p>
 </div>
 
 
@@ -276,12 +272,39 @@ physischen Tabellennamen in der Datenbank.</p>
 
   <a id="SQLiteM_Abstractions_TableAttribute__ctor_" data-uid="SQLiteM.Abstractions.TableAttribute.#ctor*"></a>
 
+  <h3 id="SQLiteM_Abstractions_TableAttribute__ctor" data-uid="SQLiteM.Abstractions.TableAttribute.#ctor">
+  TableAttribute()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parameterlos: Name wird über den <code>INameTranslator</code> aus dem Typnamen bestimmt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TableAttribute()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SQLiteM_Abstractions_TableAttribute__ctor_" data-uid="SQLiteM.Abstractions.TableAttribute.#ctor*"></a>
+
   <h3 id="SQLiteM_Abstractions_TableAttribute__ctor_System_String_" data-uid="SQLiteM.Abstractions.TableAttribute.#ctor(System.String)">
   TableAttribute(string)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Markiert eine Klasse als Datenbanktabelle.</p>
+  <div class="markdown level1 summary"><p>Expliziter Tabellenname.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -301,24 +324,7 @@ physischen Tabellennamen in der Datenbank.</p>
 
 
 
-  <h4 class="section" id="SQLiteM_Abstractions_TableAttribute__ctor_System_String__examples">Examples</h4>
-  <pre><code class="lang-csharp">[Table("Users")]
-public class User
-{
-    [PrimaryKey]
-    [AutoIncrement]
-    [Column("Id")]
-    public int Id { get; set; }
 
-    [Column("Name", Length = 100, IsNullable = false)]
-    public string Name { get; set; } = string.Empty;
-}</code></pre>
-
-
-  <h4 class="section" id="SQLiteM_Abstractions_TableAttribute__ctor_System_String__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Der Tabellenname wird über den Konstruktor angegeben und entspricht dem
-physischen Tabellennamen in der Datenbank.</p>
-</div>
 
 
 
@@ -334,12 +340,12 @@ physischen Tabellennamen in der Datenbank.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Der Tabellenname in der Datenbank.</p>
+  <div class="markdown level1 summary"><p>Physischer Tabellenname in der Datenbank (optional).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Name { get; }</code></pre>
   </div>
 
 

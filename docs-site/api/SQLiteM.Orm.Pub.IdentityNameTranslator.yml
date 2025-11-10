@@ -1,0 +1,587 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Orm.Pub.IdentityNameTranslator
+  commentId: T:SQLiteM.Orm.Pub.IdentityNameTranslator
+  id: IdentityNameTranslator
+  parent: SQLiteM.Orm.Pub
+  children:
+  - SQLiteM.Orm.Pub.IdentityNameTranslator.Column(System.String)
+  - SQLiteM.Orm.Pub.IdentityNameTranslator.Property(System.String)
+  - SQLiteM.Orm.Pub.IdentityNameTranslator.Table(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IdentityNameTranslator
+  nameWithType: IdentityNameTranslator
+  fullName: SQLiteM.Orm.Pub.IdentityNameTranslator
+  type: Class
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/IdentityNameTranslator.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: IdentityNameTranslator
+    path: ../SQLiteM.Orm/Pub/IdentityNameTranslator.cs
+    startLine: 11
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Standard-Übersetzer, der die Namen unverändert durchreicht.
+  remarks: >-
+    Dies ist die Default-Strategie: Tabellen- und Spaltennamen entsprechen
+
+    den CLR-Namen, sofern kein expliziter Name über Attribute gesetzt ist.
+  example: []
+  syntax:
+    content: 'public class IdentityNameTranslator : INameTranslator'
+    content.vb: Public Class IdentityNameTranslator Implements INameTranslator
+  inheritance:
+  - System.Object
+  implements:
+  - SQLiteM.Abstractions.INameTranslator
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SQLiteM.Orm.Pub.IdentityNameTranslator.Column(System.String)
+  commentId: M:SQLiteM.Orm.Pub.IdentityNameTranslator.Column(System.String)
+  id: Column(System.String)
+  parent: SQLiteM.Orm.Pub.IdentityNameTranslator
+  langs:
+  - csharp
+  - vb
+  name: Column(string)
+  nameWithType: IdentityNameTranslator.Column(string)
+  fullName: SQLiteM.Orm.Pub.IdentityNameTranslator.Column(string)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/IdentityNameTranslator.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Column
+    path: ../SQLiteM.Orm/Pub/IdentityNameTranslator.cs
+    startLine: 14
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Übersetzt den CLR-Propertynamen zu einem Spaltennamen.
+  example: []
+  syntax:
+    content: public string Column(string clrPropertyName)
+    parameters:
+    - id: clrPropertyName
+      type: System.String
+      description: Der CLR-Name des Properties (z. B. "PersonId").
+    return:
+      type: System.String
+      description: Der zu verwendende Spaltenname (z. B. "person_id").
+    content.vb: Public Function Column(clrPropertyName As String) As String
+  overload: SQLiteM.Orm.Pub.IdentityNameTranslator.Column*
+  implements:
+  - SQLiteM.Abstractions.INameTranslator.Column(System.String)
+  nameWithType.vb: IdentityNameTranslator.Column(String)
+  fullName.vb: SQLiteM.Orm.Pub.IdentityNameTranslator.Column(String)
+  name.vb: Column(String)
+- uid: SQLiteM.Orm.Pub.IdentityNameTranslator.Table(System.String)
+  commentId: M:SQLiteM.Orm.Pub.IdentityNameTranslator.Table(System.String)
+  id: Table(System.String)
+  parent: SQLiteM.Orm.Pub.IdentityNameTranslator
+  langs:
+  - csharp
+  - vb
+  name: Table(string)
+  nameWithType: IdentityNameTranslator.Table(string)
+  fullName: SQLiteM.Orm.Pub.IdentityNameTranslator.Table(string)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/IdentityNameTranslator.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Table
+    path: ../SQLiteM.Orm/Pub/IdentityNameTranslator.cs
+    startLine: 17
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Übersetzt den CLR-Typnamen zu einem Tabellennamen.
+  example: []
+  syntax:
+    content: public string Table(string clrTypeName)
+    parameters:
+    - id: clrTypeName
+      type: System.String
+      description: Der CLR-Name des Entitätstyps (z. B. "PersonOrder").
+    return:
+      type: System.String
+      description: Der zu verwendende Tabellenname (z. B. "person_order").
+    content.vb: Public Function Table(clrTypeName As String) As String
+  overload: SQLiteM.Orm.Pub.IdentityNameTranslator.Table*
+  implements:
+  - SQLiteM.Abstractions.INameTranslator.Table(System.String)
+  nameWithType.vb: IdentityNameTranslator.Table(String)
+  fullName.vb: SQLiteM.Orm.Pub.IdentityNameTranslator.Table(String)
+  name.vb: Table(String)
+- uid: SQLiteM.Orm.Pub.IdentityNameTranslator.Property(System.String)
+  commentId: M:SQLiteM.Orm.Pub.IdentityNameTranslator.Property(System.String)
+  id: Property(System.String)
+  parent: SQLiteM.Orm.Pub.IdentityNameTranslator
+  langs:
+  - csharp
+  - vb
+  name: Property(string)
+  nameWithType: IdentityNameTranslator.Property(string)
+  fullName: SQLiteM.Orm.Pub.IdentityNameTranslator.Property(string)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Orm/Pub/IdentityNameTranslator.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Property
+    path: ../SQLiteM.Orm/Pub/IdentityNameTranslator.cs
+    startLine: 20
+  assemblies:
+  - SQLiteM.Orm
+  namespace: SQLiteM.Orm.Pub
+  summary: Übersetzt einen DB-Spaltennamen zurück zu einem CLR-Propertynamen.
+  example: []
+  syntax:
+    content: public string Property(string clrColumnName)
+    parameters:
+    - id: clrColumnName
+      type: System.String
+    return:
+      type: System.String
+      description: CLR-Propertyname (z. B. <code>PersonId</code>).
+    content.vb: Public Function [Property](clrColumnName As String) As String
+  overload: SQLiteM.Orm.Pub.IdentityNameTranslator.Property*
+  implements:
+  - SQLiteM.Abstractions.INameTranslator.Property(System.String)
+  nameWithType.vb: IdentityNameTranslator.Property(String)
+  fullName.vb: SQLiteM.Orm.Pub.IdentityNameTranslator.Property(String)
+  name.vb: Property(String)
+references:
+- uid: SQLiteM.Orm.Pub
+  commentId: N:SQLiteM.Orm.Pub
+  href: SQLiteM.html
+  name: SQLiteM.Orm.Pub
+  nameWithType: SQLiteM.Orm.Pub
+  fullName: SQLiteM.Orm.Pub
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Orm
+    name: Orm
+    href: SQLiteM.Orm.html
+  - name: .
+  - uid: SQLiteM.Orm.Pub
+    name: Pub
+    href: SQLiteM.Orm.Pub.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Orm
+    name: Orm
+    href: SQLiteM.Orm.html
+  - name: .
+  - uid: SQLiteM.Orm.Pub
+    name: Pub
+    href: SQLiteM.Orm.Pub.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SQLiteM.Abstractions.INameTranslator
+  commentId: T:SQLiteM.Abstractions.INameTranslator
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.INameTranslator.html
+  name: INameTranslator
+  nameWithType: INameTranslator
+  fullName: SQLiteM.Abstractions.INameTranslator
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Orm.Pub.IdentityNameTranslator.Column*
+  commentId: Overload:SQLiteM.Orm.Pub.IdentityNameTranslator.Column
+  href: SQLiteM.Orm.Pub.IdentityNameTranslator.html#SQLiteM_Orm_Pub_IdentityNameTranslator_Column_System_String_
+  name: Column
+  nameWithType: IdentityNameTranslator.Column
+  fullName: SQLiteM.Orm.Pub.IdentityNameTranslator.Column
+- uid: SQLiteM.Abstractions.INameTranslator.Column(System.String)
+  commentId: M:SQLiteM.Abstractions.INameTranslator.Column(System.String)
+  parent: SQLiteM.Abstractions.INameTranslator
+  isExternal: true
+  href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Column_System_String_
+  name: Column(string)
+  nameWithType: INameTranslator.Column(string)
+  fullName: SQLiteM.Abstractions.INameTranslator.Column(string)
+  nameWithType.vb: INameTranslator.Column(String)
+  fullName.vb: SQLiteM.Abstractions.INameTranslator.Column(String)
+  name.vb: Column(String)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.INameTranslator.Column(System.String)
+    name: Column
+    href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Column_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.INameTranslator.Column(System.String)
+    name: Column
+    href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Column_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SQLiteM.Orm.Pub.IdentityNameTranslator.Table*
+  commentId: Overload:SQLiteM.Orm.Pub.IdentityNameTranslator.Table
+  href: SQLiteM.Orm.Pub.IdentityNameTranslator.html#SQLiteM_Orm_Pub_IdentityNameTranslator_Table_System_String_
+  name: Table
+  nameWithType: IdentityNameTranslator.Table
+  fullName: SQLiteM.Orm.Pub.IdentityNameTranslator.Table
+- uid: SQLiteM.Abstractions.INameTranslator.Table(System.String)
+  commentId: M:SQLiteM.Abstractions.INameTranslator.Table(System.String)
+  parent: SQLiteM.Abstractions.INameTranslator
+  isExternal: true
+  href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Table_System_String_
+  name: Table(string)
+  nameWithType: INameTranslator.Table(string)
+  fullName: SQLiteM.Abstractions.INameTranslator.Table(string)
+  nameWithType.vb: INameTranslator.Table(String)
+  fullName.vb: SQLiteM.Abstractions.INameTranslator.Table(String)
+  name.vb: Table(String)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.INameTranslator.Table(System.String)
+    name: Table
+    href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Table_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.INameTranslator.Table(System.String)
+    name: Table
+    href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Table_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: SQLiteM.Orm.Pub.IdentityNameTranslator.Property*
+  commentId: Overload:SQLiteM.Orm.Pub.IdentityNameTranslator.Property
+  href: SQLiteM.Orm.Pub.IdentityNameTranslator.html#SQLiteM_Orm_Pub_IdentityNameTranslator_Property_System_String_
+  name: Property
+  nameWithType: IdentityNameTranslator.Property
+  fullName: SQLiteM.Orm.Pub.IdentityNameTranslator.Property
+- uid: SQLiteM.Abstractions.INameTranslator.Property(System.String)
+  commentId: M:SQLiteM.Abstractions.INameTranslator.Property(System.String)
+  parent: SQLiteM.Abstractions.INameTranslator
+  isExternal: true
+  href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Property_System_String_
+  name: Property(string)
+  nameWithType: INameTranslator.Property(string)
+  fullName: SQLiteM.Abstractions.INameTranslator.Property(string)
+  nameWithType.vb: INameTranslator.Property(String)
+  fullName.vb: SQLiteM.Abstractions.INameTranslator.Property(String)
+  name.vb: Property(String)
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.INameTranslator.Property(System.String)
+    name: Property
+    href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Property_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SQLiteM.Abstractions.INameTranslator.Property(System.String)
+    name: Property
+    href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Property_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

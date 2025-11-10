@@ -6,6 +6,7 @@ items:
   parent: SQLiteM.Abstractions
   children:
   - SQLiteM.Abstractions.IEntityMapper.GetForeignKeys(System.Type)
+  - SQLiteM.Abstractions.IEntityMapper.GetIndexes(System.Type)
   - SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey(System.Type)
   - SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps(System.Type)
   - SQLiteM.Abstractions.IEntityMapper.GetTableName(System.Type)
@@ -20,15 +21,18 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IEntityMapper
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 51
+    startLine: 54
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
   summary: Liefert Mapping-Informationen für Entitätstypen.
-  remarks: Die Zuordnung basiert typischerweise auf Attributen (z. B. <code>[Table]</code>, <code>[Column]</code>, ...).
+  remarks: >-
+    Die Zuordnung basiert typischerweise auf Attributen (z. B. <code>[Table]</code>, <code>[Column]</code>, …)
+
+    und optional auf Konventionen (z. B. Namensübersetzung per <xref href="SQLiteM.Abstractions.INameTranslator" data-throw-if-not-resolved="false"></xref>).
   example: []
   syntax:
     content: public interface IEntityMapper
@@ -48,10 +52,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: GetTableName
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 58
+    startLine: 61
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -83,10 +87,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: GetPropertyMaps
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 65
+    startLine: 68
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -118,10 +122,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: GetPrimaryKey
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 72
+    startLine: 75
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -153,10 +157,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: GetForeignKeys
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 79
+    startLine: 82
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -173,7 +177,49 @@ items:
       description: Schreibgeschützte Liste der Fremdschlüsselzuordnungen.
     content.vb: Function GetForeignKeys(entityType As Type) As IReadOnlyList(Of ForeignKeyMap)
   overload: SQLiteM.Abstractions.IEntityMapper.GetForeignKeys*
+- uid: SQLiteM.Abstractions.IEntityMapper.GetIndexes(System.Type)
+  commentId: M:SQLiteM.Abstractions.IEntityMapper.GetIndexes(System.Type)
+  id: GetIndexes(System.Type)
+  parent: SQLiteM.Abstractions.IEntityMapper
+  langs:
+  - csharp
+  - vb
+  name: GetIndexes(Type)
+  nameWithType: IEntityMapper.GetIndexes(Type)
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetIndexes(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: GetIndexes
+    path: ../SQLiteM.Abstractions/Interfaces.cs
+    startLine: 90
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Liefert alle Indexdefinitionen (Einzel- und zusammengesetzte Indizes) zur Entität.
+  example: []
+  syntax:
+    content: IReadOnlyList<IndexMap> GetIndexes(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Der Entitätstyp.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.IndexMap}
+      description: Schreibgeschützte Liste der Indexzuordnungen.
+    content.vb: Function GetIndexes(entityType As Type) As IReadOnlyList(Of IndexMap)
+  overload: SQLiteM.Abstractions.IEntityMapper.GetIndexes*
 references:
+- uid: SQLiteM.Abstractions.INameTranslator
+  commentId: T:SQLiteM.Abstractions.INameTranslator
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.INameTranslator.html
+  name: INameTranslator
+  nameWithType: INameTranslator
+  fullName: SQLiteM.Abstractions.INameTranslator
 - uid: SQLiteM.Abstractions
   commentId: N:SQLiteM.Abstractions
   href: SQLiteM.html
@@ -383,4 +429,43 @@ references:
   - uid: SQLiteM.Abstractions.ForeignKeyMap
     name: ForeignKeyMap
     href: SQLiteM.Abstractions.ForeignKeyMap.html
+  - name: )
+- uid: SQLiteM.Abstractions.IEntityMapper.GetIndexes*
+  commentId: Overload:SQLiteM.Abstractions.IEntityMapper.GetIndexes
+  href: SQLiteM.Abstractions.IEntityMapper.html#SQLiteM_Abstractions_IEntityMapper_GetIndexes_System_Type_
+  name: GetIndexes
+  nameWithType: IEntityMapper.GetIndexes
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetIndexes
+- uid: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.IndexMap}
+  commentId: T:System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.IndexMap}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<IndexMap>
+  nameWithType: IReadOnlyList<IndexMap>
+  fullName: System.Collections.Generic.IReadOnlyList<SQLiteM.Abstractions.IndexMap>
+  nameWithType.vb: IReadOnlyList(Of IndexMap)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of SQLiteM.Abstractions.IndexMap)
+  name.vb: IReadOnlyList(Of IndexMap)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: SQLiteM.Abstractions.IndexMap
+    name: IndexMap
+    href: SQLiteM.Abstractions.IndexMap.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.IndexMap
+    name: IndexMap
+    href: SQLiteM.Abstractions.IndexMap.html
   - name: )

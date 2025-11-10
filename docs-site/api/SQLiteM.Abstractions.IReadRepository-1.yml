@@ -19,10 +19,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: IReadRepository
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 86
+    startLine: 97
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -52,10 +52,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: FindAllAsync
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 93
+    startLine: 104
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -89,10 +89,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: QueryAsync
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 101
+    startLine: 112
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -129,10 +129,10 @@ items:
     remote:
       path: SQLiteM.Abstractions/Interfaces.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: FindByIdAsync
     path: ../SQLiteM.Abstractions/Interfaces.cs
-    startLine: 109
+    startLine: 120
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions

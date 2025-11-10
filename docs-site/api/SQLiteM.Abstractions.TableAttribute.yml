@@ -5,6 +5,7 @@ items:
   id: TableAttribute
   parent: SQLiteM.Abstractions
   children:
+  - SQLiteM.Abstractions.TableAttribute.#ctor
   - SQLiteM.Abstractions.TableAttribute.#ctor(System.String)
   - SQLiteM.Abstractions.TableAttribute.Name
   langs:
@@ -18,33 +19,32 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: TableAttribute
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 30
+    startLine: 26
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
   summary: Markiert eine Klasse als Datenbanktabelle.
   remarks: >-
-    Der Tabellenname wird über den Konstruktor angegeben und entspricht dem
+    Wenn <xref href="SQLiteM.Abstractions.TableAttribute.Name" data-throw-if-not-resolved="false"></xref> nicht gesetzt ist, wird der Tabellenname
 
-    physischen Tabellennamen in der Datenbank.
+    per <code>INameTranslator.Table(typeof(T).Name)</code> aus dem CLR-Typnamen abgeleitet
+
+    (z. B. <code>Person</code> → <code>person</code> bzw. <code>person</code>/<code>persons</code>, je nach Translator).
   example:
   - >-
-    <pre><code class="lang-csharp">[Table("Users")]
+    <pre><code class="lang-csharp">[Table("users")]
 
-    public class User
+    public class User { ... }
 
-    {
-        [PrimaryKey]
-        [AutoIncrement]
-        [Column("Id")]
-        public int Id { get; set; }
 
-        [Column("Name", Length = 100, IsNullable = false)]
-        public string Name { get; set; } = string.Empty;
-    }</code></pre>
+    // Oder ohne Parameter → Name wird vom Translator aus dem Typnamen abgeleitet
+
+    [Table]
+
+    public class Order { ... }</code></pre>
   syntax:
     content: >-
       [AttributeUsage(AttributeTargets.Class, Inherited = false)]
@@ -109,58 +109,6 @@ items:
     - name: Inherited
       type: System.Boolean
       value: false
-- uid: SQLiteM.Abstractions.TableAttribute.#ctor(System.String)
-  commentId: M:SQLiteM.Abstractions.TableAttribute.#ctor(System.String)
-  id: '#ctor(System.String)'
-  parent: SQLiteM.Abstractions.TableAttribute
-  langs:
-  - csharp
-  - vb
-  name: TableAttribute(string)
-  nameWithType: TableAttribute.TableAttribute(string)
-  fullName: SQLiteM.Abstractions.TableAttribute.TableAttribute(string)
-  type: Constructor
-  source:
-    remote:
-      path: SQLiteM.Abstractions/Attributes.cs
-      branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
-    id: .ctor
-    path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 30
-  assemblies:
-  - SQLiteM.Abstractions
-  namespace: SQLiteM.Abstractions
-  summary: Markiert eine Klasse als Datenbanktabelle.
-  remarks: >-
-    Der Tabellenname wird über den Konstruktor angegeben und entspricht dem
-
-    physischen Tabellennamen in der Datenbank.
-  example:
-  - >-
-    <pre><code class="lang-csharp">[Table("Users")]
-
-    public class User
-
-    {
-        [PrimaryKey]
-        [AutoIncrement]
-        [Column("Id")]
-        public int Id { get; set; }
-
-        [Column("Name", Length = 100, IsNullable = false)]
-        public string Name { get; set; } = string.Empty;
-    }</code></pre>
-  syntax:
-    content: public TableAttribute(string name)
-    parameters:
-    - id: name
-      type: System.String
-    content.vb: Public Sub New(name As String)
-  overload: SQLiteM.Abstractions.TableAttribute.#ctor*
-  nameWithType.vb: TableAttribute.New(String)
-  fullName.vb: SQLiteM.Abstractions.TableAttribute.New(String)
-  name.vb: New(String)
 - uid: SQLiteM.Abstractions.TableAttribute.Name
   commentId: P:SQLiteM.Abstractions.TableAttribute.Name
   id: Name
@@ -176,23 +124,94 @@ items:
     remote:
       path: SQLiteM.Abstractions/Attributes.cs
       branch: master
-      repo: https://meshugge.ghofen.chickenkiller.com/strelok/SQLiteM.git
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Name
     path: ../SQLiteM.Abstractions/Attributes.cs
-    startLine: 36
+    startLine: 30
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
-  summary: Der Tabellenname in der Datenbank.
+  summary: Physischer Tabellenname in der Datenbank (optional).
   example: []
   syntax:
-    content: public string Name { get; }
+    content: public string? Name { get; }
     parameters: []
     return:
       type: System.String
     content.vb: Public ReadOnly Property Name As String
   overload: SQLiteM.Abstractions.TableAttribute.Name*
+- uid: SQLiteM.Abstractions.TableAttribute.#ctor
+  commentId: M:SQLiteM.Abstractions.TableAttribute.#ctor
+  id: '#ctor'
+  parent: SQLiteM.Abstractions.TableAttribute
+  langs:
+  - csharp
+  - vb
+  name: TableAttribute()
+  nameWithType: TableAttribute.TableAttribute()
+  fullName: SQLiteM.Abstractions.TableAttribute.TableAttribute()
+  type: Constructor
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Attributes.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: .ctor
+    path: ../SQLiteM.Abstractions/Attributes.cs
+    startLine: 33
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: 'Parameterlos: Name wird über den <code>INameTranslator</code> aus dem Typnamen bestimmt.'
+  example: []
+  syntax:
+    content: public TableAttribute()
+    content.vb: Public Sub New()
+  overload: SQLiteM.Abstractions.TableAttribute.#ctor*
+  nameWithType.vb: TableAttribute.New()
+  fullName.vb: SQLiteM.Abstractions.TableAttribute.New()
+  name.vb: New()
+- uid: SQLiteM.Abstractions.TableAttribute.#ctor(System.String)
+  commentId: M:SQLiteM.Abstractions.TableAttribute.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: SQLiteM.Abstractions.TableAttribute
+  langs:
+  - csharp
+  - vb
+  name: TableAttribute(string)
+  nameWithType: TableAttribute.TableAttribute(string)
+  fullName: SQLiteM.Abstractions.TableAttribute.TableAttribute(string)
+  type: Constructor
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Attributes.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: .ctor
+    path: ../SQLiteM.Abstractions/Attributes.cs
+    startLine: 36
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Expliziter Tabellenname.
+  example: []
+  syntax:
+    content: public TableAttribute(string name)
+    parameters:
+    - id: name
+      type: System.String
+    content.vb: Public Sub New(name As String)
+  overload: SQLiteM.Abstractions.TableAttribute.#ctor*
+  nameWithType.vb: TableAttribute.New(String)
+  fullName.vb: SQLiteM.Abstractions.TableAttribute.New(String)
+  name.vb: New(String)
 references:
+- uid: SQLiteM.Abstractions.TableAttribute.Name
+  commentId: P:SQLiteM.Abstractions.TableAttribute.Name
+  href: SQLiteM.Abstractions.TableAttribute.html#SQLiteM_Abstractions_TableAttribute_Name
+  name: Name
+  nameWithType: TableAttribute.Name
+  fullName: SQLiteM.Abstractions.TableAttribute.Name
 - uid: SQLiteM.Abstractions
   commentId: N:SQLiteM.Abstractions
   href: SQLiteM.html
@@ -1985,15 +2004,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SQLiteM.Abstractions.TableAttribute.#ctor*
-  commentId: Overload:SQLiteM.Abstractions.TableAttribute.#ctor
-  href: SQLiteM.Abstractions.TableAttribute.html#SQLiteM_Abstractions_TableAttribute__ctor_System_String_
-  name: TableAttribute
-  nameWithType: TableAttribute.TableAttribute
-  fullName: SQLiteM.Abstractions.TableAttribute.TableAttribute
-  nameWithType.vb: TableAttribute.New
-  fullName.vb: SQLiteM.Abstractions.TableAttribute.New
-  name.vb: New
+- uid: SQLiteM.Abstractions.TableAttribute.Name*
+  commentId: Overload:SQLiteM.Abstractions.TableAttribute.Name
+  href: SQLiteM.Abstractions.TableAttribute.html#SQLiteM_Abstractions_TableAttribute_Name
+  name: Name
+  nameWithType: TableAttribute.Name
+  fullName: SQLiteM.Abstractions.TableAttribute.Name
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -2005,9 +2021,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: SQLiteM.Abstractions.TableAttribute.Name*
-  commentId: Overload:SQLiteM.Abstractions.TableAttribute.Name
-  href: SQLiteM.Abstractions.TableAttribute.html#SQLiteM_Abstractions_TableAttribute_Name
-  name: Name
-  nameWithType: TableAttribute.Name
-  fullName: SQLiteM.Abstractions.TableAttribute.Name
+- uid: SQLiteM.Abstractions.TableAttribute.#ctor*
+  commentId: Overload:SQLiteM.Abstractions.TableAttribute.#ctor
+  href: SQLiteM.Abstractions.TableAttribute.html#SQLiteM_Abstractions_TableAttribute__ctor
+  name: TableAttribute
+  nameWithType: TableAttribute.TableAttribute
+  fullName: SQLiteM.Abstractions.TableAttribute.TableAttribute
+  nameWithType.vb: TableAttribute.New
+  fullName.vb: SQLiteM.Abstractions.TableAttribute.New
+  name.vb: New
