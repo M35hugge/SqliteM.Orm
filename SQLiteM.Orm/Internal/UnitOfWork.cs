@@ -1,8 +1,5 @@
-﻿using System;
+﻿using SQLiteM.Abstractions;
 using System.Data;
-using System.Threading;
-using System.Threading.Tasks;
-using SQLiteM.Abstractions;
 
 namespace SQLiteM.Orm.Internal
 {
@@ -60,10 +57,7 @@ namespace SQLiteM.Orm.Internal
                     pragma.CommandText = "PRAGMA foreign_keys = ON;";
                     pragma.ExecuteNonQuery();
                 }
-
-
-
-                Transaction = Connection.BeginTransaction()?? throw new InvalidOperationException("Failed to begin transaction");
+                Transaction = Connection.BeginTransaction() ?? throw new InvalidOperationException("Failed to begin transaction");
             }
             catch
             {
@@ -72,9 +66,9 @@ namespace SQLiteM.Orm.Internal
                     Connection?.Close();
                     Connection?.Dispose();
                 }
-                catch {}
+                catch { }
                 throw;
-            }          
+            }
         }
 
         /// <summary>
@@ -99,7 +93,7 @@ namespace SQLiteM.Orm.Internal
             return Task.CompletedTask;
         }
 
-         /// <summary>
+        /// <summary>
         /// Gibt Ressourcen frei und rollt ggf. eine offene Transaktion zurück.
         /// </summary>
         /// <returns>
@@ -132,10 +126,10 @@ namespace SQLiteM.Orm.Internal
         /// </remarks>
         public async ValueTask DisposeAsync()
         {
-            if(_disposed) return;
+            if (_disposed) return;
             try
             {
-                if(!_completed)
+                if (!_completed)
                     try
                     {
                         await RollbackAsync().ConfigureAwait(false);

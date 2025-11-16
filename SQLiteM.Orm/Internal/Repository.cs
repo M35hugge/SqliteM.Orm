@@ -24,14 +24,14 @@ namespace SQLiteM.Orm.Internal
     internal sealed class Repository<T>(IUnitOfWork uow, IEntityMapper mapper, ISqlBuilder builder, ISqlDialect dialect, INameTranslator? translator)
         : IRepository<T> where T : class, new()
     {
-         
-        private readonly INameTranslator _names= translator ?? throw new ArgumentNullException(nameof(translator));
+
+        private readonly INameTranslator _names = translator ?? throw new ArgumentNullException(nameof(translator));
         private readonly IUnitOfWork _uow = uow;
         private readonly IEntityMapper _mapper = mapper;
         private readonly ISqlBuilder _sql = builder;
         private readonly ISqlDialect _dialect = dialect;
 
-        
+
 
         /// <summary>
         /// Fügt die angegebene Entität in die Datenbank ein.
@@ -68,7 +68,7 @@ namespace SQLiteM.Orm.Internal
             }
             await ExecuteNonQueryAsync(cmd, ct).ConfigureAwait(false);
 
-            var key = _mapper.GetPrimaryKey(typeof(T)) 
+            var key = _mapper.GetPrimaryKey(typeof(T))
                 ?? throw new InvalidOperationException($"Primary key mapping missing for {typeof(T).Name}.");
 
             // AutoIncrement → last_insert_rowid(), Id am Objekt setzen und zurückgeben
@@ -122,12 +122,12 @@ namespace SQLiteM.Orm.Internal
                 var val = prop.GetValue(entity);
                 AddParameter(cmd, c.ColumnName, val);
             }
-            var key = _mapper.GetPrimaryKey(typeof(T)) 
-                ?? throw new InvalidOperationException($"Primary key mapping missing for {typeof(T).Name}."); 
+            var key = _mapper.GetPrimaryKey(typeof(T))
+                ?? throw new InvalidOperationException($"Primary key mapping missing for {typeof(T).Name}.");
 
-            var keyVal = typeof(T).GetProperty(key.PropertyName) 
+            var keyVal = typeof(T).GetProperty(key.PropertyName)
                 ?? throw new InvalidOperationException($"Primary key property '{key.PropertyName}' not found on {typeof(T).Name}. Ensure PropertyMap.PropertyName is the CLR property name.");
-            if (keyVal is not null && keyVal.GetValue(entity)is not null)
+            if (keyVal is not null && keyVal.GetValue(entity) is not null)
                 AddParameter(cmd, key.ColumnName, keyVal.GetValue(entity));
 
             return await ExecuteNonQueryAsync(cmd, ct).ConfigureAwait(false);
@@ -159,7 +159,7 @@ namespace SQLiteM.Orm.Internal
         /// <returns>
         /// Die gefundene Entität oder <see langword="null"/>, wenn kein entsprechender Datensatz existiert.
         /// </returns>
-    #nullable enable
+#nullable enable
         public async Task<T?> FindByIdAsync(object id, CancellationToken ct = default)
         {
             ArgumentNullException.ThrowIfNull(id);
@@ -239,6 +239,9 @@ namespace SQLiteM.Orm.Internal
             ArgumentNullException.ThrowIfNull(query);
             EnsureConnectionAndTransaction();
 
+            // Abwärtskompatibel: ggf. alte Felder in neue Conditions überführen
+            query.NormalizeLegacy();
+
             var cols = _mapper.GetPropertyMaps(typeof(T));
             if (cols.Count == 0)
                 throw new InvalidOperationException($"No mapped columns found for {typeof(T).Name}.");
@@ -246,25 +249,52 @@ namespace SQLiteM.Orm.Internal
             var table = _dialect.QuoteIdentifier(_mapper.GetTableName(typeof(T)));
             var colList = string.Join(", ", cols.Select(c => _dialect.QuoteIdentifier(c.ColumnName)));
 
-            
             var sb = new StringBuilder($"SELECT {colList} FROM {table}");
             using var cmd = _uow.Connection.CreateCommand();
             cmd.Transaction = _uow.Transaction;
 
-            if (!string.IsNullOrWhiteSpace(query.WhereColumn))
+            // WHERE (AND-verknüpft)
+            if (query.Conditions.Count > 0)
             {
-                var dbcol = ResolveColumnName(query.WhereColumn!);
                 sb.Append(" WHERE ");
-                sb.Append(_dialect.QuoteIdentifier(dbcol));
-                sb.Append(" = ");
-                sb.Append(_dialect.ParameterPrefix);
-                sb.Append(dbcol);
-                AddParameter(cmd, dbcol, query.WhereValue);
+                for (int i = 0; i < query.Conditions.Count; i++)
+                {
+                    var cond = query.Conditions[i];
+                    var dbCol = ResolveColumnName(cond.Column);
+                    var quotedCol = _dialect.QuoteIdentifier(dbCol);
+
+                    // Operator-Mapping
+                    string opSql = cond.Op switch
+                    {
+                        Operator.Eq => "=",
+                        Operator.Gt => ">",
+                        Operator.Ge => ">=",
+                        Operator.Lt => "<",
+                        Operator.Le => "<=",
+                        _ => throw new NotSupportedException($"Unsupported operator {cond.Op}.")
+                    };
+
+                    if (i > 0) sb.Append(" AND ");
+
+                    if (cond.Op == Operator.Eq && cond.Value is null)
+                    {
+                        // IS NULL für Equals(null)
+                        sb.Append($"{quotedCol} IS NULL");
+                    }
+                    else
+                    {
+                        // Parameternamen: p0, p1, ...
+                        var pName = $"p{i}";
+                        sb.Append($"{quotedCol} {opSql} {_dialect.ParameterPrefix}{pName}");
+                        AddParameter(cmd, pName, cond.Value);
+                    }
+                }
             }
 
+            // ORDER BY
             if (!string.IsNullOrWhiteSpace(query.OrderByColumn))
             {
-                var dbCol = ResolveColumnName(query.OrderByColumn!);
+                var dbCol = ResolveColumnName(query.OrderByColumn);
                 sb.Append(" ORDER BY ");
                 sb.Append(_dialect.QuoteIdentifier(dbCol));
                 sb.Append(query.OrderByDesc ? " DESC" : " ASC");
@@ -276,6 +306,7 @@ namespace SQLiteM.Orm.Internal
             using var reader = await ExecuteReaderAsync(cmd, ct).ConfigureAwait(false);
             return MaterializeList(reader, cols);
         }
+
         // ---------- Interne Hilfsmethoden ----------
 
         /// <summary>

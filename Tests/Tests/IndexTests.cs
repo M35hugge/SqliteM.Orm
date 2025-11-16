@@ -46,6 +46,22 @@ namespace Tests.Tests
             });
         }
 
+        [Fact]
+        public async Task Indexes_Are_Created()
+        {
+            using var sp = TestHost.CreateProvider(out _);
+            await TestHost.WithUowAsync(sp, async uow =>
+            {
+                var b = sp.GetRequiredService<ISqlBuilder>();
+                await SQLiteMBootstrap.EnsureCreatedAsync<PersonWithIndex>(uow, b);
+                using var cmd = uow.Connection.CreateCommand();
+                cmd.CommandText = "SELECT name, sql FROM sqlite_master WHERE type='index'";
+                using var r = cmd.ExecuteReader();
+                var idxNames = new List<string>();
+                while (r.Read()) idxNames.Add(r.GetString(0));
+                Assert.Contains(idxNames, n => n.StartsWith("ix_"));
+            });
+        }
         #region Test Entities
 
         [Table("test_entity")]
