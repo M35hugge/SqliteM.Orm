@@ -1,9 +1,5 @@
 ﻿using SQLiteM.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SQLiteM.Orm.Pub
 {
@@ -29,21 +25,39 @@ namespace SQLiteM.Orm.Pub
 
         private static string ToSnake(string clrName)
         {
-            if(string.IsNullOrEmpty(clrName)) return clrName;
-            var sb = new StringBuilder(clrName.Length+8);
-            for (int i = 0; i<clrName.Length; i++)
+            if (string.IsNullOrEmpty(clrName)) return clrName;
+
+            var sb = new StringBuilder(clrName.Length + 8);
+            for (int i = 0; i < clrName.Length; i++)
             {
                 var c = clrName[i];
-                if(char.IsUpper(c))
+
+                if (c == '_')
                 {
-                    if (i > 0 && (char.IsLower(clrName[i-1])|| (i+1<clrName.Length && char.IsLower(clrName[i+1] ))))
+                    // nur einen Unterstrich zulassen
+                    if (sb.Length == 0 || sb[^1] != '_')
                         sb.Append('_');
+                    continue;
+                }
+
+                if (char.IsUpper(c))
+                {
+                    bool prevIsLower = i > 0 && char.IsLower(clrName[i - 1]);
+                    bool nextIsLower = i + 1 < clrName.Length && char.IsLower(clrName[i + 1]);
+
+                    if (sb.Length > 0 && (prevIsLower || nextIsLower) && sb[^1] != '_')
+                        sb.Append('_');
+
                     sb.Append(char.ToLowerInvariant(c));
                 }
-                else { sb.Append(c); }
+                else
+                {
+                    sb.Append(c);
+                }
             }
-            return sb.ToString();   
+            return sb.ToString();
         }
+
         private static string SnakeToPascal(string dbField)
         {
             if (string.IsNullOrEmpty(dbField)) return dbField;

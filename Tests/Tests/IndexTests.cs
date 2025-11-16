@@ -15,7 +15,7 @@ namespace Tests.Tests
         [Fact]
         public async Task UniqueColumn_PreventsDuplicates()
         {
-            using var sp = TestHost.CreateProvider(out _);
+            using var sp = TestHost.CreateProvider();
 
             // Schema
             await TestHost.WithUowAsync(sp, async uow =>

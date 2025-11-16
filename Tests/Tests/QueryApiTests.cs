@@ -113,7 +113,7 @@ public class QueryTests
     [Fact]
     public async Task Equals_Null_Produces_IS_NULL()
     {
-        using var sp = TestHost.CreateProvider(out _);
+        using var sp = TestHost.CreateProvider();
 
         // 1) Schema anlegen & committen
         await TestHost.WithUowAsync(sp, async uow =>
@@ -241,7 +241,7 @@ public class QueryTests
     [Fact]
     public async Task Legacy_Fields_Still_Work()
     {
-        using var sp = TestHost.CreateProvider(out _);
+        using var sp = TestHost.CreateProvider();
         await SeedAsync(sp);
 
         await TestHost.WithUowAsync(sp, async uow =>

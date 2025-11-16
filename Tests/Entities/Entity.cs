@@ -60,4 +60,44 @@ namespace Tests.Entities
         [Column("email", IsNullable = true, Length = 255)]
         public string? Email { get; set; }
     }
+
+    // Minimale Test-Entität
+    [Table("people_tx")]
+    public sealed class PersonTx
+    {
+        [PrimaryKey, AutoIncrement]
+        [Column("id")]
+        public int Id { get; set; }
+
+        [Column("name", IsNullable = false, Length = 100)]
+        public string Name { get; set; } = string.Empty;
+    }
+
+    // --- Test-Entities ---
+    [Table("people_repo")]
+    public sealed class PersonRepo
+    {
+        [PrimaryKey, AutoIncrement]
+        [Column("id")]
+        public int Id { get; set; }
+
+        // explizit NOT NULL
+        [Column("first_name", IsNullable = false, Length = 50)]
+        public string FirstName { get; set; } = default!;
+
+        // Name-Translator soll Camel->snake machen (CLR "LastName" -> DB "last_name")
+        public string? LastName { get; set; }
+
+        // Unique-Column (Spalten-UNIQUE)
+        [Column("email", IsNullable = true, Length = 255, IsUniqueColumn = true)]
+        public string? Email { get; set; }
+    }
+
+    // Entity ohne PK, um Fehlpfade zu testen
+    [Table("no_pk_entities")]
+    public sealed class NoPkEntity
+    {
+        [Column("value", IsNullable = true)]
+        public string? Value { get; set; }
+    }
 }

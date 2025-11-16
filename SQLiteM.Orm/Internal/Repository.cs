@@ -68,9 +68,9 @@ namespace SQLiteM.Orm.Internal
             }
             await ExecuteNonQueryAsync(cmd, ct).ConfigureAwait(false);
 
-            var key = _mapper.GetPrimaryKey(typeof(T))
-                ?? throw new InvalidOperationException($"Primary key mapping missing for {typeof(T).Name}.");
-
+            //var key = _mapper.GetPrimaryKey(typeof(T))
+            //    ?? throw new InvalidOperationException($"Primary key mapping missing for {typeof(T).Name}.");
+            var key = _mapper.GetPrimaryKey(typeof(T));
             // AutoIncrement → last_insert_rowid(), Id am Objekt setzen und zurückgeben
             if (key is not null && key.IsAutoIncrement)
             {
