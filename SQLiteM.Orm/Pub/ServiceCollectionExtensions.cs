@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using SQLiteM.Abstractions;
 using SQLiteM.Orm.Internal;
 
 namespace SQLiteM.Orm.Pub
 {
-     /// <summary>
+    /// <summary>
     /// Erweiterungsmethoden zur Registrierung der SQLiteM-Komponenten im DI-Container.
     /// </summary>
     /// <remarks>
@@ -19,13 +18,13 @@ namespace SQLiteM.Orm.Pub
         /// <summary>
         /// Fügt alle benötigten SQLiteM-Dienste zum Dienstcontainer hinzu.
         /// </summary>
-        /// <param name="services">Die zu erweiternde <see cref="Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
+        /// <param name="services">Die zu erweiternde <see cref="IServiceCollection"/>.</param>
         /// <param name="configure">Konfiguration der <see cref="SQLiteMOptions"/> (z. B. Connection-String).</param>
         /// <param name="translatorFactory">
         /// Optionaler Factory-Delegat, der einen <see cref="INameTranslator"/> bereitstellt (z. B. Snake Case).
         /// Wird keiner angegeben, wird <c>IdentityNameTranslator</c> verwendet.
         /// </param>
-        /// <returns>Die aktualisierte <see cref="Microsoft.Extensions.DependencyInjection.IServiceCollection"/> zur weiteren Verkettung.</returns>
+        /// <returns>Die aktualisierte <see cref="IServiceCollection"/> zur weiteren Verkettung.</returns>
         /// <remarks>
         /// Registrierte Dienste (alle mit Lebensdauer <c>Singleton</c>):
         /// <list type="bullet">
@@ -42,7 +41,7 @@ namespace SQLiteM.Orm.Pub
         /// </remarks>
 #nullable enable
         public static IServiceCollection AddSQLiteM(
-            this IServiceCollection services, Action<SQLiteMOptions> configure, Func<IServiceProvider, INameTranslator>? translatorFactory =null)
+            this IServiceCollection services, Action<SQLiteMOptions> configure, Func<IServiceProvider, INameTranslator>? translatorFactory = null)
         {
             ArgumentNullException.ThrowIfNull(services);
             ArgumentNullException.ThrowIfNull(configure);
@@ -72,7 +71,7 @@ namespace SQLiteM.Orm.Pub
             services.AddSingleton<IRepositoryFactory, RepositoryFactory>();
 
 
-            
+
             return services;
         }
     }

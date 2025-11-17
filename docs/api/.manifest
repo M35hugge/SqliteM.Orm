@@ -18,7 +18,6 @@
   "SQLiteM.Abstractions.Condition.Column": "SQLiteM.Abstractions.Condition.yml",
   "SQLiteM.Abstractions.Condition.Op": "SQLiteM.Abstractions.Condition.yml",
   "SQLiteM.Abstractions.Condition.Value": "SQLiteM.Abstractions.Condition.yml",
-  "SQLiteM.Abstractions.Configuration": "SQLiteM.Abstractions.Configuration.yml",
   "SQLiteM.Abstractions.ForeignKeyAttribute": "SQLiteM.Abstractions.ForeignKeyAttribute.yml",
   "SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type)": "SQLiteM.Abstractions.ForeignKeyAttribute.yml",
   "SQLiteM.Abstractions.ForeignKeyAttribute.#ctor(System.Type,System.String)": "SQLiteM.Abstractions.ForeignKeyAttribute.yml",

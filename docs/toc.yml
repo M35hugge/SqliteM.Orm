@@ -3,7 +3,7 @@
 
 - name: Getting Started
   href: getting-started.md
-  
+
 - name: Queries
   href: queries.md
 
@@ -13,5 +13,8 @@
 - name: Unit of Work & Repository
   href: unit-of-work-repository.md
 
+- name: SQLiteMClient (Transaktionen)
+  href: sqlitemclient-with-transaction.md
+  
 - name: API
   href: api/index.md

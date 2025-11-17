@@ -46,19 +46,11 @@ Spaltennamen werden gequotet (Dialekt).
 
 Werte werden als Parameter gebunden (SQL-Injection-sicher).
 
-## Grenzen (aktueller Stand)
-
-WHERE: nur Gleichheit (=) auf eine Spalte.
-
-Kein Join/Include von Navigationen.
-
-Paging nicht integriert (kannst du aber leicht ergänzen, siehe "Roadmap").
-
 ## Best Practices
 
 Spaltennamen strikt aus den [Column("...")]-Attributen verwenden (z. B. "first_name" statt FirstName).
 
-Für große Tabellen Indexe in der DB anlegen (z. B. auf last_name, person_id).
+Für große Tabellen Indizes in der DB anlegen (z. B. auf last_name, person_id).
 
 Für wiederkehrende Abfragen kleine Helper-Funktionen bauen:
 

@@ -25,7 +25,7 @@ items:
       repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: JournalMode
     path: SQLiteM.Abstractions/Configuration.cs
-    startLine: 61
+    startLine: 55
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -52,7 +52,7 @@ items:
       repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Delete
     path: SQLiteM.Abstractions/Configuration.cs
-    startLine: 66
+    startLine: 60
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -80,7 +80,7 @@ items:
       repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Truncate
     path: SQLiteM.Abstractions/Configuration.cs
-    startLine: 71
+    startLine: 65
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -108,7 +108,7 @@ items:
       repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Persist
     path: SQLiteM.Abstractions/Configuration.cs
-    startLine: 76
+    startLine: 70
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -136,7 +136,7 @@ items:
       repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Memory
     path: SQLiteM.Abstractions/Configuration.cs
-    startLine: 81
+    startLine: 75
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -164,7 +164,7 @@ items:
       repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Wal
     path: SQLiteM.Abstractions/Configuration.cs
-    startLine: 86
+    startLine: 80
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions
@@ -192,7 +192,7 @@ items:
       repo: https://git.m35hugge.at/strelok/SQLiteM.git
     id: Off
     path: SQLiteM.Abstractions/Configuration.cs
-    startLine: 91
+    startLine: 85
   assemblies:
   - SQLiteM.Abstractions
   namespace: SQLiteM.Abstractions

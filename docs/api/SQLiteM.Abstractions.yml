@@ -8,7 +8,6 @@ items:
   - SQLiteM.Abstractions.ColumnAttribute
   - SQLiteM.Abstractions.CompositeIndexAttribute
   - SQLiteM.Abstractions.Condition
-  - SQLiteM.Abstractions.Configuration
   - SQLiteM.Abstractions.ForeignKeyAttribute
   - SQLiteM.Abstractions.ForeignKeyMap
   - SQLiteM.Abstractions.IConnectionFactory
@@ -101,12 +100,6 @@ references:
   name: IgnoreAttribute
   nameWithType: IgnoreAttribute
   fullName: SQLiteM.Abstractions.IgnoreAttribute
-- uid: SQLiteM.Abstractions.Configuration
-  commentId: T:SQLiteM.Abstractions.Configuration
-  href: SQLiteM.Abstractions.Configuration.html
-  name: Configuration
-  nameWithType: Configuration
-  fullName: SQLiteM.Abstractions.Configuration
 - uid: SQLiteM.Abstractions.PragmaOptions
   commentId: T:SQLiteM.Abstractions.PragmaOptions
   parent: SQLiteM.Abstractions

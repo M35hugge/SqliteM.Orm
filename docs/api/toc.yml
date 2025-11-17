@@ -16,9 +16,6 @@ items:
   - uid: SQLiteM.Abstractions.Condition
     name: Condition
     type: Struct
-  - uid: SQLiteM.Abstractions.Configuration
-    name: Configuration
-    type: Class
   - uid: SQLiteM.Abstractions.ForeignKeyAttribute
     name: ForeignKeyAttribute
     type: Class
