@@ -9,7 +9,7 @@
           ]
         }
       ],
-      "dest": "api"
+      "dest": "docs/api"
     }
   ],
   "build": {
@@ -23,29 +23,15 @@
         ]
       },
       {
-        "src": ".",
-        "dest": "api",
+        "src": "docs/api",
+        "dest": "docs/api",
         "files": [
-          "api/**.yml"
-        ]
-      }
-    ],
-    "resource": [
-      {
-        "src": "docs",
-        "files": [
-          "images/**"
+          "**/*.yml",
+          "**/toc.yml"
         ]
       }
     ],
     "dest": "_site",
-    "globalMetadata": {
-      "_appTitle": "SQLiteM",
-      "_appFooter": "SQLiteM ORM",
-      "_enableSearch": "true"
-    },
-    "template": [
-      "default"
-    ]
+    "template": [ "default" ]
   }
 }
