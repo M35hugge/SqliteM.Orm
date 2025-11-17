@@ -1,7 +1,7 @@
 # SQLiteM – leichtgewichtiges ORM für SQLite
 
 SQLiteM ist ein einfaches, attributbasiertes ORM für .NET-Anwendungen,  
-das ein **Unit-of-Work**-Pattern mit einem **Repository-System** kombiniert – optimiert für **SQLite**.
+das ein **Unit-of-Work**-Pattern mit einem **Repository-System** kombiniert für **SQLite**.
 
 ---
 

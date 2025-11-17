@@ -31,7 +31,23 @@
         ]
       }
     ],
+    "resource": [
+      {
+        "src": "docs",
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
     "dest": "_site",
-    "template": [ "default" ]
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appLogoPath": "images/logo.png",
+      "_appFaviconPath": "images/logo.png",
+      "_enableSearch": "true"
+    }
   }
 }
