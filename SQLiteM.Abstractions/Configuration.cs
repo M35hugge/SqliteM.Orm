@@ -1,12 +1,6 @@
 ﻿namespace SQLiteM.Abstractions
 {
     /// <summary>
-    /// Sammlung von Einstellungsoptionen
-    /// </summary>
-    public class Configuration
-    {
-    }
-    /// <summary>
     /// Konfiguration für SQLite PRAGMA-Einstellungen, die pro Verbindung gesetzt werden sollen.
     /// </summary>
     public sealed class PragmaOptions
