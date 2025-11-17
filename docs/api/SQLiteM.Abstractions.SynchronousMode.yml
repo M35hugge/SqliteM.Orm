@@ -1,0 +1,176 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.SynchronousMode
+  commentId: T:SQLiteM.Abstractions.SynchronousMode
+  id: SynchronousMode
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.SynchronousMode.Extra
+  - SQLiteM.Abstractions.SynchronousMode.Full
+  - SQLiteM.Abstractions.SynchronousMode.Normal
+  - SQLiteM.Abstractions.SynchronousMode.Off
+  langs:
+  - csharp
+  - vb
+  name: SynchronousMode
+  nameWithType: SynchronousMode
+  fullName: SQLiteM.Abstractions.SynchronousMode
+  type: Enum
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: SynchronousMode
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 97
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Verfügbare Synchronisations-Level für <code>PRAGMA synchronous</code>.
+  example: []
+  syntax:
+    content: public enum SynchronousMode
+    content.vb: Public Enum SynchronousMode
+- uid: SQLiteM.Abstractions.SynchronousMode.Off
+  commentId: F:SQLiteM.Abstractions.SynchronousMode.Off
+  id: Off
+  parent: SQLiteM.Abstractions.SynchronousMode
+  langs:
+  - csharp
+  - vb
+  name: Off
+  nameWithType: SynchronousMode.Off
+  fullName: SQLiteM.Abstractions.SynchronousMode.Off
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Off
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 102
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Keine Synchronisation (<code>OFF</code>); maximale Performance, geringste Datensicherheit.
+  example: []
+  syntax:
+    content: Off = 0
+    return:
+      type: SQLiteM.Abstractions.SynchronousMode
+- uid: SQLiteM.Abstractions.SynchronousMode.Normal
+  commentId: F:SQLiteM.Abstractions.SynchronousMode.Normal
+  id: Normal
+  parent: SQLiteM.Abstractions.SynchronousMode
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: SynchronousMode.Normal
+  fullName: SQLiteM.Abstractions.SynchronousMode.Normal
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Normal
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 107
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Standard-Synchronisation (<code>NORMAL</code>); Kompromiss zwischen Performance und Sicherheit.
+  example: []
+  syntax:
+    content: Normal = 1
+    return:
+      type: SQLiteM.Abstractions.SynchronousMode
+- uid: SQLiteM.Abstractions.SynchronousMode.Full
+  commentId: F:SQLiteM.Abstractions.SynchronousMode.Full
+  id: Full
+  parent: SQLiteM.Abstractions.SynchronousMode
+  langs:
+  - csharp
+  - vb
+  name: Full
+  nameWithType: SynchronousMode.Full
+  fullName: SQLiteM.Abstractions.SynchronousMode.Full
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Full
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 112
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Volle Synchronisation (<code>FULL</code>); sicherer gegen Datenverlust, aber langsamer.
+  example: []
+  syntax:
+    content: Full = 2
+    return:
+      type: SQLiteM.Abstractions.SynchronousMode
+- uid: SQLiteM.Abstractions.SynchronousMode.Extra
+  commentId: F:SQLiteM.Abstractions.SynchronousMode.Extra
+  id: Extra
+  parent: SQLiteM.Abstractions.SynchronousMode
+  langs:
+  - csharp
+  - vb
+  name: Extra
+  nameWithType: SynchronousMode.Extra
+  fullName: SQLiteM.Abstractions.SynchronousMode.Extra
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Extra
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 117
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erhöhte Synchronisation (<code>EXTRA</code>); maximaler Schutz vor Datenverlust auf Kosten der Performance.
+  example: []
+  syntax:
+    content: Extra = 3
+    return:
+      type: SQLiteM.Abstractions.SynchronousMode
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.SynchronousMode
+  commentId: T:SQLiteM.Abstractions.SynchronousMode
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.SynchronousMode.html
+  name: SynchronousMode
+  nameWithType: SynchronousMode
+  fullName: SQLiteM.Abstractions.SynchronousMode

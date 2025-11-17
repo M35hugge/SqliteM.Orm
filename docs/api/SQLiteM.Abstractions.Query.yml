@@ -1,0 +1,1176 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.Query
+  commentId: T:SQLiteM.Abstractions.Query
+  id: Query
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.Query.AndEquals(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.AndGreater(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.AndGreaterOrEquals(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.AndLess(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.AndLessOrEquals(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.Conditions
+  - SQLiteM.Abstractions.Query.NormalizeLegacy
+  - SQLiteM.Abstractions.Query.OrderBy(System.String,System.Boolean)
+  - SQLiteM.Abstractions.Query.OrderByColumn
+  - SQLiteM.Abstractions.Query.OrderByDesc
+  - SQLiteM.Abstractions.Query.WhereColumn
+  - SQLiteM.Abstractions.Query.WhereEquals(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.WhereGreater(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.WhereGreaterOrEquals(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.WhereLess(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.WhereLessOrEquals(System.String,System.Object)
+  - SQLiteM.Abstractions.Query.WhereValue
+  langs:
+  - csharp
+  - vb
+  name: Query
+  nameWithType: Query
+  fullName: SQLiteM.Abstractions.Query
+  type: Class
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Query
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 11
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Einfache, SQL-freie Query-Beschreibung für Filter (WHERE) und Sortierung (ORDER BY).
+  remarks: >-
+    Spalten können als DB-Spaltenname <em>oder</em> als CLR-Propertyname angegeben werden.
+
+    Die tatsächliche Auflösung auf DB-Spaltennamen erfolgt im Repository.
+
+    Für Gleichheit mit <code>null</code> wird automatisch <code>IS NULL</code> erzeugt.
+
+    Vergleichsoperatoren (&gt;, &gt;=, &lt;, &lt;=) akzeptieren kein <code>null</code>.
+  example: []
+  syntax:
+    content: public sealed class Query
+    content.vb: Public NotInheritable Class Query
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SQLiteM.Abstractions.Query.Conditions
+  commentId: P:SQLiteM.Abstractions.Query.Conditions
+  id: Conditions
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: Conditions
+  nameWithType: Query.Conditions
+  fullName: SQLiteM.Abstractions.Query.Conditions
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Conditions
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 16
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Interne Liste der WHERE-Bedingungen (AND-verknüpft, in Eingabereihenfolge).
+  example: []
+  syntax:
+    content: public List<Condition> Conditions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{SQLiteM.Abstractions.Condition}
+    content.vb: Public ReadOnly Property Conditions As List(Of Condition)
+  overload: SQLiteM.Abstractions.Query.Conditions*
+- uid: SQLiteM.Abstractions.Query.OrderByColumn
+  commentId: P:SQLiteM.Abstractions.Query.OrderByColumn
+  id: OrderByColumn
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: OrderByColumn
+  nameWithType: Query.OrderByColumn
+  fullName: SQLiteM.Abstractions.Query.OrderByColumn
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: OrderByColumn
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 21
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Spalte für ORDER BY (DB- oder CLR-Name; wird beim Ausführen aufgelöst).
+  example: []
+  syntax:
+    content: public string? OrderByColumn { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OrderByColumn As String
+  overload: SQLiteM.Abstractions.Query.OrderByColumn*
+- uid: SQLiteM.Abstractions.Query.OrderByDesc
+  commentId: P:SQLiteM.Abstractions.Query.OrderByDesc
+  id: OrderByDesc
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: OrderByDesc
+  nameWithType: Query.OrderByDesc
+  fullName: SQLiteM.Abstractions.Query.OrderByDesc
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: OrderByDesc
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 26
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wenn die Sortierung absteigend erfolgen soll.
+  example: []
+  syntax:
+    content: public bool OrderByDesc { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property OrderByDesc As Boolean
+  overload: SQLiteM.Abstractions.Query.OrderByDesc*
+- uid: SQLiteM.Abstractions.Query.WhereEquals(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.WhereEquals(System.String,System.Object)
+  id: WhereEquals(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: WhereEquals(string, object?)
+  nameWithType: Query.WhereEquals(string, object?)
+  fullName: SQLiteM.Abstractions.Query.WhereEquals(string, object?)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WhereEquals
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 35
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erstellt eine neue Abfrage mit einer Gleichheitsbedingung.
+  example: []
+  syntax:
+    content: public static Query WhereEquals(string column, object? value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert; bei <code>null</code> wird <code>IS NULL</code> erzeugt.
+    return:
+      type: SQLiteM.Abstractions.Query
+    content.vb: Public Shared Function WhereEquals(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.WhereEquals*
+  nameWithType.vb: Query.WhereEquals(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.WhereEquals(String, Object)
+  name.vb: WhereEquals(String, Object)
+- uid: SQLiteM.Abstractions.Query.WhereGreater(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.WhereGreater(System.String,System.Object)
+  id: WhereGreater(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: WhereGreater(string, object)
+  nameWithType: Query.WhereGreater(string, object)
+  fullName: SQLiteM.Abstractions.Query.WhereGreater(string, object)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WhereGreater
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 42
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erstellt eine neue Abfrage mit einer "größer als"-Bedingung (<code>&gt;</code>).
+  example: []
+  syntax:
+    content: public static Query WhereGreater(string column, object value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert (darf nicht <code>null</code> sein).
+    return:
+      type: SQLiteM.Abstractions.Query
+    content.vb: Public Shared Function WhereGreater(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.WhereGreater*
+  nameWithType.vb: Query.WhereGreater(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.WhereGreater(String, Object)
+  name.vb: WhereGreater(String, Object)
+- uid: SQLiteM.Abstractions.Query.WhereGreaterOrEquals(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.WhereGreaterOrEquals(System.String,System.Object)
+  id: WhereGreaterOrEquals(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: WhereGreaterOrEquals(string, object)
+  nameWithType: Query.WhereGreaterOrEquals(string, object)
+  fullName: SQLiteM.Abstractions.Query.WhereGreaterOrEquals(string, object)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WhereGreaterOrEquals
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 49
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erstellt eine neue Abfrage mit einer "größer gleich"-Bedingung (<code>&gt;=</code>).
+  example: []
+  syntax:
+    content: public static Query WhereGreaterOrEquals(string column, object value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert (darf nicht <code>null</code> sein).
+    return:
+      type: SQLiteM.Abstractions.Query
+    content.vb: Public Shared Function WhereGreaterOrEquals(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.WhereGreaterOrEquals*
+  nameWithType.vb: Query.WhereGreaterOrEquals(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.WhereGreaterOrEquals(String, Object)
+  name.vb: WhereGreaterOrEquals(String, Object)
+- uid: SQLiteM.Abstractions.Query.WhereLess(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.WhereLess(System.String,System.Object)
+  id: WhereLess(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: WhereLess(string, object)
+  nameWithType: Query.WhereLess(string, object)
+  fullName: SQLiteM.Abstractions.Query.WhereLess(string, object)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WhereLess
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 56
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erstellt eine neue Abfrage mit einer "kleiner als"-Bedingung (<code>&lt;</code>).
+  example: []
+  syntax:
+    content: public static Query WhereLess(string column, object value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert (darf nicht <code>null</code> sein).
+    return:
+      type: SQLiteM.Abstractions.Query
+    content.vb: Public Shared Function WhereLess(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.WhereLess*
+  nameWithType.vb: Query.WhereLess(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.WhereLess(String, Object)
+  name.vb: WhereLess(String, Object)
+- uid: SQLiteM.Abstractions.Query.WhereLessOrEquals(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.WhereLessOrEquals(System.String,System.Object)
+  id: WhereLessOrEquals(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: WhereLessOrEquals(string, object)
+  nameWithType: Query.WhereLessOrEquals(string, object)
+  fullName: SQLiteM.Abstractions.Query.WhereLessOrEquals(string, object)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WhereLessOrEquals
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 63
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erstellt eine neue Abfrage mit einer "kleiner gleich"-Bedingung (<code>&lt;=</code>).
+  example: []
+  syntax:
+    content: public static Query WhereLessOrEquals(string column, object value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert (darf nicht <code>null</code> sein).
+    return:
+      type: SQLiteM.Abstractions.Query
+    content.vb: Public Shared Function WhereLessOrEquals(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.WhereLessOrEquals*
+  nameWithType.vb: Query.WhereLessOrEquals(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.WhereLessOrEquals(String, Object)
+  name.vb: WhereLessOrEquals(String, Object)
+- uid: SQLiteM.Abstractions.Query.AndEquals(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.AndEquals(System.String,System.Object)
+  id: AndEquals(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: AndEquals(string, object?)
+  nameWithType: Query.AndEquals(string, object?)
+  fullName: SQLiteM.Abstractions.Query.AndEquals(string, object?)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: AndEquals
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 73
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Fügt eine Gleichheitsbedingung (<code>=</code>) hinzu. Bei <code class="paramref">value</code> = <code>null</code> wird <code>IS NULL</code> erzeugt.
+  example: []
+  syntax:
+    content: public Query AndEquals(string column, object? value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert; <code>null</code> erzeugt <code>IS NULL</code>.
+    return:
+      type: SQLiteM.Abstractions.Query
+      description: Dieselbe <xref href="SQLiteM.Abstractions.Query" data-throw-if-not-resolved="false"></xref>-Instanz (verkettbar).
+    content.vb: Public Function AndEquals(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.AndEquals*
+  nameWithType.vb: Query.AndEquals(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.AndEquals(String, Object)
+  name.vb: AndEquals(String, Object)
+- uid: SQLiteM.Abstractions.Query.AndGreater(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.AndGreater(System.String,System.Object)
+  id: AndGreater(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: AndGreater(string, object)
+  nameWithType: Query.AndGreater(string, object)
+  fullName: SQLiteM.Abstractions.Query.AndGreater(string, object)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: AndGreater
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 81
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Fügt eine "größer als"-Bedingung (<code>&gt;</code>) hinzu.
+  example: []
+  syntax:
+    content: public Query AndGreater(string column, object value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert (darf nicht <code>null</code> sein).
+    return:
+      type: SQLiteM.Abstractions.Query
+      description: Dieselbe <xref href="SQLiteM.Abstractions.Query" data-throw-if-not-resolved="false"></xref>-Instanz (verkettbar).
+    content.vb: Public Function AndGreater(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.AndGreater*
+  nameWithType.vb: Query.AndGreater(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.AndGreater(String, Object)
+  name.vb: AndGreater(String, Object)
+- uid: SQLiteM.Abstractions.Query.AndGreaterOrEquals(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.AndGreaterOrEquals(System.String,System.Object)
+  id: AndGreaterOrEquals(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: AndGreaterOrEquals(string, object)
+  nameWithType: Query.AndGreaterOrEquals(string, object)
+  fullName: SQLiteM.Abstractions.Query.AndGreaterOrEquals(string, object)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: AndGreaterOrEquals
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 89
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Fügt eine "größer gleich"-Bedingung (<code>&gt;=</code>) hinzu.
+  example: []
+  syntax:
+    content: public Query AndGreaterOrEquals(string column, object value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert (darf nicht <code>null</code> sein).
+    return:
+      type: SQLiteM.Abstractions.Query
+      description: Dieselbe <xref href="SQLiteM.Abstractions.Query" data-throw-if-not-resolved="false"></xref>-Instanz (verkettbar).
+    content.vb: Public Function AndGreaterOrEquals(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.AndGreaterOrEquals*
+  nameWithType.vb: Query.AndGreaterOrEquals(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.AndGreaterOrEquals(String, Object)
+  name.vb: AndGreaterOrEquals(String, Object)
+- uid: SQLiteM.Abstractions.Query.AndLess(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.AndLess(System.String,System.Object)
+  id: AndLess(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: AndLess(string, object)
+  nameWithType: Query.AndLess(string, object)
+  fullName: SQLiteM.Abstractions.Query.AndLess(string, object)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: AndLess
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 97
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Fügt eine "kleiner als"-Bedingung (<code>&lt;</code>) hinzu.
+  example: []
+  syntax:
+    content: public Query AndLess(string column, object value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert (darf nicht <code>null</code> sein).
+    return:
+      type: SQLiteM.Abstractions.Query
+      description: Dieselbe <xref href="SQLiteM.Abstractions.Query" data-throw-if-not-resolved="false"></xref>-Instanz (verkettbar).
+    content.vb: Public Function AndLess(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.AndLess*
+  nameWithType.vb: Query.AndLess(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.AndLess(String, Object)
+  name.vb: AndLess(String, Object)
+- uid: SQLiteM.Abstractions.Query.AndLessOrEquals(System.String,System.Object)
+  commentId: M:SQLiteM.Abstractions.Query.AndLessOrEquals(System.String,System.Object)
+  id: AndLessOrEquals(System.String,System.Object)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: AndLessOrEquals(string, object)
+  nameWithType: Query.AndLessOrEquals(string, object)
+  fullName: SQLiteM.Abstractions.Query.AndLessOrEquals(string, object)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: AndLessOrEquals
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 105
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Fügt eine "kleiner gleich"-Bedingung (<code>&lt;=</code>) hinzu.
+  example: []
+  syntax:
+    content: public Query AndLessOrEquals(string column, object value)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: value
+      type: System.Object
+      description: Vergleichswert (darf nicht <code>null</code> sein).
+    return:
+      type: SQLiteM.Abstractions.Query
+      description: Dieselbe <xref href="SQLiteM.Abstractions.Query" data-throw-if-not-resolved="false"></xref>-Instanz (verkettbar).
+    content.vb: Public Function AndLessOrEquals(column As String, value As Object) As Query
+  overload: SQLiteM.Abstractions.Query.AndLessOrEquals*
+  nameWithType.vb: Query.AndLessOrEquals(String, Object)
+  fullName.vb: SQLiteM.Abstractions.Query.AndLessOrEquals(String, Object)
+  name.vb: AndLessOrEquals(String, Object)
+- uid: SQLiteM.Abstractions.Query.OrderBy(System.String,System.Boolean)
+  commentId: M:SQLiteM.Abstractions.Query.OrderBy(System.String,System.Boolean)
+  id: OrderBy(System.String,System.Boolean)
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: OrderBy(string, bool)
+  nameWithType: Query.OrderBy(string, bool)
+  fullName: SQLiteM.Abstractions.Query.OrderBy(string, bool)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: OrderBy
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 113
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Setzt ORDER BY auf die angegebene Spalte.
+  example: []
+  syntax:
+    content: public Query OrderBy(string column, bool desc = false)
+    parameters:
+    - id: column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname.
+    - id: desc
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, um absteigend zu sortieren; sonst aufsteigend.
+    return:
+      type: SQLiteM.Abstractions.Query
+      description: Dieselbe <xref href="SQLiteM.Abstractions.Query" data-throw-if-not-resolved="false"></xref>-Instanz (verkettbar).
+    content.vb: Public Function OrderBy(column As String, desc As Boolean = False) As Query
+  overload: SQLiteM.Abstractions.Query.OrderBy*
+  nameWithType.vb: Query.OrderBy(String, Boolean)
+  fullName.vb: SQLiteM.Abstractions.Query.OrderBy(String, Boolean)
+  name.vb: OrderBy(String, Boolean)
+- uid: SQLiteM.Abstractions.Query.NormalizeLegacy
+  commentId: M:SQLiteM.Abstractions.Query.NormalizeLegacy
+  id: NormalizeLegacy
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: NormalizeLegacy()
+  nameWithType: Query.NormalizeLegacy()
+  fullName: SQLiteM.Abstractions.Query.NormalizeLegacy()
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: NormalizeLegacy
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 123
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Übernimmt (falls gesetzt) die Legacy-Felder <xref href="SQLiteM.Abstractions.Query.WhereColumn" data-throw-if-not-resolved="false"></xref>/<xref href="SQLiteM.Abstractions.Query.WhereValue" data-throw-if-not-resolved="false"></xref> als erste Bedingung.
+  example: []
+  syntax:
+    content: public void NormalizeLegacy()
+    content.vb: Public Sub NormalizeLegacy()
+  overload: SQLiteM.Abstractions.Query.NormalizeLegacy*
+- uid: SQLiteM.Abstractions.Query.WhereColumn
+  commentId: P:SQLiteM.Abstractions.Query.WhereColumn
+  id: WhereColumn
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: WhereColumn
+  nameWithType: Query.WhereColumn
+  fullName: SQLiteM.Abstractions.Query.WhereColumn
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WhereColumn
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 147
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: 'DEPRECATED: Einzelne WHERE-Spalte (wird beim Ausführen in <xref href="SQLiteM.Abstractions.Query.Conditions" data-throw-if-not-resolved="false"></xref> überführt).'
+  example: []
+  syntax:
+    content: public string? WhereColumn { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WhereColumn As String
+  overload: SQLiteM.Abstractions.Query.WhereColumn*
+- uid: SQLiteM.Abstractions.Query.WhereValue
+  commentId: P:SQLiteM.Abstractions.Query.WhereValue
+  id: WhereValue
+  parent: SQLiteM.Abstractions.Query
+  langs:
+  - csharp
+  - vb
+  name: WhereValue
+  nameWithType: Query.WhereValue
+  fullName: SQLiteM.Abstractions.Query.WhereValue
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: WhereValue
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 150
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: 'DEPRECATED: Einzelner WHERE-Wert (wird beim Ausführen in <xref href="SQLiteM.Abstractions.Query.Conditions" data-throw-if-not-resolved="false"></xref> überführt).'
+  example: []
+  syntax:
+    content: public object? WhereValue { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property WhereValue As Object
+  overload: SQLiteM.Abstractions.Query.WhereValue*
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SQLiteM.Abstractions.Query.Conditions*
+  commentId: Overload:SQLiteM.Abstractions.Query.Conditions
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_Conditions
+  name: Conditions
+  nameWithType: Query.Conditions
+  fullName: SQLiteM.Abstractions.Query.Conditions
+- uid: System.Collections.Generic.List{SQLiteM.Abstractions.Condition}
+  commentId: T:System.Collections.Generic.List{SQLiteM.Abstractions.Condition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Condition>
+  nameWithType: List<Condition>
+  fullName: System.Collections.Generic.List<SQLiteM.Abstractions.Condition>
+  nameWithType.vb: List(Of Condition)
+  fullName.vb: System.Collections.Generic.List(Of SQLiteM.Abstractions.Condition)
+  name.vb: List(Of Condition)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SQLiteM.Abstractions.Condition
+    name: Condition
+    href: SQLiteM.Abstractions.Condition.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.Condition
+    name: Condition
+    href: SQLiteM.Abstractions.Condition.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SQLiteM.Abstractions.Query.OrderByColumn*
+  commentId: Overload:SQLiteM.Abstractions.Query.OrderByColumn
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_OrderByColumn
+  name: OrderByColumn
+  nameWithType: Query.OrderByColumn
+  fullName: SQLiteM.Abstractions.Query.OrderByColumn
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SQLiteM.Abstractions.Query.OrderByDesc*
+  commentId: Overload:SQLiteM.Abstractions.Query.OrderByDesc
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_OrderByDesc
+  name: OrderByDesc
+  nameWithType: Query.OrderByDesc
+  fullName: SQLiteM.Abstractions.Query.OrderByDesc
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SQLiteM.Abstractions.Query.WhereEquals*
+  commentId: Overload:SQLiteM.Abstractions.Query.WhereEquals
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_WhereEquals_System_String_System_Object_
+  name: WhereEquals
+  nameWithType: Query.WhereEquals
+  fullName: SQLiteM.Abstractions.Query.WhereEquals
+- uid: SQLiteM.Abstractions.Query
+  commentId: T:SQLiteM.Abstractions.Query
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.Query.html
+  name: Query
+  nameWithType: Query
+  fullName: SQLiteM.Abstractions.Query
+- uid: SQLiteM.Abstractions.Query.WhereGreater*
+  commentId: Overload:SQLiteM.Abstractions.Query.WhereGreater
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_WhereGreater_System_String_System_Object_
+  name: WhereGreater
+  nameWithType: Query.WhereGreater
+  fullName: SQLiteM.Abstractions.Query.WhereGreater
+- uid: SQLiteM.Abstractions.Query.WhereGreaterOrEquals*
+  commentId: Overload:SQLiteM.Abstractions.Query.WhereGreaterOrEquals
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_WhereGreaterOrEquals_System_String_System_Object_
+  name: WhereGreaterOrEquals
+  nameWithType: Query.WhereGreaterOrEquals
+  fullName: SQLiteM.Abstractions.Query.WhereGreaterOrEquals
+- uid: SQLiteM.Abstractions.Query.WhereLess*
+  commentId: Overload:SQLiteM.Abstractions.Query.WhereLess
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_WhereLess_System_String_System_Object_
+  name: WhereLess
+  nameWithType: Query.WhereLess
+  fullName: SQLiteM.Abstractions.Query.WhereLess
+- uid: SQLiteM.Abstractions.Query.WhereLessOrEquals*
+  commentId: Overload:SQLiteM.Abstractions.Query.WhereLessOrEquals
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_WhereLessOrEquals_System_String_System_Object_
+  name: WhereLessOrEquals
+  nameWithType: Query.WhereLessOrEquals
+  fullName: SQLiteM.Abstractions.Query.WhereLessOrEquals
+- uid: SQLiteM.Abstractions.Query.AndEquals*
+  commentId: Overload:SQLiteM.Abstractions.Query.AndEquals
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_AndEquals_System_String_System_Object_
+  name: AndEquals
+  nameWithType: Query.AndEquals
+  fullName: SQLiteM.Abstractions.Query.AndEquals
+- uid: SQLiteM.Abstractions.Query.AndGreater*
+  commentId: Overload:SQLiteM.Abstractions.Query.AndGreater
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_AndGreater_System_String_System_Object_
+  name: AndGreater
+  nameWithType: Query.AndGreater
+  fullName: SQLiteM.Abstractions.Query.AndGreater
+- uid: SQLiteM.Abstractions.Query.AndGreaterOrEquals*
+  commentId: Overload:SQLiteM.Abstractions.Query.AndGreaterOrEquals
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_AndGreaterOrEquals_System_String_System_Object_
+  name: AndGreaterOrEquals
+  nameWithType: Query.AndGreaterOrEquals
+  fullName: SQLiteM.Abstractions.Query.AndGreaterOrEquals
+- uid: SQLiteM.Abstractions.Query.AndLess*
+  commentId: Overload:SQLiteM.Abstractions.Query.AndLess
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_AndLess_System_String_System_Object_
+  name: AndLess
+  nameWithType: Query.AndLess
+  fullName: SQLiteM.Abstractions.Query.AndLess
+- uid: SQLiteM.Abstractions.Query.AndLessOrEquals*
+  commentId: Overload:SQLiteM.Abstractions.Query.AndLessOrEquals
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_AndLessOrEquals_System_String_System_Object_
+  name: AndLessOrEquals
+  nameWithType: Query.AndLessOrEquals
+  fullName: SQLiteM.Abstractions.Query.AndLessOrEquals
+- uid: SQLiteM.Abstractions.Query.OrderBy*
+  commentId: Overload:SQLiteM.Abstractions.Query.OrderBy
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_OrderBy_System_String_System_Boolean_
+  name: OrderBy
+  nameWithType: Query.OrderBy
+  fullName: SQLiteM.Abstractions.Query.OrderBy
+- uid: SQLiteM.Abstractions.Query.WhereColumn
+  commentId: P:SQLiteM.Abstractions.Query.WhereColumn
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_WhereColumn
+  name: WhereColumn
+  nameWithType: Query.WhereColumn
+  fullName: SQLiteM.Abstractions.Query.WhereColumn
+- uid: SQLiteM.Abstractions.Query.WhereValue
+  commentId: P:SQLiteM.Abstractions.Query.WhereValue
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_WhereValue
+  name: WhereValue
+  nameWithType: Query.WhereValue
+  fullName: SQLiteM.Abstractions.Query.WhereValue
+- uid: SQLiteM.Abstractions.Query.NormalizeLegacy*
+  commentId: Overload:SQLiteM.Abstractions.Query.NormalizeLegacy
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_NormalizeLegacy
+  name: NormalizeLegacy
+  nameWithType: Query.NormalizeLegacy
+  fullName: SQLiteM.Abstractions.Query.NormalizeLegacy
+- uid: SQLiteM.Abstractions.Query.Conditions
+  commentId: P:SQLiteM.Abstractions.Query.Conditions
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_Conditions
+  name: Conditions
+  nameWithType: Query.Conditions
+  fullName: SQLiteM.Abstractions.Query.Conditions
+- uid: SQLiteM.Abstractions.Query.WhereColumn*
+  commentId: Overload:SQLiteM.Abstractions.Query.WhereColumn
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_WhereColumn
+  name: WhereColumn
+  nameWithType: Query.WhereColumn
+  fullName: SQLiteM.Abstractions.Query.WhereColumn
+- uid: SQLiteM.Abstractions.Query.WhereValue*
+  commentId: Overload:SQLiteM.Abstractions.Query.WhereValue
+  href: SQLiteM.Abstractions.Query.html#SQLiteM_Abstractions_Query_WhereValue
+  name: WhereValue
+  nameWithType: Query.WhereValue
+  fullName: SQLiteM.Abstractions.Query.WhereValue

@@ -1,0 +1,799 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.PragmaOptions
+  commentId: T:SQLiteM.Abstractions.PragmaOptions
+  id: PragmaOptions
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.PragmaOptions.AdditionalPragmas
+  - SQLiteM.Abstractions.PragmaOptions.BusyTimeout
+  - SQLiteM.Abstractions.PragmaOptions.CacheSize
+  - SQLiteM.Abstractions.PragmaOptions.Default
+  - SQLiteM.Abstractions.PragmaOptions.ForeignKeys
+  - SQLiteM.Abstractions.PragmaOptions.JournalMode
+  - SQLiteM.Abstractions.PragmaOptions.PageSize
+  - SQLiteM.Abstractions.PragmaOptions.Synchronous
+  langs:
+  - csharp
+  - vb
+  name: PragmaOptions
+  nameWithType: PragmaOptions
+  fullName: SQLiteM.Abstractions.PragmaOptions
+  type: Class
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: PragmaOptions
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 11
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Konfiguration für SQLite PRAGMA-Einstellungen, die pro Verbindung gesetzt werden sollen.
+  example: []
+  syntax:
+    content: public sealed class PragmaOptions
+    content.vb: Public NotInheritable Class PragmaOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SQLiteM.Abstractions.PragmaOptions.JournalMode
+  commentId: P:SQLiteM.Abstractions.PragmaOptions.JournalMode
+  id: JournalMode
+  parent: SQLiteM.Abstractions.PragmaOptions
+  langs:
+  - csharp
+  - vb
+  name: JournalMode
+  nameWithType: PragmaOptions.JournalMode
+  fullName: SQLiteM.Abstractions.PragmaOptions.JournalMode
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: JournalMode
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 16
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Zu verwendender Journal-Mode (z.B. WAL).
+  example: []
+  syntax:
+    content: public JournalMode? JournalMode { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{SQLiteM.Abstractions.JournalMode}
+    content.vb: Public Property JournalMode As JournalMode?
+  overload: SQLiteM.Abstractions.PragmaOptions.JournalMode*
+- uid: SQLiteM.Abstractions.PragmaOptions.Synchronous
+  commentId: P:SQLiteM.Abstractions.PragmaOptions.Synchronous
+  id: Synchronous
+  parent: SQLiteM.Abstractions.PragmaOptions
+  langs:
+  - csharp
+  - vb
+  name: Synchronous
+  nameWithType: PragmaOptions.Synchronous
+  fullName: SQLiteM.Abstractions.PragmaOptions.Synchronous
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Synchronous
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 21
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Synchronous-Level.
+  example: []
+  syntax:
+    content: public SynchronousMode? Synchronous { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{SQLiteM.Abstractions.SynchronousMode}
+    content.vb: Public Property Synchronous As SynchronousMode?
+  overload: SQLiteM.Abstractions.PragmaOptions.Synchronous*
+- uid: SQLiteM.Abstractions.PragmaOptions.ForeignKeys
+  commentId: P:SQLiteM.Abstractions.PragmaOptions.ForeignKeys
+  id: ForeignKeys
+  parent: SQLiteM.Abstractions.PragmaOptions
+  langs:
+  - csharp
+  - vb
+  name: ForeignKeys
+  nameWithType: PragmaOptions.ForeignKeys
+  fullName: SQLiteM.Abstractions.PragmaOptions.ForeignKeys
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: ForeignKeys
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 26
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Aktiviert/deaktiviert Foreign-Key-Unterstützung (<code>PRAGMA foreign_keys</code>).
+  example: []
+  syntax:
+    content: public bool? ForeignKeys { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property ForeignKeys As Boolean?
+  overload: SQLiteM.Abstractions.PragmaOptions.ForeignKeys*
+- uid: SQLiteM.Abstractions.PragmaOptions.BusyTimeout
+  commentId: P:SQLiteM.Abstractions.PragmaOptions.BusyTimeout
+  id: BusyTimeout
+  parent: SQLiteM.Abstractions.PragmaOptions
+  langs:
+  - csharp
+  - vb
+  name: BusyTimeout
+  nameWithType: PragmaOptions.BusyTimeout
+  fullName: SQLiteM.Abstractions.PragmaOptions.BusyTimeout
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BusyTimeout
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 31
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Busy-Timeout in Millisekunden (<code>PRAGMA busy_timeout</code>).
+  example: []
+  syntax:
+    content: public int? BusyTimeout { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property BusyTimeout As Integer?
+  overload: SQLiteM.Abstractions.PragmaOptions.BusyTimeout*
+- uid: SQLiteM.Abstractions.PragmaOptions.CacheSize
+  commentId: P:SQLiteM.Abstractions.PragmaOptions.CacheSize
+  id: CacheSize
+  parent: SQLiteM.Abstractions.PragmaOptions
+  langs:
+  - csharp
+  - vb
+  name: CacheSize
+  nameWithType: PragmaOptions.CacheSize
+  fullName: SQLiteM.Abstractions.PragmaOptions.CacheSize
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: CacheSize
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 36
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Cache-Größe (<code>PRAGMA cache_size</code>).
+  example: []
+  syntax:
+    content: public int? CacheSize { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property CacheSize As Integer?
+  overload: SQLiteM.Abstractions.PragmaOptions.CacheSize*
+- uid: SQLiteM.Abstractions.PragmaOptions.PageSize
+  commentId: P:SQLiteM.Abstractions.PragmaOptions.PageSize
+  id: PageSize
+  parent: SQLiteM.Abstractions.PragmaOptions
+  langs:
+  - csharp
+  - vb
+  name: PageSize
+  nameWithType: PragmaOptions.PageSize
+  fullName: SQLiteM.Abstractions.PragmaOptions.PageSize
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: PageSize
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 41
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Seitengröße (<code>PRAGMA page_size</code>).
+  example: []
+  syntax:
+    content: public int? PageSize { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property PageSize As Integer?
+  overload: SQLiteM.Abstractions.PragmaOptions.PageSize*
+- uid: SQLiteM.Abstractions.PragmaOptions.AdditionalPragmas
+  commentId: P:SQLiteM.Abstractions.PragmaOptions.AdditionalPragmas
+  id: AdditionalPragmas
+  parent: SQLiteM.Abstractions.PragmaOptions
+  langs:
+  - csharp
+  - vb
+  name: AdditionalPragmas
+  nameWithType: PragmaOptions.AdditionalPragmas
+  fullName: SQLiteM.Abstractions.PragmaOptions.AdditionalPragmas
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: AdditionalPragmas
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 46
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Zusätzliche rohe PRAGMA-Statements, die unverändert ausgeführt werden.
+  example: []
+  syntax:
+    content: public IReadOnlyList<string> AdditionalPragmas { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.String}
+    content.vb: Public Property AdditionalPragmas As IReadOnlyList(Of String)
+  overload: SQLiteM.Abstractions.PragmaOptions.AdditionalPragmas*
+- uid: SQLiteM.Abstractions.PragmaOptions.Default
+  commentId: P:SQLiteM.Abstractions.PragmaOptions.Default
+  id: Default
+  parent: SQLiteM.Abstractions.PragmaOptions
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: PragmaOptions.Default
+  fullName: SQLiteM.Abstractions.PragmaOptions.Default
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Default
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 53
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: >-
+    Standard-Settings, die dem bisherigen Verhalten entsprechen:
+
+    Foreign Keys = ON.
+  example: []
+  syntax:
+    content: public static PragmaOptions Default { get; }
+    parameters: []
+    return:
+      type: SQLiteM.Abstractions.PragmaOptions
+    content.vb: Public Shared ReadOnly Property [Default] As PragmaOptions
+  overload: SQLiteM.Abstractions.PragmaOptions.Default*
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SQLiteM.Abstractions.PragmaOptions.JournalMode*
+  commentId: Overload:SQLiteM.Abstractions.PragmaOptions.JournalMode
+  href: SQLiteM.Abstractions.PragmaOptions.html#SQLiteM_Abstractions_PragmaOptions_JournalMode
+  name: JournalMode
+  nameWithType: PragmaOptions.JournalMode
+  fullName: SQLiteM.Abstractions.PragmaOptions.JournalMode
+- uid: System.Nullable{SQLiteM.Abstractions.JournalMode}
+  commentId: T:System.Nullable{SQLiteM.Abstractions.JournalMode}
+  parent: System
+  definition: System.Nullable`1
+  href: SQLiteM.Abstractions.JournalMode.html
+  name: JournalMode?
+  nameWithType: JournalMode?
+  fullName: SQLiteM.Abstractions.JournalMode?
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.JournalMode
+    name: JournalMode
+    href: SQLiteM.Abstractions.JournalMode.html
+  - name: '?'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.JournalMode
+    name: JournalMode
+    href: SQLiteM.Abstractions.JournalMode.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Abstractions.PragmaOptions.Synchronous*
+  commentId: Overload:SQLiteM.Abstractions.PragmaOptions.Synchronous
+  href: SQLiteM.Abstractions.PragmaOptions.html#SQLiteM_Abstractions_PragmaOptions_Synchronous
+  name: Synchronous
+  nameWithType: PragmaOptions.Synchronous
+  fullName: SQLiteM.Abstractions.PragmaOptions.Synchronous
+- uid: System.Nullable{SQLiteM.Abstractions.SynchronousMode}
+  commentId: T:System.Nullable{SQLiteM.Abstractions.SynchronousMode}
+  parent: System
+  definition: System.Nullable`1
+  href: SQLiteM.Abstractions.SynchronousMode.html
+  name: SynchronousMode?
+  nameWithType: SynchronousMode?
+  fullName: SQLiteM.Abstractions.SynchronousMode?
+  spec.csharp:
+  - uid: SQLiteM.Abstractions.SynchronousMode
+    name: SynchronousMode
+    href: SQLiteM.Abstractions.SynchronousMode.html
+  - name: '?'
+  spec.vb:
+  - uid: SQLiteM.Abstractions.SynchronousMode
+    name: SynchronousMode
+    href: SQLiteM.Abstractions.SynchronousMode.html
+  - name: '?'
+- uid: SQLiteM.Abstractions.PragmaOptions.ForeignKeys*
+  commentId: Overload:SQLiteM.Abstractions.PragmaOptions.ForeignKeys
+  href: SQLiteM.Abstractions.PragmaOptions.html#SQLiteM_Abstractions_PragmaOptions_ForeignKeys
+  name: ForeignKeys
+  nameWithType: PragmaOptions.ForeignKeys
+  fullName: SQLiteM.Abstractions.PragmaOptions.ForeignKeys
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: SQLiteM.Abstractions.PragmaOptions.BusyTimeout*
+  commentId: Overload:SQLiteM.Abstractions.PragmaOptions.BusyTimeout
+  href: SQLiteM.Abstractions.PragmaOptions.html#SQLiteM_Abstractions_PragmaOptions_BusyTimeout
+  name: BusyTimeout
+  nameWithType: PragmaOptions.BusyTimeout
+  fullName: SQLiteM.Abstractions.PragmaOptions.BusyTimeout
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: SQLiteM.Abstractions.PragmaOptions.CacheSize*
+  commentId: Overload:SQLiteM.Abstractions.PragmaOptions.CacheSize
+  href: SQLiteM.Abstractions.PragmaOptions.html#SQLiteM_Abstractions_PragmaOptions_CacheSize
+  name: CacheSize
+  nameWithType: PragmaOptions.CacheSize
+  fullName: SQLiteM.Abstractions.PragmaOptions.CacheSize
+- uid: SQLiteM.Abstractions.PragmaOptions.PageSize*
+  commentId: Overload:SQLiteM.Abstractions.PragmaOptions.PageSize
+  href: SQLiteM.Abstractions.PragmaOptions.html#SQLiteM_Abstractions_PragmaOptions_PageSize
+  name: PageSize
+  nameWithType: PragmaOptions.PageSize
+  fullName: SQLiteM.Abstractions.PragmaOptions.PageSize
+- uid: SQLiteM.Abstractions.PragmaOptions.AdditionalPragmas*
+  commentId: Overload:SQLiteM.Abstractions.PragmaOptions.AdditionalPragmas
+  href: SQLiteM.Abstractions.PragmaOptions.html#SQLiteM_Abstractions_PragmaOptions_AdditionalPragmas
+  name: AdditionalPragmas
+  nameWithType: PragmaOptions.AdditionalPragmas
+  fullName: SQLiteM.Abstractions.PragmaOptions.AdditionalPragmas
+- uid: System.Collections.Generic.IReadOnlyList{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<string>
+  nameWithType: IReadOnlyList<string>
+  fullName: System.Collections.Generic.IReadOnlyList<string>
+  nameWithType.vb: IReadOnlyList(Of String)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of String)
+  name.vb: IReadOnlyList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SQLiteM.Abstractions.PragmaOptions.Default*
+  commentId: Overload:SQLiteM.Abstractions.PragmaOptions.Default
+  href: SQLiteM.Abstractions.PragmaOptions.html#SQLiteM_Abstractions_PragmaOptions_Default
+  name: Default
+  nameWithType: PragmaOptions.Default
+  fullName: SQLiteM.Abstractions.PragmaOptions.Default
+- uid: SQLiteM.Abstractions.PragmaOptions
+  commentId: T:SQLiteM.Abstractions.PragmaOptions
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.PragmaOptions.html
+  name: PragmaOptions
+  nameWithType: PragmaOptions
+  fullName: SQLiteM.Abstractions.PragmaOptions

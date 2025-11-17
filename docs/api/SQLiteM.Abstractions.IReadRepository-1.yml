@@ -1,0 +1,401 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.IReadRepository`1
+  commentId: T:SQLiteM.Abstractions.IReadRepository`1
+  id: IReadRepository`1
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.IReadRepository`1.FindAllAsync(System.Threading.CancellationToken)
+  - SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  - SQLiteM.Abstractions.IReadRepository`1.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IReadRepository<T>
+  nameWithType: IReadRepository<T>
+  fullName: SQLiteM.Abstractions.IReadRepository<T>
+  type: Interface
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: IReadRepository
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 93
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Lesezugriff auf Entitäten.
+  example: []
+  syntax:
+    content: 'public interface IReadRepository<T> where T : class, new()'
+    typeParameters:
+    - id: T
+      description: Entitätstyp.
+    content.vb: Public Interface IReadRepository(Of T As {Class, New})
+  nameWithType.vb: IReadRepository(Of T)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T)
+  name.vb: IReadRepository(Of T)
+- uid: SQLiteM.Abstractions.IReadRepository`1.FindAllAsync(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IReadRepository`1.FindAllAsync(System.Threading.CancellationToken)
+  id: FindAllAsync(System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IReadRepository`1
+  langs:
+  - csharp
+  - vb
+  name: FindAllAsync(CancellationToken)
+  nameWithType: IReadRepository<T>.FindAllAsync(CancellationToken)
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.FindAllAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: FindAllAsync
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 100
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Lädt alle Entitäten.
+  example: []
+  syntax:
+    content: Task<IReadOnlyList<T>> FindAllAsync(CancellationToken ct = default)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Abbruchtoken.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{{T}}}
+      description: Schreibgeschützte Liste aller Entitäten.
+    content.vb: Function FindAllAsync(ct As CancellationToken = Nothing) As Task(Of IReadOnlyList(Of T))
+  overload: SQLiteM.Abstractions.IReadRepository`1.FindAllAsync*
+  nameWithType.vb: IReadRepository(Of T).FindAllAsync(CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).FindAllAsync(System.Threading.CancellationToken)
+- uid: SQLiteM.Abstractions.IReadRepository`1.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IReadRepository`1.QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  id: QueryAsync(SQLiteM.Abstractions.Query,System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IReadRepository`1
+  langs:
+  - csharp
+  - vb
+  name: QueryAsync(Query, CancellationToken)
+  nameWithType: IReadRepository<T>.QueryAsync(Query, CancellationToken)
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.QueryAsync(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: QueryAsync
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 108
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Führt eine einfache Abfrage mit WHERE (=) und ORDER BY aus.
+  example: []
+  syntax:
+    content: Task<IReadOnlyList<T>> QueryAsync(Query query, CancellationToken ct = default)
+    parameters:
+    - id: query
+      type: SQLiteM.Abstractions.Query
+      description: Query-Objekt mit Filter/Sortierung (Spaltennamen verwenden).
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Abbruchtoken.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{{T}}}
+      description: Schreibgeschützte Liste der gefundenen Entitäten.
+    content.vb: Function QueryAsync(query As Query, ct As CancellationToken = Nothing) As Task(Of IReadOnlyList(Of T))
+  overload: SQLiteM.Abstractions.IReadRepository`1.QueryAsync*
+  nameWithType.vb: IReadRepository(Of T).QueryAsync(Query, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).QueryAsync(SQLiteM.Abstractions.Query, System.Threading.CancellationToken)
+- uid: SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  id: FindByIdAsync(System.Object,System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IReadRepository`1
+  langs:
+  - csharp
+  - vb
+  name: FindByIdAsync(object, CancellationToken)
+  nameWithType: IReadRepository<T>.FindByIdAsync(object, CancellationToken)
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.FindByIdAsync(object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: FindByIdAsync
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 116
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Findet eine Entität per Primärschlüssel.
+  example: []
+  syntax:
+    content: Task<T?> FindByIdAsync(object id, CancellationToken ct = default)
+    parameters:
+    - id: id
+      type: System.Object
+      description: Primärschlüsselwert.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Abbruchtoken.
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+      description: Gefundene Entität oder <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+    content.vb: Function FindByIdAsync(id As Object, ct As CancellationToken = Nothing) As Task(Of T)
+  overload: SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync*
+  nameWithType.vb: IReadRepository(Of T).FindByIdAsync(Object, CancellationToken)
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).FindByIdAsync(Object, System.Threading.CancellationToken)
+  name.vb: FindByIdAsync(Object, CancellationToken)
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.IReadRepository`1.FindAllAsync*
+  commentId: Overload:SQLiteM.Abstractions.IReadRepository`1.FindAllAsync
+  href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindAllAsync_System_Threading_CancellationToken_
+  name: FindAllAsync
+  nameWithType: IReadRepository<T>.FindAllAsync
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.FindAllAsync
+  nameWithType.vb: IReadRepository(Of T).FindAllAsync
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).FindAllAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{{T}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IReadOnlyList{`0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IReadOnlyList<T>>
+  nameWithType: Task<IReadOnlyList<T>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<T>>
+  nameWithType.vb: Task(Of IReadOnlyList(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IReadOnlyList(Of T))
+  name.vb: Task(Of IReadOnlyList(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: SQLiteM.Abstractions.IReadRepository`1.QueryAsync*
+  commentId: Overload:SQLiteM.Abstractions.IReadRepository`1.QueryAsync
+  href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_QueryAsync_SQLiteM_Abstractions_Query_System_Threading_CancellationToken_
+  name: QueryAsync
+  nameWithType: IReadRepository<T>.QueryAsync
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.QueryAsync
+  nameWithType.vb: IReadRepository(Of T).QueryAsync
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).QueryAsync
+- uid: SQLiteM.Abstractions.Query
+  commentId: T:SQLiteM.Abstractions.Query
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.Query.html
+  name: Query
+  nameWithType: Query
+  fullName: SQLiteM.Abstractions.Query
+- uid: SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync*
+  commentId: Overload:SQLiteM.Abstractions.IReadRepository`1.FindByIdAsync
+  href: SQLiteM.Abstractions.IReadRepository-1.html#SQLiteM_Abstractions_IReadRepository_1_FindByIdAsync_System_Object_System_Threading_CancellationToken_
+  name: FindByIdAsync
+  nameWithType: IReadRepository<T>.FindByIdAsync
+  fullName: SQLiteM.Abstractions.IReadRepository<T>.FindByIdAsync
+  nameWithType.vb: IReadRepository(Of T).FindByIdAsync
+  fullName.vb: SQLiteM.Abstractions.IReadRepository(Of T).FindByIdAsync
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{`0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

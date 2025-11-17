@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.IConnectionFactory
+  commentId: T:SQLiteM.Abstractions.IConnectionFactory
+  id: IConnectionFactory
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.IConnectionFactory.Create
+  langs:
+  - csharp
+  - vb
+  name: IConnectionFactory
+  nameWithType: IConnectionFactory
+  fullName: SQLiteM.Abstractions.IConnectionFactory
+  type: Interface
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: IConnectionFactory
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 12
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erzeugt neue Datenbankverbindungen.
+  remarks: >-
+    Die zurückgegebene Verbindung ist initial <code>geschlossen</code>.
+
+    Der Aufrufer ist für das Öffnen (<xref href="System.Data.IDbConnection.Open" data-throw-if-not-resolved="false"></xref>) und Schließen
+
+    (<xref href="System.Data.IDbConnection.Close" data-throw-if-not-resolved="false"></xref>) verantwortlich.
+  example: []
+  syntax:
+    content: public interface IConnectionFactory
+    content.vb: Public Interface IConnectionFactory
+- uid: SQLiteM.Abstractions.IConnectionFactory.Create
+  commentId: M:SQLiteM.Abstractions.IConnectionFactory.Create
+  id: Create
+  parent: SQLiteM.Abstractions.IConnectionFactory
+  langs:
+  - csharp
+  - vb
+  name: Create()
+  nameWithType: IConnectionFactory.Create()
+  fullName: SQLiteM.Abstractions.IConnectionFactory.Create()
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Create
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 18
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erstellt eine neue, noch nicht geöffnete <xref href="System.Data.IDbConnection" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: IDbConnection Create()
+    return:
+      type: System.Data.IDbConnection
+      description: Eine neue, geschlossene <xref href="System.Data.IDbConnection" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function Create() As IDbConnection
+  overload: SQLiteM.Abstractions.IConnectionFactory.Create*
+references:
+- uid: System.Data.IDbConnection.Open
+  commentId: M:System.Data.IDbConnection.Open
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.open
+  name: Open()
+  nameWithType: IDbConnection.Open()
+  fullName: System.Data.IDbConnection.Open()
+  spec.csharp:
+  - uid: System.Data.IDbConnection.Open
+    name: Open
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.open
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Data.IDbConnection.Open
+    name: Open
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.open
+  - name: (
+  - name: )
+- uid: System.Data.IDbConnection.Close
+  commentId: M:System.Data.IDbConnection.Close
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.close
+  name: Close()
+  nameWithType: IDbConnection.Close()
+  fullName: System.Data.IDbConnection.Close()
+  spec.csharp:
+  - uid: System.Data.IDbConnection.Close
+    name: Close
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.close
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Data.IDbConnection.Close
+    name: Close
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection.close
+  - name: (
+  - name: )
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: System.Data.IDbConnection
+  commentId: T:System.Data.IDbConnection
+  parent: System.Data
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection
+  name: IDbConnection
+  nameWithType: IDbConnection
+  fullName: System.Data.IDbConnection
+- uid: SQLiteM.Abstractions.IConnectionFactory.Create*
+  commentId: Overload:SQLiteM.Abstractions.IConnectionFactory.Create
+  href: SQLiteM.Abstractions.IConnectionFactory.html#SQLiteM_Abstractions_IConnectionFactory_Create
+  name: Create
+  nameWithType: IConnectionFactory.Create
+  fullName: SQLiteM.Abstractions.IConnectionFactory.Create
+- uid: System.Data
+  commentId: N:System.Data
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Data
+  nameWithType: System.Data
+  fullName: System.Data
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data

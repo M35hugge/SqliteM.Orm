@@ -178,7 +178,6 @@ DocProject/Help/html
 
 # DocFX
 _site/
-api/
 
 # Click-Once directory
 publish/

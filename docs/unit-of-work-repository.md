@@ -8,7 +8,7 @@ SQLiteM stellt ein schlankes `UnitOfWork`- und `Repository<T>`-Pattern bereit:
 
 ## Lebenszyklus eines UnitOfWork
 
-Ein `UnitOfWork` repräsentiert einen **Transaktions-Scope**:
+Ein `UnitOfWork` repräsentiert den **Scope einer Transaktion**:
 
 - `CreateAsync()` öffnet die Verbindung, setzt `PRAGMA foreign_keys = ON` und startet eine Transaktion.
 - `CommitAsync()` bestätigt alle Änderungen.

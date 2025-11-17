@@ -1,0 +1,235 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.IUnitOfWorkFactory
+  commentId: T:SQLiteM.Abstractions.IUnitOfWorkFactory
+  id: IUnitOfWorkFactory
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.IUnitOfWorkFactory.CreateAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IUnitOfWorkFactory
+  nameWithType: IUnitOfWorkFactory
+  fullName: SQLiteM.Abstractions.IUnitOfWorkFactory
+  type: Interface
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: IUnitOfWorkFactory
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 227
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Fabrik zum Erstellen neuer Unit-of-Work-Sessions (Transaktionen).
+  example: []
+  syntax:
+    content: public interface IUnitOfWorkFactory
+    content.vb: Public Interface IUnitOfWorkFactory
+- uid: SQLiteM.Abstractions.IUnitOfWorkFactory.CreateAsync(System.Threading.CancellationToken)
+  commentId: M:SQLiteM.Abstractions.IUnitOfWorkFactory.CreateAsync(System.Threading.CancellationToken)
+  id: CreateAsync(System.Threading.CancellationToken)
+  parent: SQLiteM.Abstractions.IUnitOfWorkFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(CancellationToken)
+  nameWithType: IUnitOfWorkFactory.CreateAsync(CancellationToken)
+  fullName: SQLiteM.Abstractions.IUnitOfWorkFactory.CreateAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: CreateAsync
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 234
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erstellt einen neuen Unit-of-Work-Scope mit geöffneter Verbindung und gestarteter Transaktion.
+  example: []
+  syntax:
+    content: Task<IUnitOfWork> CreateAsync(CancellationToken ct = default)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Abbruchtoken.
+    return:
+      type: System.Threading.Tasks.Task{SQLiteM.Abstractions.IUnitOfWork}
+      description: Die erstellte <xref href="SQLiteM.Abstractions.IUnitOfWork" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function CreateAsync(ct As CancellationToken = Nothing) As Task(Of IUnitOfWork)
+  overload: SQLiteM.Abstractions.IUnitOfWorkFactory.CreateAsync*
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.IUnitOfWork
+  commentId: T:SQLiteM.Abstractions.IUnitOfWork
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IUnitOfWork.html
+  name: IUnitOfWork
+  nameWithType: IUnitOfWork
+  fullName: SQLiteM.Abstractions.IUnitOfWork
+- uid: SQLiteM.Abstractions.IUnitOfWorkFactory.CreateAsync*
+  commentId: Overload:SQLiteM.Abstractions.IUnitOfWorkFactory.CreateAsync
+  href: SQLiteM.Abstractions.IUnitOfWorkFactory.html#SQLiteM_Abstractions_IUnitOfWorkFactory_CreateAsync_System_Threading_CancellationToken_
+  name: CreateAsync
+  nameWithType: IUnitOfWorkFactory.CreateAsync
+  fullName: SQLiteM.Abstractions.IUnitOfWorkFactory.CreateAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{SQLiteM.Abstractions.IUnitOfWork}
+  commentId: T:System.Threading.Tasks.Task{SQLiteM.Abstractions.IUnitOfWork}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IUnitOfWork>
+  nameWithType: Task<IUnitOfWork>
+  fullName: System.Threading.Tasks.Task<SQLiteM.Abstractions.IUnitOfWork>
+  nameWithType.vb: Task(Of IUnitOfWork)
+  fullName.vb: System.Threading.Tasks.Task(Of SQLiteM.Abstractions.IUnitOfWork)
+  name.vb: Task(Of IUnitOfWork)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: SQLiteM.Abstractions.IUnitOfWork
+    name: IUnitOfWork
+    href: SQLiteM.Abstractions.IUnitOfWork.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.IUnitOfWork
+    name: IUnitOfWork
+    href: SQLiteM.Abstractions.IUnitOfWork.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

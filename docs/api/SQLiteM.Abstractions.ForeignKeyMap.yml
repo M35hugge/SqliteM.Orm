@@ -1,0 +1,611 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.ForeignKeyMap
+  commentId: T:SQLiteM.Abstractions.ForeignKeyMap
+  id: ForeignKeyMap
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.ForeignKeyMap.#ctor(System.String,System.Type,System.String,System.String,SQLiteM.Abstractions.OnDeleteAction)
+  - SQLiteM.Abstractions.ForeignKeyMap.OnDelete
+  - SQLiteM.Abstractions.ForeignKeyMap.PrincipalColumn
+  - SQLiteM.Abstractions.ForeignKeyMap.PrincipalEntity
+  - SQLiteM.Abstractions.ForeignKeyMap.PrincipalTable
+  - SQLiteM.Abstractions.ForeignKeyMap.ThisColumn
+  langs:
+  - csharp
+  - vb
+  name: ForeignKeyMap
+  nameWithType: ForeignKeyMap
+  fullName: SQLiteM.Abstractions.ForeignKeyMap
+  type: Class
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: ForeignKeyMap
+    path: SQLiteM.Abstractions/Records.cs
+    startLine: 47
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Beschreibt eine Fremdschlüsselbeziehung.
+  example: []
+  syntax:
+    content: 'public sealed record ForeignKeyMap : IEquatable<ForeignKeyMap>'
+    content.vb: Public NotInheritable Class ForeignKeyMap Implements IEquatable(Of ForeignKeyMap)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{SQLiteM.Abstractions.ForeignKeyMap}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SQLiteM.Abstractions.ForeignKeyMap.#ctor(System.String,System.Type,System.String,System.String,SQLiteM.Abstractions.OnDeleteAction)
+  commentId: M:SQLiteM.Abstractions.ForeignKeyMap.#ctor(System.String,System.Type,System.String,System.String,SQLiteM.Abstractions.OnDeleteAction)
+  id: '#ctor(System.String,System.Type,System.String,System.String,SQLiteM.Abstractions.OnDeleteAction)'
+  parent: SQLiteM.Abstractions.ForeignKeyMap
+  langs:
+  - csharp
+  - vb
+  name: ForeignKeyMap(string, Type, string, string, OnDeleteAction)
+  nameWithType: ForeignKeyMap.ForeignKeyMap(string, Type, string, string, OnDeleteAction)
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.ForeignKeyMap(string, System.Type, string, string, SQLiteM.Abstractions.OnDeleteAction)
+  type: Constructor
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: .ctor
+    path: SQLiteM.Abstractions/Records.cs
+    startLine: 47
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Beschreibt eine Fremdschlüsselbeziehung.
+  example: []
+  syntax:
+    content: public ForeignKeyMap(string ThisColumn, Type PrincipalEntity, string PrincipalTable, string PrincipalColumn, OnDeleteAction OnDelete)
+    parameters:
+    - id: ThisColumn
+      type: System.String
+      description: Lokale Spalte (FK) in der aktuellen Tabelle.
+    - id: PrincipalEntity
+      type: System.Type
+      description: Typ der referenzierten Entität.
+    - id: PrincipalTable
+      type: System.String
+      description: Tabellenname der referenzierten Entität.
+    - id: PrincipalColumn
+      type: System.String
+      description: Spaltenname des referenzierten Primärschlüssels bzw. einer UNIQUE-Spalte.
+    - id: OnDelete
+      type: SQLiteM.Abstractions.OnDeleteAction
+      description: Aktion bei Löschung der referenzierten Zeile.
+    content.vb: Public Sub New(ThisColumn As String, PrincipalEntity As Type, PrincipalTable As String, PrincipalColumn As String, OnDelete As OnDeleteAction)
+  overload: SQLiteM.Abstractions.ForeignKeyMap.#ctor*
+  nameWithType.vb: ForeignKeyMap.New(String, Type, String, String, OnDeleteAction)
+  fullName.vb: SQLiteM.Abstractions.ForeignKeyMap.New(String, System.Type, String, String, SQLiteM.Abstractions.OnDeleteAction)
+  name.vb: New(String, Type, String, String, OnDeleteAction)
+- uid: SQLiteM.Abstractions.ForeignKeyMap.ThisColumn
+  commentId: P:SQLiteM.Abstractions.ForeignKeyMap.ThisColumn
+  id: ThisColumn
+  parent: SQLiteM.Abstractions.ForeignKeyMap
+  langs:
+  - csharp
+  - vb
+  name: ThisColumn
+  nameWithType: ForeignKeyMap.ThisColumn
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.ThisColumn
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: ThisColumn
+    path: SQLiteM.Abstractions/Records.cs
+    startLine: 48
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Lokale Spalte (FK) in der aktuellen Tabelle.
+  example: []
+  syntax:
+    content: public string ThisColumn { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ThisColumn As String
+  overload: SQLiteM.Abstractions.ForeignKeyMap.ThisColumn*
+- uid: SQLiteM.Abstractions.ForeignKeyMap.PrincipalEntity
+  commentId: P:SQLiteM.Abstractions.ForeignKeyMap.PrincipalEntity
+  id: PrincipalEntity
+  parent: SQLiteM.Abstractions.ForeignKeyMap
+  langs:
+  - csharp
+  - vb
+  name: PrincipalEntity
+  nameWithType: ForeignKeyMap.PrincipalEntity
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.PrincipalEntity
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: PrincipalEntity
+    path: SQLiteM.Abstractions/Records.cs
+    startLine: 49
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Typ der referenzierten Entität.
+  example: []
+  syntax:
+    content: public Type PrincipalEntity { get; init; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public Property PrincipalEntity As Type
+  overload: SQLiteM.Abstractions.ForeignKeyMap.PrincipalEntity*
+- uid: SQLiteM.Abstractions.ForeignKeyMap.PrincipalTable
+  commentId: P:SQLiteM.Abstractions.ForeignKeyMap.PrincipalTable
+  id: PrincipalTable
+  parent: SQLiteM.Abstractions.ForeignKeyMap
+  langs:
+  - csharp
+  - vb
+  name: PrincipalTable
+  nameWithType: ForeignKeyMap.PrincipalTable
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.PrincipalTable
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: PrincipalTable
+    path: SQLiteM.Abstractions/Records.cs
+    startLine: 50
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Tabellenname der referenzierten Entität.
+  example: []
+  syntax:
+    content: public string PrincipalTable { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PrincipalTable As String
+  overload: SQLiteM.Abstractions.ForeignKeyMap.PrincipalTable*
+- uid: SQLiteM.Abstractions.ForeignKeyMap.PrincipalColumn
+  commentId: P:SQLiteM.Abstractions.ForeignKeyMap.PrincipalColumn
+  id: PrincipalColumn
+  parent: SQLiteM.Abstractions.ForeignKeyMap
+  langs:
+  - csharp
+  - vb
+  name: PrincipalColumn
+  nameWithType: ForeignKeyMap.PrincipalColumn
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.PrincipalColumn
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: PrincipalColumn
+    path: SQLiteM.Abstractions/Records.cs
+    startLine: 51
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Spaltenname des referenzierten Primärschlüssels bzw. einer UNIQUE-Spalte.
+  example: []
+  syntax:
+    content: public string PrincipalColumn { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PrincipalColumn As String
+  overload: SQLiteM.Abstractions.ForeignKeyMap.PrincipalColumn*
+- uid: SQLiteM.Abstractions.ForeignKeyMap.OnDelete
+  commentId: P:SQLiteM.Abstractions.ForeignKeyMap.OnDelete
+  id: OnDelete
+  parent: SQLiteM.Abstractions.ForeignKeyMap
+  langs:
+  - csharp
+  - vb
+  name: OnDelete
+  nameWithType: ForeignKeyMap.OnDelete
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.OnDelete
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Records.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: OnDelete
+    path: SQLiteM.Abstractions/Records.cs
+    startLine: 52
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Aktion bei Löschung der referenzierten Zeile.
+  example: []
+  syntax:
+    content: public OnDeleteAction OnDelete { get; init; }
+    parameters: []
+    return:
+      type: SQLiteM.Abstractions.OnDeleteAction
+    content.vb: Public Property OnDelete As OnDeleteAction
+  overload: SQLiteM.Abstractions.ForeignKeyMap.OnDelete*
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{SQLiteM.Abstractions.ForeignKeyMap}
+  commentId: T:System.IEquatable{SQLiteM.Abstractions.ForeignKeyMap}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ForeignKeyMap>
+  nameWithType: IEquatable<ForeignKeyMap>
+  fullName: System.IEquatable<SQLiteM.Abstractions.ForeignKeyMap>
+  nameWithType.vb: IEquatable(Of ForeignKeyMap)
+  fullName.vb: System.IEquatable(Of SQLiteM.Abstractions.ForeignKeyMap)
+  name.vb: IEquatable(Of ForeignKeyMap)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: SQLiteM.Abstractions.ForeignKeyMap
+    name: ForeignKeyMap
+    href: SQLiteM.Abstractions.ForeignKeyMap.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.ForeignKeyMap
+    name: ForeignKeyMap
+    href: SQLiteM.Abstractions.ForeignKeyMap.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SQLiteM.Abstractions.ForeignKeyMap.#ctor*
+  commentId: Overload:SQLiteM.Abstractions.ForeignKeyMap.#ctor
+  href: SQLiteM.Abstractions.ForeignKeyMap.html#SQLiteM_Abstractions_ForeignKeyMap__ctor_System_String_System_Type_System_String_System_String_SQLiteM_Abstractions_OnDeleteAction_
+  name: ForeignKeyMap
+  nameWithType: ForeignKeyMap.ForeignKeyMap
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.ForeignKeyMap
+  nameWithType.vb: ForeignKeyMap.New
+  fullName.vb: SQLiteM.Abstractions.ForeignKeyMap.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: SQLiteM.Abstractions.OnDeleteAction
+  commentId: T:SQLiteM.Abstractions.OnDeleteAction
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.OnDeleteAction.html
+  name: OnDeleteAction
+  nameWithType: OnDeleteAction
+  fullName: SQLiteM.Abstractions.OnDeleteAction
+- uid: SQLiteM.Abstractions.ForeignKeyMap.ThisColumn*
+  commentId: Overload:SQLiteM.Abstractions.ForeignKeyMap.ThisColumn
+  href: SQLiteM.Abstractions.ForeignKeyMap.html#SQLiteM_Abstractions_ForeignKeyMap_ThisColumn
+  name: ThisColumn
+  nameWithType: ForeignKeyMap.ThisColumn
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.ThisColumn
+- uid: SQLiteM.Abstractions.ForeignKeyMap.PrincipalEntity*
+  commentId: Overload:SQLiteM.Abstractions.ForeignKeyMap.PrincipalEntity
+  href: SQLiteM.Abstractions.ForeignKeyMap.html#SQLiteM_Abstractions_ForeignKeyMap_PrincipalEntity
+  name: PrincipalEntity
+  nameWithType: ForeignKeyMap.PrincipalEntity
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.PrincipalEntity
+- uid: SQLiteM.Abstractions.ForeignKeyMap.PrincipalTable*
+  commentId: Overload:SQLiteM.Abstractions.ForeignKeyMap.PrincipalTable
+  href: SQLiteM.Abstractions.ForeignKeyMap.html#SQLiteM_Abstractions_ForeignKeyMap_PrincipalTable
+  name: PrincipalTable
+  nameWithType: ForeignKeyMap.PrincipalTable
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.PrincipalTable
+- uid: SQLiteM.Abstractions.ForeignKeyMap.PrincipalColumn*
+  commentId: Overload:SQLiteM.Abstractions.ForeignKeyMap.PrincipalColumn
+  href: SQLiteM.Abstractions.ForeignKeyMap.html#SQLiteM_Abstractions_ForeignKeyMap_PrincipalColumn
+  name: PrincipalColumn
+  nameWithType: ForeignKeyMap.PrincipalColumn
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.PrincipalColumn
+- uid: SQLiteM.Abstractions.ForeignKeyMap.OnDelete*
+  commentId: Overload:SQLiteM.Abstractions.ForeignKeyMap.OnDelete
+  href: SQLiteM.Abstractions.ForeignKeyMap.html#SQLiteM_Abstractions_ForeignKeyMap_OnDelete
+  name: OnDelete
+  nameWithType: ForeignKeyMap.OnDelete
+  fullName: SQLiteM.Abstractions.ForeignKeyMap.OnDelete

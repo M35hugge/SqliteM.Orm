@@ -1,0 +1,471 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.IEntityMapper
+  commentId: T:SQLiteM.Abstractions.IEntityMapper
+  id: IEntityMapper
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.IEntityMapper.GetForeignKeys(System.Type)
+  - SQLiteM.Abstractions.IEntityMapper.GetIndexes(System.Type)
+  - SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey(System.Type)
+  - SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps(System.Type)
+  - SQLiteM.Abstractions.IEntityMapper.GetTableName(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: IEntityMapper
+  nameWithType: IEntityMapper
+  fullName: SQLiteM.Abstractions.IEntityMapper
+  type: Interface
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: IEntityMapper
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 50
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Liefert Mapping-Informationen für Entitätstypen.
+  remarks: >-
+    Die Zuordnung basiert typischerweise auf Attributen (z. B. <code>[Table]</code>, <code>[Column]</code>, …)
+
+    und optional auf Konventionen (z. B. Namensübersetzung per <xref href="SQLiteM.Abstractions.INameTranslator" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public interface IEntityMapper
+    content.vb: Public Interface IEntityMapper
+- uid: SQLiteM.Abstractions.IEntityMapper.GetTableName(System.Type)
+  commentId: M:SQLiteM.Abstractions.IEntityMapper.GetTableName(System.Type)
+  id: GetTableName(System.Type)
+  parent: SQLiteM.Abstractions.IEntityMapper
+  langs:
+  - csharp
+  - vb
+  name: GetTableName(Type)
+  nameWithType: IEntityMapper.GetTableName(Type)
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetTableName(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: GetTableName
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 57
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Bestimmt den Tabellennamen für einen Entitätstyp.
+  example: []
+  syntax:
+    content: string GetTableName(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Der Entitätstyp.
+    return:
+      type: System.String
+      description: Der Tabellenname in der Datenbank.
+    content.vb: Function GetTableName(entityType As Type) As String
+  overload: SQLiteM.Abstractions.IEntityMapper.GetTableName*
+- uid: SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps(System.Type)
+  commentId: M:SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps(System.Type)
+  id: GetPropertyMaps(System.Type)
+  parent: SQLiteM.Abstractions.IEntityMapper
+  langs:
+  - csharp
+  - vb
+  name: GetPropertyMaps(Type)
+  nameWithType: IEntityMapper.GetPropertyMaps(Type)
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: GetPropertyMaps
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 64
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Gibt die Spaltenzuordnungen (Property ↔ Spalte) für den Entitätstyp zurück.
+  example: []
+  syntax:
+    content: IReadOnlyList<PropertyMap> GetPropertyMaps(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Der Entitätstyp.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
+      description: Schreibgeschützte Liste der Spaltenzuordnungen.
+    content.vb: Function GetPropertyMaps(entityType As Type) As IReadOnlyList(Of PropertyMap)
+  overload: SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps*
+- uid: SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey(System.Type)
+  commentId: M:SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey(System.Type)
+  id: GetPrimaryKey(System.Type)
+  parent: SQLiteM.Abstractions.IEntityMapper
+  langs:
+  - csharp
+  - vb
+  name: GetPrimaryKey(Type)
+  nameWithType: IEntityMapper.GetPrimaryKey(Type)
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: GetPrimaryKey
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 71
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Liefert die Primärschlüssel-Property, falls vorhanden.
+  example: []
+  syntax:
+    content: PropertyMap? GetPrimaryKey(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Der Entitätstyp.
+    return:
+      type: SQLiteM.Abstractions.PropertyMap
+      description: Primärschlüssel-Mapping oder <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+    content.vb: Function GetPrimaryKey(entityType As Type) As PropertyMap
+  overload: SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey*
+- uid: SQLiteM.Abstractions.IEntityMapper.GetForeignKeys(System.Type)
+  commentId: M:SQLiteM.Abstractions.IEntityMapper.GetForeignKeys(System.Type)
+  id: GetForeignKeys(System.Type)
+  parent: SQLiteM.Abstractions.IEntityMapper
+  langs:
+  - csharp
+  - vb
+  name: GetForeignKeys(Type)
+  nameWithType: IEntityMapper.GetForeignKeys(Type)
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetForeignKeys(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: GetForeignKeys
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 78
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Liefert definierte Fremdschlüssel des Entitätstyps.
+  example: []
+  syntax:
+    content: IReadOnlyList<ForeignKeyMap> GetForeignKeys(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Der Entitätstyp.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.ForeignKeyMap}
+      description: Schreibgeschützte Liste der Fremdschlüsselzuordnungen.
+    content.vb: Function GetForeignKeys(entityType As Type) As IReadOnlyList(Of ForeignKeyMap)
+  overload: SQLiteM.Abstractions.IEntityMapper.GetForeignKeys*
+- uid: SQLiteM.Abstractions.IEntityMapper.GetIndexes(System.Type)
+  commentId: M:SQLiteM.Abstractions.IEntityMapper.GetIndexes(System.Type)
+  id: GetIndexes(System.Type)
+  parent: SQLiteM.Abstractions.IEntityMapper
+  langs:
+  - csharp
+  - vb
+  name: GetIndexes(Type)
+  nameWithType: IEntityMapper.GetIndexes(Type)
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetIndexes(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: GetIndexes
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 86
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Liefert alle Indexdefinitionen (Einzel- und zusammengesetzte Indizes) zur Entität.
+  example: []
+  syntax:
+    content: IReadOnlyList<IndexMap> GetIndexes(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Der Entitätstyp.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.IndexMap}
+      description: Schreibgeschützte Liste der Indexzuordnungen.
+    content.vb: Function GetIndexes(entityType As Type) As IReadOnlyList(Of IndexMap)
+  overload: SQLiteM.Abstractions.IEntityMapper.GetIndexes*
+references:
+- uid: SQLiteM.Abstractions.INameTranslator
+  commentId: T:SQLiteM.Abstractions.INameTranslator
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.INameTranslator.html
+  name: INameTranslator
+  nameWithType: INameTranslator
+  fullName: SQLiteM.Abstractions.INameTranslator
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.IEntityMapper.GetTableName*
+  commentId: Overload:SQLiteM.Abstractions.IEntityMapper.GetTableName
+  href: SQLiteM.Abstractions.IEntityMapper.html#SQLiteM_Abstractions_IEntityMapper_GetTableName_System_Type_
+  name: GetTableName
+  nameWithType: IEntityMapper.GetTableName
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetTableName
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps*
+  commentId: Overload:SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps
+  href: SQLiteM.Abstractions.IEntityMapper.html#SQLiteM_Abstractions_IEntityMapper_GetPropertyMaps_System_Type_
+  name: GetPropertyMaps
+  nameWithType: IEntityMapper.GetPropertyMaps
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetPropertyMaps
+- uid: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
+  commentId: T:System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<PropertyMap>
+  nameWithType: IReadOnlyList<PropertyMap>
+  fullName: System.Collections.Generic.IReadOnlyList<SQLiteM.Abstractions.PropertyMap>
+  nameWithType.vb: IReadOnlyList(Of PropertyMap)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of SQLiteM.Abstractions.PropertyMap)
+  name.vb: IReadOnlyList(Of PropertyMap)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: SQLiteM.Abstractions.PropertyMap
+    name: PropertyMap
+    href: SQLiteM.Abstractions.PropertyMap.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.PropertyMap
+    name: PropertyMap
+    href: SQLiteM.Abstractions.PropertyMap.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey*
+  commentId: Overload:SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey
+  href: SQLiteM.Abstractions.IEntityMapper.html#SQLiteM_Abstractions_IEntityMapper_GetPrimaryKey_System_Type_
+  name: GetPrimaryKey
+  nameWithType: IEntityMapper.GetPrimaryKey
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetPrimaryKey
+- uid: SQLiteM.Abstractions.PropertyMap
+  commentId: T:SQLiteM.Abstractions.PropertyMap
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.PropertyMap.html
+  name: PropertyMap
+  nameWithType: PropertyMap
+  fullName: SQLiteM.Abstractions.PropertyMap
+- uid: SQLiteM.Abstractions.IEntityMapper.GetForeignKeys*
+  commentId: Overload:SQLiteM.Abstractions.IEntityMapper.GetForeignKeys
+  href: SQLiteM.Abstractions.IEntityMapper.html#SQLiteM_Abstractions_IEntityMapper_GetForeignKeys_System_Type_
+  name: GetForeignKeys
+  nameWithType: IEntityMapper.GetForeignKeys
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetForeignKeys
+- uid: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.ForeignKeyMap}
+  commentId: T:System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.ForeignKeyMap}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<ForeignKeyMap>
+  nameWithType: IReadOnlyList<ForeignKeyMap>
+  fullName: System.Collections.Generic.IReadOnlyList<SQLiteM.Abstractions.ForeignKeyMap>
+  nameWithType.vb: IReadOnlyList(Of ForeignKeyMap)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of SQLiteM.Abstractions.ForeignKeyMap)
+  name.vb: IReadOnlyList(Of ForeignKeyMap)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: SQLiteM.Abstractions.ForeignKeyMap
+    name: ForeignKeyMap
+    href: SQLiteM.Abstractions.ForeignKeyMap.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.ForeignKeyMap
+    name: ForeignKeyMap
+    href: SQLiteM.Abstractions.ForeignKeyMap.html
+  - name: )
+- uid: SQLiteM.Abstractions.IEntityMapper.GetIndexes*
+  commentId: Overload:SQLiteM.Abstractions.IEntityMapper.GetIndexes
+  href: SQLiteM.Abstractions.IEntityMapper.html#SQLiteM_Abstractions_IEntityMapper_GetIndexes_System_Type_
+  name: GetIndexes
+  nameWithType: IEntityMapper.GetIndexes
+  fullName: SQLiteM.Abstractions.IEntityMapper.GetIndexes
+- uid: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.IndexMap}
+  commentId: T:System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.IndexMap}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<IndexMap>
+  nameWithType: IReadOnlyList<IndexMap>
+  fullName: System.Collections.Generic.IReadOnlyList<SQLiteM.Abstractions.IndexMap>
+  nameWithType.vb: IReadOnlyList(Of IndexMap)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of SQLiteM.Abstractions.IndexMap)
+  name.vb: IReadOnlyList(Of IndexMap)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: SQLiteM.Abstractions.IndexMap
+    name: IndexMap
+    href: SQLiteM.Abstractions.IndexMap.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.IndexMap
+    name: IndexMap
+    href: SQLiteM.Abstractions.IndexMap.html
+  - name: )

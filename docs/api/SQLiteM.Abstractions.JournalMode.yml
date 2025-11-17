@@ -1,0 +1,234 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.JournalMode
+  commentId: T:SQLiteM.Abstractions.JournalMode
+  id: JournalMode
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.JournalMode.Delete
+  - SQLiteM.Abstractions.JournalMode.Memory
+  - SQLiteM.Abstractions.JournalMode.Off
+  - SQLiteM.Abstractions.JournalMode.Persist
+  - SQLiteM.Abstractions.JournalMode.Truncate
+  - SQLiteM.Abstractions.JournalMode.Wal
+  langs:
+  - csharp
+  - vb
+  name: JournalMode
+  nameWithType: JournalMode
+  fullName: SQLiteM.Abstractions.JournalMode
+  type: Enum
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: JournalMode
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 61
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Verfügbare Journal-Modi für <code>PRAGMA journal_mode</code>.
+  example: []
+  syntax:
+    content: public enum JournalMode
+    content.vb: Public Enum JournalMode
+- uid: SQLiteM.Abstractions.JournalMode.Delete
+  commentId: F:SQLiteM.Abstractions.JournalMode.Delete
+  id: Delete
+  parent: SQLiteM.Abstractions.JournalMode
+  langs:
+  - csharp
+  - vb
+  name: Delete
+  nameWithType: JournalMode.Delete
+  fullName: SQLiteM.Abstractions.JournalMode.Delete
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Delete
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 66
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: 'Standardmodus: Das Journal wird nach Abschluss einer Transaktion gelöscht (<code>DELETE</code>).'
+  example: []
+  syntax:
+    content: Delete = 0
+    return:
+      type: SQLiteM.Abstractions.JournalMode
+- uid: SQLiteM.Abstractions.JournalMode.Truncate
+  commentId: F:SQLiteM.Abstractions.JournalMode.Truncate
+  id: Truncate
+  parent: SQLiteM.Abstractions.JournalMode
+  langs:
+  - csharp
+  - vb
+  name: Truncate
+  nameWithType: JournalMode.Truncate
+  fullName: SQLiteM.Abstractions.JournalMode.Truncate
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Truncate
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 71
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Der Inhalt der Journal-Datei wird abgeschnitten, die Datei selbst aber beibehalten (<code>TRUNCATE</code>).
+  example: []
+  syntax:
+    content: Truncate = 1
+    return:
+      type: SQLiteM.Abstractions.JournalMode
+- uid: SQLiteM.Abstractions.JournalMode.Persist
+  commentId: F:SQLiteM.Abstractions.JournalMode.Persist
+  id: Persist
+  parent: SQLiteM.Abstractions.JournalMode
+  langs:
+  - csharp
+  - vb
+  name: Persist
+  nameWithType: JournalMode.Persist
+  fullName: SQLiteM.Abstractions.JournalMode.Persist
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Persist
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 76
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Die Journal-Datei bleibt bestehen, nur der Header wird zurückgesetzt (<code>PERSIST</code>).
+  example: []
+  syntax:
+    content: Persist = 2
+    return:
+      type: SQLiteM.Abstractions.JournalMode
+- uid: SQLiteM.Abstractions.JournalMode.Memory
+  commentId: F:SQLiteM.Abstractions.JournalMode.Memory
+  id: Memory
+  parent: SQLiteM.Abstractions.JournalMode
+  langs:
+  - csharp
+  - vb
+  name: Memory
+  nameWithType: JournalMode.Memory
+  fullName: SQLiteM.Abstractions.JournalMode.Memory
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Memory
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 81
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Das Journal wird ausschließlich im Speicher gehalten und nicht als Datei angelegt (<code>MEMORY</code>).
+  example: []
+  syntax:
+    content: Memory = 3
+    return:
+      type: SQLiteM.Abstractions.JournalMode
+- uid: SQLiteM.Abstractions.JournalMode.Wal
+  commentId: F:SQLiteM.Abstractions.JournalMode.Wal
+  id: Wal
+  parent: SQLiteM.Abstractions.JournalMode
+  langs:
+  - csharp
+  - vb
+  name: Wal
+  nameWithType: JournalMode.Wal
+  fullName: SQLiteM.Abstractions.JournalMode.Wal
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Wal
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 86
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Write-Ahead-Logging-Modus (<code>WAL</code>) für bessere Parallelität von Lese- und Schreibzugriffen.
+  example: []
+  syntax:
+    content: Wal = 4
+    return:
+      type: SQLiteM.Abstractions.JournalMode
+- uid: SQLiteM.Abstractions.JournalMode.Off
+  commentId: F:SQLiteM.Abstractions.JournalMode.Off
+  id: Off
+  parent: SQLiteM.Abstractions.JournalMode
+  langs:
+  - csharp
+  - vb
+  name: Off
+  nameWithType: JournalMode.Off
+  fullName: SQLiteM.Abstractions.JournalMode.Off
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Configuration.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Off
+    path: SQLiteM.Abstractions/Configuration.cs
+    startLine: 91
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Journalisierung ist deaktiviert (<code>OFF</code>); erhöhtes Risiko von Datenverlust bei Abstürzen.
+  example: []
+  syntax:
+    content: Off = 5
+    return:
+      type: SQLiteM.Abstractions.JournalMode
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.JournalMode
+  commentId: T:SQLiteM.Abstractions.JournalMode
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.JournalMode.html
+  name: JournalMode
+  nameWithType: JournalMode
+  fullName: SQLiteM.Abstractions.JournalMode

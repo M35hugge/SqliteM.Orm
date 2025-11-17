@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.INameTranslator
+  commentId: T:SQLiteM.Abstractions.INameTranslator
+  id: INameTranslator
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.INameTranslator.Column(System.String)
+  - SQLiteM.Abstractions.INameTranslator.Property(System.String)
+  - SQLiteM.Abstractions.INameTranslator.Table(System.String)
+  langs:
+  - csharp
+  - vb
+  name: INameTranslator
+  nameWithType: INameTranslator
+  fullName: SQLiteM.Abstractions.INameTranslator
+  type: Interface
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: INameTranslator
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 338
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Übersetzungsstrategie für Tabellen- und Spaltennamen.
+  remarks: >-
+    Implementierungen können Namenskonventionen wie snake_case, SCREAMING_SNAKE
+
+    oder CamelCase erzwingen. Der <xref href="SQLiteM.Abstractions.IEntityMapper" data-throw-if-not-resolved="false"></xref> ruft diese
+
+    Übersetzer auf, um vom CLR-Namen (Klasse/Property) zu einem Datenbanknamen
+
+    zu gelangen, sofern kein expliziter Name per Attribut angegeben ist.
+  example: []
+  syntax:
+    content: public interface INameTranslator
+    content.vb: Public Interface INameTranslator
+- uid: SQLiteM.Abstractions.INameTranslator.Table(System.String)
+  commentId: M:SQLiteM.Abstractions.INameTranslator.Table(System.String)
+  id: Table(System.String)
+  parent: SQLiteM.Abstractions.INameTranslator
+  langs:
+  - csharp
+  - vb
+  name: Table(string)
+  nameWithType: INameTranslator.Table(string)
+  fullName: SQLiteM.Abstractions.INameTranslator.Table(string)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Table
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 345
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Übersetzt den CLR-Typnamen zu einem Tabellennamen.
+  example: []
+  syntax:
+    content: string Table(string clrTypeName)
+    parameters:
+    - id: clrTypeName
+      type: System.String
+      description: Der CLR-Name des Entitätstyps (z. B. "PersonOrder").
+    return:
+      type: System.String
+      description: Der zu verwendende Tabellenname (z. B. "person_order").
+    content.vb: Function Table(clrTypeName As String) As String
+  overload: SQLiteM.Abstractions.INameTranslator.Table*
+  nameWithType.vb: INameTranslator.Table(String)
+  fullName.vb: SQLiteM.Abstractions.INameTranslator.Table(String)
+  name.vb: Table(String)
+- uid: SQLiteM.Abstractions.INameTranslator.Column(System.String)
+  commentId: M:SQLiteM.Abstractions.INameTranslator.Column(System.String)
+  id: Column(System.String)
+  parent: SQLiteM.Abstractions.INameTranslator
+  langs:
+  - csharp
+  - vb
+  name: Column(string)
+  nameWithType: INameTranslator.Column(string)
+  fullName: SQLiteM.Abstractions.INameTranslator.Column(string)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Column
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 352
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Übersetzt den CLR-Propertynamen zu einem Spaltennamen.
+  example: []
+  syntax:
+    content: string Column(string clrPropertyName)
+    parameters:
+    - id: clrPropertyName
+      type: System.String
+      description: Der CLR-Name des Properties (z. B. "PersonId").
+    return:
+      type: System.String
+      description: Der zu verwendende Spaltenname (z. B. "person_id").
+    content.vb: Function Column(clrPropertyName As String) As String
+  overload: SQLiteM.Abstractions.INameTranslator.Column*
+  nameWithType.vb: INameTranslator.Column(String)
+  fullName.vb: SQLiteM.Abstractions.INameTranslator.Column(String)
+  name.vb: Column(String)
+- uid: SQLiteM.Abstractions.INameTranslator.Property(System.String)
+  commentId: M:SQLiteM.Abstractions.INameTranslator.Property(System.String)
+  id: Property(System.String)
+  parent: SQLiteM.Abstractions.INameTranslator
+  langs:
+  - csharp
+  - vb
+  name: Property(string)
+  nameWithType: INameTranslator.Property(string)
+  fullName: SQLiteM.Abstractions.INameTranslator.Property(string)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Property
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 359
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Übersetzt einen DB-Spaltennamen zurück zu einem CLR-Propertynamen.
+  example: []
+  syntax:
+    content: string Property(string fieldName)
+    parameters:
+    - id: fieldName
+      type: System.String
+      description: DB-Spaltenname (z. B. <code>person_id</code>).
+    return:
+      type: System.String
+      description: CLR-Propertyname (z. B. <code>PersonId</code>).
+    content.vb: Function [Property](fieldName As String) As String
+  overload: SQLiteM.Abstractions.INameTranslator.Property*
+  nameWithType.vb: INameTranslator.Property(String)
+  fullName.vb: SQLiteM.Abstractions.INameTranslator.Property(String)
+  name.vb: Property(String)
+references:
+- uid: SQLiteM.Abstractions.IEntityMapper
+  commentId: T:SQLiteM.Abstractions.IEntityMapper
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.IEntityMapper.html
+  name: IEntityMapper
+  nameWithType: IEntityMapper
+  fullName: SQLiteM.Abstractions.IEntityMapper
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.INameTranslator.Table*
+  commentId: Overload:SQLiteM.Abstractions.INameTranslator.Table
+  href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Table_System_String_
+  name: Table
+  nameWithType: INameTranslator.Table
+  fullName: SQLiteM.Abstractions.INameTranslator.Table
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SQLiteM.Abstractions.INameTranslator.Column*
+  commentId: Overload:SQLiteM.Abstractions.INameTranslator.Column
+  href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Column_System_String_
+  name: Column
+  nameWithType: INameTranslator.Column
+  fullName: SQLiteM.Abstractions.INameTranslator.Column
+- uid: SQLiteM.Abstractions.INameTranslator.Property*
+  commentId: Overload:SQLiteM.Abstractions.INameTranslator.Property
+  href: SQLiteM.Abstractions.INameTranslator.html#SQLiteM_Abstractions_INameTranslator_Property_System_String_
+  name: Property
+  nameWithType: INameTranslator.Property
+  fullName: SQLiteM.Abstractions.INameTranslator.Property

@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.Operator
+  commentId: T:SQLiteM.Abstractions.Operator
+  id: Operator
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.Operator.Eq
+  - SQLiteM.Abstractions.Operator.Ge
+  - SQLiteM.Abstractions.Operator.Gt
+  - SQLiteM.Abstractions.Operator.Le
+  - SQLiteM.Abstractions.Operator.Lt
+  langs:
+  - csharp
+  - vb
+  name: Operator
+  nameWithType: Operator
+  fullName: SQLiteM.Abstractions.Operator
+  type: Enum
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Operator
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 164
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Unterstützte Vergleichsoperatoren.
+  example: []
+  syntax:
+    content: public enum Operator
+    content.vb: Public Enum [Operator]
+- uid: SQLiteM.Abstractions.Operator.Eq
+  commentId: F:SQLiteM.Abstractions.Operator.Eq
+  id: Eq
+  parent: SQLiteM.Abstractions.Operator
+  langs:
+  - csharp
+  - vb
+  name: Eq
+  nameWithType: Operator.Eq
+  fullName: SQLiteM.Abstractions.Operator.Eq
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Eq
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 167
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Gleich (<code>=</code>). Bei Wert <code>null</code> wird <code>IS NULL</code> erzeugt.
+  example: []
+  syntax:
+    content: Eq = 0
+    return:
+      type: SQLiteM.Abstractions.Operator
+- uid: SQLiteM.Abstractions.Operator.Gt
+  commentId: F:SQLiteM.Abstractions.Operator.Gt
+  id: Gt
+  parent: SQLiteM.Abstractions.Operator
+  langs:
+  - csharp
+  - vb
+  name: Gt
+  nameWithType: Operator.Gt
+  fullName: SQLiteM.Abstractions.Operator.Gt
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Gt
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 169
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Größer als (<code>&gt;</code>). Wert darf nicht <code>null</code> sein.
+  example: []
+  syntax:
+    content: Gt = 1
+    return:
+      type: SQLiteM.Abstractions.Operator
+- uid: SQLiteM.Abstractions.Operator.Ge
+  commentId: F:SQLiteM.Abstractions.Operator.Ge
+  id: Ge
+  parent: SQLiteM.Abstractions.Operator
+  langs:
+  - csharp
+  - vb
+  name: Ge
+  nameWithType: Operator.Ge
+  fullName: SQLiteM.Abstractions.Operator.Ge
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Ge
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 171
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Größer gleich (<code>&gt;=</code>). Wert darf nicht <code>null</code> sein.
+  example: []
+  syntax:
+    content: Ge = 2
+    return:
+      type: SQLiteM.Abstractions.Operator
+- uid: SQLiteM.Abstractions.Operator.Lt
+  commentId: F:SQLiteM.Abstractions.Operator.Lt
+  id: Lt
+  parent: SQLiteM.Abstractions.Operator
+  langs:
+  - csharp
+  - vb
+  name: Lt
+  nameWithType: Operator.Lt
+  fullName: SQLiteM.Abstractions.Operator.Lt
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Lt
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 173
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Kleiner als (<code>&lt;</code>). Wert darf nicht <code>null</code> sein.
+  example: []
+  syntax:
+    content: Lt = 3
+    return:
+      type: SQLiteM.Abstractions.Operator
+- uid: SQLiteM.Abstractions.Operator.Le
+  commentId: F:SQLiteM.Abstractions.Operator.Le
+  id: Le
+  parent: SQLiteM.Abstractions.Operator
+  langs:
+  - csharp
+  - vb
+  name: Le
+  nameWithType: Operator.Le
+  fullName: SQLiteM.Abstractions.Operator.Le
+  type: Field
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Le
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 175
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Kleiner gleich (<code>&lt;=</code>). Wert darf nicht <code>null</code> sein.
+  example: []
+  syntax:
+    content: Le = 4
+    return:
+      type: SQLiteM.Abstractions.Operator
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.Operator
+  commentId: T:SQLiteM.Abstractions.Operator
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.Operator.html
+  name: Operator
+  nameWithType: Operator
+  fullName: SQLiteM.Abstractions.Operator

@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Orm.Pub
+  commentId: N:SQLiteM.Orm.Pub
+  id: SQLiteM.Orm.Pub
+  children:
+  - SQLiteM.Orm.Pub.IdentityNameTranslator
+  - SQLiteM.Orm.Pub.ReflectionEntityMapper
+  - SQLiteM.Orm.Pub.SQLiteMBootstrap
+  - SQLiteM.Orm.Pub.SQLiteMClient
+  - SQLiteM.Orm.Pub.SQLiteMOptions
+  - SQLiteM.Orm.Pub.ServiceCollectionExtensions
+  - SQLiteM.Orm.Pub.SnakeCaseNameTranslator
+  langs:
+  - csharp
+  - vb
+  name: SQLiteM.Orm.Pub
+  nameWithType: SQLiteM.Orm.Pub
+  fullName: SQLiteM.Orm.Pub
+  type: Namespace
+  assemblies:
+  - SQLiteM.Orm
+references:
+- uid: SQLiteM.Orm.Pub.IdentityNameTranslator
+  commentId: T:SQLiteM.Orm.Pub.IdentityNameTranslator
+  href: SQLiteM.Orm.Pub.IdentityNameTranslator.html
+  name: IdentityNameTranslator
+  nameWithType: IdentityNameTranslator
+  fullName: SQLiteM.Orm.Pub.IdentityNameTranslator
+- uid: SQLiteM.Orm.Pub.ReflectionEntityMapper
+  commentId: T:SQLiteM.Orm.Pub.ReflectionEntityMapper
+  href: SQLiteM.Orm.Pub.ReflectionEntityMapper.html
+  name: ReflectionEntityMapper
+  nameWithType: ReflectionEntityMapper
+  fullName: SQLiteM.Orm.Pub.ReflectionEntityMapper
+- uid: SQLiteM.Orm.Pub.ServiceCollectionExtensions
+  commentId: T:SQLiteM.Orm.Pub.ServiceCollectionExtensions
+  href: SQLiteM.Orm.Pub.ServiceCollectionExtensions.html
+  name: ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+  fullName: SQLiteM.Orm.Pub.ServiceCollectionExtensions
+- uid: SQLiteM.Orm.Pub.SnakeCaseNameTranslator
+  commentId: T:SQLiteM.Orm.Pub.SnakeCaseNameTranslator
+  href: SQLiteM.Orm.Pub.SnakeCaseNameTranslator.html
+  name: SnakeCaseNameTranslator
+  nameWithType: SnakeCaseNameTranslator
+  fullName: SQLiteM.Orm.Pub.SnakeCaseNameTranslator
+- uid: SQLiteM.Orm.Pub.SQLiteMBootstrap
+  commentId: T:SQLiteM.Orm.Pub.SQLiteMBootstrap
+  href: SQLiteM.Orm.Pub.SQLiteMBootstrap.html
+  name: SQLiteMBootstrap
+  nameWithType: SQLiteMBootstrap
+  fullName: SQLiteM.Orm.Pub.SQLiteMBootstrap
+- uid: SQLiteM.Orm.Pub.SQLiteMClient
+  commentId: T:SQLiteM.Orm.Pub.SQLiteMClient
+  href: SQLiteM.Orm.Pub.SQLiteMClient.html
+  name: SQLiteMClient
+  nameWithType: SQLiteMClient
+  fullName: SQLiteM.Orm.Pub.SQLiteMClient
+- uid: SQLiteM.Orm.Pub.SQLiteMOptions
+  commentId: T:SQLiteM.Orm.Pub.SQLiteMOptions
+  href: SQLiteM.Orm.Pub.SQLiteMOptions.html
+  name: SQLiteMOptions
+  nameWithType: SQLiteMOptions
+  fullName: SQLiteM.Orm.Pub.SQLiteMOptions

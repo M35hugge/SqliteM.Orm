@@ -1,0 +1,529 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.Condition
+  commentId: T:SQLiteM.Abstractions.Condition
+  id: Condition
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.Condition.#ctor(System.String,SQLiteM.Abstractions.Operator,System.Object)
+  - SQLiteM.Abstractions.Condition.Column
+  - SQLiteM.Abstractions.Condition.Op
+  - SQLiteM.Abstractions.Condition.Value
+  langs:
+  - csharp
+  - vb
+  name: Condition
+  nameWithType: Condition
+  fullName: SQLiteM.Abstractions.Condition
+  type: Struct
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Condition
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 159
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Eine WHERE-Bedingung (Spalte, Operator, Wert).
+  example: []
+  syntax:
+    content: 'public readonly record struct Condition : IEquatable<Condition>'
+    content.vb: Public Structure Condition Implements IEquatable(Of Condition)
+  implements:
+  - System.IEquatable{SQLiteM.Abstractions.Condition}
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: SQLiteM.Abstractions.Condition.#ctor(System.String,SQLiteM.Abstractions.Operator,System.Object)
+  commentId: M:SQLiteM.Abstractions.Condition.#ctor(System.String,SQLiteM.Abstractions.Operator,System.Object)
+  id: '#ctor(System.String,SQLiteM.Abstractions.Operator,System.Object)'
+  parent: SQLiteM.Abstractions.Condition
+  langs:
+  - csharp
+  - vb
+  name: Condition(string, Operator, object?)
+  nameWithType: Condition.Condition(string, Operator, object?)
+  fullName: SQLiteM.Abstractions.Condition.Condition(string, SQLiteM.Abstractions.Operator, object?)
+  type: Constructor
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: .ctor
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 159
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Eine WHERE-Bedingung (Spalte, Operator, Wert).
+  example: []
+  syntax:
+    content: public Condition(string Column, Operator Op, object? Value)
+    parameters:
+    - id: Column
+      type: System.String
+      description: Spalten- oder CLR-Propertyname (wird später auf die DB-Spalte gemappt).
+    - id: Op
+      type: SQLiteM.Abstractions.Operator
+      description: Vergleichsoperator.
+    - id: Value
+      type: System.Object
+      description: Vergleichswert; bei <xref href="SQLiteM.Abstractions.Operator.Eq" data-throw-if-not-resolved="false"></xref> darf er <code>null</code> sein (→ <code>IS NULL</code>).
+    content.vb: Public Sub New(Column As String, Op As [Operator], Value As Object)
+  overload: SQLiteM.Abstractions.Condition.#ctor*
+  nameWithType.vb: Condition.New(String, Operator, Object)
+  fullName.vb: SQLiteM.Abstractions.Condition.New(String, SQLiteM.Abstractions.Operator, Object)
+  name.vb: New(String, Operator, Object)
+- uid: SQLiteM.Abstractions.Condition.Column
+  commentId: P:SQLiteM.Abstractions.Condition.Column
+  id: Column
+  parent: SQLiteM.Abstractions.Condition
+  langs:
+  - csharp
+  - vb
+  name: Column
+  nameWithType: Condition.Column
+  fullName: SQLiteM.Abstractions.Condition.Column
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Column
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 159
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Spalten- oder CLR-Propertyname (wird später auf die DB-Spalte gemappt).
+  example: []
+  syntax:
+    content: public string Column { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Column As String
+  overload: SQLiteM.Abstractions.Condition.Column*
+- uid: SQLiteM.Abstractions.Condition.Op
+  commentId: P:SQLiteM.Abstractions.Condition.Op
+  id: Op
+  parent: SQLiteM.Abstractions.Condition
+  langs:
+  - csharp
+  - vb
+  name: Op
+  nameWithType: Condition.Op
+  fullName: SQLiteM.Abstractions.Condition.Op
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Op
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 159
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Vergleichsoperator.
+  example: []
+  syntax:
+    content: public Operator Op { get; init; }
+    parameters: []
+    return:
+      type: SQLiteM.Abstractions.Operator
+    content.vb: Public Property Op As [Operator]
+  overload: SQLiteM.Abstractions.Condition.Op*
+- uid: SQLiteM.Abstractions.Condition.Value
+  commentId: P:SQLiteM.Abstractions.Condition.Value
+  id: Value
+  parent: SQLiteM.Abstractions.Condition
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: Condition.Value
+  fullName: SQLiteM.Abstractions.Condition.Value
+  type: Property
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Query.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: Value
+    path: SQLiteM.Abstractions/Query.cs
+    startLine: 159
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Vergleichswert; bei <xref href="SQLiteM.Abstractions.Operator.Eq" data-throw-if-not-resolved="false"></xref> darf er <code>null</code> sein (→ <code>IS NULL</code>).
+  example: []
+  syntax:
+    content: public object? Value { get; init; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Value As Object
+  overload: SQLiteM.Abstractions.Condition.Value*
+references:
+- uid: SQLiteM.Abstractions.Operator.Eq
+  commentId: F:SQLiteM.Abstractions.Operator.Eq
+  href: SQLiteM.Abstractions.Operator.html#SQLiteM_Abstractions_Operator_Eq
+  name: Eq
+  nameWithType: Operator.Eq
+  fullName: SQLiteM.Abstractions.Operator.Eq
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: System.IEquatable{SQLiteM.Abstractions.Condition}
+  commentId: T:System.IEquatable{SQLiteM.Abstractions.Condition}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Condition>
+  nameWithType: IEquatable<Condition>
+  fullName: System.IEquatable<SQLiteM.Abstractions.Condition>
+  nameWithType.vb: IEquatable(Of Condition)
+  fullName.vb: System.IEquatable(Of SQLiteM.Abstractions.Condition)
+  name.vb: IEquatable(Of Condition)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: SQLiteM.Abstractions.Condition
+    name: Condition
+    href: SQLiteM.Abstractions.Condition.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.Condition
+    name: Condition
+    href: SQLiteM.Abstractions.Condition.html
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SQLiteM.Abstractions.Condition.#ctor*
+  commentId: Overload:SQLiteM.Abstractions.Condition.#ctor
+  href: SQLiteM.Abstractions.Condition.html#SQLiteM_Abstractions_Condition__ctor_System_String_SQLiteM_Abstractions_Operator_System_Object_
+  name: Condition
+  nameWithType: Condition.Condition
+  fullName: SQLiteM.Abstractions.Condition.Condition
+  nameWithType.vb: Condition.New
+  fullName.vb: SQLiteM.Abstractions.Condition.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SQLiteM.Abstractions.Operator
+  commentId: T:SQLiteM.Abstractions.Operator
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.Operator.html
+  name: Operator
+  nameWithType: Operator
+  fullName: SQLiteM.Abstractions.Operator
+- uid: SQLiteM.Abstractions.Condition.Column*
+  commentId: Overload:SQLiteM.Abstractions.Condition.Column
+  href: SQLiteM.Abstractions.Condition.html#SQLiteM_Abstractions_Condition_Column
+  name: Column
+  nameWithType: Condition.Column
+  fullName: SQLiteM.Abstractions.Condition.Column
+- uid: SQLiteM.Abstractions.Condition.Op*
+  commentId: Overload:SQLiteM.Abstractions.Condition.Op
+  href: SQLiteM.Abstractions.Condition.html#SQLiteM_Abstractions_Condition_Op
+  name: Op
+  nameWithType: Condition.Op
+  fullName: SQLiteM.Abstractions.Condition.Op
+- uid: SQLiteM.Abstractions.Condition.Value*
+  commentId: Overload:SQLiteM.Abstractions.Condition.Value
+  href: SQLiteM.Abstractions.Condition.html#SQLiteM_Abstractions_Condition_Value
+  name: Value
+  nameWithType: Condition.Value
+  fullName: SQLiteM.Abstractions.Condition.Value

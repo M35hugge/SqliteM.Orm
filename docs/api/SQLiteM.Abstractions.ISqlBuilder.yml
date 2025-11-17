@@ -1,0 +1,498 @@
+### YamlMime:ManagedReference
+items:
+- uid: SQLiteM.Abstractions.ISqlBuilder
+  commentId: T:SQLiteM.Abstractions.ISqlBuilder
+  id: ISqlBuilder
+  parent: SQLiteM.Abstractions
+  children:
+  - SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  - SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable(System.Type)
+  - SQLiteM.Abstractions.ISqlBuilder.BuildDelete(System.Type,SQLiteM.Abstractions.PropertyMap@)
+  - SQLiteM.Abstractions.ISqlBuilder.BuildInsert(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  - SQLiteM.Abstractions.ISqlBuilder.BuildSelectById(System.Type,SQLiteM.Abstractions.PropertyMap@,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  - SQLiteM.Abstractions.ISqlBuilder.BuildUpdate(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  langs:
+  - csharp
+  - vb
+  name: ISqlBuilder
+  nameWithType: ISqlBuilder
+  fullName: SQLiteM.Abstractions.ISqlBuilder
+  type: Interface
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: ISqlBuilder
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 153
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Erzeugt SQL-Befehle für CRUD- und DDL-Operationen.
+  example: []
+  syntax:
+    content: public interface ISqlBuilder
+    content.vb: Public Interface ISqlBuilder
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildInsert(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  commentId: M:SQLiteM.Abstractions.ISqlBuilder.BuildInsert(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  id: BuildInsert(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  parent: SQLiteM.Abstractions.ISqlBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildInsert(Type, out IReadOnlyList<PropertyMap>)
+  nameWithType: ISqlBuilder.BuildInsert(Type, out IReadOnlyList<PropertyMap>)
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildInsert(System.Type, out System.Collections.Generic.IReadOnlyList<SQLiteM.Abstractions.PropertyMap>)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BuildInsert
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 161
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Baut einen <code>INSERT</code>-Befehl für den Entitätstyp.
+  example: []
+  syntax:
+    content: string BuildInsert(Type entityType, out IReadOnlyList<PropertyMap> cols)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Entitätstyp.
+    - id: cols
+      type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
+      description: 'Ausgabe: zu bindende Spalten (ohne Auto-Increment).'
+    return:
+      type: System.String
+      description: SQL-Befehl als String.
+    content.vb: Function BuildInsert(entityType As Type, cols As IReadOnlyList(Of PropertyMap)) As String
+  overload: SQLiteM.Abstractions.ISqlBuilder.BuildInsert*
+  nameWithType.vb: ISqlBuilder.BuildInsert(Type, IReadOnlyList(Of PropertyMap))
+  fullName.vb: SQLiteM.Abstractions.ISqlBuilder.BuildInsert(System.Type, System.Collections.Generic.IReadOnlyList(Of SQLiteM.Abstractions.PropertyMap))
+  name.vb: BuildInsert(Type, IReadOnlyList(Of PropertyMap))
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildUpdate(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  commentId: M:SQLiteM.Abstractions.ISqlBuilder.BuildUpdate(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  id: BuildUpdate(System.Type,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  parent: SQLiteM.Abstractions.ISqlBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildUpdate(Type, out IReadOnlyList<PropertyMap>)
+  nameWithType: ISqlBuilder.BuildUpdate(Type, out IReadOnlyList<PropertyMap>)
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildUpdate(System.Type, out System.Collections.Generic.IReadOnlyList<SQLiteM.Abstractions.PropertyMap>)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BuildUpdate
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 169
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Baut einen <code>UPDATE</code>-Befehl für den Entitätstyp.
+  example: []
+  syntax:
+    content: string BuildUpdate(Type entityType, out IReadOnlyList<PropertyMap> cols)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Entitätstyp.
+    - id: cols
+      type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
+      description: 'Ausgabe: zu setzende Spalten (ohne PK/Auto-Increment).'
+    return:
+      type: System.String
+      description: SQL-Befehl als String.
+    content.vb: Function BuildUpdate(entityType As Type, cols As IReadOnlyList(Of PropertyMap)) As String
+  overload: SQLiteM.Abstractions.ISqlBuilder.BuildUpdate*
+  nameWithType.vb: ISqlBuilder.BuildUpdate(Type, IReadOnlyList(Of PropertyMap))
+  fullName.vb: SQLiteM.Abstractions.ISqlBuilder.BuildUpdate(System.Type, System.Collections.Generic.IReadOnlyList(Of SQLiteM.Abstractions.PropertyMap))
+  name.vb: BuildUpdate(Type, IReadOnlyList(Of PropertyMap))
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildDelete(System.Type,SQLiteM.Abstractions.PropertyMap@)
+  commentId: M:SQLiteM.Abstractions.ISqlBuilder.BuildDelete(System.Type,SQLiteM.Abstractions.PropertyMap@)
+  id: BuildDelete(System.Type,SQLiteM.Abstractions.PropertyMap@)
+  parent: SQLiteM.Abstractions.ISqlBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildDelete(Type, out PropertyMap)
+  nameWithType: ISqlBuilder.BuildDelete(Type, out PropertyMap)
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildDelete(System.Type, out SQLiteM.Abstractions.PropertyMap)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BuildDelete
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 177
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Baut einen <code>DELETE</code>-Befehl für den Entitätstyp.
+  example: []
+  syntax:
+    content: string BuildDelete(Type entityType, out PropertyMap key)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Entitätstyp.
+    - id: key
+      type: SQLiteM.Abstractions.PropertyMap
+      description: 'Ausgabe: Primärschlüssel-Spalte.'
+    return:
+      type: System.String
+      description: SQL-Befehl als String.
+    content.vb: Function BuildDelete(entityType As Type, key As PropertyMap) As String
+  overload: SQLiteM.Abstractions.ISqlBuilder.BuildDelete*
+  nameWithType.vb: ISqlBuilder.BuildDelete(Type, PropertyMap)
+  fullName.vb: SQLiteM.Abstractions.ISqlBuilder.BuildDelete(System.Type, SQLiteM.Abstractions.PropertyMap)
+  name.vb: BuildDelete(Type, PropertyMap)
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildSelectById(System.Type,SQLiteM.Abstractions.PropertyMap@,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  commentId: M:SQLiteM.Abstractions.ISqlBuilder.BuildSelectById(System.Type,SQLiteM.Abstractions.PropertyMap@,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  id: BuildSelectById(System.Type,SQLiteM.Abstractions.PropertyMap@,System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}@)
+  parent: SQLiteM.Abstractions.ISqlBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildSelectById(Type, out PropertyMap, out IReadOnlyList<PropertyMap>)
+  nameWithType: ISqlBuilder.BuildSelectById(Type, out PropertyMap, out IReadOnlyList<PropertyMap>)
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildSelectById(System.Type, out SQLiteM.Abstractions.PropertyMap, out System.Collections.Generic.IReadOnlyList<SQLiteM.Abstractions.PropertyMap>)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BuildSelectById
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 186
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Baut einen <code>SELECT</code>-Befehl, der per Primärschlüssel genau eine Zeile lädt.
+  example: []
+  syntax:
+    content: string BuildSelectById(Type entityType, out PropertyMap key, out IReadOnlyList<PropertyMap> cols)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Entitätstyp.
+    - id: key
+      type: SQLiteM.Abstractions.PropertyMap
+      description: 'Ausgabe: Primärschlüssel-Spalte.'
+    - id: cols
+      type: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
+      description: 'Ausgabe: alle zu lesenden Spalten.'
+    return:
+      type: System.String
+      description: SQL-Befehl als String.
+    content.vb: Function BuildSelectById(entityType As Type, key As PropertyMap, cols As IReadOnlyList(Of PropertyMap)) As String
+  overload: SQLiteM.Abstractions.ISqlBuilder.BuildSelectById*
+  nameWithType.vb: ISqlBuilder.BuildSelectById(Type, PropertyMap, IReadOnlyList(Of PropertyMap))
+  fullName.vb: SQLiteM.Abstractions.ISqlBuilder.BuildSelectById(System.Type, SQLiteM.Abstractions.PropertyMap, System.Collections.Generic.IReadOnlyList(Of SQLiteM.Abstractions.PropertyMap))
+  name.vb: BuildSelectById(Type, PropertyMap, IReadOnlyList(Of PropertyMap))
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable(System.Type)
+  commentId: M:SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable(System.Type)
+  id: BuildCreateTable(System.Type)
+  parent: SQLiteM.Abstractions.ISqlBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildCreateTable(Type)
+  nameWithType: ISqlBuilder.BuildCreateTable(Type)
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BuildCreateTable
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 193
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Baut eine <code>CREATE TABLE</code>-Anweisung inkl. Fremdschlüsseldefinitionen.
+  example: []
+  syntax:
+    content: string BuildCreateTable(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Entitätstyp.
+    return:
+      type: System.String
+      description: SQL-Befehl als String.
+    content.vb: Function BuildCreateTable(entityType As Type) As String
+  overload: SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable*
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  commentId: M:SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  id: BuildCreateIndexes(System.Type)
+  parent: SQLiteM.Abstractions.ISqlBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildCreateIndexes(Type)
+  nameWithType: ISqlBuilder.BuildCreateIndexes(Type)
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes(System.Type)
+  type: Method
+  source:
+    remote:
+      path: SQLiteM.Abstractions/Interfaces.cs
+      branch: master
+      repo: https://git.m35hugge.at/strelok/SQLiteM.git
+    id: BuildCreateIndexes
+    path: SQLiteM.Abstractions/Interfaces.cs
+    startLine: 201
+  assemblies:
+  - SQLiteM.Abstractions
+  namespace: SQLiteM.Abstractions
+  summary: Baut <code>CREATE INDEX</code>-Anweisungen (Einzel- und Composite-Indizes).
+  example: []
+  syntax:
+    content: IReadOnlyList<string> BuildCreateIndexes(Type entityType)
+    parameters:
+    - id: entityType
+      type: System.Type
+      description: Entitätstyp.
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.String}
+      description: Liste mit SQL-Texten (je Index ein Eintrag).
+    content.vb: Function BuildCreateIndexes(entityType As Type) As IReadOnlyList(Of String)
+  overload: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes*
+references:
+- uid: SQLiteM.Abstractions
+  commentId: N:SQLiteM.Abstractions
+  href: SQLiteM.html
+  name: SQLiteM.Abstractions
+  nameWithType: SQLiteM.Abstractions
+  fullName: SQLiteM.Abstractions
+  spec.csharp:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+  spec.vb:
+  - uid: SQLiteM
+    name: SQLiteM
+    href: SQLiteM.html
+  - name: .
+  - uid: SQLiteM.Abstractions
+    name: Abstractions
+    href: SQLiteM.Abstractions.html
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildInsert*
+  commentId: Overload:SQLiteM.Abstractions.ISqlBuilder.BuildInsert
+  href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildInsert_System_Type_System_Collections_Generic_IReadOnlyList_SQLiteM_Abstractions_PropertyMap___
+  name: BuildInsert
+  nameWithType: ISqlBuilder.BuildInsert
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildInsert
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
+  commentId: T:System.Collections.Generic.IReadOnlyList{SQLiteM.Abstractions.PropertyMap}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<PropertyMap>
+  nameWithType: IReadOnlyList<PropertyMap>
+  fullName: System.Collections.Generic.IReadOnlyList<SQLiteM.Abstractions.PropertyMap>
+  nameWithType.vb: IReadOnlyList(Of PropertyMap)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of SQLiteM.Abstractions.PropertyMap)
+  name.vb: IReadOnlyList(Of PropertyMap)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: SQLiteM.Abstractions.PropertyMap
+    name: PropertyMap
+    href: SQLiteM.Abstractions.PropertyMap.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SQLiteM.Abstractions.PropertyMap
+    name: PropertyMap
+    href: SQLiteM.Abstractions.PropertyMap.html
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildUpdate*
+  commentId: Overload:SQLiteM.Abstractions.ISqlBuilder.BuildUpdate
+  href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildUpdate_System_Type_System_Collections_Generic_IReadOnlyList_SQLiteM_Abstractions_PropertyMap___
+  name: BuildUpdate
+  nameWithType: ISqlBuilder.BuildUpdate
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildUpdate
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildDelete*
+  commentId: Overload:SQLiteM.Abstractions.ISqlBuilder.BuildDelete
+  href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildDelete_System_Type_SQLiteM_Abstractions_PropertyMap__
+  name: BuildDelete
+  nameWithType: ISqlBuilder.BuildDelete
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildDelete
+- uid: SQLiteM.Abstractions.PropertyMap
+  commentId: T:SQLiteM.Abstractions.PropertyMap
+  parent: SQLiteM.Abstractions
+  href: SQLiteM.Abstractions.PropertyMap.html
+  name: PropertyMap
+  nameWithType: PropertyMap
+  fullName: SQLiteM.Abstractions.PropertyMap
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildSelectById*
+  commentId: Overload:SQLiteM.Abstractions.ISqlBuilder.BuildSelectById
+  href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildSelectById_System_Type_SQLiteM_Abstractions_PropertyMap__System_Collections_Generic_IReadOnlyList_SQLiteM_Abstractions_PropertyMap___
+  name: BuildSelectById
+  nameWithType: ISqlBuilder.BuildSelectById
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildSelectById
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable*
+  commentId: Overload:SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable
+  href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildCreateTable_System_Type_
+  name: BuildCreateTable
+  nameWithType: ISqlBuilder.BuildCreateTable
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildCreateTable
+- uid: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes*
+  commentId: Overload:SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes
+  href: SQLiteM.Abstractions.ISqlBuilder.html#SQLiteM_Abstractions_ISqlBuilder_BuildCreateIndexes_System_Type_
+  name: BuildCreateIndexes
+  nameWithType: ISqlBuilder.BuildCreateIndexes
+  fullName: SQLiteM.Abstractions.ISqlBuilder.BuildCreateIndexes
+- uid: System.Collections.Generic.IReadOnlyList{System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<string>
+  nameWithType: IReadOnlyList<string>
+  fullName: System.Collections.Generic.IReadOnlyList<string>
+  nameWithType.vb: IReadOnlyList(Of String)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of String)
+  name.vb: IReadOnlyList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
