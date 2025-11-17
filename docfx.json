@@ -1,0 +1,51 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "SQLiteM.Abstractions/SQLiteM.Abstractions.csproj",
+            "SQLiteM.Orm/SQLiteM.Orm.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "src": "docs",
+        "dest": ".",
+        "files": [
+          "**/*.md",
+          "**/toc.yml"
+        ]
+      },
+      {
+        "src": ".",
+        "dest": "api",
+        "files": [
+          "api/**.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "src": "docs",
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "SQLiteM",
+      "_appFooter": "SQLiteM ORM",
+      "_enableSearch": "true"
+    },
+    "template": [
+      "default"
+    ]
+  }
+}

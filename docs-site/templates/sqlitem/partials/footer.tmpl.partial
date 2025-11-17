@@ -1,3 +1,0 @@
-<div class="text-center" style="padding:12px 0;">
-  <span>&copy; {{_appName}} {{_currentYear}} · Dokumentation mit DocFX</span>
-</div>

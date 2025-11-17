@@ -1,71 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.CompilerServices;
 
-namespace SQLiteM.Abstractions
-{
-    // -------------------------
-    // Helper-Records (Mapping)
-    // -------------------------
-    /// <summary>
-    /// Record classes
-    /// </summary>
-    [CompilerGenerated]
-    public static class Records { }
+namespace SQLiteM.Abstractions;
 
-    /// <summary>
-    /// Beschreibt die Zuordnung einer CLR-Property zu einer DB-Spalte.
-    /// </summary>
-    /// <param name="ColumnName">Spaltenname in der Tabelle.</param>
-    /// <param name="PropertyName">Name der CLR-Property.</param>
-    /// <param name="PropertyType">CLR-Typ der Property.</param>
-    /// <param name="IsPrimaryKey">Ob die Spalte Teil des Primärschlüssels ist.</param>
-    /// <param name="IsAutoIncrement">Ob der Wert automatisch erhöht wird.</param>
-    /// <param name="IsNullable">Ob NULL-Werte erlaubt sind.</param>
-    /// <param name="IsIndex">Ob Spalte Index ist.</param>
-    /// <param name="IsUniqueIndex">Ob Spalte Index ist.</param>
-    /// <param name="IsUniqueColumn">Ob Spalte Index ist.</param>
-    /// <param name="Length">Maximale Länge (nur relevant für <c>string</c>).</param>
-    public sealed record PropertyMap(
-        string ColumnName,
-        string PropertyName,
-        Type PropertyType,
-        bool IsPrimaryKey,
-        bool IsAutoIncrement,
-        bool IsNullable,
-        bool IsIndex,
-        bool IsUniqueIndex,    // Einzelspalten-Index soll UNIQUE sein
-        bool IsUniqueColumn,    // Spalten-Constraint UNIQUE in CREATE TABLE
-        int Length
-    );
+// -------------------------
+// Helper-Records (Mapping)
+// -------------------------
+/// <summary>
+/// Record classes
+/// </summary>
+[CompilerGenerated]
+public static class Records { }
 
-    /// <summary>
-    /// Beschreibt eine Fremdschlüsselbeziehung.
-    /// </summary>
-    /// <param name="ThisColumn">Lokale Spalte (FK) in der aktuellen Tabelle.</param>
-    /// <param name="PrincipalEntity">Typ der referenzierten Entität.</param>
-    /// <param name="PrincipalTable">Tabellenname der referenzierten Entität.</param>
-    /// <param name="PrincipalColumn">Spaltenname des referenzierten Primärschlüssels bzw. einer UNIQUE-Spalte.</param>
-    /// <param name="OnDelete">Aktion bei Löschung der referenzierten Zeile.</param>
-    public sealed record ForeignKeyMap(
-        string ThisColumn,
-        Type PrincipalEntity,
-        string PrincipalTable,
-        string PrincipalColumn,
-        OnDeleteAction OnDelete
-    );
-    /// <summary>
-    /// IndexMap für Indizes.
-    /// </summary>
-    /// <param name="Columns">Spalte/n des Indexes.</param>
-    /// <param name="Name">Name des Index</param>
-    /// <param name="IsUnique">Spaltenwert einzigartig(Unique).</param>
-    public sealed record IndexMap(
-        string? Name,                   // null => Builder generiert Standardnamen
-        IReadOnlyList<string> Columns,  // DB-Spaltennamen
-        bool IsUnique
-    );
-}
+/// <summary>
+/// Beschreibt die Zuordnung einer CLR-Property zu einer DB-Spalte.
+/// </summary>
+/// <param name="ColumnName">Spaltenname in der Tabelle.</param>
+/// <param name="PropertyName">Name der CLR-Property.</param>
+/// <param name="PropertyType">CLR-Typ der Property.</param>
+/// <param name="IsPrimaryKey">Ob die Spalte Teil des Primärschlüssels ist.</param>
+/// <param name="IsAutoIncrement">Ob der Wert automatisch erhöht wird.</param>
+/// <param name="IsNullable">Ob NULL-Werte erlaubt sind.</param>
+/// <param name="IsIndex">Ob Spalte Index ist.</param>
+/// <param name="IsUniqueIndex">Ob Spalte Index ist.</param>
+/// <param name="IsUniqueColumn">Ob Spalte Index ist.</param>
+/// <param name="Length">Maximale Länge (nur relevant für <c>string</c>).</param>
+public sealed record PropertyMap(
+    string ColumnName,
+    string PropertyName,
+    Type PropertyType,
+    bool IsPrimaryKey,
+    bool IsAutoIncrement,
+    bool IsNullable,
+    bool IsIndex,
+    bool IsUniqueIndex,    // Einzelspalten-Index soll UNIQUE sein
+    bool IsUniqueColumn,    // Spalten-Constraint UNIQUE in CREATE TABLE
+    int Length
+);
+
+/// <summary>
+/// Beschreibt eine Fremdschlüsselbeziehung.
+/// </summary>
+/// <param name="ThisColumn">Lokale Spalte (FK) in der aktuellen Tabelle.</param>
+/// <param name="PrincipalEntity">Typ der referenzierten Entität.</param>
+/// <param name="PrincipalTable">Tabellenname der referenzierten Entität.</param>
+/// <param name="PrincipalColumn">Spaltenname des referenzierten Primärschlüssels bzw. einer UNIQUE-Spalte.</param>
+/// <param name="OnDelete">Aktion bei Löschung der referenzierten Zeile.</param>
+public sealed record ForeignKeyMap(
+    string ThisColumn,
+    Type PrincipalEntity,
+    string PrincipalTable,
+    string PrincipalColumn,
+    OnDeleteAction OnDelete
+);
+/// <summary>
+/// IndexMap für Indizes.
+/// </summary>
+/// <param name="Columns">Spalte/n des Indexes.</param>
+/// <param name="Name">Name des Index</param>
+/// <param name="IsUnique">Spaltenwert einzigartig(Unique).</param>
+public sealed record IndexMap(
+    string? Name,                   // null => Builder generiert Standardnamen
+    IReadOnlyList<string> Columns,  // DB-Spaltennamen
+    bool IsUnique
+);

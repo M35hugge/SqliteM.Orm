@@ -9,65 +9,66 @@ das ein **Unit-of-Work**-Pattern mit einem **Repository-System** kombiniert – 
 
 ```csharp
 // Program.cs
-using Microsoft.Extensions.DependencyInjection;
 using SQLiteM.Abstractions;
-using SQLiteM.Demo;
-using SQLiteM.Orm;
+using SQLiteM.Orm.Pub;
 
-string dbPath = Path.Combine(AppContext.BaseDirectory, "app.db");
-string cs = $"Data Source={dbPath};Cache=Shared";
+var dbPath = Path.Combine(AppContext.BaseDirectory, "app.db");
+var cs = $"Data Source={dbPath};Cache=Shared";
 
-// DI aufsetzen
-ServieProvider services = new ServiceCollection()
-    .AddSQLiteM(o => o.ConnectionString = cs)
-    .BuildServiceProvider();
+// High-Level API: SQLiteMClient
+await using var client = new SQLiteMClient(cs);
 
-// Schema einmal anlegen (vor CRUD)
-SQLiteMClient client = new (cs);
-Type[] entities = { typeof(Person), typeof(Order) };
+// Schema einmalig anlegen (vor CRUD)
+// Person und Order sind deine Entity-Typen (siehe Mapping-Doku)
+await client.EnsureCreatedAsync(typeof(Person), typeof(Order));
 
-await client.EnsureCreateAsync(new CancellationToken(), entities);
+// Person und Orders in die Datenbank schreiben
+var person = new Person
+{
+    FirstName = "Ada",
+    LastName  = "Lovelace",
+    Email     = "ada@example.com"
+};
 
-// Persons und Orders in die Datenbank schreiben
-Person p = new Person { FirstName = "Ada", LastName = "Lovelace", Email = "ada@example.com" };
-long id= await client.InsertAsync(p);
+var id = await client.InsertAsync(person);
 
-Order o1 = new Order { PersonId = id, Total = 19.99m, Note = "Notebook" };
-Order o2 = new Order { PersonId = id, Total = 42.50m, Note = "Books" };
-Order o3 = new Order { PersonId = id, Total = 5.00m, Note = "Coffee" };
+var o1 = new Order { PersonId = id, Total = 19.99m, Note = "Notebook" };
+var o2 = new Order { PersonId = id, Total = 42.50m, Note = "Books" };
+var o3 = new Order { PersonId = id, Total = 5.00m, Note = "Coffee" };
 
 await client.InsertAsync(o1);
 await client.InsertAsync(o2);
 await client.InsertAsync(o3);
-Console.WriteLine($"Inserted Person {id} and 3 orders.");
+
+Console.WriteLine($"Inserted person {id} and 3 orders.");
 
 // Orders einer Person laden (einfacher Query-Builder)
-Order orders = await client.QueryAsync<Order>(Query.WhereEquals("person_id", id).OrderBy("id"));
-foreach (Order o in orders)
+var orders = await client.QueryAsync<Order>(
+    Query.WhereEquals("person_id", id).OrderBy("id"));
+
+foreach (var o in orders)
+{
     Console.WriteLine($"Order {o.Id}: total={o.Total} note={o.Note}");
-
-
+}
 
 // Cascade-Delete testen: Person löschen -> Orders werden mitgelöscht
 await client.DeleteAsync<Person>(id);
 Console.WriteLine($"Deleted person {id} (ON DELETE CASCADE should remove orders).");
 
-
 // Verifizieren, dass keine Orders mehr existieren
-Order remaining= await client.FindAllAsync<Order>();
+var remaining = await client.FindAllAsync<Order>();
 Console.WriteLine($"Remaining orders: {remaining.Count}");
-
+```
 
 ---
 
-| Kategorie                                    | Beschreibung                                |
-| -------------------------------------------- | ------------------------------------------- |
-| [Getting Started](getting-started.md)        | Einführung, Installation und erste Schritte |
-| [Mapping](mapping.md)                        | Attribute & Entitätskonfiguration           |
-| [Unit of Work & Repository](unit-of-work.md) | Transaktionssteuerung und Datenzugriff      |
-| [Queries](queries.md)                        | Einfache Filter- und Sortierabfragen        |
-| [API](api/index.md)                          | Vollständige API-Referenz                   |
-
+| Kategorie                                             | Beschreibung                                |
+| ----------------------------------------------------- | ------------------------------------------- |
+| [Getting Started](getting-started.md)                 | Einführung, Installation und erste Schritte |
+| [Mapping](mapping.md)                                 | Attribute & Entitätskonfiguration           |
+| [Unit of Work & Repository](unit-of-work-repository.md) | Transaktionssteuerung und Datenzugriff      |
+| [Queries](queries.md)                                 | Einfache Filter- und Sortierabfragen        |
+| [API](api/index.md)                                   | Vollständige API-Referenz                   |
 
 
 Warum SQLiteM?
@@ -79,7 +80,3 @@ Einfach konfigurierbar: Keine komplizierten Migrations-Tools.
 Schnell & leicht: Ideal für Embedded- oder Desktop-Apps.
 
 Vollständig async: Kompatibel mit modernen .NET-Patterns.
-
-
-
-
