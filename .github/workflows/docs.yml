@@ -2,7 +2,7 @@ name: Build and Deploy Docs
 
 on:
   push:
-    branches: [ main ]   # Falls dein Default-Branch "master" heißt, hier anpassen
+    branches: [ master ]   # Falls dein Default-Branch "master" heißt, hier anpassen
   workflow_dispatch:      # Manuell aus GitHub startbar
 
 permissions:
